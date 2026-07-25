@@ -1,0 +1,49 @@
+umbral_v1.0as·asJULIOas2026MANUALasDEasMARCAasYasSISTEMAasDEasDISEÑOUmbralBrand BookLa referencia definitiva para construir productos, dashboards,gráficas y comunicación del laboratorio. Todo lo aquí definido esvinculante salvo que un humano indique lo contrario.Laboratorio de datos · público, abierto, reproducibleumbral.mx
+
+=== page break ===
+
+CONTENIDO01Esencia06Gráficas02Logo e isotipo07Componentes03Color y modos08Streamlit04Tipografía09Interpretabilidad05Voz10Checklist
+
+=== page break ===
+
+01EsenciaUmbral es un laboratorio de datos independiente y de códigoabierto. Construye productos de datos, análisis causal yherramientas de monitoreo para el interés público — en españolprimero, reproducible siempre.SIGNIFICADOUmbral = el punto donde la evidenciase vuelve significativa, donde unatendencia cruza hacia otra realidad.LEMA«Cruzar el umbral condatos»Where evidence crosses over.REFERENCIASasDEasGUSTOIsomorphic Labs — aire, contención, pesos mediosOur World in Data — disciplina de gráficasAI Futures — visualización de incertidumbre
+
+=== page break ===
+
+02Logo e isotipoumbral_umbral_CONSTRUCCIÓNasDELasISOTIPOUna barra vertical (señal) que cruza una líneahorizontal punteada — el umbral de significancia.La barra cruza a la izquierda del centro. Proporciónde barra ñ 5:44. Espacio de respeto = una alturade barra a cada lado.NOasSEasPERMITEDistorsionar, contornear, añadir sombras oefectos, recolorear fuera de los tokens, usar elwordmark en mayúsculas, o poner el guión bajo enun color distinto a señal.assets/umbral-{isotype,lockup,favicon}-*.svg
+
+=== page break ===
+
+03Color y modosMismo tipo, layout, logo y semántica en ambos modos — solo cambian los tokensde color. Cambia con data-mode="instrumento". Nunca mezcles ambos modos en unmismo panel.modo laboratoriodefaultink#16191Cbase#F2F3F1panel#FAFAF8muted#6E756Fsignal ★#128273model#5A63D8alert#C8503Fmodo instrumentodashboardsas·associalink#EDF1F4base#101418panel#171C22muted#8B95A0signal ★#5FD4C4model#8B93F8alert#E26A5ALa señal es sagrada. Un solo elemento por vista puede usar el color señal — el más importante.Nunca decorativa. Sin gradientes, sin blanco/negro puro. ¿Más categorías? Deriva con oklch()igualando croma y luminosidad de señal/model/alert, variando solo el tono.
+
+=== page break ===
+
+04TipografíaDISPLAYas·as500SpaceasGroteskTitulares y cifrasgrandesBODYas·as400–600IBMasPlexasSansTexto de lectura, interfaz y leyendas. Medida máxima ñ65 caracteres.MONOas·as400–500IBMasPlexasMonoEjes,asfuentes,ascódigo,ascifras:as34,690as·+9.2%LAasFIRMADisplay siempre en peso 500. Nunca 700para titulares — el peso medio es la firmaheredada de Isomorphic. 600 solo enetiquetas pequeñas.NUNCASustituir por Inter, Roboto o Arial. Escalamínima: web 12px mono, slides 24px,documentos 11pt.
+
+=== page break ===
+
+05VozPrecisa, sobria, cívico-científica. Los números cargan el argumento.SÍEnunciar hallazgos como oracionescompletasNombrar siempre la fuente y su licenciaMostrar la incertidumbreEspañol primero; inglés para lointernacionalNOPalabras hype («revolucionario»)Signos de exclamación, emojiPreguntas retóricas como titularAdjetivos donde funciona un númeroTítulo de gráfica = el hallazgo, no el tema:«Los registros crecen 9% anual desde 2015»  «Registros poraño»
+
+=== page break ===
+
+06Gráficas — el corazónToda gráfica lleva título-hallazgo, subtítulo y línea de fuente. Solo líneashorizontales; una serie en señal; incertidumbre visible.La proyección cruza el umbral de 130 mil hacia 2028México · registro acumulado · escenario base con IC 80%150k50k0hoy201520262028Fuente:asRNPDNOas·asproyecciónaspropiaas(ARIMA)as·asumbral.mxas·asCCasBYas4.0BANDA15% de opacidad del color de la seriePROYECCIÓNTrazo punteado más allá de «hoy»REGLAasHOYLínea vertical punteada etiquetadaNunca:aspastelas·as3Das·asdobleasejeas·aseje-yastruncadoassinasnota
+
+=== page break ===
+
+07ComponentesBOTONESPrimarioSecundarioPlano, radio ≤ 2px, sin sombra. Hover → señal.KPIas/asESTADÍSTICAEXTORSIÓNas·asJUNas20262,481has11%TABLAStatu quo0.0%Focalizado+18%Universal+9%PANELas/asCARDSuperficie de contenidoFondo panel, borde 1px, sin sombra, sin esquinasredondeadas > 2px.
+
+=== page break ===
+
+08Streamlit — el dashboardLos dashboards viven en modo instrumento (oscuro). Esta configuración deja el temabase listo; el resto se resuelve con CSS inyectado y una paleta compartida para lasgráficas..streamlit/config.toml[theme]baseasasasasasasasasasasasas=as"dark"sc-camel-primary-colorasasasas=as"#5FD4C4"asas#assignalsc-camel-background-coloras=as"#101418"asas#asbasesc-camel-secondary-background-coloras=as"#171C22"sc-camel-text-colorasasasasasasas=as"#EDF1F4"asas#asinkfontasasasasasasasasasasasas=as"sansasserif"app.pyas—asfuentesas+asreglasasdeasmarcaimportasstreamlitasasasstst.markdown("""<style>@importasurl('https://fonts.googleapis.com/ascss2?family=Space+Grotesk:wght@500&asfamily=IBM+Plex+Sans&family=IBM+Plex+Mono');h1,h2,h3{font-family:'SpaceasGrotesk';asfont-weight:500;letter-spacing:-.02em}html,body,[class*="css"]{font-family:as'IBMasPlexasSans'}[data-testid="stMetricValue"]{asfont-family:'SpaceasGrotesk'}</style>""",asunsafe_allow_html=True)Gráficasas—asPlotly/AltairasconaslosastokensSIGNAL="#5FD4C4";asMODEL="#8B93F8"MUTED="#8B95A0";asGRID="#232A31"fig.update_layout(asaspaper_bgcolor="rgba(0,0,0,0)",asasplot_bgcolor="rgba(0,0,0,0)",asasfont=dict(family="IBMasPlexasSans",asasasasasasasasasasasascolor="#EDF1F4"),asascolorway=[SIGNAL,asMODEL,asMUTED],asasxaxis=dict(showgrid=False),asasyaxis=dict(gridcolor=GRID,asasasasasasasasasasasasaszerolinecolor="#3A434C"))Reglasasdelastablero→Cifras en vivo con st.metric; valor en SpaceGrotesk, delta señal (bien) / alert (mal) segúnmétrica.→Paneles = st.container(border=True), sinsombra.→Una sola serie en señal por gráfica; el resto enmodel/muted.→Cada gráfica: título-hallazgo + fuente const.caption.→Botón de descarga del CSV subyacente en cadavista.
+
+=== page break ===
+
+Detalle completo de librerías, helpers de incertidumbre, estilo matplotlib (umbral.mplstyle),accesibilidad y convenciones de datos en umbral-engineering.md. Tokens enassets/tokens.json.
+
+=== page break ===
+
+09Interpretabilidad y honestidadLa credibilidad del laboratorio. Se aplica en revisión, no solo en diseño.Título = afirmación defendibleNingún titular que la gráfica mostrada no sustente.Causal vs. descriptivo«Asociado con» para lo descriptivo; «efecto/reduce»solo con estrategia de identificación (RCT, dif-en-dif,RD, IV).Incertidumbre siempre visibleIntervalos en proyecciones, IC en estimaciones, n ydenominador en tasas.Ejes honestosBarras desde 0; cualquier truncamiento anotado; sindoble eje.Mostrar los huecosDatos faltantes o subreportados se revelan, no seimputan en silencio.Temas sensibles con dignidadSe cuenta a las personas, nunca se hace espectáculo.Sin mapeo a individuos identificables.
+
+=== page break ===
+
+10Checklist de entregaModo correcto para el medio (claro por defecto; oscuro solo donde aplica)Colores desde los tokens, no escritos a manoDisplay en Space Grotesk 500; cuerpo Plex Sans; datos Plex MonoCada gráfica: título-hallazgo + subtítulo + fuente + CSV descargableIncertidumbre mostrada donde haya proyección o estimaciónExactamente un elemento en color señal por vistaContraste AA + codificación no solo por color + acceso teclado/lectorEspañol primero; fuente + licencia nombradas; nada de la lista «Nunca»umbral_BrandasBookasv1.0as·asCCasBYas4.0as·asumbral.mx
