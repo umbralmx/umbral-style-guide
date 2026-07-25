@@ -1,0 +1,21 @@
+<!-- GENERATED from rules/rules.yaml. Do not edit. -->
+<div class="u-rule" id="UMB-TYP-001" data-severity="error">
+
+**■ UMB-TYP-001** · Tipografía · error
+
+### El display es Space Grotesk 500; nunca 700
+
+El peso medio es la firma heredada de la referencia Isomorphic. El 700 convierte una voz sobria en una voz que grita.
+
+| | |
+|---|---|
+| **Sí** | font-weight 500 en titulares; 600 solo en etiquetas pequeñas. |
+| **No** | font-weight 700, 800, 900 o `bold` en un selector de display. |
+
+*Comprobación:* Automática — `umbral-lint`, comprobación `display-weight`.
+
+*Origen:* Brand book p.04 «LA FIRMA».
+
+<small>Desde v1.0. Regla normativa: <code>rules/rules.yaml</code>.</small>
+
+</div>

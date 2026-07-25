@@ -4,8 +4,9 @@
   "description": "Umbral design system, editorial style guide, machine-readable rule set and agent skill.",
   "scripts": {
     "build:tokens": "node build/index.mjs",
-    "build": "npm run build:tokens",
-    "verify:tokens": "python3 tools/verify_tokens.py"
+    "build:rules": "node build/rules.mjs",
+    "build": "npm run build:tokens && npm run build:rules",
+    "verify": "python3 tools/verify_tokens.py && python3 tools/verify_rules.py"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,9 @@
   },
   "homepage": "https://github.com/umbralmx/umbral-style-guide#readme",
   "devDependencies": {
-    "style-dictionary": "^4.4.0"
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "style-dictionary": "^4.4.0",
+    "yaml": "^2.9.0"
   }
 }

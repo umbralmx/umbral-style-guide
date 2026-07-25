@@ -11,8 +11,17 @@ v1.0 brand book, and verifies the contrast defects asserted in `KICKOFF-PROMPT.m
 - **Scripts:** `contrast.py`, `derive.py`, `cvd.py` (Phase 0 scratch; superseded in Phase 1 by the
   generated `tokens/build/contrast.json`).
 
-Rule IDs below are **provisional** — they are the IDs I intend to author in Phase 2. They are cited
-here so the audit and `rules.yaml` can be reconciled mechanically rather than by memory.
+Rule IDs below were reconciled against `rules/rules.yaml` when Phase 2 authored it, so every ID
+here resolves to a real rule. Nine provisional IDs moved:
+
+| Provisional | Final | Why |
+|---|---|---|
+| `UMB-BRD-001`, `UMB-BRD-003` | `UMB-BRD-002`, `UMB-COL-006` | Crossing point folded into the isotype-geometry rule; the threshold line's 2.37:1 is an instance of the mark-contrast rule, not a brand rule. |
+| `UMB-CNT-001`, `UMB-CNT-002` | `UMB-VOZ-004` | Placeholder content is one rule, in `voice`. |
+| `UMB-DOC-001`, `UMB-DOC-002` | `UMB-PRO-002` | Both are prose stating (or failing to state) something the normative layer does not back. |
+| `UMB-DOC-003` | `UMB-TYP-005` | The Google-Fonts contradiction is the self-hosting rule. |
+| `UMB-DOC-004` | `UMB-COL-006` | `caption` as a series is a mark below 3:1. |
+| `UMB-DOC-005` | `UMB-TYP-002` | `font = "sans serif"` is an unapproved family. |
 
 ---
 
@@ -225,8 +234,8 @@ split.
 | UMB-TYP-005 | Fonts served from Google CDN, not self-hosted | **error** | Vendor per §3.6; cabildo-libre already does this — copy its `assets/fonts.css` |
 | UMB-COL-005 | 29/66 text elements below 4.5:1 | **error** | Adopt §2.4 tokens; no markup change needed |
 | UMB-COL-005 | Wordmark `_` at 4.22:1 | **error** | Use `signal-text` for the wordmark |
-| UMB-CNT-001 | Both bios are `Lorem ipsum` placeholder | **warning** | Write real copy before the guide ships as an exemplar |
-| UMB-CNT-002 | Missing photo rendered as text placeholder "foto" | info | Ship the asset or drop the slot |
+| UMB-VOZ-004 | Both bios are `Lorem ipsum` placeholder | **warning** | Write real copy before the guide ships as an exemplar |
+| UMB-VOZ-004 | Missing photo rendered as text placeholder "foto" | info | Ship the asset or drop the slot |
 
 ### 3.2 cabildo-libre
 
@@ -401,14 +410,14 @@ on `base`, below the 3:1 needed for a meaningful graphical element.
 
 | ID | Finding | Sev | Fix |
 |---|---|---|---|
-| UMB-BRD-001 | Lockup bar crosses right of centre | **error** | Rebuild lockup from the isotype geometry |
+| UMB-BRD-002 | Lockup bar crosses right of centre | **error** | Rebuild lockup from the isotype geometry |
 | UMB-BRD-002 | Three inconsistent bar ratios (5:44, 7.13, 6.29) | **error** | Pick one, generate both SVGs from it in Phase 1 |
-| UMB-BRD-003 | Threshold line at 2.37:1 | **warning** | Darken with corrected `caption` (§2.4) → 4.52:1 |
-| UMB-DOC-001 | `caption`/`border`/`gridline`/`baseline` undocumented | **error** | All tokens documented in `guide/02-color.md`, generated |
-| UMB-DOC-002 | False AA claim in `umbral-engineering.md` §4 | **error** | Replace with the generated contrast matrix |
-| UMB-DOC-003 | Google Fonts in code blocks vs self-host in prose | **error** | Generated `@font-face` CSS is the only snippet |
-| UMB-DOC-004 | `caption` as 3rd series in mplstyle + Plot theme | **error** | Generated palettes; `muted`, per brand book |
-| UMB-DOC-005 | `font = "sans serif"` in Streamlit config | **error** | Generated `streamlit-config.toml` |
+| UMB-COL-006 | Threshold line at 2.37:1 | **warning** | Darken with corrected `caption` (§2.4) → 4.52:1 |
+| UMB-PRO-002 | `caption`/`border`/`gridline`/`baseline` undocumented | **error** | All tokens documented in `guide/02-color.md`, generated |
+| UMB-PRO-002 | False AA claim in `umbral-engineering.md` §4 | **error** | Replace with the generated contrast matrix |
+| UMB-TYP-005 | Google Fonts in code blocks vs self-host in prose | **error** | Generated `@font-face` CSS is the only snippet |
+| UMB-COL-006 | `caption` as 3rd series in mplstyle + Plot theme | **error** | Generated palettes; `muted`, per brand book |
+| UMB-TYP-002 | `font = "sans serif"` in Streamlit config | **error** | Generated `streamlit-config.toml` |
 
 ---
 

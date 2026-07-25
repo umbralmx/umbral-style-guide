@@ -1,0 +1,69 @@
+name: build
+
+on:
+  push:
+    paths:
+      - 'tokens/**'
+      - 'rules/**'
+      - 'guide/CHECKLIST.md'
+      - 'guide/_includes/**'
+      - 'build/**'
+      - 'tools/**'
+      - 'package.json'
+      - '.github/workflows/build.yml'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: npm ci
+
+      - name: Install Python verification deps
+        run: pip install --quiet pyyaml jsonschema
+
+      # Builds every token target and runs the contrast gate. Exits non-zero if a
+      # token misses the threshold for its declared contrastRole (OQ-001).
+      - name: Build tokens and run the contrast gate
+        run: npm run build:tokens
+
+      # Validates rules.yaml against the schema, then generates rules.json, the
+      # checklist and one callout per rule. Exits non-zero on a duplicate id, a
+      # dangling cross-reference, or an ID prefix that contradicts its category.
+      - name: Build and validate rules
+        run: npm run build:rules
+
+      # Re-derives contrast, ramp properties and the rule invariants in Python,
+      # from the generated files, with a different schema validator. A mistake in
+      # the colour maths or the rule set has to be made twice, in two languages,
+      # to reach the published system.
+      - name: Verify independently
+        run: |
+          python3 tools/verify_tokens.py
+          python3 tools/verify_rules.py
+
+      # Generated output is committed so downstream repos can fetch a raw URL
+      # without a build step. If a rebuild changes it, the committed copy is stale
+      # and the normative chain is broken — a hand edit (UMB-PRO-001) or a
+      # forgotten rebuild.
+      - name: Check committed build output is up to date
+        run: |
+          if ! git diff --exit-code --stat \
+              tokens/build/ rules/rules.json guide/CHECKLIST.md guide/_includes/; then
+            echo ""
+            echo "::error::Generated output is out of date. Run 'npm run build' and commit the result."
+            echo "Never hand-edit generated files (UMB-PRO-001) — change the source and rebuild."
+            exit 1
+          fi
