@@ -5,11 +5,21 @@ wrong or underspecified, it is recorded here with evidence rather than quietly c
 
 Status: `open` · `decided` · `superseded`
 
+**OQ-001 – OQ-008 were all decided on 2026-07-25**, adopting the proposal recorded under each.
+The decision text below is normative for Phase 1 onward; where a decision and the v1.0 docs
+disagree, the decision wins and the v1.0 line is cited as superseded.
+
 ---
 
 ## OQ-001 — The contrast gate needs role classification, or it will be switched off
 
-**Status:** open · **Blocks:** Phase 1 (`tokens/build/contrast.json`, CI gate) · **Raised:** 2026-07-25
+**Status:** **decided** · **Blocks:** Phase 1 (`tokens/build/contrast.json`, CI gate) · **Raised:** 2026-07-25 · **Decided:** 2026-07-25
+
+**Decision — adopt the three-role split.** Every token in `tokens/src/` carries an explicit
+`$extensions.umbral.contrastRole` of `text` (gate 4.5:1), `mark` (gate 3:1) or `furniture`
+(exempt, asserted). The exemption must be written per-token, never inherited by default, so a new
+token cannot acquire it silently. `tokens/build/contrast.json` records the role, the measured ratio
+and the applicable threshold for every pair; CI fails only where the role's gate is missed.
 
 KICKOFF §3.1 specifies "CI fails on any pair below threshold" and `CLAUDE.md` §3 states "CI fails on
 any text pair below 4.5:1 or any graphical pair below 3:1."
@@ -38,7 +48,14 @@ reads as a decision, not an oversight — and so a future token can't quietly in
 
 ## OQ-002 — `signal` on exactly one element per view cannot hold in Streamlit
 
-**Status:** open · **Blocks:** Phase 2 (`rules.yaml`), Phase 6 (`umbral-viz`) · **Raised:** 2026-07-25
+**Status:** **decided** · **Blocks:** Phase 2 (`rules.yaml`), Phase 6 (`umbral-viz`) · **Raised:** 2026-07-25 · **Decided:** 2026-07-25
+
+**Decision — option 1 as the rule, option 3 as the tooling.** UMB-COL-004 is scoped to the data
+layer: "at most one `signal` element in the data layer per view", with widget chrome exempt.
+`umbral-viz` additionally ships a CSS neutraliser so Streamlit's accents can be damped where a
+project wants the stricter look. The `signal-count` lint check (KICKOFF §7 check 7) therefore runs
+against rendered chart output only, not whole-page HTML — a deliberate narrowing recorded here so
+it does not read as an oversight later.
 
 Measured: desaparecidosmx renders **17** elements in `signal`, pautamx **10**. Neither app is
 misusing the token. Streamlit maps `primaryColor` simultaneously onto slider tracks and handles,
@@ -65,7 +82,13 @@ rendered data layer, not whole-page HTML. That is a meaningful narrowing of that
 
 ## OQ-003 — Big figures: Space Grotesk or IBM Plex Mono?
 
-**Status:** open · **Blocks:** Phase 3 (`guide/06-numeros.md`), Phase 8 retrofit · **Raised:** 2026-07-25
+**Status:** **decided** · **Blocks:** Phase 3 (`guide/06-numeros.md`), Phase 8 retrofit · **Raised:** 2026-07-25 · **Decided:** 2026-07-25
+
+**Decision — decide on alignment, not size.** IBM Plex Mono for any figure that aligns in a
+column, is compared digit-by-digit, or sits in a KPI row where digits should line up across tiles
+(tabular numerals are the point). Space Grotesk 500 for a single standalone hero figure read as
+language rather than compared. Consequence: pautamx is already correct; desaparecidosmx's KPI row
+moves from Plex Sans 500 to Plex Mono 500 in Phase 8.
 
 `CLAUDE.md` §3 assigns Space Grotesk 500 to "display, headlines, chart titles, **big figures**" and
 IBM Plex Mono to "axis ticks, source lines, code, and **all tabular figures**". A KPI number is
@@ -93,7 +116,12 @@ Under this reading pautamx is correct and desaparecidosmx needs a change.
 
 ## OQ-004 — `lang="en"` on the Streamlit apps
 
-**Status:** open · **Blocks:** Phase 3 (`guide/14-superficies/streamlit.md`) · **Raised:** 2026-07-25
+**Status:** **decided** · **Blocks:** Phase 3 (`guide/14-superficies/streamlit.md`) · **Raised:** 2026-07-25 · **Decided:** 2026-07-25
+
+**Decision — `error`, with a documented shim.** Screen-reader users are exactly the constituency
+a public-interest lab should not defer on. `guide/14-superficies/streamlit.md` carries a supported
+`components.html` snippet setting `document.documentElement.lang`, and `umbral-viz` exposes it as a
+helper so each app is one call away from compliance.
 
 Both dashboards serve `<html lang="en">` while being entirely in Spanish. Streamlit hardcodes this;
 it is not an app-level mistake. It affects screen-reader pronunciation and is a real a11y defect for
@@ -110,7 +138,13 @@ reader users are exactly the constituency a public-interest lab should not defer
 
 ## OQ-005 — Sequential ramps anchored on `signal` and `model` collapse under tritanopia
 
-**Status:** open · **Blocks:** Phase 1 (§3.3 ramps) · **Raised:** 2026-07-25
+**Status:** **decided** · **Blocks:** Phase 1 (§3.3 ramps) · **Raised:** 2026-07-25 · **Decided:** 2026-07-25
+
+**Decision — derive both ramps, and make the constraint binding.** Both sequential ramps ship,
+plus a rule (category `a11y`) that the `signal`-anchored and `model`-anchored ramps must never encode
+two different variables in the same figure, because they are indistinguishable under tritanopia
+(OKLab separation 0.014). Where two sequential scales genuinely must coexist, they must differ in
+lightness range as well as hue, and `cvd.py` runs in CI to verify separation.
 
 Measured OKLab separation between `signal` and `model` under simulated tritanopia: **0.014** in
 light mode, 0.076 in dark — effectively identical colours. Under protanopia `signal`/`alert` falls
@@ -150,7 +184,13 @@ in the KICKOFF §4 structure and the collision will get confusing.
 
 ## OQ-007 — Which logo bar ratio is canonical?
 
-**Status:** open · **Blocks:** Phase 1 (generated SVGs), Phase 3 (`guide/01-marca.md`) · **Raised:** 2026-07-25
+**Status:** **decided** · **Blocks:** Phase 1 (generated SVGs), Phase 3 (`guide/01-marca.md`) · **Raised:** 2026-07-25 · **Decided:** 2026-07-25
+
+**Decision — 5:44 is canonical.** Both v1.0 documents state it, so the drawn files are the drift.
+All logo variants (isotype, lockup, favicon, and the PNG/OG derivatives) are generated in Phase 1
+from a single parametric source so they cannot diverge again; the crossing point is fixed to the
+left of centre; and the dashed threshold line moves to the corrected `caption` (4.52:1) so it clears
+the 3:1 a meaningful graphical element needs.
 
 Three different values ship today, and they cannot all be right:
 
@@ -179,7 +219,13 @@ visual-identity call, and the drawn files may well look better than the document
 
 ## OQ-008 — Third series colour: `muted` or `caption`?
 
-**Status:** open · **Blocks:** Phase 1 (generated palettes) · **Raised:** 2026-07-25
+**Status:** **decided** · **Blocks:** Phase 1 (generated palettes) · **Raised:** 2026-07-25 · **Decided:** 2026-07-25
+
+**Decision — `muted` is the third series.** It already has a 2:1 majority across the v1.0 docs and
+it is the only one of the two that clears 3:1 as a data mark. All four chart palettes (mplstyle,
+Observable Plot, Plotly, Altair) are generated from one token list. A legible 4th and 5th
+categorical colour are derived in OKLCH during the Phase 1 ramp work, so the documented 4–5 series
+maximum is actually reachable.
 
 The v1.0 documents disagree:
 
@@ -201,3 +247,49 @@ should derive a legible 4th and 5th in OKLCH at that point.
 
 **Needs from Jay:** confirm `muted`, and confirm whether 4th/5th categorical colours are wanted now
 or deferred.
+
+---
+
+## OQ-009 — "vary hue only" cannot produce five separable categorical colours
+
+**Status:** open · **Blocks:** nothing — a decision was needed to ship Phase 1, and the reasoning is
+recorded below so it can be reversed cheaply · **Raised:** 2026-07-26
+
+`CLAUDE.md` §3 and the brand book p.03 both state that new categorical colours are derived
+"matching the chroma and lightness of the existing series, **varying hue only**" (brand book:
+«igualando croma y luminosidad de señal/model/alert, variando solo el tono»).
+
+Measured against dichromacy simulation, that rule does not work. Holding lightness and chroma fixed
+and scanning all 360 hues for the best-separated 4th and 5th series:
+
+| Constraint | best series-4 | best series-5 |
+|---|---|---|
+| hue only (the v1.0 rule) | 0.076 | **0.042** |
+| lightness and hue both free | 0.169 | **0.131** |
+
+(Worst-case OKLab separation against all previously chosen series, across normal vision plus
+simulated protanopia, deuteranopia and tritanopia. Below ~0.10 two marks are not reliably
+separable.)
+
+The reason is structural: for a dichromat, hue collapses to roughly one axis, so hue-only variation
+has almost nothing left to vary. This is why Okabe–Ito and every other CVD-safe categorical palette
+varies lightness substantially.
+
+**Decision taken to ship Phase 1:** `series-4` and `series-5` vary lightness as well as hue
+(`#902A00` and `#6331A0` in light mode). Accessibility is stated as non-negotiable in `CLAUDE.md`
+§4, and the alternative was shipping two colours a colour-blind reader cannot separate.
+
+**Proposal for the rule text:** replace "varying hue only" with something like *"varying hue and, if
+necessary, lightness; verify with `audit/scripts/cvd.py` that worst-case separation against every
+existing series stays above 0.10."* Hue-only remains the right advice for a **sequential ramp**,
+where lightness is already doing the encoding — the v1.0 rule is not wrong, it is misapplied to the
+categorical case.
+
+**Worth knowing regardless of the decision:** the weakest pair in the palette is not one of the new
+colours. It is `signal`/`model`, at **0.014** under tritanopia — they are effectively the same
+colour to such a reader. That is inherited from v1.0 and cannot be fixed without changing a
+brand-defining colour. The mitigation is the brand's own rule that meaning is never carried by
+colour alone, which is why direct series labels are mandatory rather than stylistic.
+
+**Needs from Jay:** confirm the rule change for `guide/02-color.md`, or tell me to revert
+`series-4`/`series-5` to hue-only and accept the 0.042.

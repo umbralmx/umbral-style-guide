@@ -1,0 +1,132 @@
+{
+  "ramp": {
+    "$type": "color",
+    "sequential": {
+      "signal": {
+        "$description": "Single-variable intensity, anchored on the signal hue. The default choropleth ramp.",
+        "$extensions": {
+          "umbral": {
+            "derive": {
+              "kind": "sequential",
+              "steps": 7,
+              "hue": 180.6,
+              "laboratorio": {
+                "lightness": [
+                  0.96,
+                  0.4
+                ],
+                "chroma": [
+                  0.012,
+                  0.105
+                ]
+              },
+              "instrumento": {
+                "lightness": [
+                  0.24,
+                  0.87
+                ],
+                "chroma": [
+                  0.02,
+                  0.115
+                ]
+              }
+            },
+            "anchorToken": "signal"
+          }
+        }
+      },
+      "model": {
+        "$description": "Second sequential ramp, anchored on the model hue. MUST NOT be used to encode a second variable alongside the signal ramp in the same figure — the two are indistinguishable under tritanopia (OKLab separation 0.014). See audit/open-questions.md OQ-005.",
+        "$extensions": {
+          "umbral": {
+            "derive": {
+              "kind": "sequential",
+              "steps": 7,
+              "hue": 275.7,
+              "laboratorio": {
+                "lightness": [
+                  0.96,
+                  0.4
+                ],
+                "chroma": [
+                  0.014,
+                  0.18
+                ]
+              },
+              "instrumento": {
+                "lightness": [
+                  0.24,
+                  0.86
+                ],
+                "chroma": [
+                  0.02,
+                  0.15
+                ]
+              }
+            },
+            "anchorToken": "model",
+            "conflictsWith": [
+              "ramp.sequential.signal"
+            ]
+          }
+        }
+      }
+    },
+    "diverging": {
+      "alert-signal": {
+        "$description": "Diverging alert → neutral → signal, for change, surplus/deficit and above/below-expectation maps. The neutral midpoint is deliberately near the page background so 'no change' reads as absence of emphasis.",
+        "$extensions": {
+          "umbral": {
+            "derive": {
+              "kind": "diverging",
+              "steps": 9,
+              "hueLow": 30.5,
+              "hueHigh": 180.6,
+              "laboratorio": {
+                "lightness": [
+                  0.44,
+                  0.955,
+                  0.44
+                ],
+                "chroma": [
+                  0.15,
+                  0.006,
+                  0.1
+                ]
+              },
+              "instrumento": {
+                "lightness": [
+                  0.56,
+                  0.3,
+                  0.8
+                ],
+                "chroma": [
+                  0.15,
+                  0.01,
+                  0.11
+                ]
+              }
+            },
+            "anchorToken": [
+              "alert",
+              "signal"
+            ]
+          }
+        }
+      }
+    },
+    "pattern": {
+      "suppressed": {
+        "$type": "strokeStyle",
+        "$value": {
+          "dashArray": [
+            "3px",
+            "3px"
+          ],
+          "lineCap": "butt"
+        },
+        "$description": "MANDATORY hatch for values suppressed or below a reporting threshold — not the same as missing. Rendered as a 45° hatch in `caption` over the `missing` fill. Required for disappearance and crime data, where 'suppressed' and 'zero' mean very different things and must never look alike. See guide/10-mapas.md."
+      }
+    }
+  }
+}

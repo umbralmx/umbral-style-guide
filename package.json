@@ -1,0 +1,24 @@
+{
+  "name": "@umbralmx/umbral-style-guide",
+  "version": "1.1.0-alpha.0",
+  "description": "Umbral design system, editorial style guide, machine-readable rule set and agent skill.",
+  "scripts": {
+    "build:tokens": "node build/index.mjs",
+    "build": "npm run build:tokens",
+    "verify:tokens": "python3 tools/verify_tokens.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umbralmx/umbral-style-guide.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/umbralmx/umbral-style-guide/issues"
+  },
+  "homepage": "https://github.com/umbralmx/umbral-style-guide#readme",
+  "devDependencies": {
+    "style-dictionary": "^4.4.0"
+  }
+}

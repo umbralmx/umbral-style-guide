@@ -1,0 +1,132 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "display": {
+        "$value": [
+          "Space Grotesk",
+          "system-ui",
+          "sans-serif"
+        ],
+        "$description": "Wordmark, headlines, chart titles, and standalone hero figures."
+      },
+      "body": {
+        "$value": [
+          "IBM Plex Sans",
+          "system-ui",
+          "sans-serif"
+        ],
+        "$description": "Reading text, UI, legends."
+      },
+      "mono": {
+        "$value": [
+          "IBM Plex Mono",
+          "ui-monospace",
+          "monospace"
+        ],
+        "$description": "Axis ticks, source lines, code, and every figure that aligns in a column or is compared digit-by-digit — see audit/open-questions.md OQ-003."
+      }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "display": {
+        "$value": 500,
+        "$description": "THE signature. Never 700 for display type."
+      },
+      "display-strong": {
+        "$value": 600,
+        "$description": "Small bold labels only — not headlines."
+      },
+      "body": {
+        "$value": 400
+      },
+      "body-medium": {
+        "$value": 500
+      },
+      "body-strong": {
+        "$value": 600
+      },
+      "mono": {
+        "$value": 400
+      },
+      "mono-medium": {
+        "$value": 500
+      }
+    },
+    "tracking": {
+      "$type": "dimension",
+      "display": {
+        "$value": "-0.02em",
+        "$description": "Display sizes only. −0.02 to −0.03em."
+      },
+      "display-tight": {
+        "$value": "-0.03em",
+        "$description": "Largest display sizes."
+      },
+      "body": {
+        "$value": "0em"
+      }
+    },
+    "size": {
+      "$type": "dimension",
+      "$description": "Web scale. Slides and documents carry their own minimums — see font.minimum.",
+      "h1": {
+        "$value": "44px"
+      },
+      "h2": {
+        "$value": "28px"
+      },
+      "h3": {
+        "$value": "22px"
+      },
+      "chart-title": {
+        "$value": "22px",
+        "$description": "Chart titles state the finding as a sentence."
+      },
+      "body": {
+        "$value": "17px"
+      },
+      "body-small": {
+        "$value": "15px"
+      },
+      "label": {
+        "$value": "13px"
+      },
+      "axis": {
+        "$value": "12px",
+        "$description": "Mono. This is the floor for web — see font.minimum.web-mono."
+      },
+      "source": {
+        "$value": "12px",
+        "$description": "Mono. The source line under every chart."
+      }
+    },
+    "line-height": {
+      "$type": "number",
+      "display": {
+        "$value": 1.15
+      },
+      "body": {
+        "$value": 1.58
+      },
+      "tight": {
+        "$value": 1.3
+      }
+    },
+    "minimum": {
+      "$description": "Hard floors. umbral-lint enforces these; desaparecidosmx currently renders 11px mono, below the web floor.",
+      "web-mono": {
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "slides": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "document": {
+        "$type": "dimension",
+        "$value": "11pt"
+      }
+    }
+  }
+}

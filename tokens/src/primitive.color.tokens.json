@@ -1,0 +1,147 @@
+{
+  "color": {
+    "$type": "color",
+    "ink": {
+      "900": {
+        "$value": "#16191C",
+        "$description": "L=0.212 C=0.010 H=253 · v1.0, unchanged"
+      },
+      "050": {
+        "$value": "#EDF1F4",
+        "$description": "L=0.940 C=0.008 H=233 · v1.0, unchanged"
+      }
+    },
+    "paper": {
+      "050": {
+        "$value": "#F2F3F1",
+        "$description": "L=0.955 C=0.004 H=139 · page background, light"
+      },
+      "025": {
+        "$value": "#FAFAF8",
+        "$description": "L=0.980 C=0.003 H=106 · panel, light"
+      },
+      "900": {
+        "$value": "#101418",
+        "$description": "L=0.188 C=0.011 H=248 · page background, dark"
+      },
+      "850": {
+        "$value": "#171C22",
+        "$description": "L=0.232 C=0.012 H=252 · panel, dark"
+      }
+    },
+    "grey": {
+      "200": {
+        "$value": "#DDE0DC",
+        "$description": "L=0.892 C=0.006 H=139 · 1px rules, light"
+      },
+      "150": {
+        "$value": "#E6E8E4",
+        "$description": "L=0.918 C=0.006 H=137 · gridlines, light"
+      },
+      "300": {
+        "$value": "#C4C9C4",
+        "$description": "L=0.816 C=0.007 H=150 · baseline, light"
+      },
+      "600": {
+        "$value": "#565D57",
+        "$description": "L=0.470 C=0.012 H=150 · secondary text, light. CORRECTED from v1.0 #6E756F (4.25:1, failed AA). Darkened past the AA floor rather than to it, so the ink > muted > caption hierarchy keeps three distinct steps — see audit/2026-07-conformance.md §2.3."
+      },
+      "500": {
+        "$value": "#6C706D",
+        "$description": "L=0.542 C=0.008 H=150 · captions and axis labels, light. CORRECTED from v1.0 #9AA19B (2.37:1, the worst failure in the system). Chroma reduced 0.012→0.008 to stay in gamut at this lightness."
+      },
+      "700": {
+        "$value": "#2A3138",
+        "$description": "L=0.288 C=0.013 H=252 · 1px rules, dark"
+      },
+      "750": {
+        "$value": "#232A31",
+        "$description": "L=0.256 C=0.013 H=252 · gridlines, dark"
+      },
+      "650": {
+        "$value": "#3A434C",
+        "$description": "L=0.360 C=0.017 H=253 · baseline, dark"
+      },
+      "400": {
+        "$value": "#8B95A0",
+        "$description": "L=0.665 C=0.020 H=251 · secondary text, dark · v1.0, unchanged (5.63:1 min, passes)"
+      },
+      "450": {
+        "$value": "#7A848F",
+        "$description": "L=0.609 C=0.020 H=248 · captions and axis labels, dark. CORRECTED from v1.0 #5C6670 (2.93:1 on panel, failed AA)."
+      }
+    },
+    "teal": {
+      "600": {
+        "$value": "#128273",
+        "$description": "L=0.546 C=0.095 H=181 · the signal mark · v1.0, unchanged (4.22:1 — clears the 3:1 a mark needs)"
+      },
+      "700": {
+        "$value": "#227C6F",
+        "$description": "L=0.532 C=0.085 H=181 · signal as TEXT. NEW. v1.0 used one token for both roles; at 4.22:1 signal cannot carry text. Hue held exactly, chroma 0.095→0.085 for gamut."
+      },
+      "300": {
+        "$value": "#5FD4C4",
+        "$description": "L=0.798 C=0.109 H=183 · signal, dark · v1.0, unchanged (10.31:1)"
+      }
+    },
+    "indigo": {
+      "500": {
+        "$value": "#5A63D8",
+        "$description": "L=0.556 C=0.177 H=276 · model mark · v1.0, unchanged"
+      },
+      "600": {
+        "$value": "#5962D7",
+        "$description": "L=0.554 C=0.177 H=276 · model as TEXT. NEW. v1.0 model was 4.48:1 — short of 4.5 by 0.02. The brand mandates direct series labels instead of legend boxes, so series colours ARE small text and need 4.5:1."
+      },
+      "300": {
+        "$value": "#8B93F8",
+        "$description": "L=0.700 C=0.147 H=279 · model, dark · v1.0, unchanged (6.22:1 min)"
+      }
+    },
+    "rust": {
+      "600": {
+        "$value": "#C8503F",
+        "$description": "L=0.586 C=0.157 H=31 · alert mark · v1.0, unchanged"
+      },
+      "700": {
+        "$value": "#BE4737",
+        "$description": "L=0.558 C=0.157 H=31 · alert as TEXT. NEW. v1.0 alert was 4.04:1 on base — a failure not listed in KICKOFF §3.1."
+      },
+      "400": {
+        "$value": "#E26A5A",
+        "$description": "L=0.665 C=0.153 H=30 · alert, dark · v1.0, unchanged (5.26:1 min)"
+      },
+      "800": {
+        "$value": "#902A00",
+        "$description": "L=0.439 C=0.144 H=38 · 4th categorical series, light. NEW — derived jointly over lightness and hue, not hue alone; see tokens/src/README.md and OQ-009."
+      }
+    },
+    "violet": {
+      "700": {
+        "$value": "#6331A0",
+        "$description": "L=0.439 C=0.170 H=300 · 5th categorical series, light. NEW."
+      },
+      "400": {
+        "$value": "#B454B3",
+        "$description": "L=0.600 C=0.171 H=328 · 5th categorical series, dark. NEW."
+      }
+    },
+    "amber": {
+      "300": {
+        "$value": "#FFCE2C",
+        "$description": "L=0.870 C=0.168 H=90 · 4th categorical series, dark. NEW."
+      }
+    },
+    "missing": {
+      "light": {
+        "$value": "#E3E5E1",
+        "$description": "L=0.906 C=0.006 H=139 · fill for MISSING data on maps and heatmaps. Deliberately flat and slightly below gridline so it reads as absence, never as a low value."
+      },
+      "dark": {
+        "$value": "#1D242B",
+        "$description": "L=0.268 C=0.012 H=250 · fill for MISSING data, dark."
+      }
+    }
+  }
+}

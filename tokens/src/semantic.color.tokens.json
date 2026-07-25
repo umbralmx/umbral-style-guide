@@ -1,0 +1,306 @@
+{
+  "semantic": {
+    "$type": "color",
+    "laboratorio": {
+      "$description": "modo laboratorio (light) — the default. Site, reports, decks, documents, press.",
+      "base": {
+        "$value": "{color.paper.050}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "surface"
+          }
+        }
+      },
+      "panel": {
+        "$value": "{color.paper.025}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "surface"
+          }
+        }
+      },
+      "ink": {
+        "$value": "{color.ink.900}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text"
+          }
+        }
+      },
+      "muted": {
+        "$value": "{color.grey.600}",
+        "$description": "Also the THIRD categorical series — see audit/open-questions.md OQ-008. v1.0's mplstyle and Plot theme used `caption` here, which at 2.37:1 was below the 3:1 a data mark needs.",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text",
+            "series": 3
+          }
+        }
+      },
+      "caption": {
+        "$value": "{color.grey.500}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text"
+          }
+        }
+      },
+      "border": {
+        "$value": "{color.grey.200}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "furniture",
+            "exemptRationale": "1px structural rule. Not required to understand content, so WCAG 1.4.11 does not apply. Asserted deliberately low-contrast."
+          }
+        }
+      },
+      "gridline": {
+        "$value": "{color.grey.150}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "furniture",
+            "exemptRationale": "Chart gridlines must sit below the data. FT, OWID and Urban Institute all render these far below 3:1 by design."
+          }
+        }
+      },
+      "baseline": {
+        "$value": "{color.grey.300}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "furniture",
+            "exemptRationale": "The zero/axis rule. Darker than gridline by design, still scaffolding rather than data."
+          }
+        }
+      },
+      "signal": {
+        "$value": "{color.teal.600}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "mark",
+            "series": 1
+          }
+        }
+      },
+      "signal-text": {
+        "$value": "{color.teal.700}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text"
+          }
+        }
+      },
+      "model": {
+        "$value": "{color.indigo.500}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "mark",
+            "series": 2
+          }
+        }
+      },
+      "model-text": {
+        "$value": "{color.indigo.600}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text"
+          }
+        }
+      },
+      "alert": {
+        "$value": "{color.rust.600}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "mark",
+            "series": 4
+          }
+        }
+      },
+      "alert-text": {
+        "$value": "{color.rust.700}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text"
+          }
+        }
+      },
+      "series-4": {
+        "$value": "{color.rust.800}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "mark",
+            "series": 5
+          }
+        }
+      },
+      "series-5": {
+        "$value": "{color.violet.700}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "mark",
+            "series": 6
+          }
+        }
+      },
+      "missing": {
+        "$value": "{color.missing.light}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "furniture",
+            "exemptRationale": "Absence of data. Must read as flat and empty, never as a low value on the ramp — so it is deliberately close to the background."
+          }
+        }
+      }
+    },
+    "instrumento": {
+      "$description": "modo instrumento (dark) — live dashboards, social cards, monitoring screens, deck section dividers and big-stat slides.",
+      "base": {
+        "$value": "{color.paper.900}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "surface"
+          }
+        }
+      },
+      "panel": {
+        "$value": "{color.paper.850}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "surface"
+          }
+        }
+      },
+      "ink": {
+        "$value": "{color.ink.050}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text"
+          }
+        }
+      },
+      "muted": {
+        "$value": "{color.grey.400}",
+        "$description": "Also the THIRD categorical series — see OQ-008.",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text",
+            "series": 3
+          }
+        }
+      },
+      "caption": {
+        "$value": "{color.grey.450}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text"
+          }
+        }
+      },
+      "border": {
+        "$value": "{color.grey.700}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "furniture",
+            "exemptRationale": "1px structural rule. See the laboratorio counterpart."
+          }
+        }
+      },
+      "gridline": {
+        "$value": "{color.grey.750}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "furniture",
+            "exemptRationale": "Chart gridlines must sit below the data."
+          }
+        }
+      },
+      "baseline": {
+        "$value": "{color.grey.650}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "furniture",
+            "exemptRationale": "The zero/axis rule."
+          }
+        }
+      },
+      "signal": {
+        "$value": "{color.teal.300}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "mark",
+            "series": 1
+          }
+        }
+      },
+      "signal-text": {
+        "$value": "{color.teal.300}",
+        "$description": "Aliases signal in dark mode — it already clears 4.5:1 (9.55:1 min). Kept as a distinct token NAME so downstream code references one semantic role across both modes.",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text"
+          }
+        }
+      },
+      "model": {
+        "$value": "{color.indigo.300}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "mark",
+            "series": 2
+          }
+        }
+      },
+      "model-text": {
+        "$value": "{color.indigo.300}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text"
+          }
+        }
+      },
+      "alert": {
+        "$value": "{color.rust.400}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "mark",
+            "series": 4
+          }
+        }
+      },
+      "alert-text": {
+        "$value": "{color.rust.400}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "text"
+          }
+        }
+      },
+      "series-4": {
+        "$value": "{color.amber.300}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "mark",
+            "series": 5
+          }
+        }
+      },
+      "series-5": {
+        "$value": "{color.violet.400}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "mark",
+            "series": 6
+          }
+        }
+      },
+      "missing": {
+        "$value": "{color.missing.dark}",
+        "$extensions": {
+          "umbral": {
+            "contrastRole": "furniture",
+            "exemptRationale": "Absence of data. See the laboratorio counterpart."
+          }
+        }
+      }
+    }
+  }
+}

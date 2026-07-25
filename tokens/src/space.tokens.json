@@ -1,0 +1,82 @@
+{
+  "space": {
+    "$type": "dimension",
+    "unit": {
+      "$value": "8px",
+      "$description": "The spacing scale unit. Every gap is a multiple of this."
+    },
+    "0": {
+      "$value": "0px"
+    },
+    "1": {
+      "$value": "8px"
+    },
+    "2": {
+      "$value": "16px"
+    },
+    "3": {
+      "$value": "24px"
+    },
+    "4": {
+      "$value": "32px"
+    },
+    "5": {
+      "$value": "40px"
+    },
+    "6": {
+      "$value": "48px"
+    },
+    "8": {
+      "$value": "64px"
+    },
+    "10": {
+      "$value": "80px"
+    }
+  },
+  "layout": {
+    "rule": {
+      "$type": "dimension",
+      "$value": "1px",
+      "$description": "1px rules carry all structural weight."
+    },
+    "rule-strong": {
+      "$type": "dimension",
+      "$value": "2px",
+      "$description": "Table top rule, active-state underline."
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "0px",
+      "$description": "Default is square. Never exceed radius-max."
+    },
+    "radius-max": {
+      "$type": "dimension",
+      "$value": "2px",
+      "$description": "Hard ceiling. umbral-lint fails on any border-radius above this."
+    },
+    "measure": {
+      "$type": "dimension",
+      "$value": "65ch",
+      "$description": "Maximum text measure. Brand book p.04: «Medida máxima ≈ 65 caracteres»."
+    },
+    "touch-target": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Minimum interactive target. Accessibility floor, not a suggestion."
+    }
+  },
+  "elevation": {
+    "shadow": {
+      "$type": "shadow",
+      "$value": "none",
+      "$description": "Umbral has no drop shadows. This token exists so the value is stated normatively rather than left implicit — inset rules drawn with box-shadow are NOT shadows and are permitted."
+    }
+  },
+  "opacity": {
+    "$type": "number",
+    "uncertainty-band": {
+      "$value": 0.15,
+      "$description": "Projection and confidence bands render at 15% of the series colour. A brand signature — see guide/09-incertidumbre.md."
+    }
+  }
+}

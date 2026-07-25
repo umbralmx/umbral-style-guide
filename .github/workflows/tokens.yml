@@ -1,0 +1,50 @@
+name: tokens
+
+on:
+  push:
+    paths:
+      - 'tokens/**'
+      - 'build/**'
+      - 'tools/verify_tokens.py'
+      - '.github/workflows/tokens.yml'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: npm ci
+
+      # Builds every target and runs the contrast gate. Exits non-zero if any
+      # token misses the threshold for its declared contrastRole (OQ-001).
+      - name: Build tokens and run the contrast gate
+        run: npm run build:tokens
+
+      # Re-derives contrast and ramp properties in Python, from the generated
+      # files, so a mistake in the colour maths has to be made twice to ship.
+      - name: Verify tokens independently
+        run: python3 tools/verify_tokens.py
+
+      # tokens/build/ is committed. If a rebuild changes it, the committed output
+      # is stale — the normative chain has been broken by a hand edit or a
+      # forgotten rebuild.
+      - name: Check committed build output is up to date
+        run: |
+          if ! git diff --exit-code --stat tokens/build/; then
+            echo ""
+            echo "::error::tokens/build/ is out of date. Run 'npm run build:tokens' and commit the result."
+            echo "Never hand-edit files under tokens/build/ — change tokens/src/ and rebuild."
+            exit 1
+          fi

@@ -1,0 +1,50 @@
+// _tokens.scss — GENERATED from tokens/src/. Do not edit.
+// Umbral design system · https://github.com/umbralmx/umbral-style-guide
+// Code MIT · content CC BY 4.0
+
+$umbral-laboratorio: (
+  "base": #f2f3f1,
+  "panel": #fafaf8,
+  "ink": #16191c,
+  "muted": #565d57,
+  "caption": #6c706d,
+  "border": #dde0dc,
+  "gridline": #e6e8e4,
+  "baseline": #c4c9c4,
+  "signal": #128273,
+  "signal-text": #227c6f,
+  "model": #5a63d8,
+  "model-text": #5962d7,
+  "alert": #c8503f,
+  "alert-text": #be4737,
+  "series-4": #902a00,
+  "series-5": #6331a0,
+  "missing": #e3e5e1,
+);
+
+$umbral-instrumento: (
+  "base": #101418,
+  "panel": #171c22,
+  "ink": #edf1f4,
+  "muted": #8b95a0,
+  "caption": #7a848f,
+  "border": #2a3138,
+  "gridline": #232a31,
+  "baseline": #3a434c,
+  "signal": #5fd4c4,
+  "signal-text": #5fd4c4,
+  "model": #8b93f8,
+  "model-text": #8b93f8,
+  "alert": #e26a5a,
+  "alert-text": #e26a5a,
+  "series-4": #ffce2c,
+  "series-5": #b454b3,
+  "missing": #1d242b,
+);
+
+$umbral-font-display: "Space Grotesk", "system-ui", "sans-serif";
+$umbral-font-body: "IBM Plex Sans", "system-ui", "sans-serif";
+$umbral-font-mono: "IBM Plex Mono", "ui-monospace", "monospace";
+$umbral-weight-display: 500;
+$umbral-radius-max: 2px;
+$umbral-measure: 65ch;
