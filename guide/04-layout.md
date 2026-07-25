@@ -1,0 +1,66 @@
+---
+title: "Layout"
+lang: es
+---
+
+# 04 · Layout
+
+Plano por construcción. Las reglas de 1px hacen todo el trabajo estructural que en otros sistemas
+hacen las sombras.
+
+## Espacio
+
+Escala de 8px. Todo margen, todo relleno, todo hueco es un múltiplo.
+
+```
+8 · 16 · 24 · 32 · 40 · 48 · 64 · 80
+```
+
+{{< include _includes/rules/UMB-LAY-004.md >}}
+
+Más aire del que parece necesario. La contención visual es la que deja que la cifra sea lo que
+llama la atención; si la composición está apretada, compite consigo misma.
+
+## Medida
+
+{{< include _includes/rules/UMB-LAY-003.md >}}
+
+Pasados los 65 caracteres el ojo pierde el renglón al volver a la izquierda. Es la diferencia entre
+un informe que se lee y uno que se hojea.
+
+## Superficies
+
+| Elemento | Construcción |
+|---|---|
+| Página | fondo `base` |
+| Panel / tarjeta | fondo `panel`, borde 1px `border`, relleno 24–32px, **sin sombra** |
+| Tabla | regla superior 2px `ink`, reglas de fila 1px `border`, cifras mono alineadas a la derecha |
+| Fila destacada | relleno `panel` + borde izquierdo 4px `signal` |
+| Botón primario | fondo `ink`, texto `base`, 13×26px, Space Grotesk 500; hover → fondo `signal` |
+| Botón secundario | transparente, borde 1px `baseline`, texto `ink`; hover → borde y texto `signal` |
+| Navegación y filtros | controles planos con borde; activo = texto `signal` o subrayado de 2px |
+
+{{< include _includes/rules/UMB-LAY-001.md >}}
+
+{{< include _includes/rules/UMB-LAY-002.md >}}
+
+::: {.callout-note}
+`box-shadow` con `inset` usado para dibujar una regla —`inset 4px 0 0 var(--u-signal)`— no es una
+sombra: es una técnica de layout, y está permitida. Lo prohibido es la profundidad falsa, es decir
+el desenfoque y el desplazamiento.
+
+Vale la pena decirlo porque un linter ingenuo que busque la cadena `box-shadow` marcaría como
+infracción el producto **más** conforme del portafolio.
+:::
+
+## Sin decoración
+
+{{< include _includes/rules/UMB-LAY-005.md >}}
+
+El argumento lo cargan los números. Un emoji en un informe sobre desapariciones no es neutral:
+cambia el registro de lo que se está diciendo.
+
+## Encabezado y pie
+
+Encabezado: fondo `base`, isotipo y wordmark a la izquierda, navegación a la derecha, regla inferior
+de 1px. Pie: licencia del código, licencia de los datos, enlace al repositorio.

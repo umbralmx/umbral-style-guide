@@ -203,6 +203,26 @@ await fs.writeFile(OUT_CHECKLIST, checklist.join('\n'));
 await fs.rm(OUT_INCLUDES, { recursive: true, force: true });
 await fs.mkdir(OUT_INCLUDES, { recursive: true });
 
+// The folder is wiped on every build, so its README is generated too.
+await fs.writeFile(path.join(OUT_INCLUDES, 'README.md'), `# \`guide/_includes/rules/\`
+
+**Generated. Do not edit.** One callout per rule, built from \`rules/rules.yaml\` by
+\`build/rules.mjs\`. This whole folder is deleted and rewritten on every build.
+
+Chapters include a callout rather than restating the rule:
+
+\`\`\`markdown
+{{< include _includes/rules/UMB-COL-004.md >}}
+\`\`\`
+
+That is what makes UMB-PRO-002 mechanical — the normative text on a guide page is generated, so
+prose cannot drift from the norm. \`tools/verify_guide.py\` fails if a chapter states a rule's text
+without including its callout.
+
+Currently ${rules.length} rules: ${bySeverity.error} \`error\`, ${bySeverity.warning} \`warning\`,
+${bySeverity.info} \`info\`. The full index is \`guide/_includes/rule-index.md\`.
+`);
+
 for (const r of rules) {
   const sev = SEVERITY_LABEL[r.severity];
   const lines = [

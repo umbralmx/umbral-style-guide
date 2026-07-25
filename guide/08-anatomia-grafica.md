@@ -1,0 +1,108 @@
+---
+title: "Anatomía de una gráfica"
+lang: es
+---
+
+# 08 · Anatomía de una gráfica
+
+Las gráficas son el corazón de la marca. Toda gráfica, en todo medio, lleva el mismo marco.
+
+```
+El RNPDNO acumula 351,057 registros con hechos entre 2010-01 y 2026-07   ← título: el hallazgo
+México · registros por mes de la fecha de hechos                          ← subtítulo: geo · unidad
+                                                                        
+  3.5k ┤                                            ╱╲                    ← eje mono, abreviado
+       │                                      ╱╲  ╱   ╲          
+  2.5k ┤                          ╱╲    ╱╲  ╱  ╲╱      ╲    ╎             ← retícula horizontal
+       │              ╱╲    ╱╲  ╱   ╲╱   ╲╱            ╲  ╎ provisional
+  1.5k ┤    ╱╲  ╱╲  ╱   ╲╱   ╲╱                          ╲╎
+       └────────────────────────────────────────────────────           ← línea base más oscura
+        2010        2015        2020        2025
+       ────────────────────────────────────────────────────           ← regla de 1px
+       Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 ·             ← fuente en mono
+       rnpdno-2026-07 · umbral.mx · datos CC BY 4.0
+```
+
+## El título enuncia el hallazgo
+
+{{< include _includes/rules/UMB-CHT-001.md >}}
+
+Space Grotesk 500, 22px, alineado a la izquierda con el eje. Una oración completa, sin punto final.
+
+## El subtítulo da el contexto
+
+{{< include _includes/rules/UMB-CHT-002.md >}}
+
+Plex Sans, `muted`. Geografía · periodo · unidad, separados por `·`. Aquí es donde van las
+advertencias que el lector necesita antes de mirar: «el registro se actualiza retroactivamente»,
+«la banda es el intervalo que publica Meta».
+
+## La línea de fuente
+
+{{< include _includes/rules/UMB-CHT-003.md >}}
+
+Plex Mono 12px, `caption`, encima de una regla de 1px. El orden es:
+
+```
+Fuente: ORIGEN · consultado FECHA · TAG-DE-SNAPSHOT · umbral.mx · datos CC BY 4.0
+```
+
+La gráfica circula sin su página en cuanto alguien la captura de pantalla. La línea de fuente es lo
+único que viaja con ella.
+
+## La retícula
+
+{{< include _includes/rules/UMB-CHT-004.md >}}
+
+- Retícula **horizontal** en `gridline`. Nada de vertical.
+- Línea base en `baseline`, más oscura, para anclar el cero.
+- **Sin marco** alrededor de la gráfica. Sin relleno de fondo.
+- Cinco marcas de eje o menos.
+
+## Los ejes
+
+{{< include _includes/rules/UMB-CHT-007.md >}}
+
+Plex Mono, 12px, `caption`. Abreviados (`12k`, `3.7M`), coma para miles. El eje y no lleva línea de
+dominio; el eje x sí, y es la línea base.
+
+## Las etiquetas de serie
+
+{{< include _includes/rules/UMB-CHT-005.md >}}
+
+Al final de la línea, en el color de la serie, en Plex Sans. Sin caja de leyenda.
+
+::: {.callout-important}
+Como la etiqueta va en el color de la serie, **es texto pequeño en color de marca**. Por eso existen
+`signal-text`, `model-text` y `alert-text`, y por eso una etiqueta directa se colorea con esas
+variantes y no con `signal`, `model` o `alert`.
+:::
+
+## Barras
+
+{{< include _includes/rules/UMB-CHT-008.md >}}
+
+- Siempre desde cero.
+- Rellenos sólidos; nada de degradados ni contornos.
+- Pista de la barra un paso más oscura que `panel`, si la hay.
+- Etiquetas de valor en mono, dentro o al final de la barra.
+- Barras horizontales ordenadas por valor.
+
+{{< include _includes/rules/UMB-CHT-009.md >}}
+
+## La jerarquía de color
+
+Una serie en `signal`. El resto en `model` y `muted`. `alert` solo cuando algo es efectivamente una
+alerta — no como tercer color por comodidad.
+
+{{< include _includes/rules/UMB-COL-004.md >}}
+
+## Accesibilidad de la figura
+
+Toda gráfica publicada lleva, además de lo visual:
+
+- un `aria-label` con la misma afirmación que el título;
+- una tabla adyacente o un `<details>` con las cifras;
+- el CSV descargable.
+
+Ver [11 · Accesibilidad](11-accesibilidad.md).

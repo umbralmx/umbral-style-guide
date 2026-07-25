@@ -5,8 +5,7 @@ on:
     paths:
       - 'tokens/**'
       - 'rules/**'
-      - 'guide/CHECKLIST.md'
-      - 'guide/_includes/**'
+      - 'guide/**'
       - 'build/**'
       - 'tools/**'
       - 'package.json'
@@ -45,14 +44,22 @@ jobs:
       - name: Build and validate rules
         run: npm run build:rules
 
+      # Generates the guide's data-driven partials — the token table, the contrast
+      # matrix, the series palette — from tokens + rules.
+      - name: Build guide partials
+        run: npm run build:guide
+
       # Re-derives contrast, ramp properties and the rule invariants in Python,
       # from the generated files, with a different schema validator. A mistake in
       # the colour maths or the rule set has to be made twice, in two languages,
-      # to reach the published system.
+      # to reach the published system. verify_guide.py additionally enforces
+      # UMB-PRO-002: a chapter cannot state a rule without including its callout.
       - name: Verify independently
         run: |
           python3 tools/verify_tokens.py
           python3 tools/verify_rules.py
+          python3 tools/verify_guide.py
+          python3 tools/verify_readmes.py
 
       # Generated output is committed so downstream repos can fetch a raw URL
       # without a build step. If a rebuild changes it, the committed copy is stale

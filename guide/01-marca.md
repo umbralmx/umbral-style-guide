@@ -1,0 +1,72 @@
+---
+title: "Marca"
+lang: es
+---
+
+# 01 · Marca
+
+## El wordmark
+
+`umbral_` en minúsculas, Space Grotesk 500, con el guión bajo en `signal-text`.
+
+El guión bajo es el umbral: es la marca diciendo lo que hace. En mayúsculas, en negrita o con el
+guión bajo del mismo color que el texto, deja de ser un logotipo y pasa a ser una palabra.
+
+{{< include _includes/rules/UMB-BRD-001.md >}}
+
+::: {.callout-note}
+El guión bajo va en `signal-text`, no en `signal`. A 22px y peso 500 el wordmark no califica como
+«texto grande», así que necesita 4.5:1; `signal` alcanza 4.22:1. En v1.0 el logotipo del sitio
+incumplía la propia regla de contraste de la marca.
+:::
+
+## El isotipo
+
+Una barra vertical —la señal— que cruza una línea horizontal punteada —el umbral de significancia.
+
+```
+        ╎
+   ╌╌╌╌─┼─╌╌╌╌╌╌╌╌
+        ╎
+```
+
+Tres propiedades lo definen:
+
+| Propiedad | Valor |
+|---|---|
+| Proporción de la barra | **5:44** |
+| Punto de cruce | a la **izquierda** del centro de la línea |
+| Espacio de respeto | una altura de barra en los cuatro lados |
+
+{{< include _includes/rules/UMB-BRD-002.md >}}
+
+{{< include _includes/rules/UMB-BRD-003.md >}}
+
+La barra cruza a la izquierda porque el umbral se cruza *avanzando*: queda más recorrido a la
+derecha que a la izquierda. No es un detalle decorativo, es la única regla geométrica que la marca
+enuncia sobre sí misma.
+
+::: {.callout-warning}
+## Los archivos de v1.0 no cumplían esta regla
+
+Los SVG entregados en v1.0 tenían tres proporciones distintas —5:44 documentada, 1:7.13 en el
+isotipo, 1:6.29 en el lockup— y **el lockup cruzaba a la derecha del centro**. Por eso todas las
+variantes se generan ahora desde una sola fuente paramétrica: para que no puedan volver a separarse.
+:::
+
+## Variantes
+
+| Archivo | Uso |
+|---|---|
+| `umbral-isotype-{light,dark}.svg` | Favicon, avatar, esquina de una tarjeta social |
+| `umbral-lockup-{light,dark}.svg` | Encabezado, portada de informe, pie de deck |
+| `umbral-favicon.svg` | Pestaña del navegador |
+
+La línea punteada del umbral va en `caption`; la barra, en `signal`.
+
+## Lo que no se permite
+
+{{< include _includes/rules/UMB-BRD-004.md >}}
+
+Concretamente: distorsionar, contornear, añadir sombra o efectos, recolorear fuera de los tokens,
+usar el wordmark en mayúsculas, o poner el guión bajo en un color distinto a señal.

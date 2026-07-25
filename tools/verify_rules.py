@@ -91,7 +91,8 @@ for r in rules:
     check(r["title"] != r["title_en"], f"{r['id']} title_en is identical to title")
 
 # ── 4. every rule has a generated callout, and no callout is orphaned ─────
-callouts = {p.stem for p in INCLUDES.glob("*.md")} if INCLUDES.exists() else set()
+# README.md in this folder is generated documentation, not a rule callout
+callouts = ({p.stem for p in INCLUDES.glob("*.md")} - {"README"}) if INCLUDES.exists() else set()
 check(callouts == set(ids),
       f"callouts differ from rules: missing {sorted(set(ids) - callouts)}, "
       f"orphaned {sorted(callouts - set(ids))}")

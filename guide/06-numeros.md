@@ -1,0 +1,125 @@
+---
+title: "Números, fechas y unidades"
+lang: es
+---
+
+# 06 · Números, fechas y unidades
+
+Este capítulo es el que las guías del *Economist* y del *FT* dedican casi por entero a este tema, y
+el que faltaba completo en v1.0. Son decisiones pequeñas que se repiten miles de veces: si no están
+fijadas, la misma cifra aparece de dos formas en un mismo tablero.
+
+## Separadores
+
+**México usa la convención anglosajona**, a diferencia de España: coma para miles, punto para
+decimales. En español y en inglés, igual.
+
+| | |
+|---|---|
+| **Sí** | `351,057` · `3.7` · `12.5%` |
+| **No** | `351.057` · `3,7` |
+
+{{< include _includes/rules/UMB-NUM-001.md >}}
+
+## Abreviación
+
+El eje necesita brevedad; la afirmación necesita precisión.
+
+| Contexto | Forma |
+|---|---|
+| Eje de gráfica | `12k` · `3.7M` |
+| Texto y titular | `351,057 registros` · `107.6 millones de pesos` |
+| Tabla | cifra completa, mono, alineada a la derecha |
+
+{{< include _includes/rules/UMB-NUM-002.md >}}
+
+## Porcentajes y puntos porcentuales
+
+Pegado a la cifra: `9.2%`.
+
+Distingue **por ciento** de **puntos porcentuales**. Pasar de 10% a 12% es un aumento de 2 puntos
+porcentuales, o de 20%. Confundirlos duplica o divide una magnitud sin que se note.
+
+{{< include _includes/rules/UMB-NUM-004.md >}}
+
+## Precisión
+
+{{< include _includes/rules/UMB-NUM-005.md >}}
+
+Regla práctica: **dos o tres cifras significativas** salvo que el dato sostenga más.
+
+- Un conteo exacto de un registro se escribe completo: `351,057`.
+- Una tasa estimada se redondea: `9.2 por 100 mil`, no `9.2384`.
+- Un porcentaje sobre menos de 100 casos casi nunca merece decimal.
+
+En un registro vivo como el RNPDNO, además, los decimales cambian entre consultas. Escribirlos
+sugiere una estabilidad que el dato no tiene.
+
+## Tasas y conteos
+
+| Usa… | Cuándo |
+|---|---|
+| **Conteo** | Una sola unidad geográfica a lo largo del tiempo; totales; cuando la magnitud absoluta es el punto |
+| **Tasa por 100 mil** | Cualquier comparación entre lugares de distinto tamaño |
+
+{{< include _includes/rules/UMB-MET-003.md >}}
+
+{{< include _includes/rules/UMB-CHT-012.md >}}
+
+Toda tasa declara su denominador y su *n*:
+
+> tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204
+
+En municipios pequeños una tasa por 100 mil salta con un solo caso. Cuando el denominador es chico,
+publica el conteo junto a la tasa o suprime la celda — nunca dejes que una tasa inestable parezca
+una señal. Ver [10 · Mapas](10-mapas.md).
+
+## Dinero
+
+- Moneda explícita siempre: `107.6 M MXN`, no `107.6 M`.
+- En series largas, **pesos reales** con año base declarado: `pesos de 2024`. Si son nominales,
+  dilo: `pesos corrientes`.
+- Nunca conviertas a dólares sin decir el tipo de cambio y su fecha.
+
+## Fechas
+
+{{< include _includes/rules/UMB-NUM-003.md >}}
+
+| Contexto | Forma |
+|---|---|
+| Datos, nombres de archivo, etiquetas de eje, tags de snapshot | `2026-07` · `2026-07-09` |
+| Prosa | `julio de 2026` · `9 de julio de 2026` |
+| Rango en prosa | `de 2010 a 2026` |
+| Rango compacto | `2010–2026` (raya, no guión) |
+
+Nunca `07/06/2026`: significa cosas distintas en México y en Estados Unidos, y las dos son
+plausibles.
+
+## Rangos y aproximaciones
+
+| Expresión | Significa |
+|---|---|
+| `más de 12,000` | estrictamente mayor; usa el redondeo hacia abajo |
+| `casi 12,000` | por debajo pero cerca; no lo uses por debajo del 95% |
+| `alrededor de 12,000` | el punto medio de un intervalo, que debería estar visible |
+| `≥ 107.6 M` | hay censura en el dato: es una cota inferior, no un estimado |
+
+Ese último caso es frecuente en `pautamx`, porque Meta publica intervalos y no cifras. El símbolo
+`≥` en el titular es honestidad, no adorno.
+
+## Cero, nulo y suprimido
+
+{{< include _includes/rules/UMB-NUM-006.md >}}
+
+Son tres cosas distintas y se escriben distinto:
+
+| | Escritura | Significa |
+|---|---|---|
+| Cero | `0` | Se midió y no hubo casos |
+| Nulo | `sin dato` | No se midió, o no se publicó |
+| Suprimido | `suprimido (< umbral)` | Se midió pero no se publica por umbral de reporte |
+
+Convertir un nulo en cero es una imputación silenciosa. En datos de desaparición y de delito cambia
+la afirmación: «no hubo desapariciones» y «no sabemos cuántas hubo» no son lo mismo.
+
+{{< include _includes/rules/UMB-DAT-005.md >}}

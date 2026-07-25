@@ -5,8 +5,9 @@
   "scripts": {
     "build:tokens": "node build/index.mjs",
     "build:rules": "node build/rules.mjs",
-    "build": "npm run build:tokens && npm run build:rules",
-    "verify": "python3 tools/verify_tokens.py && python3 tools/verify_rules.py"
+    "build:guide": "node build/guide.mjs",
+    "build": "npm run build:tokens && npm run build:rules && npm run build:guide",
+    "verify": "python3 tools/verify_tokens.py && python3 tools/verify_rules.py && python3 tools/verify_guide.py && python3 tools/verify_readmes.py"
   },
   "repository": {
     "type": "git",

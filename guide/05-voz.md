@@ -1,0 +1,74 @@
+---
+title: "Voz"
+lang: es
+---
+
+# 05 · Voz
+
+Precisa, sobria, cívico-científica. Los números cargan el argumento.
+
+## Español primero
+
+{{< include _includes/rules/UMB-VOZ-001.md >}}
+
+El público principal del laboratorio es mexicano. Escribir primero en inglés y traducir después
+sería escribir para otra audiencia y darle a la propia la versión derivada. El inglés se añade
+cuando un artefacto tiene público internacional real, no por defecto.
+
+El código, los mensajes de commit, los ADR y esta capa meta van en inglés.
+
+## El titular es el hallazgo
+
+| | |
+|---|---|
+| **Sí** | «Los registros crecen 9% anual desde 2015» |
+| **No** | «Registros por año» |
+
+Un tema obliga al lector a deducir qué debía ver. Un hallazgo se puede verificar contra la gráfica
+y, por lo tanto, se puede discutir. Esa posibilidad de refutación es lo que hace que valga la pena
+publicarlo.
+
+Un titular también es una afirmación de la que el laboratorio responde:
+
+{{< include _includes/rules/UMB-MET-002.md >}}
+
+## Lo que no se escribe
+
+{{< include _includes/rules/UMB-VOZ-002.md >}}
+
+{{< include _includes/rules/UMB-VOZ-003.md >}}
+
+«Un aumento considerable» no se puede verificar ni refutar. «Un aumento de 9%» sí. El adjetivo
+evaluativo es casi siempre una cifra que no se buscó.
+
+| Evitar | Escribir |
+|---|---|
+| «se dispararon» | «crecieron 34% entre 2023 y 2025» |
+| «una cifra alarmante» | «12,481 registros» |
+| «prácticamente todos» | «94%» |
+| «¿Sabías que…?» | el hallazgo, sin pregunta |
+
+## Cubrirse bien
+
+Cubrirse no es debilidad: es precisión. Pero cubrirse de más vacía la afirmación.
+
+| | |
+|---|---|
+| **Sí** | «Los registros con fecha de hechos en 2025 son 12% más que en 2024; el registro se actualiza retroactivamente, así que la cifra de 2025 subirá.» |
+| **No** | «Podría sugerirse que quizá haya habido cierto aumento.» |
+
+Di lo que sabes, con su límite al lado. La cobertura va pegada a la afirmación, no en una nota al
+final que nadie lee.
+
+## Fuente y licencia, siempre
+
+Nombrar la fuente y su licencia es la mitad de la credibilidad del laboratorio, y lo que permite que
+alguien más rehaga el cálculo. Ver [12 · Datos y procedencia](12-datos-procedencia.md).
+
+## Nada de relleno
+
+{{< include _includes/rules/UMB-VOZ-004.md >}}
+
+Un «Lorem ipsum» en producción dice que nadie revisó la página, y eso contamina la credibilidad de
+los números que están al lado. En julio de 2026 las dos biografías del sitio principal seguían
+siendo texto de relleno.

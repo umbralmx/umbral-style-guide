@@ -1,0 +1,76 @@
+---
+title: "Incertidumbre"
+lang: es
+---
+
+# 09 · Incertidumbre
+
+La incertidumbre visible es la firma del laboratorio. Se reconoce una gráfica de Umbral porque
+muestra lo que no sabe.
+
+{{< include _includes/rules/UMB-CHT-011.md >}}
+
+## Las tres marcas
+
+| Marca | Construcción |
+|---|---|
+| **Banda** | Área al **15%** de opacidad del color de la serie. Sin borde. |
+| **Proyección** | Trazo punteado (`7 5`) más allá del último dato observado. |
+| **Regla «hoy»** | Línea vertical punteada en `caption`, etiquetada `hoy` en mono. |
+
+La opacidad de la banda es un token (`opacity.uncertainty-band`), no un número suelto: se ajusta en
+un solo lugar y todas las gráficas del laboratorio cambian con él.
+
+## Qué banda es
+
+Una banda sin etiqueta no dice nada. El subtítulo tiene que nombrarla:
+
+| Tipo | Cómo se declara |
+|---|---|
+| Intervalo de confianza | `IC 95%` |
+| Intervalo de predicción | `intervalo de predicción 80%` |
+| Escenarios | `escenario base con rango alto–bajo` |
+| Cota publicada por la fuente | `la banda es el intervalo [cota inferior, cota superior] que publica Meta` |
+
+Ese último caso es el de `pautamx`, y es un buen modelo: la fuente publica intervalos y no cifras,
+así que el titular usa `≥` y el subtítulo explica de dónde viene la banda.
+
+## Estimados puntuales
+
+{{< include _includes/rules/UMB-CHT-012.md >}}
+
+Un estimado sin intervalo afirma una precisión que el método no tiene. En texto:
+
+> El efecto estimado es de −2.4 puntos porcentuales (IC 95%: −4.1 a −0.7), estimado con
+> diferencias-en-diferencias sobre municipios vecinos.
+
+El intervalo va junto al estimado, no en una nota. La estrategia de identificación, también — ver
+[13 · Interpretabilidad](13-interpretabilidad.md).
+
+## Registros vivos
+
+El RNPDNO se actualiza retroactivamente: los conteos de meses pasados cambian entre consultas. Los
+periodos recientes están sistemáticamente subreportados, no porque hayan ocurrido menos hechos sino
+porque todavía no se registraron.
+
+Tratamiento obligatorio:
+
+1. Marca el tramo incompleto como **provisional** —punteado, o banda— y etiquétalo.
+2. Dilo en el subtítulo: «el registro se actualiza retroactivamente».
+3. Fija el snapshot y nómbralo en la línea de fuente (`rnpdno-2026-07`).
+
+Sin esto, la caída final de la serie se lee como una mejora real. Es probablemente el error de
+interpretación más fácil de cometer con estos datos, y el más costoso.
+
+::: {.callout-note}
+`desaparecidosmx` ya lo hace bien: marca el tramo final como `provisional →` con una regla vertical
+punteada. Es el patrón a copiar.
+:::
+
+## Lo que no se hace
+
+- Una línea sólida que cruza hacia el futuro sin distinguirse del dato observado.
+- Una banda sin nombre.
+- Un promedio sin dispersión, cuando la dispersión es el punto.
+- Redondear el estimado y no el intervalo, o al revés.
+- Presentar un escenario como pronóstico.
