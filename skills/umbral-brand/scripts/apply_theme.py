@@ -80,13 +80,13 @@ def use(library: str, mode: str = "laboratorio") -> None:
 
 
 SNIPPETS = {
-    # umbral-lint: ignore[hardcoded-value] — snippet names the family for the reader
     "matplotlib": '''import matplotlib.pyplot as plt
 import json
 
 ASSETS = "{assets}"
 plt.style.use(f"{{ASSETS}}/umbral-{mode}.mplstyle")
-t = json.load(open(f"{{ASSETS}}/tokens.json"))["mode"]["{mode}"]
+_tokens = json.load(open(f"{{ASSETS}}/tokens.json"))
+t, font = _tokens["mode"]["{mode}"], _tokens["font"]
 
 fig, ax = plt.subplots(figsize=(8, 4.5))
 ax.plot(x, y, color=t["signal"])                 # the one highlighted series
@@ -97,7 +97,7 @@ ax.fill_between(x, lo, hi, color=t["signal"], alpha=0.15)   # uncertainty band
 ax.set_title("Los registros crecen 9% anual desde 2015", loc="left")
 fig.text(0.01, -0.02,
          "Fuente: RNPDNO · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · CC BY 4.0",
-         family=t and "IBM Plex Mono", size=9, color=t["caption"])''',
+         family=font["mono"], size=9, color=t["caption"])''',
 
     "plotly": '''import json, plotly.graph_objects as go
 
