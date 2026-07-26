@@ -69,6 +69,7 @@ Las tres familias son OFL. Se sirven desde `assets/fonts/`, subconjuntadas a `la
 ```
 
 ::: {.callout-warning}
+<!-- umbral-lint: ignore[font-hosting] — se cita el CDN precisamente para prohibirlo -->
 No copies un `@import` de `fonts.googleapis.com` de ningún documento antiguo. El documento de
 ingeniería de v1.0 pedía auto-hospedar en prosa y entregaba el enlace al CDN en el bloque de código
 de la misma sección; el sitio principal copió el bloque de código y ahí sigue.

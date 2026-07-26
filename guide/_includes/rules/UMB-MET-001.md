@@ -12,7 +12,7 @@ Es la diferencia entre un laboratorio y una nota de opinión con gráficas. La e
 | **Sí** | «asociado con» / «correlaciona» para lo descriptivo; «efecto» / «reduce» solo con RCT, dif-en-dif, RD o VI declarada. |
 | **No** | «X redujo Y» a partir de una serie de tiempo descriptiva. |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `causal-language`.
+*Comprobación:* En revisión.
 
 *Origen:* Brand book p.12; umbral-engineering.md §6.
 

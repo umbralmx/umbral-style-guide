@@ -11,6 +11,8 @@
  * geometric rule the brand states about its own mark. Generating them from a
  * single spec is what stops that recurring.
  *
+ * Implements the `logo-geometry` check claimed by UMB-BRD-002.
+ *
  * Run with `npm run build:logo` (part of `npm run build`).
  */
 import { promises as fs } from 'node:fs';

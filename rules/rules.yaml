@@ -45,7 +45,10 @@ rules:
       deja de ser el logotipo y pasa a ser texto.
     do: "umbral_ en minúsculas, peso 500, guión bajo en signal-text."
     dont: "UMBRAL_, Umbral_, peso 700, o el guión bajo en el color del texto."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        El wordmark se compone con tipografía viva; comprobar peso, caja y color del guión bajo exige la salida renderizada.
     since: "1.0"
     evidence: "Brand book p.02; CLAUDE.md §5."
     guide: "01-marca"
@@ -64,7 +67,7 @@ rules:
       1:6.29 en el lockup) y el lockup cruzaba a la derecha.
     do: "Generar todas las variantes desde la fuente paramétrica única."
     dont: "Redibujar el isotipo a mano o escalar la barra por separado."
-    check: { type: automated, tool: umbral-lint, id: logo-geometry }
+    check: { type: automated, tool: logo-build, id: logo-geometry }
     since: "1.0"
     supersedes: null
     evidence: "audit/2026-07-conformance.md §3.5; decisión OQ-007."
@@ -95,7 +98,10 @@ rules:
       rompe la garantía de contraste que el sistema comprueba en CI.
     do: "Usar los SVG generados en assets/logo/."
     dont: "Estirar, rotar, aplicar sombra, contorno, degradado o un color arbitrario."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        La distorsión, el contorno y el efecto solo son visibles en el artefacto final, no en el fuente.
     since: "1.0"
     evidence: "Brand book p.02 «NO SE PERMITE»."
     guide: "01-marca"
@@ -167,12 +173,10 @@ rules:
     do: "Una serie, una cifra o un elemento de UI en signal."
     dont: "Signal en el logo, el botón y la serie principal a la vez."
     check:
-      type: automated
-      tool: umbral-lint
-      id: signal-count
+      type: review
       note: >
-        Se evalúa sobre la salida renderizada de la gráfica, no sobre el HTML completo de la
-        página — consecuencia de acotar la regla a la capa de datos (OQ-002).
+        Requiere la salida renderizada de la gráfica, no el código fuente. Acotada además a la capa de datos (OQ-002), así que un linter de archivos no puede decidirla.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     evidence: "Brand book p.03 «La señal es sagrada»; medido: 17 elementos en desaparecidosmx, 10 en pautamx, 4 en cabildo-libre."
     guide: "02-color"
@@ -225,7 +229,11 @@ rules:
       contraste no puede prever.
     do: "data-mode=\"instrumento\" sobre un contenedor completo."
     dont: "Un panel claro con una tarjeta oscura dentro, o al revés."
-    check: { type: automated, tool: umbral-lint, id: mode-mixing }
+    check:
+      type: review
+      note: >
+        Requiere el DOM resuelto: los modos cascadean por subárbol y la mezcla solo existe una vez renderizado.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     exceptions:
       - "Secciones alternas de una misma página son superficies distintas, no un mismo panel."
@@ -260,7 +268,10 @@ rules:
       mapa para ese lector.
     do: "Una rampa secuencial por figura; si hacen falta dos, variar también el rango de luminosidad."
     dont: "Un coroplético en rampa signal junto a otro en rampa model."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        Saber qué codifica cada rampa en una figura exige entender la figura, no el código.
     since: "1.1"
     evidence: "Decisión OQ-005."
     guide: "02-color"
@@ -277,7 +288,10 @@ rules:
       Representarlas igual es afirmar algo falso.
     do: "missing como relleno plano; suppressed con la trama de 45°; cero en el extremo de la rampa."
     dont: "Pintar el faltante como el valor más bajo de la escala."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        Que faltante, suprimido y cero se distingan es una propiedad de la leyenda renderizada.
     since: "1.1"
     evidence: "KICKOFF §3.3 pide un relleno de faltante y una trama de suprimido; v1.0 no definía ninguno."
     guide: "10-mapas"
@@ -475,7 +489,11 @@ rules:
       verificar contra la gráfica y, por tanto, se puede discutir.
     do: "«El gasto observable acumula ≥ 107.6 M MXN»."
     dont: "«Gasto por mes»."
-    check: { type: automated, tool: umbral-lint, id: chart-title-present }
+    check:
+      type: review
+      note: >
+        Un linter puede ver que hay un título; no puede juzgar si enuncia el hallazgo, que es precisamente la parte que importa.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     evidence: "Brand book p.05; pautamx y desaparecidosmx ya lo hacen bien."
     guide: "08-anatomia-grafica"
@@ -492,7 +510,11 @@ rules:
       contexto en cuanto alguien la captura de pantalla.
     do: "«México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente»."
     dont: "Dejar la unidad implícita en el eje."
-    check: { type: automated, tool: umbral-lint, id: chart-subtitle-present }
+    check:
+      type: review
+      note: >
+        Igual que el título: la presencia es detectable, la suficiencia —geografía, periodo, unidad— no.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     guide: "08-anatomia-grafica"
 
@@ -524,7 +546,11 @@ rules:
       oscura ancla el cero.
     do: "y.grid = true, x.grid = false, base en --u-baseline."
     dont: "Retícula en ambos ejes, o marco alrededor de la gráfica."
-    check: { type: automated, tool: umbral-lint, id: gridlines-horizontal }
+    check:
+      type: review
+      note: >
+        Depende de la librería y de la configuración efectiva; detectarlo en el código produce demasiados falsos negativos para ser útil.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     guide: "08-anatomia-grafica"
 
@@ -540,7 +566,11 @@ rules:
       4.5:1, no 3:1.
     do: "Plot.text en el último dato de cada serie."
     dont: "Una caja de leyenda al costado."
-    check: { type: automated, tool: umbral-lint, id: no-legend-box }
+    check:
+      type: review
+      note: >
+        Muchas librerías dibujan leyenda por defecto sin que aparezca nada en el código.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     guide: "08-anatomia-grafica"
     see_also: [UMB-COL-005, UMB-A11Y-005]
@@ -556,7 +586,11 @@ rules:
       Si hacen falta más, son dos gráficas.
     do: "Una serie en signal, el resto en model/muted; el resto agrupado en «otros»."
     dont: "Ocho líneas y una leyenda para desenredarlas."
-    check: { type: automated, tool: umbral-lint, id: series-count }
+    check:
+      type: review
+      note: >
+        El número de series suele depender de los datos en tiempo de ejecución, no del código.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     guide: "07-vocabulario-visual"
 
@@ -570,7 +604,11 @@ rules:
       Los numerales tabulares alinean los dígitos y hacen comparable el eje de un vistazo.
     do: "12k, 3.7M, 351,057."
     dont: "12000, 3700000, o cifras en la tipografía de cuerpo."
-    check: { type: automated, tool: umbral-lint, id: axis-mono }
+    check:
+      type: review
+      note: >
+        La familia del eje se hereda del tema; comprobarla en el código no dice lo que se renderiza.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     guide: "08-anatomia-grafica"
     see_also: [UMB-NUM-001, UMB-NUM-002]
@@ -586,7 +624,11 @@ rules:
       diferencia que no existe en los datos.
     do: "Barras desde 0, siempre."
     dont: "Empezar el eje en el mínimo observado para «que se note la diferencia»."
-    check: { type: automated, tool: umbral-lint, id: bars-from-zero }
+    check:
+      type: review
+      note: >
+        Requiere conocer los límites efectivos del eje, que casi siempre calcula la librería.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     guide: "08-anatomia-grafica"
 
@@ -601,7 +643,10 @@ rules:
       anotación viaja con la imagen aunque el texto no.
     do: "Marcar el corte y decirlo junto al eje."
     dont: "Truncar en silencio."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        Detectar un truncamiento exige los límites efectivos del eje, que casi siempre calcula la librería.
     since: "1.0"
     guide: "08-anatomia-grafica"
 
@@ -632,7 +677,10 @@ rules:
       que el método no tiene.
     do: "Banda al 15% de opacidad del color de la serie; trazo punteado más allá del presente; regla vertical punteada etiquetada «hoy»."
     dont: "Una línea sólida que cruza hacia el futuro sin distinguirse del dato observado."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        Que una banda exista es detectable; que corresponda a la incertidumbre real del método no lo es.
     since: "1.0"
     evidence: "Brand book p.08; pautamx lo hace bien con las cotas que publica Meta."
     guide: "09-incertidumbre"
@@ -649,7 +697,10 @@ rules:
       lector no puede saber si la diferencia es real.
     do: "«tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204»."
     dont: "Publicar la tasa sola."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        Comprobar que el denominador declarado es el correcto exige conocer el dato.
     since: "1.0"
     guide: "09-incertidumbre"
     see_also: [UMB-NUM-005, UMB-MET-003]
@@ -666,7 +717,10 @@ rules:
       escribir para otra audiencia y traducir para la propia.
     do: "guide/ en español; inglés en código, commits y la capa meta."
     dont: "Traducir del inglés al español como paso final."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        La detección de idioma sobre fragmentos cortos es poco fiable, y el criterio es editorial.
     since: "1.0"
     guide: "05-voz"
     see_also: [UMB-A11Y-001]
@@ -729,7 +783,11 @@ rules:
       misma cifra aparezca de dos formas en un mismo tablero.
     do: "351,057 · 3.7 · 12.5%"
     dont: "351.057 · 3,7"
-    check: { type: automated, tool: umbral-lint, id: number-separators }
+    check:
+      type: review
+      note: >
+        Sobre prosa produce demasiados falsos positivos —referencias, versiones, códigos— para bloquear un release.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.1"
     evidence: "KICKOFF §3.4: v1.0 no definía estilo numérico. Es el mayor hueco frente a las guías del Economist y el FT."
     guide: "06-numeros"
@@ -790,7 +848,10 @@ rules:
       exactitud. En un registro vivo que se revisa retroactivamente, además, cambia.
     do: "Redondear a la precisión que el método sostiene y decir cuál es."
     dont: "Arrastrar todos los decimales que devuelve el cálculo."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        La precisión que sostiene el dato depende del método, no del texto.
     since: "1.1"
     evidence: "KICKOFF §3.4 (redondeo y cifras significativas)."
     guide: "06-numeros"
@@ -807,7 +868,11 @@ rules:
       de delito cambia la afirmación.
     do: "0 · «sin dato» · «suprimido (< umbral de reporte)»."
     dont: "Rellenar los huecos con 0 al construir la serie."
-    check: { type: automated, tool: umbral-lint, id: null-vs-zero }
+    check:
+      type: review
+      note: >
+        Distinguir una imputación silenciosa de un cero legítimo exige entender la transformación, no el texto.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.1"
     evidence: "KICKOFF §3.4 (nulo vs cero vs suprimido); cabildo-libre ya declara sus huecos sin imputarlos."
     guide: "06-numeros"
@@ -886,7 +951,10 @@ rules:
       El hueco es información. Ocultarlo cambia la conclusión sin que el lector pueda saberlo.
     do: "Declararlo como hueco conocido, con su magnitud."
     dont: "Interpolar, rellenar con cero, o recortar el periodo hasta que el hueco desaparezca."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        Distinguir un hueco declarado de uno omitido exige leer el pipeline completo.
     since: "1.0"
     evidence: >
       cabildo-libre es el modelo: «Vacíos conocidos, declarados y no imputados: 27 sesiones…».
@@ -939,7 +1007,11 @@ rules:
       y no solo a su imagen.
     do: "<details> con la tabla debajo de la gráfica."
     dont: "Solo el SVG."
-    check: { type: automated, tool: umbral-lint, id: chart-data-table }
+    check:
+      type: review
+      note: >
+        La tabla adyacente suele generarse en tiempo de ejecución; su ausencia no es visible en el fuente.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     guide: "11-accesibilidad"
 
@@ -954,7 +1026,11 @@ rules:
       refute la gráfica con la misma base.
     do: "Un botón de descarga por vista."
     dont: "Publicar la gráfica y dejar el CSV en el repo sin enlazarlo."
-    check: { type: automated, tool: umbral-lint, id: chart-csv-download }
+    check:
+      type: review
+      note: >
+        Igual: el botón de descarga se construye en ejecución.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     evidence: "Medido: desaparecidosmx lo tiene; pautamx no tiene ninguno."
     guide: "11-accesibilidad"
@@ -972,7 +1048,10 @@ rules:
       model son indistinguibles bajo tritanopía.
     do: "Etiqueta de texto en cada serie; flecha o palabra en cada delta."
     dont: "Verde/rojo como única diferencia entre subida y bajada."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        Que exista una etiqueta es detectable; que el significado no dependa del color no lo es.
     since: "1.0"
     guide: "11-accesibilidad"
     see_also: [UMB-CHT-005, UMB-COL-008]
@@ -1019,7 +1098,11 @@ rules:
       estrategia y su supuesto clave van junto al estimado, no en un anexo.
     do: "«asociado con» / «correlaciona» para lo descriptivo; «efecto» / «reduce» solo con RCT, dif-en-dif, RD o VI declarada."
     dont: "«X redujo Y» a partir de una serie de tiempo descriptiva."
-    check: { type: automated, tool: umbral-lint, id: causal-language }
+    check:
+      type: review
+      note: >
+        Detectar un verbo causal es fácil; decidir si hay una estrategia de identificación declarada al lado no lo es. Un falso positivo aquí desgasta la regla más importante del laboratorio.
+        Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     evidence: "Brand book p.12; umbral-engineering.md §6."
     guide: "13-interpretabilidad"
@@ -1035,7 +1118,10 @@ rules:
       de decorado a una afirmación que no se verificó.
     do: "Que el lector pueda comprobar el título mirando la figura."
     dont: "Un titular sobre causas encima de una gráfica descriptiva."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        Juzgar si el titular se sostiene con la figura es exactamente el trabajo que no se puede automatizar.
     since: "1.0"
     guide: "13-interpretabilidad"
     see_also: [UMB-CHT-001, UMB-MET-001]
@@ -1050,7 +1136,10 @@ rules:
       Comparar el conteo del Estado de México con el de Colima mide población, no incidencia.
     do: "Tasa por 100 mil con denominador declarado, o comparar dentro de la misma unidad en el tiempo."
     dont: "Un ranking de entidades por conteo absoluto."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        Requiere saber si dos unidades comparadas tienen poblaciones distintas.
     since: "1.0"
     guide: "13-interpretabilidad"
     see_also: [UMB-CHT-012]
@@ -1067,7 +1156,10 @@ rules:
       ponerlas en riesgo.
     do: "Agregados, lenguaje sobrio, terminología del glosario."
     dont: "Mapas a nivel de individuo, fotografías, o adjetivos que dramatizan el conteo."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        El trato digno es un juicio editorial. Automatizarlo daría una falsa garantía sobre lo más delicado que publica el laboratorio.
     since: "1.0"
     evidence: "Brand book p.12; CLAUDE.md §3."
     guide: "13-interpretabilidad"
@@ -1118,7 +1210,7 @@ rules:
       que fallaba contraste.
     do: "Añadir la regla aquí, con su ID, y citarla desde el capítulo."
     dont: "Escribir «nunca hagas X» en un capítulo y dejarlo ahí."
-    check: { type: automated, tool: umbral-lint, id: prose-rule-drift }
+    check: { type: automated, tool: verify-guide, id: prose-rule-drift }
     since: "1.1"
     evidence: "audit/2026-07-conformance.md §3.5."
     guide: "00-principios"
@@ -1165,7 +1257,10 @@ rules:
       eliminar.
     do: "Un PR que toca rules.yaml también toca su capítulo, y al revés."
     dont: "Añadir una regla y dejar la guía para después."
-    check: { type: review }
+    check:
+      type: review
+      note: >
+        Que un PR toque la regla y su capítulo se comprueba al revisar el PR, no dentro de un archivo.
     since: "1.1"
     evidence: "CLAUDE.md §4, definición de done; formalizada como regla en 1.1."
     guide: "00-principios"

@@ -12,7 +12,7 @@ Los numerales tabulares alinean los dígitos y hacen comparable el eje de un vis
 | **Sí** | 12k, 3.7M, 351,057. |
 | **No** | 12000, 3700000, o cifras en la tipografía de cuerpo. |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `axis-mono`.
+*Comprobación:* En revisión.
 
 *Ver también:* UMB-NUM-001 · UMB-NUM-002
 

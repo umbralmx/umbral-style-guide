@@ -44,6 +44,7 @@ advertencias que el lector necesita antes de mirar: «el registro se actualiza r
 Plex Mono 12px, `caption`, encima de una regla de 1px. El orden es:
 
 ```
+<!-- umbral-lint: ignore[snapshot-tag] — plantilla, no una línea de fuente real -->
 Fuente: ORIGEN · consultado FECHA · TAG-DE-SNAPSHOT · umbral.mx · datos CC BY 4.0
 ```
 

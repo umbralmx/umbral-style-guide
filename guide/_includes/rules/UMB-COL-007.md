@@ -16,7 +16,7 @@ Los tokens cascadean por subárbol. Mezclarlos dentro de una superficie produce 
 
 - Secciones alternas de una misma página son superficies distintas, no un mismo panel.
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `mode-mixing`.
+*Comprobación:* En revisión.
 
 <small>Desde v1.0. Regla normativa: <code>rules/rules.yaml</code>.</small>
 

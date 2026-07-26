@@ -1,0 +1,39 @@
+name: lint
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  umbral-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install --quiet -e tools/umbral-lint
+
+      # Annotations appear inline on the PR diff. Severities come from
+      # rules/rules.json, so what blocks a merge is decided by the rule set.
+      - name: umbral-lint
+        run: umbral-lint . --format github
+
+  # A downstream repo needs five lines, not this file. This job is the worked
+  # example, and it runs here so the instructions cannot rot.
+  downstream-example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          pip install --quiet \
+            "git+https://github.com/umbralmx/umbral-style-guide@v1.1.0#subdirectory=tools/umbral-lint"
+        continue-on-error: true   # the tag does not exist until Phase 7 cuts the release
+      - run: umbral-lint . --format github
+        continue-on-error: true

@@ -19,6 +19,7 @@ Todo directorio bajo `data/raw/` lleva el suyo:
 # RNPDNO — Registro Nacional de Personas Desaparecidas y No Localizadas
 
 - **Origen:** https://versionpublicarnpdno.segob.gob.mx/
+<!-- umbral-lint: ignore[terminology] — «Desaparecidas o no localizadas» es la etiqueta del RNPDNO -->
 - **Institución:** Comisión Nacional de Búsqueda (CNB) / SEGOB
 - **Descargado por:** jballesterosc
 - **Fecha de descarga:** 2026-07-09

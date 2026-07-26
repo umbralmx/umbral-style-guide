@@ -12,7 +12,7 @@ El título es la afirmación. Un tema («Registros por año») obliga al lector 
 | **Sí** | «El gasto observable acumula ≥ 107.6 M MXN». |
 | **No** | «Gasto por mes». |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `chart-title-present`.
+*Comprobación:* En revisión.
 
 *Origen:* Brand book p.05; pautamx y desaparecidosmx ya lo hacen bien.
 

@@ -12,7 +12,7 @@ Convertir un nulo en cero es una imputación silenciosa, y en datos de desaparic
 | **Sí** | 0 · «sin dato» · «suprimido (< umbral de reporte)». |
 | **No** | Rellenar los huecos con 0 al construir la serie. |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `null-vs-zero`.
+*Comprobación:* En revisión.
 
 *Origen:* KICKOFF §3.4 (nulo vs cero vs suprimido); cabildo-libre ya declara sus huecos sin imputarlos.
 

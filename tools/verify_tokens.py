@@ -10,6 +10,10 @@ It also checks properties the build does not: ramp monotonicity, that every
 generated file actually carries the "do not edit" header, and that the corrected
 tokens really do fix every failure recorded in the Phase 0 audit.
 
+Implements the checks claimed by rules.yaml as `verify-tokens`:
+`contrast-text` (UMB-COL-005), `contrast-mark` (UMB-COL-006) and
+`series-separation` (UMB-COL-008).
+
 Run: python3 tools/verify_tokens.py    (exit 1 on any failure)
 """
 from __future__ import annotations
@@ -173,6 +177,7 @@ check(not any(k.startswith("sc-camel") for k in toml_decls),
       "streamlit-config.toml declares sc-camel- keys")
 check(toml_decls.get("font") != "sans serif",
       'streamlit-config.toml sets font = "sans serif", which is Streamlit\'s Source Sans')
+# umbral-lint: ignore[hardcoded-value] — asserting on the generated value is the point
 check("IBM Plex Sans" in toml_decls.get("font", ""),
       f"streamlit-config.toml font is {toml_decls.get('font')!r}, not IBM Plex Sans")
 check(toml_decls.get("primaryColor", "").lower() == tokens["mode"]["instrumento"]["signal"].lower(),

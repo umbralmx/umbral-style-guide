@@ -12,7 +12,7 @@ La barra es la señal cruzando el umbral de significancia; que cruce a la izquie
 | **Sí** | Generar todas las variantes desde la fuente paramétrica única. |
 | **No** | Redibujar el isotipo a mano o escalar la barra por separado. |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `logo-geometry`.
+*Comprobación:* Automática — `logo-build`, comprobación `logo-geometry`.
 
 *Origen:* audit/2026-07-conformance.md §3.5; decisión OQ-007.
 

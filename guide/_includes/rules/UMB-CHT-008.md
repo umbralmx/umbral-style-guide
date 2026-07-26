@@ -12,7 +12,7 @@ La longitud de la barra es la codificación. Truncar el eje multiplica visualmen
 | **Sí** | Barras desde 0, siempre. |
 | **No** | Empezar el eje en el mínimo observado para «que se note la diferencia». |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `bars-from-zero`.
+*Comprobación:* En revisión.
 
 <small>Desde v1.0. Regla normativa: <code>rules/rules.yaml</code>.</small>
 

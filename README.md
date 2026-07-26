@@ -43,8 +43,9 @@ stops meeting its accessibility obligation.
 
 ```bash
 npm install
-npm run build      # tokens, rules, and the guide's generated partials
+npm run build      # tokens, rules, logos, guide partials, the agent skill
 npm run verify     # re-derives everything independently in Python
+npm run lint       # umbral-lint over this repo
 ```
 
 The build **fails** if any token misses the contrast threshold for its declared role.
@@ -70,7 +71,7 @@ Available build targets: `tokens.css` · `tokens.json` · `_tokens.scss` · `tok
 | [`tokens/`](tokens/) | `src/` is authored; `build/` is generated for 11 targets. |
 | [`audit/`](audit/) | Conformance audits of the live products, and open questions. |
 | [`build/`](build/) | The generators. |
-| [`tools/`](tools/) | Independent verification scripts (Python). |
+| [`tools/`](tools/) | `umbral-lint`, plus the independent verification scripts. |
 | [`skills/`](skills/) | The agent skill. Install into `.claude/skills/`. |
 | [`dist/`](dist/) | `CLAUDE.snippet.md` — paste into a downstream repo's `CLAUDE.md`. |
 | [`assets/`](assets/) | Logo variants, generated from one parametric spec. |
@@ -94,8 +95,8 @@ Change the source and rebuild. CI diffs the committed output and fails if it's s
 | 2 · Rules | done |
 | 3 · Guide prose | done |
 | 4 · Agent skill + snippet | done |
-| 5 · `umbral-lint` | next |
-| 6 · Packages (`umbral-viz`, `umbral-plot`) | |
+| 5 · `umbral-lint` | done |
+| 6 · Packages (`umbral-viz`, `umbral-plot`) | next |
 | 7 · Site + release | |
 | 8 · Retrofit the four products | |
 

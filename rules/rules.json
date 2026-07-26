@@ -9,8 +9,8 @@
       "info": 1
     },
     "byCheckType": {
-      "review": 19,
-      "automated": 48,
+      "review": 33,
+      "automated": 34,
       "manual": 2
     }
   },
@@ -649,7 +649,7 @@
   "automatedChecks": [
     {
       "rule": "UMB-BRD-002",
-      "tool": "umbral-lint",
+      "tool": "logo-build",
       "check": "logo-geometry",
       "severity": "error"
     },
@@ -672,12 +672,6 @@
       "severity": "error"
     },
     {
-      "rule": "UMB-COL-004",
-      "tool": "umbral-lint",
-      "check": "signal-count",
-      "severity": "error"
-    },
-    {
       "rule": "UMB-COL-005",
       "tool": "verify-tokens",
       "check": "contrast-text",
@@ -687,12 +681,6 @@
       "rule": "UMB-COL-006",
       "tool": "verify-tokens",
       "check": "contrast-mark",
-      "severity": "error"
-    },
-    {
-      "rule": "UMB-COL-007",
-      "tool": "umbral-lint",
-      "check": "mode-mixing",
       "severity": "error"
     },
     {
@@ -762,51 +750,9 @@
       "severity": "error"
     },
     {
-      "rule": "UMB-CHT-001",
-      "tool": "umbral-lint",
-      "check": "chart-title-present",
-      "severity": "error"
-    },
-    {
-      "rule": "UMB-CHT-002",
-      "tool": "umbral-lint",
-      "check": "chart-subtitle-present",
-      "severity": "error"
-    },
-    {
       "rule": "UMB-CHT-003",
       "tool": "umbral-lint",
       "check": "chart-source-present",
-      "severity": "error"
-    },
-    {
-      "rule": "UMB-CHT-004",
-      "tool": "umbral-lint",
-      "check": "gridlines-horizontal",
-      "severity": "error"
-    },
-    {
-      "rule": "UMB-CHT-005",
-      "tool": "umbral-lint",
-      "check": "no-legend-box",
-      "severity": "error"
-    },
-    {
-      "rule": "UMB-CHT-006",
-      "tool": "umbral-lint",
-      "check": "series-count",
-      "severity": "warning"
-    },
-    {
-      "rule": "UMB-CHT-007",
-      "tool": "umbral-lint",
-      "check": "axis-mono",
-      "severity": "warning"
-    },
-    {
-      "rule": "UMB-CHT-008",
-      "tool": "umbral-lint",
-      "check": "bars-from-zero",
       "severity": "error"
     },
     {
@@ -828,12 +774,6 @@
       "severity": "error"
     },
     {
-      "rule": "UMB-NUM-001",
-      "tool": "umbral-lint",
-      "check": "number-separators",
-      "severity": "error"
-    },
-    {
       "rule": "UMB-NUM-003",
       "tool": "umbral-lint",
       "check": "date-format",
@@ -844,12 +784,6 @@
       "tool": "umbral-lint",
       "check": "percent-spacing",
       "severity": "info"
-    },
-    {
-      "rule": "UMB-NUM-006",
-      "tool": "umbral-lint",
-      "check": "null-vs-zero",
-      "severity": "error"
     },
     {
       "rule": "UMB-DAT-001",
@@ -882,18 +816,6 @@
       "severity": "error"
     },
     {
-      "rule": "UMB-A11Y-003",
-      "tool": "umbral-lint",
-      "check": "chart-data-table",
-      "severity": "error"
-    },
-    {
-      "rule": "UMB-A11Y-004",
-      "tool": "umbral-lint",
-      "check": "chart-csv-download",
-      "severity": "error"
-    },
-    {
       "rule": "UMB-A11Y-006",
       "tool": "umbral-lint",
       "check": "focus-and-target",
@@ -903,12 +825,6 @@
       "rule": "UMB-A11Y-007",
       "tool": "umbral-lint",
       "check": "reduced-motion",
-      "severity": "error"
-    },
-    {
-      "rule": "UMB-MET-001",
-      "tool": "umbral-lint",
-      "check": "causal-language",
       "severity": "error"
     },
     {
@@ -925,7 +841,7 @@
     },
     {
       "rule": "UMB-PRO-002",
-      "tool": "umbral-lint",
+      "tool": "verify-guide",
       "check": "prose-rule-drift",
       "severity": "error"
     },
@@ -958,7 +874,8 @@
       "do": "umbral_ en minúsculas, peso 500, guión bajo en signal-text.",
       "dont": "UMBRAL_, Umbral_, peso 700, o el guión bajo en el color del texto.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "El wordmark se compone con tipografía viva; comprobar peso, caja y color del guión bajo exige la salida renderizada.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.02; CLAUDE.md §5.",
@@ -987,7 +904,7 @@
       "dont": "Redibujar el isotipo a mano o escalar la barra por separado.",
       "check": {
         "type": "automated",
-        "tool": "umbral-lint",
+        "tool": "logo-build",
         "id": "logo-geometry"
       },
       "since": "1.0",
@@ -1041,7 +958,8 @@
       "do": "Usar los SVG generados en assets/logo/.",
       "dont": "Estirar, rotar, aplicar sombra, contorno, degradado o un color arbitrario.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "La distorsión, el contorno y el efecto solo son visibles en el artefacto final, no en el fuente.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.02 «NO SE PERMITE».",
@@ -1156,10 +1074,8 @@
       "do": "Una serie, una cifra o un elemento de UI en signal.",
       "dont": "Signal en el logo, el botón y la serie principal a la vez.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "signal-count",
-        "note": "Se evalúa sobre la salida renderizada de la gráfica, no sobre el HTML completo de la página — consecuencia de acotar la regla a la capa de datos (OQ-002).\n"
+        "type": "review",
+        "note": "Requiere la salida renderizada de la gráfica, no el código fuente. Acotada además a la capa de datos (OQ-002), así que un linter de archivos no puede decidirla. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.03 «La señal es sagrada»; medido: 17 elementos en desaparecidosmx, 10 en pautamx, 4 en cabildo-libre.",
@@ -1245,9 +1161,8 @@
       "do": "data-mode=\"instrumento\" sobre un contenedor completo.",
       "dont": "Un panel claro con una tarjeta oscura dentro, o al revés.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "mode-mixing"
+        "type": "review",
+        "note": "Requiere el DOM resuelto: los modos cascadean por subárbol y la mezcla solo existe una vez renderizado. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "exceptions": [
@@ -1301,7 +1216,8 @@
       "do": "Una rampa secuencial por figura; si hacen falta dos, variar también el rango de luminosidad.",
       "dont": "Un coroplético en rampa signal junto a otro en rampa model.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "Saber qué codifica cada rampa en una figura exige entender la figura, no el código.\n"
       },
       "since": "1.1",
       "evidence": "Decisión OQ-005.",
@@ -1326,7 +1242,8 @@
       "do": "missing como relleno plano; suppressed con la trama de 45°; cero en el extremo de la rampa.",
       "dont": "Pintar el faltante como el valor más bajo de la escala.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "Que faltante, suprimido y cero se distingan es una propiedad de la leyenda renderizada.\n"
       },
       "since": "1.1",
       "evidence": "KICKOFF §3.3 pide un relleno de faltante y una trama de suprimido; v1.0 no definía ninguno.",
@@ -1649,9 +1566,8 @@
       "do": "«El gasto observable acumula ≥ 107.6 M MXN».",
       "dont": "«Gasto por mes».",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "chart-title-present"
+        "type": "review",
+        "note": "Un linter puede ver que hay un título; no puede juzgar si enuncia el hallazgo, que es precisamente la parte que importa. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.05; pautamx y desaparecidosmx ya lo hacen bien.",
@@ -1679,9 +1595,8 @@
       "do": "«México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente».",
       "dont": "Dejar la unidad implícita en el eje.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "chart-subtitle-present"
+        "type": "review",
+        "note": "Igual que el título: la presencia es detectable, la suficiencia —geografía, periodo, unidad— no. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "08-anatomia-grafica"
@@ -1735,9 +1650,8 @@
       "do": "y.grid = true, x.grid = false, base en --u-baseline.",
       "dont": "Retícula en ambos ejes, o marco alrededor de la gráfica.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "gridlines-horizontal"
+        "type": "review",
+        "note": "Depende de la librería y de la configuración efectiva; detectarlo en el código produce demasiados falsos negativos para ser útil. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "08-anatomia-grafica"
@@ -1761,9 +1675,8 @@
       "do": "Plot.text en el último dato de cada serie.",
       "dont": "Una caja de leyenda al costado.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "no-legend-box"
+        "type": "review",
+        "note": "Muchas librerías dibujan leyenda por defecto sin que aparezca nada en el código. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "08-anatomia-grafica",
@@ -1791,9 +1704,8 @@
       "do": "Una serie en signal, el resto en model/muted; el resto agrupado en «otros».",
       "dont": "Ocho líneas y una leyenda para desenredarlas.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "series-count"
+        "type": "review",
+        "note": "El número de series suele depender de los datos en tiempo de ejecución, no del código. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "07-vocabulario-visual"
@@ -1817,9 +1729,8 @@
       "do": "12k, 3.7M, 351,057.",
       "dont": "12000, 3700000, o cifras en la tipografía de cuerpo.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "axis-mono"
+        "type": "review",
+        "note": "La familia del eje se hereda del tema; comprobarla en el código no dice lo que se renderiza. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "08-anatomia-grafica",
@@ -1847,9 +1758,8 @@
       "do": "Barras desde 0, siempre.",
       "dont": "Empezar el eje en el mínimo observado para «que se note la diferencia».",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "bars-from-zero"
+        "type": "review",
+        "note": "Requiere conocer los límites efectivos del eje, que casi siempre calcula la librería. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "08-anatomia-grafica"
@@ -1873,7 +1783,8 @@
       "do": "Marcar el corte y decirlo junto al eje.",
       "dont": "Truncar en silencio.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "Detectar un truncamiento exige los límites efectivos del eje, que casi siempre calcula la librería.\n"
       },
       "since": "1.0",
       "guide": "08-anatomia-grafica"
@@ -1924,7 +1835,8 @@
       "do": "Banda al 15% de opacidad del color de la serie; trazo punteado más allá del presente; regla vertical punteada etiquetada «hoy».",
       "dont": "Una línea sólida que cruza hacia el futuro sin distinguirse del dato observado.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "Que una banda exista es detectable; que corresponda a la incertidumbre real del método no lo es.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.08; pautamx lo hace bien con las cotas que publica Meta.",
@@ -1952,7 +1864,8 @@
       "do": "«tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204».",
       "dont": "Publicar la tasa sola.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "Comprobar que el denominador declarado es el correcto exige conocer el dato.\n"
       },
       "since": "1.0",
       "guide": "09-incertidumbre",
@@ -1982,7 +1895,8 @@
       "do": "guide/ en español; inglés en código, commits y la capa meta.",
       "dont": "Traducir del inglés al español como paso final.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "La detección de idioma sobre fragmentos cortos es poco fiable, y el criterio es editorial.\n"
       },
       "since": "1.0",
       "guide": "05-voz",
@@ -2092,9 +2006,8 @@
       "do": "351,057 · 3.7 · 12.5%",
       "dont": "351.057 · 3,7",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "number-separators"
+        "type": "review",
+        "note": "Sobre prosa produce demasiados falsos positivos —referencias, versiones, códigos— para bloquear un release. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.1",
       "evidence": "KICKOFF §3.4: v1.0 no definía estilo numérico. Es el mayor hueco frente a las guías del Economist y el FT.",
@@ -2201,7 +2114,8 @@
       "do": "Redondear a la precisión que el método sostiene y decir cuál es.",
       "dont": "Arrastrar todos los decimales que devuelve el cálculo.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "La precisión que sostiene el dato depende del método, no del texto.\n"
       },
       "since": "1.1",
       "evidence": "KICKOFF §3.4 (redondeo y cifras significativas).",
@@ -2230,9 +2144,8 @@
       "do": "0 · «sin dato» · «suprimido (< umbral de reporte)».",
       "dont": "Rellenar los huecos con 0 al construir la serie.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "null-vs-zero"
+        "type": "review",
+        "note": "Distinguir una imputación silenciosa de un cero legítimo exige entender la transformación, no el texto. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.1",
       "evidence": "KICKOFF §3.4 (nulo vs cero vs suprimido); cabildo-libre ya declara sus huecos sin imputarlos.",
@@ -2365,7 +2278,8 @@
       "do": "Declararlo como hueco conocido, con su magnitud.",
       "dont": "Interpolar, rellenar con cero, o recortar el periodo hasta que el hueco desaparezca.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "Distinguir un hueco declarado de uno omitido exige leer el pipeline completo.\n"
       },
       "since": "1.0",
       "evidence": "cabildo-libre es el modelo: «Vacíos conocidos, declarados y no imputados: 27 sesiones…».\n",
@@ -2440,9 +2354,8 @@
       "do": "<details> con la tabla debajo de la gráfica.",
       "dont": "Solo el SVG.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "chart-data-table"
+        "type": "review",
+        "note": "La tabla adyacente suele generarse en tiempo de ejecución; su ausencia no es visible en el fuente. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "11-accesibilidad"
@@ -2463,9 +2376,8 @@
       "do": "Un botón de descarga por vista.",
       "dont": "Publicar la gráfica y dejar el CSV en el repo sin enlazarlo.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "chart-csv-download"
+        "type": "review",
+        "note": "Igual: el botón de descarga se construye en ejecución. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "evidence": "Medido: desaparecidosmx lo tiene; pautamx no tiene ninguno.",
@@ -2494,7 +2406,8 @@
       "do": "Etiqueta de texto en cada serie; flecha o palabra en cada delta.",
       "dont": "Verde/rojo como única diferencia entre subida y bajada.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "Que exista una etiqueta es detectable; que el significado no dependa del color no lo es.\n"
       },
       "since": "1.0",
       "guide": "11-accesibilidad",
@@ -2568,9 +2481,8 @@
       "do": "«asociado con» / «correlaciona» para lo descriptivo; «efecto» / «reduce» solo con RCT, dif-en-dif, RD o VI declarada.",
       "dont": "«X redujo Y» a partir de una serie de tiempo descriptiva.",
       "check": {
-        "type": "automated",
-        "tool": "umbral-lint",
-        "id": "causal-language"
+        "type": "review",
+        "note": "Detectar un verbo causal es fácil; decidir si hay una estrategia de identificación declarada al lado no lo es. Un falso positivo aquí desgasta la regla más importante del laboratorio. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.12; umbral-engineering.md §6.",
@@ -2595,7 +2507,8 @@
       "do": "Que el lector pueda comprobar el título mirando la figura.",
       "dont": "Un titular sobre causas encima de una gráfica descriptiva.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "Juzgar si el titular se sostiene con la figura es exactamente el trabajo que no se puede automatizar.\n"
       },
       "since": "1.0",
       "guide": "13-interpretabilidad",
@@ -2623,7 +2536,8 @@
       "do": "Tasa por 100 mil con denominador declarado, o comparar dentro de la misma unidad en el tiempo.",
       "dont": "Un ranking de entidades por conteo absoluto.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "Requiere saber si dos unidades comparadas tienen poblaciones distintas.\n"
       },
       "since": "1.0",
       "guide": "13-interpretabilidad",
@@ -2652,7 +2566,8 @@
       "do": "Agregados, lenguaje sobrio, terminología del glosario.",
       "dont": "Mapas a nivel de individuo, fotografías, o adjetivos que dramatizan el conteo.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "El trato digno es un juicio editorial. Automatizarlo daría una falsa garantía sobre lo más delicado que publica el laboratorio.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.12; CLAUDE.md §3.",
@@ -2725,7 +2640,7 @@
       "dont": "Escribir «nunca hagas X» en un capítulo y dejarlo ahí.",
       "check": {
         "type": "automated",
-        "tool": "umbral-lint",
+        "tool": "verify-guide",
         "id": "prose-rule-drift"
       },
       "since": "1.1",
@@ -2794,7 +2709,8 @@
       "do": "Un PR que toca rules.yaml también toca su capítulo, y al revés.",
       "dont": "Añadir una regla y dejar la guía para después.",
       "check": {
-        "type": "review"
+        "type": "review",
+        "note": "Que un PR toque la regla y su capítulo se comprueba al revisar el PR, no dentro de un archivo.\n"
       },
       "since": "1.1",
       "evidence": "CLAUDE.md §4, definición de done; formalizada como regla en 1.1.",

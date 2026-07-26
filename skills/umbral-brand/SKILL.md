@@ -45,6 +45,7 @@ panel (UMB-COL-007).
    logo, a button and a series are all teal, none of them is the point (UMB-COL-004).
 2. **Chart titles state the finding, as a sentence.** «Los registros crecen 9% anual desde 2015»,
    not «Registros por año» (UMB-CHT-001).
+<!-- umbral-lint: ignore[snapshot-tag] — format template, not a real source line -->
 3. **Every chart has a source line.** `Fuente: ORIGEN · consultado FECHA · SNAPSHOT · umbral.mx ·
    datos CC BY 4.0`. A chart circulates without its page; the source line is what travels with it
    (UMB-CHT-003).
@@ -105,6 +106,7 @@ single hero figure read as language.
 
 Full spec: `references/charts.md`. Every chart, every medium:
 
+<!-- umbral-lint: ignore[snapshot-tag] — template, not a real source line -->
 ```
 Title that states the finding                      Space Grotesk 500
 Geography · period · unit                          Plex Sans, muted

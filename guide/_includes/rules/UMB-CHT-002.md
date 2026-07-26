@@ -12,7 +12,7 @@ Sin unidad y sin periodo la cifra no significa nada, y la gráfica circula sin s
 | **Sí** | «México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente». |
 | **No** | Dejar la unidad implícita en el eje. |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `chart-subtitle-present`.
+*Comprobación:* En revisión.
 
 <small>Desde v1.0. Regla normativa: <code>rules/rules.yaml</code>.</small>
 

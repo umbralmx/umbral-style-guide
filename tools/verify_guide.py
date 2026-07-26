@@ -9,6 +9,8 @@ also state" — mechanical rather than aspirational:
   * chapters include the generated callout instead of restating the rule;
   * every generated partial a chapter includes actually exists.
 
+Implements the `prose-rule-drift` check claimed by UMB-PRO-002.
+
 Run: python3 tools/verify_guide.py    (exit 1 on any failure)
 """
 from __future__ import annotations

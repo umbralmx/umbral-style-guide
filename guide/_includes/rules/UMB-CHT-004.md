@@ -12,7 +12,7 @@ La retícula vertical rara vez ayuda a leer un valor y sí ensucia. La línea ba
 | **Sí** | y.grid = true, x.grid = false, base en --u-baseline. |
 | **No** | Retícula en ambos ejes, o marco alrededor de la gráfica. |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `gridlines-horizontal`.
+*Comprobación:* En revisión.
 
 <small>Desde v1.0. Regla normativa: <code>rules/rules.yaml</code>.</small>
 

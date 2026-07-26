@@ -12,7 +12,7 @@ Más allá de cinco, ni las etiquetas directas ni la separación de color se sos
 | **Sí** | Una serie en signal, el resto en model/muted; el resto agrupado en «otros». |
 | **No** | Ocho líneas y una leyenda para desenredarlas. |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `series-count`.
+*Comprobación:* En revisión.
 
 <small>Desde v1.0. Regla normativa: <code>rules/rules.yaml</code>.</small>
 

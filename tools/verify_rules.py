@@ -147,7 +147,9 @@ for topic, required in KICKOFF_MINIMUM.items():
         check(rid in by_id, f"KICKOFF §5 requires a rule for '{topic}' — {rid} is missing")
 
 # ── 7. every automated check is claimed by exactly one tool we ship ───────
-TOOLS = {"umbral-lint", "token-build", "verify-tokens"}
+# Kept in step with rules.schema.json. tools/verify_lint.py additionally checks
+# that each named tool has an implementation file that mentions the check id.
+TOOLS = {"umbral-lint", "token-build", "verify-tokens", "verify-guide", "logo-build"}
 for r in rules:
     if r["check"]["type"] == "automated":
         check(r["check"]["tool"] in TOOLS,

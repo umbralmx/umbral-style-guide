@@ -92,6 +92,7 @@ una señal. Ver [10 · Mapas](10-mapas.md).
 | Rango en prosa | `de 2010 a 2026` |
 | Rango compacto | `2010–2026` (raya, no guión) |
 
+<!-- umbral-lint: ignore[date-format] — se cita el formato ambiguo para prohibirlo -->
 Nunca `07/06/2026`: significa cosas distintas en México y en Estados Unidos, y las dos son
 plausibles.
 

@@ -1,0 +1,21 @@
+# Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Umbral (umbral.mx)
+
+The **content** of this repository — the style guide in `guide/`, the rule text in
+`rules/`, the audits in `audit/`, the documentation, and the brand assets in
+`assets/` — is licensed under a Creative Commons Attribution 4.0 International
+License.
+
+You are free to share and adapt this material for any purpose, including
+commercially, provided you give appropriate credit, link to the licence, and
+indicate if changes were made.
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by/4.0/deed.es
+
+The **code** in this repository — `build/`, `tools/`, and the scripts bundled with
+the agent skill — is licensed separately under the MIT License. See `LICENSE-CODE`.
+
+Space Grotesk and IBM Plex are licensed under the SIL Open Font License; their
+licences ship alongside the font files in `assets/fonts/`.

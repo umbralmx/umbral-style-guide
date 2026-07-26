@@ -1,0 +1,33 @@
+# Paths umbral-lint skips in THIS repo.
+#
+# A style guide has to quote the things it forbids. These paths exist to document
+# violations, so linting them reports the documentation rather than any real defect.
+# Everything else in the repo IS linted — see `npm run lint`.
+
+# The audit records what the live products actually rendered, including the v1.0
+# token values and the Google Fonts links it was written to expose.
+audit/
+
+# Superseded v1.0 material, kept for reference only.
+_inbox/
+
+# The linter's own patterns are, necessarily, the strings it looks for.
+tools/umbral-lint/
+
+# The build inputs: the token sources are where values are supposed to live, and
+# the generators embed example output.
+tokens/src/
+build/
+
+# The plan and the agent contract, both of which quote counter-examples.
+kickoff-prompt.md
+CLAUDE.md
+
+# The `dont:` field of every rule is a counter-example by definition, and three
+# generated artifacts inherit it verbatim.
+rules/rules.yaml
+guide/_includes/
+skills/umbral-brand/references/
+
+# lint.py necessarily contains the strings it detects; the other two scripts are linted.
+skills/umbral-brand/scripts/lint.py

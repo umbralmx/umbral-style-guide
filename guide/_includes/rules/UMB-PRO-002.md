@@ -12,7 +12,7 @@ Es el mecanismo que impide que la guía y la norma se separen. En v1.0 el brand 
 | **Sí** | Añadir la regla aquí, con su ID, y citarla desde el capítulo. |
 | **No** | Escribir «nunca hagas X» en un capítulo y dejarlo ahí. |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `prose-rule-drift`.
+*Comprobación:* Automática — `verify-guide`, comprobación `prose-rule-drift`.
 
 *Origen:* audit/2026-07-conformance.md §3.5.
 

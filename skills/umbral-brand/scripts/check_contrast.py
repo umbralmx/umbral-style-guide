@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# umbral-lint: ignore-file[hardcoded-value] — the --help examples must show real hexes
 """Contrast checker for the Umbral palette.
 
 Answers the question an agent should never guess at: does this pair pass?

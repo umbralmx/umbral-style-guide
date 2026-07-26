@@ -80,6 +80,7 @@ def use(library: str, mode: str = "laboratorio") -> None:
 
 
 SNIPPETS = {
+    # umbral-lint: ignore[hardcoded-value] — snippet names the family for the reader
     "matplotlib": '''import matplotlib.pyplot as plt
 import json
 

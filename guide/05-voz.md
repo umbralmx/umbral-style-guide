@@ -43,6 +43,7 @@ evaluativo es casi siempre una cifra que no se buscó.
 
 | Evitar | Escribir |
 |---|---|
+<!-- umbral-lint: ignore[hype-language] — la columna «evitar» son ejemplos de lo prohibido -->
 | «se dispararon» | «crecieron 34% entre 2023 y 2025» |
 | «una cifra alarmante» | «12,481 registros» |
 | «prácticamente todos» | «94%» |
@@ -69,6 +70,7 @@ alguien más rehaga el cálculo. Ver [12 · Datos y procedencia](12-datos-proced
 
 {{< include _includes/rules/UMB-VOZ-004.md >}}
 
+<!-- umbral-lint: ignore[placeholder-content] -->
 Un «Lorem ipsum» en producción dice que nadie revisó la página, y eso contamina la credibilidad de
 los números que están al lado. En julio de 2026 las dos biografías del sitio principal seguían
 siendo texto de relleno.

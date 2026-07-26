@@ -83,7 +83,10 @@
               "enum": ["automated", "manual", "review"],
               "description": "automated: a tool decides. manual: a human follows a stated procedure. review: judgement, cited in PR review."
             },
-            "tool": { "enum": ["umbral-lint", "token-build", "verify-tokens"] },
+            "tool": {
+              "enum": ["umbral-lint", "token-build", "verify-tokens", "verify-guide", "logo-build"],
+              "description": "The tool that actually runs this check. A rule may not name a tool that does not implement it — tools/verify_lint.py reconciles both directions."
+            },
             "id": {
               "type": "string",
               "pattern": "^[a-z0-9-]+$",

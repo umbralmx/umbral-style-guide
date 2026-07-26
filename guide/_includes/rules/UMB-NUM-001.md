@@ -12,7 +12,7 @@ México usa la convención anglosajona, a diferencia de España. Fijarlo evita q
 | **Sí** | 351,057 · 3.7 · 12.5% |
 | **No** | 351.057 · 3,7 |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `number-separators`.
+*Comprobación:* En revisión.
 
 *Origen:* KICKOFF §3.4: v1.0 no definía estilo numérico. Es el mayor hueco frente a las guías del Economist y el FT.
 

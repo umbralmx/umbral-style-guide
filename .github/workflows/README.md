@@ -2,7 +2,8 @@
 
 | | |
 |---|---|
-| `build.yml` | Builds tokens, rules and guide partials; runs the contrast gate; verifies independently in Python; fails if committed output is stale |
+| `build.yml` | Builds tokens, rules, logos, guide partials and the skill; runs the contrast and logo gates; verifies independently in Python; fails if committed output is stale |
+| `lint.yml` | Runs `umbral-lint` over the repo with GitHub annotations, plus a worked example of how a downstream repo consumes it |
 
 ## What can fail the build
 
@@ -15,4 +16,4 @@
    `guide/_includes/` differing after a rebuild. That means someone hand-edited a generated file
    (UMB-PRO-001) or forgot to rebuild.
 
-Later phases add workflows for `umbral-lint`, Pages deployment and releases.
+Later phases add workflows for Pages deployment and releases.

@@ -12,7 +12,7 @@ La leyenda obliga a ir y venir entre el dato y su nombre. La etiqueta directa ta
 | **Sí** | Plot.text en el último dato de cada serie. |
 | **No** | Una caja de leyenda al costado. |
 
-*Comprobación:* Automática — `umbral-lint`, comprobación `no-legend-box`.
+*Comprobación:* En revisión.
 
 *Ver también:* UMB-COL-005 · UMB-A11Y-005
 

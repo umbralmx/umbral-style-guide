@@ -1,0 +1,22 @@
+[project]
+name = "umbral-lint"
+version = "1.1.0"
+description = "Conformance checker for the Umbral design system"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Umbral", email = "hola@umbral.mx" }]
+dependencies = []
+
+[project.scripts]
+umbral-lint = "umbral_lint.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/umbralmx/umbral-style-guide"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["umbral_lint*"]
