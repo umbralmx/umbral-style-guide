@@ -63,6 +63,71 @@ Available build targets: `tokens.css` · `tokens.json` · `_tokens.scss` · `tok
 `umbral-{laboratorio,instrumento}.mplstyle` · `plotly-umbral-*.json` · `altair-umbral.py` ·
 `streamlit-config.toml` · `_brand.yml` (Quarto) · `contrast.json`.
 
+## Making an AI follow this guide in another project
+
+Three steps, in order of how much they buy you. Step 1 alone gets you most of the way.
+
+### 1. Install the skill
+
+This is the important one. Once installed, Claude loads the brand system automatically whenever it
+touches anything Umbral — you don't have to remember to ask.
+
+```bash
+mkdir -p .claude/skills
+curl -L https://github.com/umbralmx/umbral-style-guide/releases/download/v1.1.0/umbral-brand-v1.1.0.skill -o /tmp/umbral.skill
+unzip -q /tmp/umbral.skill -d .claude/skills/umbral-brand
+```
+
+For every project at once, use `~/.claude/skills/` instead of `.claude/skills/`. On claude.ai,
+upload the `.skill` file directly.
+
+> **If you already have a v1.0 skill installed, delete it first.** It bundles the old token values
+> and will keep handing out colours that fail contrast:
+> `rm -rf ~/.claude/skills/umbral-brand`
+
+### 2. Paste the snippet into the project's `CLAUDE.md`
+
+```bash
+curl -O https://raw.githubusercontent.com/umbralmx/umbral-style-guide/v1.1.0/dist/CLAUDE.snippet.md
+cat CLAUDE.snippet.md >> CLAUDE.md
+```
+
+~40 lines: the pinned tag, the raw token URLs, the two modes, and the rules broken most often. It
+covers the case where the skill isn't installed, and it tells a human collaborator the same things.
+
+### 3. Add the linter to CI
+
+```yaml
+- run: pip install "git+https://github.com/umbralmx/umbral-style-guide@v1.1.0#subdirectory=tools/umbral-lint"
+- run: umbral-lint . --format github
+```
+
+Findings appear inline on the PR diff. Severities come from the rule set, so what blocks a merge is
+decided centrally rather than per repo.
+
+### How to actually prompt it
+
+With the skill installed you usually don't need to say anything — mentioning Umbral, a product name,
+or asking for a chart is enough to trigger it. When you do want to be explicit:
+
+> Build the dashboard following the Umbral style guide. Read the skill's `references/charts.md`
+> before writing any chart code.
+
+Two prompts worth knowing:
+
+> **Review this against the Umbral guide and cite rule IDs.**
+> Gets you findings you can look up, argue with, and check in CI — not vibes.
+
+> **Which rules does this break, and which of them are `error`?**
+> Separates what blocks a release from what's merely worth discussing.
+
+And one instruction worth repeating, because it's the failure this whole system exists to prevent:
+
+> Never type a hex, font name or spacing value from memory. Read it from the tokens.
+
+If the model tells you a rule looks wrong, that's useful — it goes in `audit/open-questions.md` with
+its evidence, not into a silent change. If a rule is right but inconvenient, the rule wins.
+
 ## What's in here
 
 | Folder | |
