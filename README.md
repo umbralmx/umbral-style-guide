@@ -166,7 +166,7 @@ Change the source and rebuild. CI diffs the committed output and fails if it's s
 | 5 · `umbral-lint` | done |
 | 6 · Packages (`umbral-viz`, `umbral-plot`) | done |
 | 7 · Site + release | done |
-| 8 · Retrofit the four products | next |
+| 8 · Retrofit the four products | done — PRs open |
 
 Open decisions live in [`audit/open-questions.md`](audit/open-questions.md); released changes in
 [`CHANGELOG.md`](CHANGELOG.md).
