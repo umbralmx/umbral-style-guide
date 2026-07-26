@@ -31,3 +31,14 @@ skills/umbral-brand/references/
 
 # lint.py necessarily contains the strings it detects; the other two scripts are linted.
 skills/umbral-brand/scripts/lint.py
+
+# ── site/ ──
+# Rendered output. Nothing here is a source.
+site/_site/
+
+# Generated copies of files already linted at their source in guide/.
+site/_includes/
+site/guide/
+
+# Generated: it inlines tokens/build/tokens.css, so it IS a token file.
+site/styles.css

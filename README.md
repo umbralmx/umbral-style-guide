@@ -43,9 +43,10 @@ stops meeting its accessibility obligation.
 
 ```bash
 npm install
-npm run build      # tokens, rules, logos, guide partials, the agent skill
+npm run build      # tokens, rules, logos, fonts, guide, skill, packages, site
 npm run verify     # re-derives everything independently in Python
 npm run lint       # umbral-lint over this repo
+npm run site       # build and render the Quarto site
 ```
 
 The build **fails** if any token misses the contrast threshold for its declared role.
@@ -76,6 +77,7 @@ Available build targets: `tokens.css` · `tokens.json` · `_tokens.scss` · `tok
 | [`skills/`](skills/) | The agent skill. Install into `.claude/skills/`. |
 | [`dist/`](dist/) | `CLAUDE.snippet.md` — paste into a downstream repo's `CLAUDE.md`. |
 | [`assets/`](assets/) | Logo variants, generated from one parametric spec. |
+| [`site/`](site/) | The published guide. Quarto — see [ADR-0002](docs/adr/0002-site-generator.md). |
 | [`docs/`](docs/) | ADRs for the decisions that are hardest to reverse. |
 | [`_inbox/`](_inbox/) | The v1.0 source material, kept for reference. |
 
@@ -98,7 +100,8 @@ Change the source and rebuild. CI diffs the committed output and fails if it's s
 | 4 · Agent skill + snippet | done |
 | 5 · `umbral-lint` | done |
 | 6 · Packages (`umbral-viz`, `umbral-plot`) | done |
-| 7 · Site + release | next |
-| 8 · Retrofit the four products | |
+| 7 · Site + release | done |
+| 8 · Retrofit the four products | next |
 
-Open decisions live in [`audit/open-questions.md`](audit/open-questions.md).
+Open decisions live in [`audit/open-questions.md`](audit/open-questions.md); released changes in
+[`CHANGELOG.md`](CHANGELOG.md).

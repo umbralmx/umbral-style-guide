@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .DS_Store
 node_modules/
+site/_site/
+dist/*.skill
+dist/py/

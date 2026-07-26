@@ -1,0 +1,68 @@
+---
+title: "Superficie · Notebooks"
+lang: es
+---
+
+# Notebooks
+
+**Modo laboratorio (claro).** Exploración, y anexos metodológicos publicados.
+
+Un notebook de exploración no necesita ser bonito. Un notebook **publicado** es un documento del
+laboratorio y cumple las mismas reglas que cualquier otro.
+
+## Arranque
+
+```python
+import matplotlib.pyplot as plt
+import sys; sys.path.insert(0, "tokens/build")
+import tokens
+
+plt.style.use("tokens/build/umbral-laboratorio.mplstyle")
+```
+
+El `.mplstyle` trae la retícula horizontal, la línea base, las tres familias, el ciclo de color y
+los ejes en mono a 12px.
+
+::: {.callout-warning}
+El `umbral.mplstyle` de v1.0 fijaba el color de los ejes en `#9AA19B` —2.37:1, muy por debajo del
+mínimo— y usaba ese mismo token como **tercera serie**, donde tampoco alcanzaba el 3:1 de una marca
+de datos. El archivo generado corrige ambas cosas. No copies el antiguo de ningún documento.
+:::
+
+## Figuras
+
+```python
+ax.set_title("Los registros crecen 9% anual desde 2015", loc="left")
+ax.set_xlabel("")
+fig.text(0.01, -0.02,
+         "Fuente: RNPDNO · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · CC BY 4.0",
+         family=tokens.FONT["mono"], size=9, color=tokens.LABORATORIO["caption"])
+```
+
+Colores desde los tokens, nunca escritos a mano:
+
+```python
+c = tokens.LABORATORIO
+ax.plot(x, y, color=c["signal"])           # la serie destacada
+ax.plot(x, y2, color=c["muted"])           # el resto
+ax.fill_between(x, lo, hi, color=c["signal"], alpha=tokens.UNCERTAINTY_BAND_OPACITY)
+```
+
+Evita los valores por defecto de seaborn: pelean con el estilo.
+
+## Al publicar un notebook
+
+- Que corra de arriba abajo en un kernel limpio.
+- Sin credenciales, sin rutas absolutas del disco de alguien.
+- Toda figura con su título-hallazgo y su línea de fuente.
+- El CSV de cada figura escrito a `output/`.
+- Las celdas de exploración fallida se borran o se explican; un notebook publicado es un argumento,
+  no un registro de tanteos.
+
+## Antes de publicar
+
+- [ ] Corre completo desde cero
+- [ ] `.mplstyle` generado, no uno copiado
+- [ ] Ningún hex escrito a mano
+- [ ] Toda figura: título-hallazgo + fuente + CSV
+- [ ] Incertidumbre visible donde haya estimación

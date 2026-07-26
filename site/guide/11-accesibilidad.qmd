@@ -1,0 +1,90 @@
+---
+title: "Accesibilidad"
+lang: es
+---
+
+# 11 · Accesibilidad
+
+No es negociable para un laboratorio de interés público. Si publicas sobre desapariciones y una
+parte del público no puede leerte, el trabajo no llegó.
+
+## Contraste
+
+Comprobado en el build, no en la revisión. Ver la matriz generada en
+[02 · Color](/guide/02-color.qmd#la-matriz-de-contraste).
+
+{{< include /_includes/rules/UMB-COL-005.md >}}
+
+## Nunca solo color
+
+{{< include /_includes/rules/UMB-A11Y-005.md >}}
+
+| Situación | Además del color |
+|---|---|
+| Series en una gráfica | Etiqueta de texto al final de cada línea |
+| Delta arriba/abajo | Flecha o palabra: `+9.2% ▲`, no solo verde |
+| Categorías en un mapa | Trama distinta, y la tabla al lado |
+| Estado en una tabla | Palabra en la celda |
+
+Esta regla es también la mitigación real del punto débil de la paleta: `signal` y `model` son
+indistinguibles bajo tritanopía. Si respetas la etiqueta directa, ese defecto no llega al lector.
+
+## Idioma
+
+{{< include /_includes/rules/UMB-A11Y-001.md >}}
+
+Un lector de pantalla pronuncia el español con fonética inglesa si `lang` miente. Para un
+laboratorio que publica en español es el defecto de accesibilidad más básico que existe — y los dos
+tableros del laboratorio lo tienen, porque Streamlit fija `lang="en"` y nadie lo corrigió.
+
+El *shim* está documentado en [14 · Superficies → Streamlit](/guide/14-superficies/streamlit.qmd).
+
+## Gráficas
+
+Una gráfica sin texto alternativo es un rectángulo vacío: el hallazgo desaparece por completo, no
+solo su forma visual.
+
+{{< include /_includes/rules/UMB-A11Y-002.md >}}
+
+{{< include /_includes/rules/UMB-A11Y-003.md >}}
+
+{{< include /_includes/rules/UMB-A11Y-004.md >}}
+
+El `aria-label` lleva **la misma afirmación que el título**, no una descripción del tipo de gráfica:
+
+| | |
+|---|---|
+| **Sí** | `aria-label="El RNPDNO acumula 351,057 registros con hechos entre 2010-01 y 2026-07"` |
+| **No** | `aria-label="gráfica de líneas"` |
+
+## Teclado y foco
+
+{{< include /_includes/rules/UMB-A11Y-006.md >}}
+
+- `:focus-visible` con contorno en `signal`, nunca `outline: none`.
+- Orden de tabulación que siga el orden visual.
+- Objetivos táctiles de 44px o más.
+- Todo lo que se pueda hacer con el ratón se puede hacer con el teclado.
+
+## Movimiento
+
+{{< include /_includes/rules/UMB-A11Y-007.md >}}
+
+Nada en el sistema depende de animación para comunicar, así que respetar la preferencia no cuesta
+nada:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+```
+
+## Lista de comprobación
+
+- [ ] Contraste verificado desde la matriz generada
+- [ ] `lang` correcto en el documento y en cada subárbol
+- [ ] Toda gráfica: `aria-label` + tabla o `<details>` + CSV
+- [ ] Ningún significado codificado solo por color
+- [ ] Foco visible; nada inalcanzable con teclado
+- [ ] `prefers-reduced-motion` respetado
+- [ ] Objetivos táctiles ≥ 44px

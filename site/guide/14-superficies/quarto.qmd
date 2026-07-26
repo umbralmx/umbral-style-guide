@@ -1,0 +1,76 @@
+---
+title: "Superficie · Quarto"
+lang: es
+---
+
+# Quarto
+
+**Modo laboratorio (claro).** Informes, notas metodológicas, documentos reproducibles. Es la
+herramienta principal de documentos del laboratorio.
+
+## `_quarto.yml`
+
+```yaml
+project:
+  type: website
+brand: tokens/build/_brand.yml     # generado
+lang: es
+format:
+  html:
+    theme: [brand]
+    toc: true
+    code-fold: true
+  pdf:
+    documentclass: scrartcl
+    geometry: margin=0.75in
+```
+
+`_brand.yml` es **generado** desde los tokens: trae la paleta, las tres familias auto-hospedadas,
+los pesos y el color de enlace (`signal-text`, no `signal`). No lo edites.
+
+## Figuras
+
+```r
+#| label: fig-registros
+#| fig-cap: "Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · CC BY 4.0"
+#| fig-alt: "El RNPDNO acumula 351,057 registros con hechos entre 2010-01 y 2026-07"
+source("R/tema-umbral.R")
+```
+
+- `fig-cap` lleva la **línea de fuente** completa.
+- `fig-alt` lleva la **misma afirmación que el título** (UMB-A11Y-002).
+- El título-hallazgo va dentro de la figura, no en el caption.
+
+Los tokens se cargan desde `tokens/build/tokens.R`:
+
+```r
+source("tokens/build/tokens.R")
+ggplot(d, aes(fecha, n)) +
+  geom_line(colour = umbral_laboratorio$signal) +
+  theme_umbral()
+```
+
+En Python, `tokens/build/tokens.py` y `umbral-laboratorio.mplstyle`.
+
+## Reproducibilidad
+
+Un documento Quarto es la mejor demostración del principio del laboratorio: si la figura no se
+reconstruye desde el dato crudo, no se publica (UMB-DAT-003).
+
+- `freeze: auto` para que el render no dependa de la red.
+- La etiqueta del snapshot, en el documento y en la línea de fuente.
+- Enlace al CSV junto a cada figura.
+
+## Documentos impresos
+
+- Carta, márgenes de 0.75in.
+- Encabezados en Space Grotesk 500, cuerpo en Plex Sans 11–12pt, notas y fuentes en mono.
+- Mínimo absoluto 11pt (UMB-TYP-003).
+- Modo laboratorio siempre: el modo instrumento no se imprime.
+
+## Antes de publicar
+
+- [ ] `lang: es` y `brand:` apuntando al `_brand.yml` generado
+- [ ] Toda figura: `fig-cap` con la fuente, `fig-alt` con el hallazgo
+- [ ] Ningún color escrito a mano en el código de las figuras
+- [ ] El documento renderiza limpio desde cero

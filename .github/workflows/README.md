@@ -4,6 +4,8 @@
 |---|---|
 | `build.yml` | Builds tokens, rules, logos, guide partials and the skill; runs the contrast and logo gates; verifies independently in Python; fails if committed output is stale |
 | `lint.yml` | Runs `umbral-lint` over the repo with GitHub annotations, plus a worked example of how a downstream repo consumes it |
+| `pages.yml` | Rebuilds everything and publishes `site/_site` to GitHub Pages |
+| `release.yml` | On a `v*` tag: gates, verifies, lints, packages the `.skill` and the Python dists, opens a draft release |
 
 ## What can fail the build
 
@@ -16,4 +18,10 @@
    `guide/_includes/` differing after a rebuild. That means someone hand-edited a generated file
    (UMB-PRO-001) or forgot to rebuild.
 
-Later phases add workflows for Pages deployment and releases.
+## The release gate
+
+`release.yml` refuses to publish a tag whose name disagrees with `rules.json`'s version. The skill,
+`dist/CLAUDE.snippet.md` and both packages are all pinned to that version — a mismatched tag would
+point every downstream consumer at something that does not exist.
+
+The release is created as a **draft**, so a human reads the notes before it goes out.

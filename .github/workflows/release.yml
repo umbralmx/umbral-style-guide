@@ -1,0 +1,70 @@
+name: release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22', cache: npm }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: npm ci
+      - run: pip install --quiet pyyaml jsonschema build
+
+      # A release must not ship anything the gates would reject.
+      - name: Build and gate
+        run: npm run build
+
+      - name: Verify independently
+        run: |
+          python3 tools/verify_tokens.py
+          python3 tools/verify_rules.py
+          python3 tools/verify_guide.py
+          python3 tools/verify_skill.py
+          python3 tools/verify_packages.py
+          python3 tools/verify_lint.py
+          python3 tools/verify_readmes.py
+
+      - name: Lint
+        run: |
+          pip install --quiet -e tools/umbral-lint
+          umbral-lint .
+
+      # The tag must match the version the whole system is pinned to, or the
+      # skill, the snippet and both packages point at something that does not exist.
+      - name: Check the tag matches the design-system version
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          VERSION=$(python3 -c "import json;print(json.load(open('rules/rules.json'))['version'])")
+          if [ "$TAG" != "$VERSION" ]; then
+            echo "::error::tag $GITHUB_REF_NAME does not match rules.json version $VERSION"
+            exit 1
+          fi
+
+      - name: Package the skill
+        run: npm run package:skill
+
+      - name: Build the Python packages
+        run: |
+          python3 -m build --outdir dist/py packages/umbral-viz
+          python3 -m build --outdir dist/py tools/umbral-lint
+
+      - uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/v')
+        with:
+          files: |
+            dist/*.skill
+            dist/CLAUDE.snippet.md
+            dist/py/*
+          body_path: CHANGELOG.md
+          draft: true

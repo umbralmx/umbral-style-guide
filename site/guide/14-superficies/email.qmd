@@ -1,0 +1,60 @@
+---
+title: "Superficie · Correo"
+lang: es
+---
+
+# Correo
+
+**Modo laboratorio (claro).** Boletines y avisos. La superficie más restringida del sistema.
+
+## Lo que el correo no permite
+
+Los clientes de correo no cargan fuentes externas ni respetan buena parte del CSS moderno. Así que:
+
+- **Fuentes:** declara la pila completa y acepta la degradación.
+  ```css
+  font-family: 'IBM Plex Sans', -apple-system, system-ui, sans-serif;
+  ```
+  No es una excepción a UMB-TYP-002: se declaran las familias de la marca y el cliente sustituye si
+  no puede. Lo prohibido sigue siendo *elegir* Arial o Roboto.
+- **Variables CSS:** no las uses. Los valores van en línea, **copiados del build**, nunca escritos
+  a mano desde la memoria.
+- **Modo oscuro:** los clientes lo aplican solos y mal. Diseña en claro y prueba en oscuro.
+
+## Gráficas
+
+Como imagen, no como SVG en línea (Outlook no lo renderiza).
+
+- Exporta a PNG a 2×.
+- `alt` con **el hallazgo completo**: para muchos lectores la imagen no carga, y el `alt` es toda la
+  gráfica.
+- La línea de fuente va **dentro** de la imagen, no en el HTML de alrededor.
+- Enlaza a la página con el CSV y la tabla.
+
+## Estructura
+
+```
+umbral_                                    ← wordmark, texto o PNG pequeño
+─────────────────────────────────────      ← regla de 1px
+
+El hallazgo, como oración                  ← Space Grotesk si carga, si no la pila
+
+Dos o tres párrafos.
+
+[gráfica como PNG, con su fuente dentro]
+
+Fuente · licencia · enlace a los datos
+─────────────────────────────────────
+Darse de baja · umbral.mx
+```
+
+Un ancho de 600px, medida de 65 caracteres, cuerpo de 16px como mínimo.
+
+## Antes de enviar
+
+- [ ] Probado en modo claro y en modo oscuro
+- [ ] Toda imagen con `alt` que lleve el hallazgo
+- [ ] Línea de fuente dentro de cada imagen
+- [ ] Enlace al CSV
+- [ ] Sin emoji, sin signos de exclamación
+- [ ] Los valores en línea coinciden con `tokens/build/`

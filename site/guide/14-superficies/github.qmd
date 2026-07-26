@@ -1,0 +1,80 @@
+---
+title: "Superficie · GitHub"
+lang: es
+---
+
+# GitHub
+
+El repositorio es una superficie pública del laboratorio. Para mucha gente es la primera.
+
+## README
+
+Estructura fija:
+
+```markdown
+# nombre-del-proyecto
+
+Una oración que dice qué hace y sobre qué datos.
+
+[![build](badge)](…)  ·  [Dashboard](…)  ·  [Datos](…)
+
+## Qué es
+Dos o tres párrafos. El hallazgo principal si lo hay.
+
+## Datos
+Fuente, licencia, etiqueta del snapshot, enlace al SOURCE.md.
+
+## Reproducir
+    make all
+Qué necesitas y cuánto tarda.
+
+## Licencias
+Código MIT · datos y contenido CC BY 4.0.
+```
+
+Sin emoji (UMB-LAY-005). Sin badges decorativos: solo los que dicen algo verificable —build,
+licencia, versión.
+
+## Metadatos del repositorio
+
+- **Descripción:** una oración, español primero.
+- **Topics:** `mexico`, `open-data`, `datos-abiertos`, más los del dominio.
+- **Social preview:** 1280 × 640, modo instrumento, como una tarjeta social. Ver
+  [social.md](/guide/14-superficies/social.qmd).
+- **Licencias:** `LICENSE-CODE` (MIT) y `LICENSE-CONTENT` (CC BY 4.0), las dos en la raíz.
+
+## Commits y ramas
+
+Conventional Commits, en inglés:
+
+```
+feat(tokens): add diverging ramp
+fix(a11y): set lang on the Streamlit shell
+docs(guide): write the terminology chapter
+chore(build): pin style-dictionary
+```
+
+Una fase o funcionalidad por rama, un PR por rama.
+
+## Descripciones de PR
+
+Di **qué cambia para quien consume el sistema**, no solo qué archivos tocaste. Si un valor de token
+cambia, dilo con todas sus letras: es un cambio mayor y re-renderiza todos los productos que lo
+usan (UMB-PRO-004).
+
+## Consumir el sistema desde otro repositorio
+
+```bash
+curl -O https://raw.githubusercontent.com/umbralmx/umbral-style-guide/v1.1.0/tokens/build/tokens.css
+```
+
+Fija la versión. Nunca apuntes a `main`: un cambio de token entraría sin aviso.
+
+## Antes de publicar el repositorio
+
+- [ ] README con las cinco secciones
+- [ ] Sin emoji, sin badges decorativos
+- [ ] Los dos archivos de licencia
+- [ ] Social preview puesta
+- [ ] `SOURCE.md` en cada directorio bajo `data/raw/`
+- [ ] `make all` funciona en un clon limpio

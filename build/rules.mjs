@@ -227,7 +227,9 @@ for (const r of rules) {
   const sev = SEVERITY_LABEL[r.severity];
   const lines = [
     '<!-- GENERATED from rules/rules.yaml. Do not edit. -->',
-    `<div class="u-rule" id="${r.id}" data-severity="${r.severity}">`,
+    // Fenced-div syntax, not raw <div>. Pandoc mis-nests a raw div that wraps a
+    // markdown table, which silently dropped the do/don't table on one chapter.
+    `::: {.u-rule #${r.id} data-severity="${r.severity}"}`,
     '',
     `**${sev.mark} ${r.id}** · ${doc.categories[r.category].label} · ${sev.es}`,
     '',
@@ -255,7 +257,7 @@ for (const r of rules) {
   if (r.check.note && r.check.type === 'automated') lines.push('', `*Nota:* ${r.check.note.trim()}`);
   if (r.evidence) lines.push('', `*Origen:* ${r.evidence.trim()}`);
   if (r.see_also?.length) lines.push('', `*Ver también:* ${r.see_also.join(' · ')}`);
-  lines.push('', `<small>Desde v${r.since}. Regla normativa: <code>rules/rules.yaml</code>.</small>`, '', '</div>', '');
+  lines.push('', `<small>Desde v${r.since}. Regla normativa: \`rules/rules.yaml\`.</small>`, '', ':::', '');
   await fs.writeFile(path.join(OUT_INCLUDES, `${r.id}.md`), lines.join('\n'));
 }
 

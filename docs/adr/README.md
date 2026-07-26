@@ -6,7 +6,7 @@ produced them and the alternatives that were rejected.
 | | | Status |
 |---|---|---|
 | [0001](0001-token-architecture.md) | Token architecture | accepted |
-| 0002 | Site generator (Quarto or Astro) | *Phase 7* |
+| [0002](0002-site-generator.md) | Site generator | accepted |
 | [0003](0003-downstream-consumption.md) | How downstream repos consume the system | accepted |
 
 An ADR is written when the decision is made, not afterwards, and it isn't edited once accepted — if
