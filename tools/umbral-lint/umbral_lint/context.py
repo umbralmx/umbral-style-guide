@@ -270,7 +270,7 @@ def declarations(line: str):
 
 
 TOKEN_FILE = re.compile(
-    r"(^|/)(tokens\.(css|json|py|R|scss)|_tokens\.scss|[\w.-]+\.tokens\.json"
+    r"(^|/)(tokens\.(css|json|py|R|scss|js|mjs)|_tokens\.scss|[\w.-]+\.tokens\.json"
     r"|contrast\.json|plotly-umbral-[\w-]+\.json|umbral-[\w-]+\.mplstyle"
     r"|altair-umbral\.py|streamlit-config\.toml|_brand\.yml)$")
 

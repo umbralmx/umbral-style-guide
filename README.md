@@ -72,6 +72,7 @@ Available build targets: `tokens.css` · `tokens.json` · `_tokens.scss` · `tok
 | [`audit/`](audit/) | Conformance audits of the live products, and open questions. |
 | [`build/`](build/) | The generators. |
 | [`tools/`](tools/) | `umbral-lint`, plus the independent verification scripts. |
+| [`packages/`](packages/) | `umbral-viz` (Python) and `umbral-plot` (JS). |
 | [`skills/`](skills/) | The agent skill. Install into `.claude/skills/`. |
 | [`dist/`](dist/) | `CLAUDE.snippet.md` — paste into a downstream repo's `CLAUDE.md`. |
 | [`assets/`](assets/) | Logo variants, generated from one parametric spec. |
@@ -96,8 +97,8 @@ Change the source and rebuild. CI diffs the committed output and fails if it's s
 | 3 · Guide prose | done |
 | 4 · Agent skill + snippet | done |
 | 5 · `umbral-lint` | done |
-| 6 · Packages (`umbral-viz`, `umbral-plot`) | next |
-| 7 · Site + release | |
+| 6 · Packages (`umbral-viz`, `umbral-plot`) | done |
+| 7 · Site + release | next |
 | 8 · Retrofit the four products | |
 
 Open decisions live in [`audit/open-questions.md`](audit/open-questions.md).

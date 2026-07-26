@@ -1,0 +1,2723 @@
+{
+  "$generated": "rules.json — GENERATED from rules/rules.yaml. Do not edit.",
+  "version": "1.1.0",
+  "counts": {
+    "total": 69,
+    "bySeverity": {
+      "error": 58,
+      "warning": 10,
+      "info": 1
+    },
+    "byCheckType": {
+      "review": 33,
+      "automated": 34,
+      "manual": 2
+    }
+  },
+  "categories": {
+    "brand": {
+      "label": "Marca",
+      "label_en": "Brand"
+    },
+    "color": {
+      "label": "Color",
+      "label_en": "Colour"
+    },
+    "type": {
+      "label": "Tipografía",
+      "label_en": "Typography"
+    },
+    "layout": {
+      "label": "Layout",
+      "label_en": "Layout"
+    },
+    "chart": {
+      "label": "Gráficas",
+      "label_en": "Charts"
+    },
+    "voice": {
+      "label": "Voz",
+      "label_en": "Voice"
+    },
+    "numbers": {
+      "label": "Números y unidades",
+      "label_en": "Numbers and units"
+    },
+    "data": {
+      "label": "Datos y procedencia",
+      "label_en": "Data and provenance"
+    },
+    "a11y": {
+      "label": "Accesibilidad",
+      "label_en": "Accessibility"
+    },
+    "method": {
+      "label": "Método",
+      "label_en": "Method"
+    },
+    "process": {
+      "label": "Proceso",
+      "label_en": "Process",
+      "description": "Reglas sobre cómo se construye el sistema, no sobre lo que produce. Categoría añadida en 1.1 — no estaba en la lista original del kickoff. Existe porque los defectos más graves encontrados en la auditoría de Phase 0 no fueron errores de diseño sino de proceso: valores enunciados en dos lugares que dejaron de coincidir.\n"
+    }
+  },
+  "index": {
+    "byCategory": {
+      "brand": [
+        "UMB-BRD-001",
+        "UMB-BRD-002",
+        "UMB-BRD-003",
+        "UMB-BRD-004"
+      ],
+      "color": [
+        "UMB-COL-001",
+        "UMB-COL-002",
+        "UMB-COL-003",
+        "UMB-COL-004",
+        "UMB-COL-005",
+        "UMB-COL-006",
+        "UMB-COL-007",
+        "UMB-COL-008",
+        "UMB-COL-009",
+        "UMB-COL-010"
+      ],
+      "type": [
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-TYP-003",
+        "UMB-TYP-004",
+        "UMB-TYP-005",
+        "UMB-TYP-006"
+      ],
+      "layout": [
+        "UMB-LAY-001",
+        "UMB-LAY-002",
+        "UMB-LAY-003",
+        "UMB-LAY-004",
+        "UMB-LAY-005"
+      ],
+      "chart": [
+        "UMB-CHT-001",
+        "UMB-CHT-002",
+        "UMB-CHT-003",
+        "UMB-CHT-004",
+        "UMB-CHT-005",
+        "UMB-CHT-006",
+        "UMB-CHT-007",
+        "UMB-CHT-008",
+        "UMB-CHT-009",
+        "UMB-CHT-010",
+        "UMB-CHT-011",
+        "UMB-CHT-012"
+      ],
+      "voice": [
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-003",
+        "UMB-VOZ-004"
+      ],
+      "numbers": [
+        "UMB-NUM-001",
+        "UMB-NUM-002",
+        "UMB-NUM-003",
+        "UMB-NUM-004",
+        "UMB-NUM-005",
+        "UMB-NUM-006"
+      ],
+      "data": [
+        "UMB-DAT-001",
+        "UMB-DAT-002",
+        "UMB-DAT-003",
+        "UMB-DAT-004",
+        "UMB-DAT-005"
+      ],
+      "a11y": [
+        "UMB-A11Y-001",
+        "UMB-A11Y-002",
+        "UMB-A11Y-003",
+        "UMB-A11Y-004",
+        "UMB-A11Y-005",
+        "UMB-A11Y-006",
+        "UMB-A11Y-007"
+      ],
+      "method": [
+        "UMB-MET-001",
+        "UMB-MET-002",
+        "UMB-MET-003",
+        "UMB-MET-004",
+        "UMB-MET-005"
+      ],
+      "process": [
+        "UMB-PRO-001",
+        "UMB-PRO-002",
+        "UMB-PRO-003",
+        "UMB-PRO-004",
+        "UMB-PRO-005"
+      ]
+    },
+    "bySurface": {
+      "web": [
+        "UMB-BRD-001",
+        "UMB-BRD-002",
+        "UMB-BRD-003",
+        "UMB-BRD-004",
+        "UMB-COL-001",
+        "UMB-COL-002",
+        "UMB-COL-003",
+        "UMB-COL-004",
+        "UMB-COL-005",
+        "UMB-COL-006",
+        "UMB-COL-007",
+        "UMB-COL-008",
+        "UMB-COL-009",
+        "UMB-COL-010",
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-TYP-003",
+        "UMB-TYP-004",
+        "UMB-TYP-005",
+        "UMB-TYP-006",
+        "UMB-LAY-001",
+        "UMB-LAY-002",
+        "UMB-LAY-003",
+        "UMB-LAY-004",
+        "UMB-LAY-005",
+        "UMB-CHT-001",
+        "UMB-CHT-002",
+        "UMB-CHT-003",
+        "UMB-CHT-004",
+        "UMB-CHT-005",
+        "UMB-CHT-006",
+        "UMB-CHT-007",
+        "UMB-CHT-008",
+        "UMB-CHT-009",
+        "UMB-CHT-010",
+        "UMB-CHT-011",
+        "UMB-CHT-012",
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-003",
+        "UMB-VOZ-004",
+        "UMB-NUM-001",
+        "UMB-NUM-002",
+        "UMB-NUM-003",
+        "UMB-NUM-004",
+        "UMB-NUM-005",
+        "UMB-NUM-006",
+        "UMB-DAT-001",
+        "UMB-DAT-002",
+        "UMB-DAT-003",
+        "UMB-DAT-004",
+        "UMB-DAT-005",
+        "UMB-A11Y-001",
+        "UMB-A11Y-002",
+        "UMB-A11Y-003",
+        "UMB-A11Y-004",
+        "UMB-A11Y-005",
+        "UMB-A11Y-006",
+        "UMB-A11Y-007",
+        "UMB-MET-001",
+        "UMB-MET-002",
+        "UMB-MET-003",
+        "UMB-MET-004",
+        "UMB-MET-005",
+        "UMB-PRO-003"
+      ],
+      "streamlit": [
+        "UMB-BRD-001",
+        "UMB-BRD-002",
+        "UMB-BRD-003",
+        "UMB-BRD-004",
+        "UMB-COL-001",
+        "UMB-COL-002",
+        "UMB-COL-003",
+        "UMB-COL-004",
+        "UMB-COL-005",
+        "UMB-COL-006",
+        "UMB-COL-007",
+        "UMB-COL-008",
+        "UMB-COL-009",
+        "UMB-COL-010",
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-TYP-003",
+        "UMB-TYP-004",
+        "UMB-TYP-005",
+        "UMB-TYP-006",
+        "UMB-LAY-001",
+        "UMB-LAY-002",
+        "UMB-LAY-004",
+        "UMB-LAY-005",
+        "UMB-CHT-001",
+        "UMB-CHT-002",
+        "UMB-CHT-003",
+        "UMB-CHT-004",
+        "UMB-CHT-005",
+        "UMB-CHT-006",
+        "UMB-CHT-007",
+        "UMB-CHT-008",
+        "UMB-CHT-009",
+        "UMB-CHT-010",
+        "UMB-CHT-011",
+        "UMB-CHT-012",
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-003",
+        "UMB-VOZ-004",
+        "UMB-NUM-001",
+        "UMB-NUM-002",
+        "UMB-NUM-003",
+        "UMB-NUM-004",
+        "UMB-NUM-005",
+        "UMB-NUM-006",
+        "UMB-DAT-001",
+        "UMB-DAT-002",
+        "UMB-DAT-003",
+        "UMB-DAT-004",
+        "UMB-DAT-005",
+        "UMB-A11Y-001",
+        "UMB-A11Y-002",
+        "UMB-A11Y-003",
+        "UMB-A11Y-004",
+        "UMB-A11Y-005",
+        "UMB-A11Y-006",
+        "UMB-A11Y-007",
+        "UMB-MET-001",
+        "UMB-MET-002",
+        "UMB-MET-003",
+        "UMB-MET-004",
+        "UMB-MET-005",
+        "UMB-PRO-003"
+      ],
+      "quarto": [
+        "UMB-BRD-001",
+        "UMB-BRD-002",
+        "UMB-BRD-003",
+        "UMB-BRD-004",
+        "UMB-COL-001",
+        "UMB-COL-002",
+        "UMB-COL-003",
+        "UMB-COL-004",
+        "UMB-COL-005",
+        "UMB-COL-006",
+        "UMB-COL-007",
+        "UMB-COL-008",
+        "UMB-COL-009",
+        "UMB-COL-010",
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-TYP-003",
+        "UMB-TYP-004",
+        "UMB-TYP-005",
+        "UMB-TYP-006",
+        "UMB-LAY-001",
+        "UMB-LAY-002",
+        "UMB-LAY-003",
+        "UMB-LAY-004",
+        "UMB-LAY-005",
+        "UMB-CHT-001",
+        "UMB-CHT-002",
+        "UMB-CHT-003",
+        "UMB-CHT-004",
+        "UMB-CHT-005",
+        "UMB-CHT-006",
+        "UMB-CHT-007",
+        "UMB-CHT-008",
+        "UMB-CHT-009",
+        "UMB-CHT-010",
+        "UMB-CHT-011",
+        "UMB-CHT-012",
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-003",
+        "UMB-VOZ-004",
+        "UMB-NUM-001",
+        "UMB-NUM-002",
+        "UMB-NUM-003",
+        "UMB-NUM-004",
+        "UMB-NUM-005",
+        "UMB-NUM-006",
+        "UMB-DAT-001",
+        "UMB-DAT-002",
+        "UMB-DAT-003",
+        "UMB-DAT-004",
+        "UMB-DAT-005",
+        "UMB-A11Y-001",
+        "UMB-A11Y-002",
+        "UMB-A11Y-003",
+        "UMB-A11Y-004",
+        "UMB-A11Y-005",
+        "UMB-A11Y-006",
+        "UMB-A11Y-007",
+        "UMB-MET-001",
+        "UMB-MET-002",
+        "UMB-MET-003",
+        "UMB-MET-004",
+        "UMB-MET-005",
+        "UMB-PRO-003"
+      ],
+      "notebook": [
+        "UMB-BRD-001",
+        "UMB-BRD-004",
+        "UMB-COL-001",
+        "UMB-COL-002",
+        "UMB-COL-003",
+        "UMB-COL-004",
+        "UMB-COL-005",
+        "UMB-COL-006",
+        "UMB-COL-008",
+        "UMB-COL-009",
+        "UMB-COL-010",
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-TYP-003",
+        "UMB-TYP-004",
+        "UMB-LAY-001",
+        "UMB-LAY-002",
+        "UMB-LAY-003",
+        "UMB-LAY-005",
+        "UMB-CHT-001",
+        "UMB-CHT-002",
+        "UMB-CHT-003",
+        "UMB-CHT-004",
+        "UMB-CHT-005",
+        "UMB-CHT-006",
+        "UMB-CHT-007",
+        "UMB-CHT-008",
+        "UMB-CHT-009",
+        "UMB-CHT-010",
+        "UMB-CHT-011",
+        "UMB-CHT-012",
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-003",
+        "UMB-VOZ-004",
+        "UMB-NUM-001",
+        "UMB-NUM-002",
+        "UMB-NUM-003",
+        "UMB-NUM-004",
+        "UMB-NUM-005",
+        "UMB-NUM-006",
+        "UMB-DAT-001",
+        "UMB-DAT-002",
+        "UMB-DAT-003",
+        "UMB-DAT-004",
+        "UMB-DAT-005",
+        "UMB-A11Y-001",
+        "UMB-A11Y-002",
+        "UMB-A11Y-003",
+        "UMB-A11Y-004",
+        "UMB-A11Y-005",
+        "UMB-MET-001",
+        "UMB-MET-002",
+        "UMB-MET-003",
+        "UMB-MET-004",
+        "UMB-MET-005",
+        "UMB-PRO-003"
+      ],
+      "slides": [
+        "UMB-BRD-001",
+        "UMB-BRD-002",
+        "UMB-BRD-003",
+        "UMB-BRD-004",
+        "UMB-COL-001",
+        "UMB-COL-002",
+        "UMB-COL-003",
+        "UMB-COL-004",
+        "UMB-COL-005",
+        "UMB-COL-006",
+        "UMB-COL-007",
+        "UMB-COL-008",
+        "UMB-COL-009",
+        "UMB-COL-010",
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-TYP-003",
+        "UMB-TYP-004",
+        "UMB-TYP-005",
+        "UMB-TYP-006",
+        "UMB-LAY-001",
+        "UMB-LAY-002",
+        "UMB-LAY-003",
+        "UMB-LAY-004",
+        "UMB-LAY-005",
+        "UMB-CHT-001",
+        "UMB-CHT-002",
+        "UMB-CHT-003",
+        "UMB-CHT-004",
+        "UMB-CHT-005",
+        "UMB-CHT-006",
+        "UMB-CHT-007",
+        "UMB-CHT-008",
+        "UMB-CHT-009",
+        "UMB-CHT-010",
+        "UMB-CHT-011",
+        "UMB-CHT-012",
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-003",
+        "UMB-VOZ-004",
+        "UMB-NUM-001",
+        "UMB-NUM-002",
+        "UMB-NUM-003",
+        "UMB-NUM-004",
+        "UMB-NUM-005",
+        "UMB-NUM-006",
+        "UMB-DAT-002",
+        "UMB-DAT-005",
+        "UMB-A11Y-005",
+        "UMB-MET-001",
+        "UMB-MET-002",
+        "UMB-MET-003",
+        "UMB-MET-004",
+        "UMB-MET-005",
+        "UMB-PRO-003"
+      ],
+      "social": [
+        "UMB-BRD-001",
+        "UMB-BRD-002",
+        "UMB-BRD-003",
+        "UMB-BRD-004",
+        "UMB-COL-001",
+        "UMB-COL-002",
+        "UMB-COL-003",
+        "UMB-COL-004",
+        "UMB-COL-005",
+        "UMB-COL-006",
+        "UMB-COL-007",
+        "UMB-COL-008",
+        "UMB-COL-009",
+        "UMB-COL-010",
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-TYP-003",
+        "UMB-TYP-004",
+        "UMB-TYP-006",
+        "UMB-LAY-001",
+        "UMB-LAY-002",
+        "UMB-LAY-004",
+        "UMB-LAY-005",
+        "UMB-CHT-001",
+        "UMB-CHT-002",
+        "UMB-CHT-003",
+        "UMB-CHT-004",
+        "UMB-CHT-005",
+        "UMB-CHT-006",
+        "UMB-CHT-007",
+        "UMB-CHT-008",
+        "UMB-CHT-009",
+        "UMB-CHT-010",
+        "UMB-CHT-011",
+        "UMB-CHT-012",
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-003",
+        "UMB-VOZ-004",
+        "UMB-NUM-001",
+        "UMB-NUM-002",
+        "UMB-NUM-003",
+        "UMB-NUM-004",
+        "UMB-NUM-005",
+        "UMB-NUM-006",
+        "UMB-DAT-002",
+        "UMB-DAT-005",
+        "UMB-A11Y-005",
+        "UMB-MET-001",
+        "UMB-MET-002",
+        "UMB-MET-003",
+        "UMB-MET-004",
+        "UMB-MET-005",
+        "UMB-PRO-003"
+      ],
+      "github": [
+        "UMB-BRD-001",
+        "UMB-BRD-002",
+        "UMB-BRD-003",
+        "UMB-BRD-004",
+        "UMB-COL-002",
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-LAY-005",
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-004",
+        "UMB-NUM-003",
+        "UMB-DAT-004",
+        "UMB-A11Y-001",
+        "UMB-MET-001",
+        "UMB-MET-004",
+        "UMB-MET-005"
+      ],
+      "email": [
+        "UMB-BRD-001",
+        "UMB-BRD-003",
+        "UMB-BRD-004",
+        "UMB-COL-001",
+        "UMB-COL-002",
+        "UMB-COL-003",
+        "UMB-COL-005",
+        "UMB-COL-007",
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-TYP-003",
+        "UMB-LAY-001",
+        "UMB-LAY-002",
+        "UMB-LAY-003",
+        "UMB-LAY-004",
+        "UMB-LAY-005",
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-004",
+        "UMB-NUM-001",
+        "UMB-NUM-004",
+        "UMB-A11Y-001",
+        "UMB-A11Y-005",
+        "UMB-MET-001",
+        "UMB-MET-004",
+        "UMB-MET-005",
+        "UMB-PRO-003"
+      ],
+      "print": [
+        "UMB-BRD-001",
+        "UMB-BRD-002",
+        "UMB-BRD-003",
+        "UMB-BRD-004",
+        "UMB-COL-001",
+        "UMB-COL-002",
+        "UMB-COL-003",
+        "UMB-COL-005",
+        "UMB-COL-006",
+        "UMB-COL-008",
+        "UMB-COL-009",
+        "UMB-COL-010",
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-TYP-003",
+        "UMB-TYP-004",
+        "UMB-TYP-005",
+        "UMB-TYP-006",
+        "UMB-LAY-003",
+        "UMB-LAY-005",
+        "UMB-CHT-001",
+        "UMB-CHT-002",
+        "UMB-CHT-003",
+        "UMB-CHT-004",
+        "UMB-CHT-005",
+        "UMB-CHT-006",
+        "UMB-CHT-007",
+        "UMB-CHT-008",
+        "UMB-CHT-009",
+        "UMB-CHT-010",
+        "UMB-CHT-011",
+        "UMB-CHT-012",
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-003",
+        "UMB-VOZ-004",
+        "UMB-NUM-001",
+        "UMB-NUM-002",
+        "UMB-NUM-003",
+        "UMB-NUM-004",
+        "UMB-NUM-005",
+        "UMB-NUM-006",
+        "UMB-DAT-002",
+        "UMB-DAT-005",
+        "UMB-A11Y-005",
+        "UMB-MET-001",
+        "UMB-MET-002",
+        "UMB-MET-003",
+        "UMB-MET-004",
+        "UMB-MET-005"
+      ],
+      "repo": [
+        "UMB-COL-002",
+        "UMB-NUM-003",
+        "UMB-NUM-006",
+        "UMB-DAT-001",
+        "UMB-DAT-002",
+        "UMB-DAT-003",
+        "UMB-DAT-004",
+        "UMB-DAT-005",
+        "UMB-PRO-001",
+        "UMB-PRO-002",
+        "UMB-PRO-003",
+        "UMB-PRO-004",
+        "UMB-PRO-005"
+      ]
+    }
+  },
+  "automatedChecks": [
+    {
+      "rule": "UMB-BRD-002",
+      "tool": "logo-build",
+      "check": "logo-geometry",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-COL-001",
+      "tool": "umbral-lint",
+      "check": "pure-black-white",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-COL-002",
+      "tool": "umbral-lint",
+      "check": "hardcoded-token-hex",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-COL-003",
+      "tool": "umbral-lint",
+      "check": "no-gradient",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-COL-005",
+      "tool": "verify-tokens",
+      "check": "contrast-text",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-COL-006",
+      "tool": "verify-tokens",
+      "check": "contrast-mark",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-COL-008",
+      "tool": "verify-tokens",
+      "check": "series-separation",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-TYP-001",
+      "tool": "umbral-lint",
+      "check": "display-weight",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-TYP-002",
+      "tool": "umbral-lint",
+      "check": "banned-font-family",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-TYP-003",
+      "tool": "umbral-lint",
+      "check": "minimum-font-size",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-TYP-005",
+      "tool": "umbral-lint",
+      "check": "font-hosting",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-TYP-006",
+      "tool": "umbral-lint",
+      "check": "display-tracking",
+      "severity": "warning"
+    },
+    {
+      "rule": "UMB-LAY-001",
+      "tool": "umbral-lint",
+      "check": "radius-max",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-LAY-002",
+      "tool": "umbral-lint",
+      "check": "no-drop-shadow",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-LAY-003",
+      "tool": "umbral-lint",
+      "check": "measure-max",
+      "severity": "warning"
+    },
+    {
+      "rule": "UMB-LAY-004",
+      "tool": "umbral-lint",
+      "check": "spacing-scale",
+      "severity": "warning"
+    },
+    {
+      "rule": "UMB-LAY-005",
+      "tool": "umbral-lint",
+      "check": "no-emoji",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-CHT-003",
+      "tool": "umbral-lint",
+      "check": "chart-source-present",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-CHT-010",
+      "tool": "umbral-lint",
+      "check": "banned-chart-type",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-VOZ-002",
+      "tool": "umbral-lint",
+      "check": "hype-language",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-VOZ-004",
+      "tool": "umbral-lint",
+      "check": "placeholder-content",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-NUM-003",
+      "tool": "umbral-lint",
+      "check": "date-format",
+      "severity": "warning"
+    },
+    {
+      "rule": "UMB-NUM-004",
+      "tool": "umbral-lint",
+      "check": "percent-spacing",
+      "severity": "info"
+    },
+    {
+      "rule": "UMB-DAT-001",
+      "tool": "umbral-lint",
+      "check": "source-md-present",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-DAT-002",
+      "tool": "umbral-lint",
+      "check": "snapshot-tag",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-DAT-004",
+      "tool": "umbral-lint",
+      "check": "license-present",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-A11Y-001",
+      "tool": "umbral-lint",
+      "check": "lang-attribute",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-A11Y-002",
+      "tool": "umbral-lint",
+      "check": "chart-aria-label",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-A11Y-006",
+      "tool": "umbral-lint",
+      "check": "focus-and-target",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-A11Y-007",
+      "tool": "umbral-lint",
+      "check": "reduced-motion",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-MET-005",
+      "tool": "umbral-lint",
+      "check": "terminology",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-PRO-001",
+      "tool": "umbral-lint",
+      "check": "generated-file-edited",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-PRO-002",
+      "tool": "verify-guide",
+      "check": "prose-rule-drift",
+      "severity": "error"
+    },
+    {
+      "rule": "UMB-PRO-003",
+      "tool": "umbral-lint",
+      "check": "hardcoded-value",
+      "severity": "error"
+    }
+  ],
+  "rules": [
+    {
+      "id": "UMB-BRD-001",
+      "title": "El wordmark es «umbral_» en minúsculas, Space Grotesk 500, con el guión bajo en signal",
+      "title_en": "The wordmark is `umbral_` in lowercase, Space Grotesk 500, underscore in signal",
+      "category": "brand",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "El guión bajo es el umbral: la marca dice lo que hace. En mayúsculas o en otro peso deja de ser el logotipo y pasa a ser texto.\n",
+      "do": "umbral_ en minúsculas, peso 500, guión bajo en signal-text.",
+      "dont": "UMBRAL_, Umbral_, peso 700, o el guión bajo en el color del texto.",
+      "check": {
+        "type": "review",
+        "note": "El wordmark se compone con tipografía viva; comprobar peso, caja y color del guión bajo exige la salida renderizada.\n"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.02; CLAUDE.md §5.",
+      "guide": "01-marca",
+      "see_also": [
+        "UMB-COL-005"
+      ]
+    },
+    {
+      "id": "UMB-BRD-002",
+      "title": "La barra del isotipo guarda proporción 5:44 y cruza a la izquierda del centro",
+      "title_en": "The isotype bar has a 5:44 ratio and crosses left of centre",
+      "category": "brand",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "slides",
+        "social",
+        "github",
+        "print"
+      ],
+      "rationale": "La barra es la señal cruzando el umbral de significancia; que cruce a la izquierda del centro es la única regla geométrica que la marca enuncia. En v1.0 los archivos entregados tenían tres proporciones distintas (5:44 documentada, 1:7.13 en el isotipo, 1:6.29 en el lockup) y el lockup cruzaba a la derecha.\n",
+      "do": "Generar todas las variantes desde la fuente paramétrica única.",
+      "dont": "Redibujar el isotipo a mano o escalar la barra por separado.",
+      "check": {
+        "type": "automated",
+        "tool": "logo-build",
+        "id": "logo-geometry"
+      },
+      "since": "1.0",
+      "supersedes": null,
+      "evidence": "audit/2026-07-conformance.md §3.5; decisión OQ-007.",
+      "guide": "01-marca"
+    },
+    {
+      "id": "UMB-BRD-003",
+      "title": "El espacio de respeto es una altura de barra en los cuatro lados",
+      "title_en": "Clear space is one bar-height on all four sides",
+      "category": "brand",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "La marca necesita aire para leerse como marca y no como un elemento más de la interfaz.\n",
+      "do": "Medir el espacio libre desde el borde del isotipo.",
+      "dont": "Pegar el logo a un borde, a un titular o a la navegación.",
+      "check": {
+        "type": "review"
+      },
+      "since": "1.0",
+      "guide": "01-marca"
+    },
+    {
+      "id": "UMB-BRD-004",
+      "title": "El logo no se distorsiona, contornea, sombrea ni recolorea fuera de los tokens",
+      "title_en": "The logo is never distorted, outlined, shadowed or recoloured outside the tokens",
+      "category": "brand",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "Un logo alterado deja de identificar. Además cualquier recoloreo fuera de los tokens rompe la garantía de contraste que el sistema comprueba en CI.\n",
+      "do": "Usar los SVG generados en assets/logo/.",
+      "dont": "Estirar, rotar, aplicar sombra, contorno, degradado o un color arbitrario.",
+      "check": {
+        "type": "review",
+        "note": "La distorsión, el contorno y el efecto solo son visibles en el artefacto final, no en el fuente.\n"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.02 «NO SE PERMITE».",
+      "guide": "01-marca"
+    },
+    {
+      "id": "UMB-COL-001",
+      "title": "No se usa blanco ni negro puros",
+      "title_en": "Pure white and pure black are never used",
+      "category": "color",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email",
+        "print"
+      ],
+      "rationale": "El blanco y el negro puros producen un contraste duro que cansa la lectura larga y delatan que el color no vino de los tokens. base e ink existen precisamente para eso.\n",
+      "do": "var(--u-base) y var(--u-ink).",
+      "dont": "#fff, #ffffff, #000, white, black.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "pure-black-white"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.03; medido en desaparecidosmx (6 elementos en #FFFFFF).",
+      "guide": "02-color"
+    },
+    {
+      "id": "UMB-COL-002",
+      "title": "Ningún color se escribe a mano: todos vienen de los tokens",
+      "title_en": "No colour is hand-typed; every value comes from the tokens",
+      "category": "color",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print",
+        "repo"
+      ],
+      "rationale": "Un valor enunciado en dos lugares deja de coincidir. Así fue como el mplstyle de v1.0 terminó con una tercera serie distinta a la de su propio brand book.\n",
+      "do": "var(--u-signal), tokens['signal'], umbral_laboratorio$signal.",
+      "dont": "#128273 escrito directamente en una hoja de estilo, un notebook o una gráfica.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "hardcoded-token-hex"
+      },
+      "since": "1.0",
+      "evidence": "CLAUDE.md §2; audit §3.5.",
+      "guide": "02-color",
+      "see_also": [
+        "UMB-PRO-003"
+      ]
+    },
+    {
+      "id": "UMB-COL-003",
+      "title": "No se usan degradados",
+      "title_en": "No gradients",
+      "category": "color",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email",
+        "print"
+      ],
+      "rationale": "El degradado introduce una variación de color que no codifica nada. En una gráfica compite con la escala; en la interfaz es decoración.\n",
+      "do": "Rellenos sólidos; una rampa secuencial si hay que codificar intensidad.",
+      "dont": "linear-gradient decorativo, fondos con degradado, barras degradadas.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "no-gradient"
+      },
+      "since": "1.0",
+      "exceptions": [
+        "Un linear-gradient de un solo color usado para dibujar una regla de 1px es una técnica de layout, no un degradado. cabildo-libre lo usa correctamente.\n"
+      ],
+      "guide": "02-color"
+    },
+    {
+      "id": "UMB-COL-004",
+      "title": "El color signal se usa en un solo elemento de la capa de datos por vista",
+      "title_en": "signal is used on exactly one element of the data layer per view",
+      "category": "color",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social"
+      ],
+      "rationale": "La jerarquía visual de Umbral depende de que exista un único punto de atención. Si todo resalta, nada resalta. El alcance se limita a la capa de datos porque Streamlit aplica primaryColor a todos sus widgets a la vez y no existe configuración que lo restrinja a un elemento.\n",
+      "do": "Una serie, una cifra o un elemento de UI en signal.",
+      "dont": "Signal en el logo, el botón y la serie principal a la vez.",
+      "check": {
+        "type": "review",
+        "note": "Requiere la salida renderizada de la gráfica, no el código fuente. Acotada además a la capa de datos (OQ-002), así que un linter de archivos no puede decidirla. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.03 «La señal es sagrada»; medido: 17 elementos en desaparecidosmx, 10 en pautamx, 4 en cabildo-libre.",
+      "guide": "02-color"
+    },
+    {
+      "id": "UMB-COL-005",
+      "title": "Todo texto alcanza 4.5:1 contra base y contra panel",
+      "title_en": "All text clears 4.5:1 against both base and panel",
+      "category": "color",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email",
+        "print"
+      ],
+      "rationale": "Es un laboratorio de interés público: la lectura no puede depender de tener buena vista y una buena pantalla. v1.0 afirmaba cumplir AA en ambos modos y no lo cumplía en cuatro pares; el 44% del texto del sitio principal fallaba.\n",
+      "do": "Usar ink, muted, caption y las variantes *-text, que la compuerta ya verifica.",
+      "dont": "Usar signal, model o alert como color de texto pequeño en modo laboratorio.",
+      "check": {
+        "type": "automated",
+        "tool": "verify-tokens",
+        "id": "contrast-text"
+      },
+      "since": "1.0",
+      "evidence": "umbral-engineering.md §4 afirmaba lo contrario; audit §2.",
+      "guide": "02-color",
+      "see_also": [
+        "UMB-COL-006",
+        "UMB-A11Y-005"
+      ]
+    },
+    {
+      "id": "UMB-COL-006",
+      "title": "Toda marca de datos alcanza 3:1; el mobiliario de la gráfica está exento y así se declara",
+      "title_en": "Every data mark clears 3:1; chart furniture is exempt and says so",
+      "category": "color",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "WCAG 1.4.11 aplica a los gráficos necesarios para entender el contenido. Las líneas de retícula no lo son: deben quedar por debajo del dato. Distinguir ambos casos es lo que permite que la compuerta de contraste sea creíble en vez de estar siempre apagada.\n",
+      "do": "Declarar contrastRole en cada token: text, mark, furniture o surface.",
+      "dont": "Exigir 3:1 a una retícula, ni eximir a una serie de datos.",
+      "check": {
+        "type": "automated",
+        "tool": "verify-tokens",
+        "id": "contrast-mark"
+      },
+      "since": "1.1",
+      "evidence": "Decisión OQ-001.",
+      "guide": "02-color",
+      "see_also": [
+        "UMB-COL-005"
+      ]
+    },
+    {
+      "id": "UMB-COL-007",
+      "title": "No se mezclan los dos modos dentro de un mismo panel",
+      "title_en": "The two modes are never mixed inside one panel",
+      "category": "color",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "slides",
+        "social",
+        "email"
+      ],
+      "rationale": "Los tokens cascadean por subárbol. Mezclarlos dentro de una superficie produce texto de un modo sobre fondo del otro, que es exactamente el caso que la compuerta de contraste no puede prever.\n",
+      "do": "data-mode=\"instrumento\" sobre un contenedor completo.",
+      "dont": "Un panel claro con una tarjeta oscura dentro, o al revés.",
+      "check": {
+        "type": "review",
+        "note": "Requiere el DOM resuelto: los modos cascadean por subárbol y la mezcla solo existe una vez renderizado. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "exceptions": [
+        "Secciones alternas de una misma página son superficies distintas, no un mismo panel."
+      ],
+      "guide": "02-color"
+    },
+    {
+      "id": "UMB-COL-008",
+      "title": "Un color categórico nuevo se deriva en OKLCH y se verifica contra dicromacia",
+      "title_en": "A new categorical colour is derived in OKLCH and verified against dichromacy",
+      "category": "color",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Variar solo el tono no basta: para un dicrómata el tono colapsa a un solo eje. Medido, la mejor quinta serie posible variando solo tono queda en 0.042 de separación OKLab, por debajo del umbral de ~0.10 en el que dos marcas dejan de distinguirse.\n",
+      "do": "Variar tono y, si hace falta, luminosidad; verificar con audit/scripts/cvd.py.",
+      "dont": "Añadir una serie por parecido estético sin medir su separación.",
+      "check": {
+        "type": "automated",
+        "tool": "verify-tokens",
+        "id": "series-separation"
+      },
+      "since": "1.1",
+      "evidence": "OQ-009. Sustituye la regla de v1.0 «variando solo el tono» para el caso categórico.",
+      "guide": "02-color"
+    },
+    {
+      "id": "UMB-COL-009",
+      "title": "Las dos rampas secuenciales no codifican dos variables en la misma figura",
+      "title_en": "The two sequential ramps never encode two variables in one figure",
+      "category": "color",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Las rampas ancladas en signal y en model son indistinguibles bajo tritanopía (separación OKLab 0.014). Dos mapas lado a lado codificados con ellas son el mismo mapa para ese lector.\n",
+      "do": "Una rampa secuencial por figura; si hacen falta dos, variar también el rango de luminosidad.",
+      "dont": "Un coroplético en rampa signal junto a otro en rampa model.",
+      "check": {
+        "type": "review",
+        "note": "Saber qué codifica cada rampa en una figura exige entender la figura, no el código.\n"
+      },
+      "since": "1.1",
+      "evidence": "Decisión OQ-005.",
+      "guide": "02-color"
+    },
+    {
+      "id": "UMB-COL-010",
+      "title": "Dato faltante, dato suprimido y cero se distinguen visualmente entre sí",
+      "title_en": "Missing, suppressed and zero are visually distinct from one another",
+      "category": "color",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "En datos de desaparición y de delito la diferencia entre «no hay registro», «se suprimió por debajo del umbral de reporte» y «ocurrieron cero casos» es sustantiva. Representarlas igual es afirmar algo falso.\n",
+      "do": "missing como relleno plano; suppressed con la trama de 45°; cero en el extremo de la rampa.",
+      "dont": "Pintar el faltante como el valor más bajo de la escala.",
+      "check": {
+        "type": "review",
+        "note": "Que faltante, suprimido y cero se distingan es una propiedad de la leyenda renderizada.\n"
+      },
+      "since": "1.1",
+      "evidence": "KICKOFF §3.3 pide un relleno de faltante y una trama de suprimido; v1.0 no definía ninguno.",
+      "guide": "10-mapas",
+      "see_also": [
+        "UMB-NUM-006"
+      ]
+    },
+    {
+      "id": "UMB-TYP-001",
+      "title": "El display es Space Grotesk 500; nunca 700",
+      "title_en": "Display type is Space Grotesk 500; never 700",
+      "category": "type",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "El peso medio es la firma heredada de la referencia Isomorphic. El 700 convierte una voz sobria en una voz que grita.\n",
+      "do": "font-weight 500 en titulares; 600 solo en etiquetas pequeñas.",
+      "dont": "font-weight 700, 800, 900 o `bold` en un selector de display.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "display-weight"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.04 «LA FIRMA».",
+      "guide": "03-tipografia"
+    },
+    {
+      "id": "UMB-TYP-002",
+      "title": "Solo se usan Space Grotesk, IBM Plex Sans e IBM Plex Mono",
+      "title_en": "Only Space Grotesk, IBM Plex Sans and IBM Plex Mono are used",
+      "category": "type",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "La tipografía es la mitad de la identidad. Una sustitución silenciosa por la fuente por defecto del framework deshace el sistema sin que nadie lo note.\n",
+      "do": "Declarar las tres familias y auto-hospedarlas.",
+      "dont": "Inter, Roboto, Arial, Helvetica, o la Source Sans que Streamlit trae por defecto.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "banned-font-family"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.04 «NUNCA»; medido: Source Sans renderizando en pautamx por font = \"sans serif\".",
+      "guide": "03-tipografia"
+    },
+    {
+      "id": "UMB-TYP-003",
+      "title": "Se respetan los tamaños mínimos: 12px mono en web, 24px en slides, 11pt en documentos",
+      "title_en": "Minimum sizes are respected: 12px mono on web, 24px slides, 11pt documents",
+      "category": "type",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email",
+        "print"
+      ],
+      "rationale": "Debajo de esos tamaños el texto deja de ser legible para una parte del público, y las cifras —que son el argumento— son lo primero que se pierde.\n",
+      "do": "Usar font.minimum de los tokens como piso.",
+      "dont": "Reducir la fuente para que quepa más.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "minimum-font-size"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.04; medido: 34 elementos a 11px mono en desaparecidosmx.",
+      "guide": "03-tipografia"
+    },
+    {
+      "id": "UMB-TYP-004",
+      "title": "Las cifras que se alinean o se comparan van en mono; una cifra heroica aislada va en display",
+      "title_en": "Figures that align or are compared use mono; a standalone hero figure uses display",
+      "category": "type",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "El criterio es la alineación, no el tamaño. Los numerales tabulares existen para que los dígitos se comparen columna contra columna; una cifra dentro de una oración se lee como lenguaje.\n",
+      "do": "Plex Mono en KPIs, tablas y ejes; Space Grotesk 500 en una cifra suelta dentro de un titular.",
+      "dont": "Plex Sans para cifras — no es ninguna de las dos cosas.",
+      "check": {
+        "type": "review"
+      },
+      "since": "1.1",
+      "evidence": "Decisión OQ-003. v1.0 era ambiguo y los dos dashboards lo resolvieron distinto.",
+      "guide": "03-tipografia"
+    },
+    {
+      "id": "UMB-TYP-005",
+      "title": "Las tres fuentes se auto-hospedan, subconjuntadas a latin y latin-ext",
+      "title_en": "All three fonts are self-hosted, subset to latin and latin-ext",
+      "category": "type",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "slides",
+        "print"
+      ],
+      "rationale": "Un producto de datos de interés público tiene que funcionar sin conexión y dentro de redes de gobierno. Depender de un CDN externo también filtra la IP de cada lector a un tercero.\n",
+      "do": "Servir los .woff2 desde assets/fonts/ con su licencia OFL.",
+      "dont": "fonts.googleapis.com, ni un @import a un CDN.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "font-hosting"
+      },
+      "since": "1.0",
+      "evidence": "umbral-engineering.md §1 lo pide en prosa y entrega un <link> a Google Fonts en el bloque de código de la misma sección; umbralmx.github.io usa el CDN.\n",
+      "guide": "03-tipografia"
+    },
+    {
+      "id": "UMB-TYP-006",
+      "title": "El tracking del display va entre −0.02 y −0.03em",
+      "title_en": "Display tracking is between −0.02 and −0.03em",
+      "category": "type",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Space Grotesk a tamaños grandes se abre demasiado con el tracking por defecto.\n",
+      "do": "var(--u-tracking-display) en titulares.",
+      "dont": "Tracking positivo o por defecto en display.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "display-tracking"
+      },
+      "since": "1.0",
+      "guide": "03-tipografia"
+    },
+    {
+      "id": "UMB-LAY-001",
+      "title": "El radio de borde nunca pasa de 2px",
+      "title_en": "Border radius never exceeds 2px",
+      "category": "layout",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email"
+      ],
+      "rationale": "La marca es plana y recta. El radio grande —y sobre todo el botón tipo píldora— lee como producto de consumo, no como instrumento.\n",
+      "do": "var(--u-radius); como mucho var(--u-radius-max).",
+      "dont": "border-radius: 8px, 999px, o cualquier píldora.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "radius-max"
+      },
+      "since": "1.0",
+      "guide": "04-layout"
+    },
+    {
+      "id": "UMB-LAY-002",
+      "title": "No hay sombras; las reglas de 1px hacen el trabajo estructural",
+      "title_en": "No shadows; 1px rules do the structural work",
+      "category": "layout",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email"
+      ],
+      "rationale": "La profundidad falsa compite con el dato. Una regla de 1px separa igual y no añade ruido visual.\n",
+      "do": "1px sólido en var(--u-border).",
+      "dont": "box-shadow con desenfoque o desplazamiento; tarjetas elevadas.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "no-drop-shadow"
+      },
+      "since": "1.0",
+      "exceptions": [
+        "box-shadow con `inset` usado para dibujar una regla —por ejemplo `inset 4px 0 0 var(--u-signal)`— no es una sombra. cabildo-libre lo usa así.\n"
+      ],
+      "guide": "04-layout"
+    },
+    {
+      "id": "UMB-LAY-003",
+      "title": "La medida del texto no pasa de 65 caracteres",
+      "title_en": "Text measure does not exceed 65 characters",
+      "category": "layout",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "quarto",
+        "notebook",
+        "slides",
+        "email",
+        "print"
+      ],
+      "rationale": "Más allá de esa medida el ojo pierde el renglón al volver. Es la diferencia entre un informe que se lee y uno que se hojea.\n",
+      "do": "max-width: var(--u-measure).",
+      "dont": "Párrafos a todo el ancho de la ventana.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "measure-max"
+      },
+      "since": "1.0",
+      "guide": "04-layout"
+    },
+    {
+      "id": "UMB-LAY-004",
+      "title": "Todo espaciado es múltiplo de 8px",
+      "title_en": "All spacing is a multiple of 8px",
+      "category": "layout",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "slides",
+        "social",
+        "email"
+      ],
+      "rationale": "Una escala única hace que las composiciones se alineen sin decidir cada vez.\n",
+      "do": "var(--u-space-1) … var(--u-space-10).",
+      "dont": "Valores sueltos como 13px o 27px.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "spacing-scale"
+      },
+      "since": "1.0",
+      "guide": "04-layout"
+    },
+    {
+      "id": "UMB-LAY-005",
+      "title": "No hay emoji, iconos de stock ni ilustración decorativa",
+      "title_en": "No emoji, stock icons or decorative illustration",
+      "category": "layout",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "El argumento lo cargan los números. Un emoji en un informe sobre desapariciones no es neutral: cambia el registro de lo que se está diciendo.\n",
+      "do": "Espacio en blanco, reglas de 1px, y la cifra.",
+      "dont": "Emoji, iconografía genérica, ilustración de relleno.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "no-emoji"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.05 y lista «Nunca» de CLAUDE.md §9.",
+      "guide": "04-layout"
+    },
+    {
+      "id": "UMB-CHT-001",
+      "title": "El título de la gráfica enuncia el hallazgo como oración completa",
+      "title_en": "The chart title states the finding as a full sentence",
+      "category": "chart",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "El título es la afirmación. Un tema («Registros por año») obliga al lector a deducir qué debía ver; un hallazgo («Los registros crecen 9% anual desde 2015») se puede verificar contra la gráfica y, por tanto, se puede discutir.\n",
+      "do": "«El gasto observable acumula ≥ 107.6 M MXN».",
+      "dont": "«Gasto por mes».",
+      "check": {
+        "type": "review",
+        "note": "Un linter puede ver que hay un título; no puede juzgar si enuncia el hallazgo, que es precisamente la parte que importa. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.05; pautamx y desaparecidosmx ya lo hacen bien.",
+      "guide": "08-anatomia-grafica",
+      "see_also": [
+        "UMB-MET-002"
+      ]
+    },
+    {
+      "id": "UMB-CHT-002",
+      "title": "Toda gráfica lleva subtítulo con geografía, periodo y unidad",
+      "title_en": "Every chart carries a subtitle with geography, period and unit",
+      "category": "chart",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Sin unidad y sin periodo la cifra no significa nada, y la gráfica circula sin su contexto en cuanto alguien la captura de pantalla.\n",
+      "do": "«México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente».",
+      "dont": "Dejar la unidad implícita en el eje.",
+      "check": {
+        "type": "review",
+        "note": "Igual que el título: la presencia es detectable, la suficiencia —geografía, periodo, unidad— no. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "guide": "08-anatomia-grafica"
+    },
+    {
+      "id": "UMB-CHT-003",
+      "title": "Toda gráfica lleva su línea de fuente con licencia, sobre una regla de 1px",
+      "title_en": "Every chart carries its source line with licence, above a 1px rule",
+      "category": "chart",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Nombrar la fuente y su licencia es la mitad de la credibilidad del laboratorio, y es lo que permite que alguien más rehaga el cálculo.\n",
+      "do": "«Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0».",
+      "dont": "Publicar una gráfica sin fuente, o con la fuente solo en el texto que la rodea.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "chart-source-present"
+      },
+      "since": "1.0",
+      "evidence": "desaparecidosmx es el mejor ejemplo del portafolio: incluye la etiqueta del snapshot.",
+      "guide": "08-anatomia-grafica",
+      "see_also": [
+        "UMB-DAT-002"
+      ]
+    },
+    {
+      "id": "UMB-CHT-004",
+      "title": "Solo hay líneas de retícula horizontales, con la línea base más oscura",
+      "title_en": "Horizontal gridlines only, with a darker baseline",
+      "category": "chart",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "La retícula vertical rara vez ayuda a leer un valor y sí ensucia. La línea base más oscura ancla el cero.\n",
+      "do": "y.grid = true, x.grid = false, base en --u-baseline.",
+      "dont": "Retícula en ambos ejes, o marco alrededor de la gráfica.",
+      "check": {
+        "type": "review",
+        "note": "Depende de la librería y de la configuración efectiva; detectarlo en el código produce demasiados falsos negativos para ser útil. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "guide": "08-anatomia-grafica"
+    },
+    {
+      "id": "UMB-CHT-005",
+      "title": "Las series se etiquetan directamente al final de la línea; no hay caja de leyenda",
+      "title_en": "Series are labelled directly at line ends; no legend box",
+      "category": "chart",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "La leyenda obliga a ir y venir entre el dato y su nombre. La etiqueta directa también es la razón por la que los colores de serie cuentan como texto pequeño y deben cumplir 4.5:1, no 3:1.\n",
+      "do": "Plot.text en el último dato de cada serie.",
+      "dont": "Una caja de leyenda al costado.",
+      "check": {
+        "type": "review",
+        "note": "Muchas librerías dibujan leyenda por defecto sin que aparezca nada en el código. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "guide": "08-anatomia-grafica",
+      "see_also": [
+        "UMB-COL-005",
+        "UMB-A11Y-005"
+      ]
+    },
+    {
+      "id": "UMB-CHT-006",
+      "title": "Una gráfica lleva como máximo 5 series",
+      "title_en": "A chart carries at most 5 series",
+      "category": "chart",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Más allá de cinco, ni las etiquetas directas ni la separación de color se sostienen. Si hacen falta más, son dos gráficas.\n",
+      "do": "Una serie en signal, el resto en model/muted; el resto agrupado en «otros».",
+      "dont": "Ocho líneas y una leyenda para desenredarlas.",
+      "check": {
+        "type": "review",
+        "note": "El número de series suele depender de los datos en tiempo de ejecución, no del código. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "guide": "07-vocabulario-visual"
+    },
+    {
+      "id": "UMB-CHT-007",
+      "title": "Los ejes van en mono, abreviados, con coma como separador de miles",
+      "title_en": "Axis ticks are mono, abbreviated, with comma thousands separators",
+      "category": "chart",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Los numerales tabulares alinean los dígitos y hacen comparable el eje de un vistazo.\n",
+      "do": "12k, 3.7M, 351,057.",
+      "dont": "12000, 3700000, o cifras en la tipografía de cuerpo.",
+      "check": {
+        "type": "review",
+        "note": "La familia del eje se hereda del tema; comprobarla en el código no dice lo que se renderiza. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "guide": "08-anatomia-grafica",
+      "see_also": [
+        "UMB-NUM-001",
+        "UMB-NUM-002"
+      ]
+    },
+    {
+      "id": "UMB-CHT-008",
+      "title": "El eje y de las barras empieza en cero",
+      "title_en": "The y-axis starts at zero for bars",
+      "category": "chart",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "La longitud de la barra es la codificación. Truncar el eje multiplica visualmente una diferencia que no existe en los datos.\n",
+      "do": "Barras desde 0, siempre.",
+      "dont": "Empezar el eje en el mínimo observado para «que se note la diferencia».",
+      "check": {
+        "type": "review",
+        "note": "Requiere conocer los límites efectivos del eje, que casi siempre calcula la librería. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "guide": "08-anatomia-grafica"
+    },
+    {
+      "id": "UMB-CHT-009",
+      "title": "Cualquier truncamiento del eje se anota en la propia gráfica",
+      "title_en": "Any axis truncation is annotated on the chart itself",
+      "category": "chart",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "En una serie de tiempo truncar puede ser legítimo; no declararlo nunca lo es. La anotación viaja con la imagen aunque el texto no.\n",
+      "do": "Marcar el corte y decirlo junto al eje.",
+      "dont": "Truncar en silencio.",
+      "check": {
+        "type": "review",
+        "note": "Detectar un truncamiento exige los límites efectivos del eje, que casi siempre calcula la librería.\n"
+      },
+      "since": "1.0",
+      "guide": "08-anatomia-grafica"
+    },
+    {
+      "id": "UMB-CHT-010",
+      "title": "No se usan pastel, 3D ni doble eje",
+      "title_en": "No pie charts, 3D or dual axes",
+      "category": "chart",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "El pastel codifica en ángulo, que se compara mal; el 3D distorsiona el área; el doble eje permite fabricar cualquier correlación aparente eligiendo las escalas.\n",
+      "do": "Barras para composición, líneas para tiempo, dos paneles para dos unidades.",
+      "dont": "Pastel, dona, barras 3D, dos ejes y verticales con escalas distintas.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "banned-chart-type"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.08 «Nunca: pastel · 3D · doble eje · eje-y truncado sin nota».",
+      "guide": "07-vocabulario-visual"
+    },
+    {
+      "id": "UMB-CHT-011",
+      "title": "Toda proyección o estimación muestra su incertidumbre",
+      "title_en": "Every projection or estimate shows its uncertainty",
+      "category": "chart",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Es la firma del laboratorio. Un estimado puntual sin intervalo afirma una precisión que el método no tiene.\n",
+      "do": "Banda al 15% de opacidad del color de la serie; trazo punteado más allá del presente; regla vertical punteada etiquetada «hoy».",
+      "dont": "Una línea sólida que cruza hacia el futuro sin distinguirse del dato observado.",
+      "check": {
+        "type": "review",
+        "note": "Que una banda exista es detectable; que corresponda a la incertidumbre real del método no lo es.\n"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.08; pautamx lo hace bien con las cotas que publica Meta.",
+      "guide": "09-incertidumbre",
+      "see_also": [
+        "UMB-MET-003"
+      ]
+    },
+    {
+      "id": "UMB-CHT-012",
+      "title": "Toda tasa declara su denominador y su n",
+      "title_en": "Every rate states its denominator and n",
+      "category": "chart",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Una tasa por 100 mil sobre una población pequeña salta con un solo caso. Sin n el lector no puede saber si la diferencia es real.\n",
+      "do": "«tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204».",
+      "dont": "Publicar la tasa sola.",
+      "check": {
+        "type": "review",
+        "note": "Comprobar que el denominador declarado es el correcto exige conocer el dato.\n"
+      },
+      "since": "1.0",
+      "guide": "09-incertidumbre",
+      "see_also": [
+        "UMB-NUM-005",
+        "UMB-MET-003"
+      ]
+    },
+    {
+      "id": "UMB-VOZ-001",
+      "title": "Español primero; el inglés se añade donde lo gane el público",
+      "title_en": "Spanish first; English is added where the audience earns it",
+      "category": "voice",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "El público principal del laboratorio es mexicano. Publicar primero en inglés sería escribir para otra audiencia y traducir para la propia.\n",
+      "do": "guide/ en español; inglés en código, commits y la capa meta.",
+      "dont": "Traducir del inglés al español como paso final.",
+      "check": {
+        "type": "review",
+        "note": "La detección de idioma sobre fragmentos cortos es poco fiable, y el criterio es editorial.\n"
+      },
+      "since": "1.0",
+      "guide": "05-voz",
+      "see_also": [
+        "UMB-A11Y-001"
+      ]
+    },
+    {
+      "id": "UMB-VOZ-002",
+      "title": "Sin palabras hype, signos de exclamación, emoji ni preguntas retóricas como titular",
+      "title_en": "No hype words, exclamation marks, emoji or rhetorical-question headlines",
+      "category": "voice",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "La voz es sobria y cívico-científica porque el tema lo exige. El énfasis tipográfico sustituye al énfasis retórico.\n",
+      "do": "«Los registros crecen 9% anual desde 2015».",
+      "dont": "«¿Sabías que los registros se DISPARARON? 🚨»",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "hype-language"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.05.",
+      "guide": "05-voz"
+    },
+    {
+      "id": "UMB-VOZ-003",
+      "title": "Un adjetivo no sustituye a un número",
+      "title_en": "An adjective never replaces a number",
+      "category": "voice",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "«Un aumento considerable» no se puede verificar ni refutar; «un aumento de 9%» sí.\n",
+      "do": "Cuantificar.",
+      "dont": "«dramático», «masivo», «considerable» sin la cifra al lado.",
+      "check": {
+        "type": "review"
+      },
+      "since": "1.0",
+      "guide": "05-voz"
+    },
+    {
+      "id": "UMB-VOZ-004",
+      "title": "No se publica contenido de relleno",
+      "title_en": "Placeholder content is never published",
+      "category": "voice",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "Un «Lorem ipsum» en producción dice que nadie revisó la página, y eso contamina la credibilidad de los números que están al lado.\n",
+      "do": "Publicar la sección cuando su texto exista.",
+      "dont": "Lorem ipsum, «foto», «TODO», o una biografía sin escribir.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "placeholder-content"
+      },
+      "since": "1.1",
+      "evidence": "Medido: las dos biografías de umbralmx.github.io son Lorem ipsum.",
+      "guide": "05-voz"
+    },
+    {
+      "id": "UMB-NUM-001",
+      "title": "es-MX y en usan coma para miles y punto para decimales",
+      "title_en": "es-MX and en both use comma for thousands and point for decimals",
+      "category": "numbers",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email",
+        "print"
+      ],
+      "rationale": "México usa la convención anglosajona, a diferencia de España. Fijarlo evita que la misma cifra aparezca de dos formas en un mismo tablero.\n",
+      "do": "351,057 · 3.7 · 12.5%",
+      "dont": "351.057 · 3,7",
+      "check": {
+        "type": "review",
+        "note": "Sobre prosa produce demasiados falsos positivos —referencias, versiones, códigos— para bloquear un release. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.1",
+      "evidence": "KICKOFF §3.4: v1.0 no definía estilo numérico. Es el mayor hueco frente a las guías del Economist y el FT.",
+      "guide": "06-numeros"
+    },
+    {
+      "id": "UMB-NUM-002",
+      "title": "Las cifras grandes se abrevian en ejes y se escriben completas en el texto",
+      "title_en": "Large figures are abbreviated on axes and written in full in prose",
+      "category": "numbers",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "El eje necesita brevedad; la afirmación necesita precisión.\n",
+      "do": "Eje: 12k, 3.7M. Texto: 351,057 registros.",
+      "dont": "«351.1k registros» en una oración.",
+      "check": {
+        "type": "review"
+      },
+      "since": "1.1",
+      "evidence": "KICKOFF §3.4.",
+      "guide": "06-numeros"
+    },
+    {
+      "id": "UMB-NUM-003",
+      "title": "Las fechas van en ISO dentro de los datos y en prosa dentro del texto",
+      "title_en": "Dates are ISO in data and prose-formatted in text",
+      "category": "numbers",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "print",
+        "repo"
+      ],
+      "rationale": "ISO ordena y no es ambiguo entre convenciones; en prosa se lee mal.\n",
+      "do": "Datos y etiquetas: 2026-07. Texto: julio de 2026.",
+      "dont": "07/06/2026, que significa cosas distintas en México y en Estados Unidos.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "date-format"
+      },
+      "since": "1.1",
+      "evidence": "KICKOFF §3.4; convención ya usada por desaparecidosmx (2010-01) y cabildo-libre.",
+      "guide": "06-numeros"
+    },
+    {
+      "id": "UMB-NUM-004",
+      "title": "El símbolo de porcentaje va pegado a la cifra",
+      "title_en": "The percent sign is set tight against the figure",
+      "category": "numbers",
+      "severity": "info",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email",
+        "print"
+      ],
+      "rationale": "Consistencia tipográfica en cifras que aparecen miles de veces.\n",
+      "do": "9.2% — sin espacio entre la cifra y el símbolo.",
+      "dont": "9.2 % con espacio.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "percent-spacing"
+      },
+      "since": "1.1",
+      "evidence": "KICKOFF §3.4.",
+      "guide": "06-numeros"
+    },
+    {
+      "id": "UMB-NUM-005",
+      "title": "La precisión declarada no excede la del dato",
+      "title_en": "Stated precision never exceeds the precision of the data",
+      "category": "numbers",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Escribir 9.24% sobre una muestra que sostiene un dígito significativo inventa exactitud. En un registro vivo que se revisa retroactivamente, además, cambia.\n",
+      "do": "Redondear a la precisión que el método sostiene y decir cuál es.",
+      "dont": "Arrastrar todos los decimales que devuelve el cálculo.",
+      "check": {
+        "type": "review",
+        "note": "La precisión que sostiene el dato depende del método, no del texto.\n"
+      },
+      "since": "1.1",
+      "evidence": "KICKOFF §3.4 (redondeo y cifras significativas).",
+      "guide": "06-numeros",
+      "see_also": [
+        "UMB-CHT-012"
+      ]
+    },
+    {
+      "id": "UMB-NUM-006",
+      "title": "Cero, nulo y suprimido se escriben distinto y significan distinto",
+      "title_en": "Zero, null and suppressed are written differently and mean differently",
+      "category": "numbers",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print",
+        "repo"
+      ],
+      "rationale": "Convertir un nulo en cero es una imputación silenciosa, y en datos de desaparición o de delito cambia la afirmación.\n",
+      "do": "0 · «sin dato» · «suprimido (< umbral de reporte)».",
+      "dont": "Rellenar los huecos con 0 al construir la serie.",
+      "check": {
+        "type": "review",
+        "note": "Distinguir una imputación silenciosa de un cero legítimo exige entender la transformación, no el texto. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.1",
+      "evidence": "KICKOFF §3.4 (nulo vs cero vs suprimido); cabildo-libre ya declara sus huecos sin imputarlos.",
+      "guide": "06-numeros",
+      "see_also": [
+        "UMB-COL-010",
+        "UMB-DAT-005"
+      ]
+    },
+    {
+      "id": "UMB-DAT-001",
+      "title": "Todo conjunto de datos lleva su SOURCE.md",
+      "title_en": "Every dataset carries a SOURCE.md",
+      "category": "data",
+      "severity": "error",
+      "applies_to": [
+        "repo",
+        "quarto",
+        "notebook",
+        "streamlit",
+        "web"
+      ],
+      "rationale": "Sin origen, fecha de descarga, licencia y limitaciones conocidas, el dato no se puede auditar ni volver a bajar igual.\n",
+      "do": "URL de origen, quién lo descargó, cuándo, bajo qué licencia y qué se sabe que le falta.",
+      "dont": "Un CSV suelto en data/raw/ sin procedencia.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "source-md-present"
+      },
+      "since": "1.0",
+      "guide": "12-datos-procedencia"
+    },
+    {
+      "id": "UMB-DAT-002",
+      "title": "Los snapshots se etiquetan y la gráfica dice cuál usó",
+      "title_en": "Snapshots are tagged and the chart states which one it used",
+      "category": "data",
+      "severity": "error",
+      "applies_to": [
+        "repo",
+        "quarto",
+        "notebook",
+        "streamlit",
+        "web",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "El RNPDNO es un registro vivo: los conteos cambian entre consultas. Sin la etiqueta del snapshot, dos gráficas correctas parecen contradecirse.\n",
+      "do": "rnpdno-2026-07, y esa etiqueta en la línea de fuente.",
+      "dont": "«Fuente: RNPDNO» sin fecha de consulta.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "snapshot-tag"
+      },
+      "since": "1.0",
+      "evidence": "desaparecidosmx ya lo hace: «consultado 2026-07-09 · rnpdno-2026-07».",
+      "guide": "12-datos-procedencia",
+      "see_also": [
+        "UMB-CHT-003"
+      ]
+    },
+    {
+      "id": "UMB-DAT-003",
+      "title": "Toda figura publicada se reconstruye desde el dato crudo con un solo comando",
+      "title_en": "Every published figure rebuilds from raw data with one command",
+      "category": "data",
+      "severity": "error",
+      "applies_to": [
+        "repo",
+        "quarto",
+        "notebook",
+        "streamlit",
+        "web"
+      ],
+      "rationale": "Es el criterio que separa un laboratorio de un blog. Si no se puede reproducir, no se publica.\n",
+      "do": "make all reconstruye cada figura desde data/raw/.",
+      "dont": "Una cifra que salió de una edición manual en una hoja de cálculo.",
+      "check": {
+        "type": "manual",
+        "note": "Se verifica en revisión de PR ejecutando el comando de build declarado."
+      },
+      "since": "1.0",
+      "guide": "12-datos-procedencia"
+    },
+    {
+      "id": "UMB-DAT-004",
+      "title": "El código va bajo MIT y los datos y el contenido bajo CC BY 4.0",
+      "title_en": "Code is MIT; data and content are CC BY 4.0",
+      "category": "data",
+      "severity": "error",
+      "applies_to": [
+        "repo",
+        "web",
+        "quarto",
+        "notebook",
+        "streamlit",
+        "github"
+      ],
+      "rationale": "Los datos públicos regresan al público, mejorados. La licencia explícita es lo que lo hace cierto en la práctica.\n",
+      "do": "LICENSE-CODE y LICENSE-CONTENT en la raíz; licencia nombrada en cada línea de fuente.",
+      "dont": "Publicar sin licencia y confiar en que se entiende.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "license-present"
+      },
+      "since": "1.0",
+      "guide": "12-datos-procedencia"
+    },
+    {
+      "id": "UMB-DAT-005",
+      "title": "Los datos faltantes o subreportados se declaran; no se omiten ni se imputan en silencio",
+      "title_en": "Missing or under-reported data is disclosed, never silently dropped or imputed",
+      "category": "data",
+      "severity": "error",
+      "applies_to": [
+        "repo",
+        "web",
+        "quarto",
+        "notebook",
+        "streamlit",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "El hueco es información. Ocultarlo cambia la conclusión sin que el lector pueda saberlo.\n",
+      "do": "Declararlo como hueco conocido, con su magnitud.",
+      "dont": "Interpolar, rellenar con cero, o recortar el periodo hasta que el hueco desaparezca.",
+      "check": {
+        "type": "review",
+        "note": "Distinguir un hueco declarado de uno omitido exige leer el pipeline completo.\n"
+      },
+      "since": "1.0",
+      "evidence": "cabildo-libre es el modelo: «Vacíos conocidos, declarados y no imputados: 27 sesiones…».\n",
+      "guide": "12-datos-procedencia",
+      "see_also": [
+        "UMB-NUM-006"
+      ]
+    },
+    {
+      "id": "UMB-A11Y-001",
+      "title": "El atributo lang corresponde al idioma real del subárbol",
+      "title_en": "The lang attribute matches the actual language of the subtree",
+      "category": "a11y",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "github",
+        "email"
+      ],
+      "rationale": "Un lector de pantalla pronuncia el español con fonética inglesa si lang miente. Para un laboratorio que publica en español es el defecto de accesibilidad más básico.\n",
+      "do": "lang=\"es\" en el documento; lang=\"en\" en el subárbol que sí esté en inglés.",
+      "dont": "Dejar el lang=\"en\" que trae el framework por defecto.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "lang-attribute"
+      },
+      "since": "1.0",
+      "evidence": "Streamlit fija lang=\\\"en\\\" y las dos apps lo sirven así. Decisión OQ-004: severidad error, con el shim documentado en guide/14-superficies/streamlit.md.\n",
+      "guide": "11-accesibilidad"
+    },
+    {
+      "id": "UMB-A11Y-002",
+      "title": "Toda gráfica lleva un aria-label que resume el hallazgo",
+      "title_en": "Every chart carries an aria-label summarising the finding",
+      "category": "a11y",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook"
+      ],
+      "rationale": "Sin etiqueta, una gráfica es un rectángulo vacío para quien usa lector de pantalla — es decir, el hallazgo desaparece por completo, no solo su forma visual.\n",
+      "do": "aria-label con la misma afirmación que el título.",
+      "dont": "aria-label=\"gráfica\" o ninguno.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "chart-aria-label"
+      },
+      "since": "1.0",
+      "evidence": "Medido: ninguna de las gráficas de desaparecidosmx ni pautamx tiene aria-label.",
+      "guide": "11-accesibilidad"
+    },
+    {
+      "id": "UMB-A11Y-003",
+      "title": "Junto a cada gráfica hay una tabla de datos o un <details> con las cifras",
+      "title_en": "Each chart has an adjacent data table or <details> with the figures",
+      "category": "a11y",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook"
+      ],
+      "rationale": "Da a los lectores de pantalla —y a quien quiera citar la cifra exacta— acceso al dato y no solo a su imagen.\n",
+      "do": "<details> con la tabla debajo de la gráfica.",
+      "dont": "Solo el SVG.",
+      "check": {
+        "type": "review",
+        "note": "La tabla adyacente suele generarse en tiempo de ejecución; su ausencia no es visible en el fuente. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "guide": "11-accesibilidad"
+    },
+    {
+      "id": "UMB-A11Y-004",
+      "title": "Junto a cada gráfica se puede descargar su CSV",
+      "title_en": "Each chart ships a downloadable CSV",
+      "category": "a11y",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook"
+      ],
+      "rationale": "Los datos públicos regresan al público. También es lo que permite que alguien refute la gráfica con la misma base.\n",
+      "do": "Un botón de descarga por vista.",
+      "dont": "Publicar la gráfica y dejar el CSV en el repo sin enlazarlo.",
+      "check": {
+        "type": "review",
+        "note": "Igual: el botón de descarga se construye en ejecución. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "evidence": "Medido: desaparecidosmx lo tiene; pautamx no tiene ninguno.",
+      "guide": "11-accesibilidad",
+      "see_also": [
+        "UMB-DAT-004"
+      ]
+    },
+    {
+      "id": "UMB-A11Y-005",
+      "title": "El significado nunca se codifica solo con color",
+      "title_en": "Meaning is never encoded by colour alone",
+      "category": "a11y",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email",
+        "print"
+      ],
+      "rationale": "Es la razón por la que las etiquetas directas son obligatorias y no estilísticas. Además es la única mitigación real del punto débil heredado de la paleta: signal y model son indistinguibles bajo tritanopía.\n",
+      "do": "Etiqueta de texto en cada serie; flecha o palabra en cada delta.",
+      "dont": "Verde/rojo como única diferencia entre subida y bajada.",
+      "check": {
+        "type": "review",
+        "note": "Que exista una etiqueta es detectable; que el significado no dependa del color no lo es.\n"
+      },
+      "since": "1.0",
+      "guide": "11-accesibilidad",
+      "see_also": [
+        "UMB-CHT-005",
+        "UMB-COL-008"
+      ]
+    },
+    {
+      "id": "UMB-A11Y-006",
+      "title": "El foco visible se dibuja en signal y los objetivos táctiles miden 44px o más",
+      "title_en": "Focus-visible outlines are drawn in signal; touch targets are at least 44px",
+      "category": "a11y",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto"
+      ],
+      "rationale": "Navegar con teclado tiene que ser posible sin adivinar dónde se está, y un objetivo menor a 44px falla en móvil para una parte del público.\n",
+      "do": ":focus-visible con contorno en signal; áreas táctiles de 44px.",
+      "dont": "outline: none.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "focus-and-target"
+      },
+      "since": "1.0",
+      "guide": "11-accesibilidad"
+    },
+    {
+      "id": "UMB-A11Y-007",
+      "title": "Se respeta prefers-reduced-motion",
+      "title_en": "prefers-reduced-motion is respected",
+      "category": "a11y",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto"
+      ],
+      "rationale": "El movimiento puede provocar malestar vestibular. Nada en el sistema depende de animación para comunicar.\n",
+      "do": "@media (prefers-reduced-motion: reduce) { transition: none }.",
+      "dont": "Transiciones y animaciones incondicionales.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "reduced-motion"
+      },
+      "since": "1.0",
+      "guide": "11-accesibilidad"
+    },
+    {
+      "id": "UMB-MET-001",
+      "title": "Los verbos causales solo se usan con una estrategia de identificación nombrada",
+      "title_en": "Causal verbs are used only with a named identification strategy",
+      "category": "method",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "Es la diferencia entre un laboratorio y una nota de opinión con gráficas. La estrategia y su supuesto clave van junto al estimado, no en un anexo.\n",
+      "do": "«asociado con» / «correlaciona» para lo descriptivo; «efecto» / «reduce» solo con RCT, dif-en-dif, RD o VI declarada.",
+      "dont": "«X redujo Y» a partir de una serie de tiempo descriptiva.",
+      "check": {
+        "type": "review",
+        "note": "Detectar un verbo causal es fácil; decidir si hay una estrategia de identificación declarada al lado no lo es. Un falso positivo aquí desgasta la regla más importante del laboratorio. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.12; umbral-engineering.md §6.",
+      "guide": "13-interpretabilidad"
+    },
+    {
+      "id": "UMB-MET-002",
+      "title": "El titular se sostiene con los datos que la gráfica muestra",
+      "title_en": "The headline is defensible from the data the chart shows",
+      "category": "method",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Si el título afirma algo que la gráfica no puede sostener, la gráfica está sirviendo de decorado a una afirmación que no se verificó.\n",
+      "do": "Que el lector pueda comprobar el título mirando la figura.",
+      "dont": "Un titular sobre causas encima de una gráfica descriptiva.",
+      "check": {
+        "type": "review",
+        "note": "Juzgar si el titular se sostiene con la figura es exactamente el trabajo que no se puede automatizar.\n"
+      },
+      "since": "1.0",
+      "guide": "13-interpretabilidad",
+      "see_also": [
+        "UMB-CHT-001",
+        "UMB-MET-001"
+      ]
+    },
+    {
+      "id": "UMB-MET-003",
+      "title": "No se comparan conteos crudos entre poblaciones de distinto tamaño",
+      "title_en": "Raw counts are never compared across differently sized populations",
+      "category": "method",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "print"
+      ],
+      "rationale": "Comparar el conteo del Estado de México con el de Colima mide población, no incidencia.\n",
+      "do": "Tasa por 100 mil con denominador declarado, o comparar dentro de la misma unidad en el tiempo.",
+      "dont": "Un ranking de entidades por conteo absoluto.",
+      "check": {
+        "type": "review",
+        "note": "Requiere saber si dos unidades comparadas tienen poblaciones distintas.\n"
+      },
+      "since": "1.0",
+      "guide": "13-interpretabilidad",
+      "see_also": [
+        "UMB-CHT-012"
+      ]
+    },
+    {
+      "id": "UMB-MET-004",
+      "title": "Los temas sensibles se tratan con dignidad: se cuenta a las personas, no se les hace espectáculo",
+      "title_en": "Sensitive topics are handled with dignity: people are counted, never made spectacle",
+      "category": "method",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "El laboratorio publica sobre desapariciones y violencia. Las personas detrás de cada registro no son un recurso narrativo, y el mapeo a individuos identificables puede ponerlas en riesgo.\n",
+      "do": "Agregados, lenguaje sobrio, terminología del glosario.",
+      "dont": "Mapas a nivel de individuo, fotografías, o adjetivos que dramatizan el conteo.",
+      "check": {
+        "type": "review",
+        "note": "El trato digno es un juicio editorial. Automatizarlo daría una falsa garantía sobre lo más delicado que publica el laboratorio.\n"
+      },
+      "since": "1.0",
+      "evidence": "Brand book p.12; CLAUDE.md §3.",
+      "guide": "13-interpretabilidad",
+      "see_also": [
+        "UMB-MET-005"
+      ]
+    },
+    {
+      "id": "UMB-MET-005",
+      "title": "La terminología sensible sigue el glosario, que es vinculante",
+      "title_en": "Sensitive terminology follows the glossary, which is binding",
+      "category": "method",
+      "severity": "error",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print"
+      ],
+      "rationale": "La diferencia entre «persona desaparecida», «persona no localizada» y «desaparecido» es editorial, legal y ética a la vez. No es una preferencia de estilo.\n",
+      "do": "Consultar guide/15-terminologia.md y usar la forma preferida.",
+      "dont": "Elegir el término por brevedad o por costumbre.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "terminology"
+      },
+      "since": "1.1",
+      "evidence": "KICKOFF §3.5: «la página más relevante para la credibilidad de la guía».",
+      "guide": "15-terminologia"
+    },
+    {
+      "id": "UMB-PRO-001",
+      "title": "Los archivos generados nunca se editan a mano",
+      "title_en": "Generated files are never hand-edited",
+      "category": "process",
+      "severity": "error",
+      "applies_to": [
+        "repo"
+      ],
+      "rationale": "Editar la salida rompe la cadena normativa en silencio: la fuente y lo publicado dejan de coincidir y nada lo detecta hasta que alguien reconstruye.\n",
+      "do": "Cambiar tokens/src/ o rules/rules.yaml y reconstruir.",
+      "dont": "Corregir un hex en tokens/build/tokens.css.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "generated-file-edited"
+      },
+      "since": "1.1",
+      "evidence": "CLAUDE.md §2, tercera consecuencia dura; formalizada como regla en 1.1.",
+      "guide": "00-principios"
+    },
+    {
+      "id": "UMB-PRO-002",
+      "title": "La prosa no enuncia ninguna regla que rules.yaml no enuncie también",
+      "title_en": "Prose never states a rule that rules.yaml does not also state",
+      "category": "process",
+      "severity": "error",
+      "applies_to": [
+        "repo"
+      ],
+      "rationale": "Es el mecanismo que impide que la guía y la norma se separen. En v1.0 el brand book y el documento de ingeniería se contradecían sobre el tercer color de serie, y ganó el que fallaba contraste.\n",
+      "do": "Añadir la regla aquí, con su ID, y citarla desde el capítulo.",
+      "dont": "Escribir «nunca hagas X» en un capítulo y dejarlo ahí.",
+      "check": {
+        "type": "automated",
+        "tool": "verify-guide",
+        "id": "prose-rule-drift"
+      },
+      "since": "1.1",
+      "evidence": "audit/2026-07-conformance.md §3.5.",
+      "guide": "00-principios"
+    },
+    {
+      "id": "UMB-PRO-003",
+      "title": "Ningún archivo fuera de tokens/src/ escribe un valor que ya existe como token",
+      "title_en": "No file outside tokens/src/ hard-codes a value that exists as a token",
+      "category": "process",
+      "severity": "error",
+      "applies_to": [
+        "repo",
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email"
+      ],
+      "rationale": "Es la forma concreta que toma la deriva: el valor se copia una vez, la fuente cambia, y la copia se queda.\n",
+      "do": "Importar desde tokens/build/.",
+      "dont": "Pegar #128273 en un notebook.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "hardcoded-value"
+      },
+      "since": "1.0",
+      "guide": "00-principios",
+      "see_also": [
+        "UMB-COL-002"
+      ]
+    },
+    {
+      "id": "UMB-PRO-004",
+      "title": "Cambiar el valor de un token es un cambio MAYOR de versión",
+      "title_en": "Changing a token value is a MAJOR version bump",
+      "category": "process",
+      "severity": "error",
+      "applies_to": [
+        "repo"
+      ],
+      "rationale": "El semver aplica al sistema de diseño, no solo al código: un token que cambia re-renderiza todos los productos que lo consumen.\n",
+      "do": "MAYOR para un valor de token o una regla que sube a error; MENOR para una regla nueva en warning; PARCHE para prosa.",
+      "dont": "Cambiar un hex en un parche.",
+      "check": {
+        "type": "manual",
+        "note": "Se verifica al preparar el release, contra CHANGELOG.md."
+      },
+      "since": "1.0",
+      "guide": "00-principios"
+    },
+    {
+      "id": "UMB-PRO-005",
+      "title": "El capítulo de la guía y la entrada de la regla se actualizan juntos",
+      "title_en": "The guide chapter and the rule entry are updated together",
+      "category": "process",
+      "severity": "error",
+      "applies_to": [
+        "repo"
+      ],
+      "rationale": "Separarlos es exactamente cómo se produce la deriva que este repositorio existe para eliminar.\n",
+      "do": "Un PR que toca rules.yaml también toca su capítulo, y al revés.",
+      "dont": "Añadir una regla y dejar la guía para después.",
+      "check": {
+        "type": "review",
+        "note": "Que un PR toque la regla y su capítulo se comprueba al revisar el PR, no dentro de un archivo.\n"
+      },
+      "since": "1.1",
+      "evidence": "CLAUDE.md §4, definición de done; formalizada como regla en 1.1.",
+      "guide": "00-principios",
+      "see_also": [
+        "UMB-PRO-002"
+      ]
+    }
+  ]
+}

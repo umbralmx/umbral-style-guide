@@ -1,0 +1,31 @@
+[project]
+name = "umbral-viz"
+version = "1.1.0"
+description = "The Umbral design system for Python charts, notebooks and Streamlit dashboards"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Umbral", email = "hola@umbral.mx" }]
+keywords = ["umbral", "data-visualization", "design-system", "mexico"]
+dependencies = []
+
+[project.optional-dependencies]
+matplotlib = ["matplotlib>=3.6"]
+plotly = ["plotly>=5.0"]
+altair = ["altair>=5.0"]
+streamlit = ["streamlit>=1.30", "pandas>=1.5"]
+all = ["matplotlib>=3.6", "plotly>=5.0", "altair>=5.0", "streamlit>=1.30", "pandas>=1.5"]
+
+[project.urls]
+Homepage = "https://github.com/umbralmx/umbral-style-guide"
+Guide = "https://umbralmx.github.io/umbral-style-guide"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["umbral_viz*"]
+
+[tool.setuptools.package-data]
+umbral_viz = ["_data/*"]

@@ -6,11 +6,12 @@
     "build:tokens": "node build/index.mjs",
     "build:rules": "node build/rules.mjs",
     "build:guide": "node build/guide.mjs",
-    "build": "npm run build:tokens && npm run build:rules && npm run build:logo && npm run build:guide && npm run build:skill",
-    "verify": "python3 tools/verify_tokens.py && python3 tools/verify_rules.py && python3 tools/verify_guide.py && python3 tools/verify_skill.py && python3 tools/verify_lint.py && python3 tools/verify_readmes.py",
+    "build": "npm run build:tokens && npm run build:rules && npm run build:logo && npm run build:guide && npm run build:skill && npm run build:packages",
+    "verify": "python3 tools/verify_tokens.py && python3 tools/verify_rules.py && python3 tools/verify_guide.py && python3 tools/verify_skill.py && python3 tools/verify_packages.py && python3 tools/verify_lint.py && python3 tools/verify_readmes.py",
     "build:logo": "node build/logo.mjs",
     "build:skill": "node build/skill.mjs",
-    "lint": "PYTHONPATH=tools/umbral-lint python3 -m umbral_lint ."
+    "lint": "PYTHONPATH=tools/umbral-lint python3 -m umbral_lint .",
+    "build:packages": "node build/packages.mjs"
   },
   "repository": {
     "type": "git",
