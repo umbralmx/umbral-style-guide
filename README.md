@@ -10,7 +10,7 @@ This repo is the single source of truth for three different consumers:
 |---|---|
 | A human — designer, writer, contributor | [`guide/`](guide/) — the style guide, Spanish first |
 | A machine — build tool, CI, linter | [`tokens/build/`](tokens/build/), [`rules/rules.json`](rules/) |
-| An agent — Claude Code in another repo | `skills/umbral-brand/` *(Phase 4)* |
+| An agent — Claude Code in another repo | [`skills/umbral-brand/`](skills/umbral-brand/) |
 
 Content is **CC BY 4.0**, code is **MIT**.
 
@@ -71,6 +71,9 @@ Available build targets: `tokens.css` · `tokens.json` · `_tokens.scss` · `tok
 | [`audit/`](audit/) | Conformance audits of the live products, and open questions. |
 | [`build/`](build/) | The generators. |
 | [`tools/`](tools/) | Independent verification scripts (Python). |
+| [`skills/`](skills/) | The agent skill. Install into `.claude/skills/`. |
+| [`dist/`](dist/) | `CLAUDE.snippet.md` — paste into a downstream repo's `CLAUDE.md`. |
+| [`assets/`](assets/) | Logo variants, generated from one parametric spec. |
 | [`docs/`](docs/) | ADRs for the decisions that are hardest to reverse. |
 | [`_inbox/`](_inbox/) | The v1.0 source material, kept for reference. |
 
@@ -90,8 +93,8 @@ Change the source and rebuild. CI diffs the committed output and fails if it's s
 | 1 · Tokens | done |
 | 2 · Rules | done |
 | 3 · Guide prose | done |
-| 4 · Agent skill + snippet | next |
-| 5 · `umbral-lint` | |
+| 4 · Agent skill + snippet | done |
+| 5 · `umbral-lint` | next |
 | 6 · Packages (`umbral-viz`, `umbral-plot`) | |
 | 7 · Site + release | |
 | 8 · Retrofit the four products | |

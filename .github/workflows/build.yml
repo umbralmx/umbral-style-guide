@@ -7,6 +7,9 @@ on:
       - 'rules/**'
       - 'guide/**'
       - 'build/**'
+      - 'skills/**'
+      - 'assets/**'
+      - 'dist/**'
       - 'tools/**'
       - 'package.json'
       - '.github/workflows/build.yml'
@@ -49,6 +52,13 @@ jobs:
       - name: Build guide partials
         run: npm run build:guide
 
+      # Regenerates the logo variants from the 5:44 spec and gates them: the bar
+      # must cross left of centre and clear 3:1. Then repacks the agent skill.
+      - name: Build logos and the agent skill
+        run: |
+          npm run build:logo
+          npm run build:skill
+
       # Re-derives contrast, ramp properties and the rule invariants in Python,
       # from the generated files, with a different schema validator. A mistake in
       # the colour maths or the rule set has to be made twice, in two languages,
@@ -59,6 +69,7 @@ jobs:
           python3 tools/verify_tokens.py
           python3 tools/verify_rules.py
           python3 tools/verify_guide.py
+          python3 tools/verify_skill.py
           python3 tools/verify_readmes.py
 
       # Generated output is committed so downstream repos can fetch a raw URL
@@ -68,7 +79,8 @@ jobs:
       - name: Check committed build output is up to date
         run: |
           if ! git diff --exit-code --stat \
-              tokens/build/ rules/rules.json guide/CHECKLIST.md guide/_includes/; then
+              tokens/build/ rules/rules.json guide/CHECKLIST.md guide/_includes/ \
+              assets/logo/ skills/umbral-brand/references/ skills/umbral-brand/assets/ dist/; then
             echo ""
             echo "::error::Generated output is out of date. Run 'npm run build' and commit the result."
             echo "Never hand-edit generated files (UMB-PRO-001) — change the source and rebuild."

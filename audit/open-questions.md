@@ -184,7 +184,9 @@ in the KICKOFF §4 structure and the collision will get confusing.
 
 ## OQ-007 — Which logo bar ratio is canonical?
 
-**Status:** **decided** · **Blocks:** Phase 1 (generated SVGs), Phase 3 (`guide/01-marca.md`) · **Raised:** 2026-07-25 · **Decided:** 2026-07-25
+**Status:** **decided and implemented** · **Raised:** 2026-07-25 · **Decided:** 2026-07-25 · **Implemented:** 2026-07-26
+
+> Implemented in Phase 4, not Phase 1 as the decision said — the generator was written when the skill needed logo assets. `build/logo.mjs` now produces all five variants from the 5:44 spec, and gates them: the bar must cross left of the threshold line's centre, and both the bar and the dashed line must clear 3:1. The dashed line moved to the corrected `caption`, so it is now 4.52:1 rather than 2.37:1.
 
 **Decision — 5:44 is canonical.** Both v1.0 documents state it, so the drawn files are the drift.
 All logo variants (isotype, lockup, favicon, and the PNG/OG derivatives) are generated in Phase 1
