@@ -1,21 +1,56 @@
 ---
-title: "Voz"
+title: "05 · Voz"
 lang: es
 ---
 
-# 05 · Voz
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.2.0
+
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
 
 Precisa, sobria, cívico-científica. Los números cargan el argumento.
+
+## Oraciones cortas
+
+{{< include /_includes/rules/UMB-VOZ-005.md >}}
+
+Es ASD-STE100 aplicado al español. La norma nació en la industria aeroespacial para que un técnico
+no pudiera leer dos cosas distintas en la misma instrucción. Sirve igual aquí, por dos razones.
+
+La primera es el lector. Un informe sobre desapariciones se lee bajo presión, y una subordinada de
+tercer nivel cuesta tiempo que nadie tiene.
+
+La segunda es el agente. Buena parte de esta guía la va a ejecutar un modelo sin nadie que resuelva
+la ambigüedad por él.
+
+Cuatro hábitos cubren casi todo:
+
+| Hábito | En su lugar |
+|---|---|
+| Punto y coma que une dos ideas | Dos oraciones |
+| Nominalización: «realizar un análisis de» | El verbo: «analizar» |
+| Rotación de sinónimos para la misma cosa | Una palabra, siempre la misma |
+| Metáfora donde cabe un dato | El dato |
+
+Lo que la regla **no** pide: telegramas. Conserva los artículos, los conectores y el «que». La meta
+es quitar ambigüedad, no palabras.
+
+::: {.u-note}
+**se conserva** · Una cita textual se cita como está. Un matiz de confianza —«podría», «suele»— es
+contenido, no relleno. Acortar una oración hasta convertir un matiz en un hecho cambia la
+afirmación.
+:::
 
 ## Español primero
 
 {{< include /_includes/rules/UMB-VOZ-001.md >}}
 
-El público principal del laboratorio es mexicano. Escribir primero en inglés y traducir después
-sería escribir para otra audiencia y darle a la propia la versión derivada. El inglés se añade
-cuando un artefacto tiene público internacional real, no por defecto.
+Escribir primero en inglés y traducir después sería escribir para otra audiencia. El inglés se
+añade cuando un artefacto tiene público internacional real.
 
-El código, los mensajes de commit, los ADR y esta capa meta van en inglés.
+El código, los mensajes de commit, los ADR y la capa meta van en inglés.
 
 ## El titular es el hallazgo
 
@@ -24,11 +59,11 @@ El código, los mensajes de commit, los ADR y esta capa meta van en inglés.
 | **Sí** | «Los registros crecen 9% anual desde 2015» |
 | **No** | «Registros por año» |
 
-Un tema obliga al lector a deducir qué debía ver. Un hallazgo se puede verificar contra la gráfica
-y, por lo tanto, se puede discutir. Esa posibilidad de refutación es lo que hace que valga la pena
+Un tema obliga al lector a deducir qué debía ver. Un hallazgo se puede comprobar contra la gráfica.
+Un lector que puede comprobarlo también puede refutarlo, y eso es lo que hace que valga la pena
 publicarlo.
 
-Un titular también es una afirmación de la que el laboratorio responde:
+Un titular es además una afirmación de la que el laboratorio responde:
 
 {{< include /_includes/rules/UMB-MET-002.md >}}
 
@@ -38,8 +73,7 @@ Un titular también es una afirmación de la que el laboratorio responde:
 
 {{< include /_includes/rules/UMB-VOZ-003.md >}}
 
-«Un aumento considerable» no se puede verificar ni refutar. «Un aumento de 9%» sí. El adjetivo
-evaluativo es casi siempre una cifra que no se buscó.
+El adjetivo evaluativo es casi siempre una cifra que no se buscó.
 
 | Evitar | Escribir |
 |---|---|
@@ -51,26 +85,30 @@ evaluativo es casi siempre una cifra que no se buscó.
 
 ## Cubrirse bien
 
-Cubrirse no es debilidad: es precisión. Pero cubrirse de más vacía la afirmación.
+Cubrirse no es debilidad. Es precisión. Pero cubrirse de más vacía la afirmación.
 
 | | |
 |---|---|
-| **Sí** | «Los registros con fecha de hechos en 2025 son 12% más que en 2024; el registro se actualiza retroactivamente, así que la cifra de 2025 subirá.» |
+| **Sí** | «Los registros con fecha de hechos en 2025 son 12% más que en 2024. El registro se actualiza retroactivamente, así que la cifra de 2025 subirá.» |
 | **No** | «Podría sugerirse que quizá haya habido cierto aumento.» |
 
-Di lo que sabes, con su límite al lado. La cobertura va pegada a la afirmación, no en una nota al
-final que nadie lee.
+Di lo que sabes y pon el límite al lado. La cobertura va pegada a la afirmación, no en una nota al
+final.
 
 ## Fuente y licencia, siempre
 
-Nombrar la fuente y su licencia es la mitad de la credibilidad del laboratorio, y lo que permite que
-alguien más rehaga el cálculo. Ver [12 · Datos y procedencia](/guide/12-datos-procedencia.qmd).
+Nombrar la fuente y su licencia es la mitad de la credibilidad del laboratorio. Es también lo que
+permite que alguien más rehaga el cálculo. Ver
+[12 · Datos y procedencia](/guide/12-datos-procedencia.qmd).
 
 ## Nada de relleno
 
 {{< include /_includes/rules/UMB-VOZ-004.md >}}
 
 <!-- umbral-lint: ignore[placeholder-content] -->
-Un «Lorem ipsum» en producción dice que nadie revisó la página, y eso contamina la credibilidad de
-los números que están al lado. En julio de 2026 las dos biografías del sitio principal seguían
-siendo texto de relleno.
+En julio de 2026 las dos biografías del sitio principal seguían siendo texto de relleno.
+
+::: {.u-foot}
+umbral_ · v1.2.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

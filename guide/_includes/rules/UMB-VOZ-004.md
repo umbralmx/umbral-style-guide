@@ -5,12 +5,12 @@
 
 ### No se publica contenido de relleno
 
-Un «Lorem ipsum» en producción dice que nadie revisó la página, y eso contamina la credibilidad de los números que están al lado.
+Un «Lorem ipsum» en producción dice que nadie revisó la página. Eso contamina la credibilidad de los números que están al lado.
 
 | | |
 |---|---|
-| **Sí** | Publicar la sección cuando su texto exista. |
-| **No** | Lorem ipsum, «foto», «TODO», o una biografía sin escribir. |
+| **Sí** | Publica la sección cuando su texto exista. |
+| **No** | No dejes Lorem ipsum, «foto», «TODO» ni una biografía sin escribir. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `placeholder-content`.
 

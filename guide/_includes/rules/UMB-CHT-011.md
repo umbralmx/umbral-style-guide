@@ -5,12 +5,12 @@
 
 ### Toda proyección o estimación muestra su incertidumbre
 
-Es la firma del laboratorio. Un estimado puntual sin intervalo afirma una precisión que el método no tiene.
+Un estimado puntual sin intervalo afirma una precisión que el método no tiene. Mostrar el intervalo es lo que distingue una gráfica de Umbral de una gráfica cualquiera.
 
 | | |
 |---|---|
-| **Sí** | Banda al 15% de opacidad del color de la serie; trazo punteado más allá del presente; regla vertical punteada etiquetada «hoy». |
-| **No** | Una línea sólida que cruza hacia el futuro sin distinguirse del dato observado. |
+| **Sí** | Dibuja la banda al 15% de opacidad del color de la serie. Puntea el trazo más allá del presente. Etiqueta la regla vertical como «hoy». |
+| **No** | No cruces al futuro con una línea sólida igual a la del dato observado. |
 
 *Comprobación:* En revisión.
 

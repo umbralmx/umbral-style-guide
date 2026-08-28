@@ -9,8 +9,8 @@ Comparar el conteo del Estado de México con el de Colima mide población, no in
 
 | | |
 |---|---|
-| **Sí** | Tasa por 100 mil con denominador declarado, o comparar dentro de la misma unidad en el tiempo. |
-| **No** | Un ranking de entidades por conteo absoluto. |
+| **Sí** | Usa una tasa por 100 mil con denominador declarado, o compara la misma unidad a lo largo del tiempo. |
+| **No** | No publiques un ranking de entidades por conteo absoluto. |
 
 *Comprobación:* En revisión.
 

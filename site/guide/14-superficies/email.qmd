@@ -1,24 +1,30 @@
 ---
-title: "Superficie · Correo"
+title: "Correo"
 lang: es
 ---
 
-# Correo
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.2.0
 
-**Modo laboratorio (claro).** Boletines y avisos. La superficie más restringida del sistema.
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
+
+**Modo laboratorio (claro).** Boletines y avisos. Es la superficie más restringida del sistema.
 
 ## Lo que el correo no permite
 
-Los clientes de correo no cargan fuentes externas ni respetan buena parte del CSS moderno. Así que:
+Los clientes de correo no cargan fuentes externas. Tampoco respetan buena parte del CSS moderno.
+Tres consecuencias:
 
 - **Fuentes:** declara la pila completa y acepta la degradación.
   ```css
   font-family: 'IBM Plex Sans', -apple-system, system-ui, sans-serif;
   ```
-  No es una excepción a UMB-TYP-002: se declaran las familias de la marca y el cliente sustituye si
-  no puede. Lo prohibido sigue siendo *elegir* Arial o Roboto.
-- **Variables CSS:** no las uses. Los valores van en línea, **copiados del build**, nunca escritos
-  a mano desde la memoria.
+  No es una excepción a UMB-TYP-002. Declaras las familias de la marca y el cliente sustituye si no
+  puede. Lo prohibido sigue siendo *elegir* Arial o Roboto.
+- **Variables CSS:** no las uses. Los valores van en línea, **copiados del build**. Nunca los
+  escribas de memoria.
 - **Modo oscuro:** los clientes lo aplican solos y mal. Diseña en claro y prueba en oscuro.
 
 ## Gráficas
@@ -26,8 +32,8 @@ Los clientes de correo no cargan fuentes externas ni respetan buena parte del CS
 Como imagen, no como SVG en línea (Outlook no lo renderiza).
 
 - Exporta a PNG a 2×.
-- `alt` con **el hallazgo completo**: para muchos lectores la imagen no carga, y el `alt` es toda la
-  gráfica.
+- `alt` con **el hallazgo completo**. Para muchos lectores la imagen no carga, y el `alt` es toda
+  la gráfica.
 - La línea de fuente va **dentro** de la imagen, no en el HTML de alrededor.
 - Enlaza a la página con el CSV y la tabla.
 
@@ -48,7 +54,7 @@ Fuente · licencia · enlace a los datos
 Darse de baja · umbral.mx
 ```
 
-Un ancho de 600px, medida de 65 caracteres, cuerpo de 16px como mínimo.
+Ancho de 600px. Medida de 65 caracteres. Cuerpo de 16px como mínimo.
 
 ## Antes de enviar
 
@@ -58,3 +64,8 @@ Un ancho de 600px, medida de 65 caracteres, cuerpo de 16px como mínimo.
 - [ ] Enlace al CSV
 - [ ] Sin emoji, sin signos de exclamación
 - [ ] Los valores en línea coinciden con `tokens/build/`
+
+::: {.u-foot}
+umbral_ · v1.2.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

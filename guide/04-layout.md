@@ -5,12 +5,12 @@ lang: es
 
 # 04 · Layout
 
-Plano por construcción. Las reglas de 1px hacen todo el trabajo estructural que en otros sistemas
-hacen las sombras.
+Plano por construcción. Las reglas de 1px hacen el trabajo estructural que en otros sistemas hacen
+las sombras.
 
 ## Espacio
 
-Escala de 8px. Todo margen, todo relleno, todo hueco es un múltiplo.
+La escala es de 8px. Todo margen, todo relleno y todo hueco es un múltiplo.
 
 ```
 8 · 16 · 24 · 32 · 40 · 48 · 64 · 80
@@ -18,49 +18,127 @@ Escala de 8px. Todo margen, todo relleno, todo hueco es un múltiplo.
 
 {{< include _includes/rules/UMB-LAY-004.md >}}
 
-Más aire del que parece necesario. La contención visual es la que deja que la cifra sea lo que
-llama la atención; si la composición está apretada, compite consigo misma.
+Deja más aire del que parece necesario. El espacio en blanco es lo que deja que la cifra llame la
+atención. Una composición apretada compite consigo misma.
 
 ## Medida
 
 {{< include _includes/rules/UMB-LAY-003.md >}}
 
-Pasados los 65 caracteres el ojo pierde el renglón al volver a la izquierda. Es la diferencia entre
-un informe que se lee y uno que se hojea.
+Es la diferencia entre un informe que se lee y uno que se hojea.
 
 ## Superficies
 
 | Elemento | Construcción |
 |---|---|
 | Página | fondo `base` |
-| Panel / tarjeta | fondo `panel`, borde 1px `border`, relleno 24–32px, **sin sombra** |
-| Tabla | regla superior 2px `ink`, reglas de fila 1px `border`, cifras mono alineadas a la derecha |
+| Panel | fondo `panel`, borde 1px `border`, relleno 24–32px, **sin sombra** |
+| Tabla | regla superior 2px `ink`, reglas de fila 1px `border`, cifras mono a la derecha |
 | Fila destacada | relleno `panel` + borde izquierdo 4px `signal` |
-| Botón primario | fondo `ink`, texto `base`, 13×26px, Space Grotesk 500; hover → fondo `signal` |
-| Botón secundario | transparente, borde 1px `baseline`, texto `ink`; hover → borde y texto `signal` |
-| Navegación y filtros | controles planos con borde; activo = texto `signal` o subrayado de 2px |
+| Botón primario | fondo `ink`, texto `base`, Space Grotesk 500; hover → fondo `signal` |
+| Control secundario | transparente, borde 1px `baseline`, mono; hover → borde y texto `signal` |
+| Navegación y filtros | controles planos con borde; activo = texto `signal` |
 
 {{< include _includes/rules/UMB-LAY-001.md >}}
 
 {{< include _includes/rules/UMB-LAY-002.md >}}
 
-::: {.callout-note}
-`box-shadow` con `inset` usado para dibujar una regla —`inset 4px 0 0 var(--u-signal)`— no es una
-sombra: es una técnica de layout, y está permitida. Lo prohibido es la profundidad falsa, es decir
-el desenfoque y el desplazamiento.
+::: {.u-note}
+**excepción** · Un `box-shadow` con `inset` que dibuja una regla —`inset 4px 0 0 var(--u-signal)`—
+no es una sombra. Es una técnica de layout y está permitida. Lo prohibido es la profundidad falsa,
+es decir el desenfoque y el desplazamiento.
 
-Vale la pena decirlo porque un linter ingenuo que busque la cadena `box-shadow` marcaría como
-infracción el producto **más** conforme del portafolio.
+Vale la pena decirlo. Un linter ingenuo que busque la cadena `box-shadow` marcaría como infracción
+el producto más conforme del portafolio.
+:::
+
+## Etiquetas de sección
+
+Una página se estructura con etiquetas, no con titulares repetidos. La etiqueta va en mono, en
+minúsculas y en `caption`. Nombra la sección y no compite con el contenido.
+
+{{< include _includes/rules/UMB-LAY-006.md >}}
+
+```html
+<h2 class="u-label">proyectos</h2>
+```
+
+Es el mismo recurso tipográfico que ya usa la línea de fuente de una gráfica. Ver
+[03 · Tipografía](03-tipografia.md).
+
+## Listas de elementos
+
+Una lista de proyectos, de fuentes o de reglas es una columna de filas. Cada fila pesa lo mismo.
+
+{{< include _includes/rules/UMB-LAY-007.md >}}
+
+```
+proyectos
+──────────────────────────────────────────────
+desaparecidosmx                  EN DESARROLLO
+Pipeline que convierte el RNPDNO en CSV…
+[ Dashboard ]  [ Código ]
+──────────────────────────────────────────────
+observatorio-delictivo           EN DESARROLLO
+…
+```
+
+La regla llega hasta el borde del contenedor. Así el ojo lee una sola columna en vez de una rejilla
+de tarjetas.
+
+El nombre del elemento va en mono medio. El estado va en mono, en versalitas, en `caption`. La
+descripción va en Plex Sans, `muted`, con la medida de 65 caracteres.
+
+## Controles
+
+{{< include _includes/rules/UMB-LAY-008.md >}}
+
+Un control secundario es un rectángulo de 1px sin relleno. El estado activo mueve el borde y el
+texto a `signal`. Reservar `signal` para el estado activo deja libre el único punto de atención de
+la vista, que UMB-COL-004 asigna a la capa de datos.
+
+El área táctil mide 44px o más, incluso cuando el borde visible es menor. Ver
+[11 · Accesibilidad](11-accesibilidad.md).
+
+## La retícula de puntos
+
+{{< include _includes/rules/UMB-LAY-009.md >}}
+
+La retícula marca el papel milimétrico del instrumento. Vive detrás de la página, en `baseline`, a
+un paso de 22px. La hoja de contenido la tapa con `base`.
+
+```css
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(var(--u-baseline) 1px, transparent 1.6px);
+  background-size: 22px 22px;
+}
+.sheet { position: relative; z-index: 1; background: var(--u-base); }
+```
+
+En pantallas estrechas no hay margen que llenar y la retícula no se ve. Nunca queda debajo de texto,
+de una tabla ni de una gráfica, así que no cambia ningún contraste medido.
+
+::: {.u-note}
+**por qué es una regla** · UMB-LAY-005 prohíbe la ilustración decorativa. Sin esta regla, la
+retícula sería una excepción no escrita. Escrita, es una decisión acotada: vive en el margen, en un
+token de mobiliario, y desaparece en móvil.
 :::
 
 ## Sin decoración
 
 {{< include _includes/rules/UMB-LAY-005.md >}}
 
-El argumento lo cargan los números. Un emoji en un informe sobre desapariciones no es neutral:
-cambia el registro de lo que se está diciendo.
+La regla incluye los iconos de una interfaz. Una fila de una lista se distingue por su regla de 1px
+y por su etiqueta, nunca por un pictograma.
 
 ## Encabezado y pie
 
-Encabezado: fondo `base`, isotipo y wordmark a la izquierda, navegación a la derecha, regla inferior
-de 1px. Pie: licencia del código, licencia de los datos, enlace al repositorio.
+No hay barra de encabezado. La marca va al principio del contenido, alineada con el titular y con el
+resto de la columna.
+
+El pie lleva la licencia del código, la licencia de los datos y el enlace al repositorio.

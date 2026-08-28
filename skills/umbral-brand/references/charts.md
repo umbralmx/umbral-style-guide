@@ -1,5 +1,5 @@
 <!-- references/charts.md — GENERATED from the normative layer of
-     umbralmx/umbral-style-guide v1.1.0. Do not edit; regenerate. -->
+     umbralmx/umbral-style-guide v1.2.0. Do not edit; regenerate. -->
 
 # Charts
 
@@ -61,38 +61,38 @@ series · a chart without its source.
 ## Rules
 
 - **UMB-CHT-001** (**must**) — The chart title states the finding as a full sentence
-  - do: «El gasto observable acumula ≥ 107.6 M MXN».
-  - don't: «Gasto por mes».
+  - do: Escribe «El gasto observable acumula ≥ 107.6 M MXN».
+  - don't: No escribas «Gasto por mes».
 - **UMB-CHT-002** (**must**) — Every chart carries a subtitle with geography, period and unit
-  - do: «México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente».
-  - don't: Dejar la unidad implícita en el eje.
+  - do: Escribe «México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente».
+  - don't: No dejes la unidad implícita en el eje.
 - **UMB-CHT-003** (**must**) — Every chart carries its source line with licence, above a 1px rule
-  - do: «Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0».
-  - don't: Publicar una gráfica sin fuente, o con la fuente solo en el texto que la rodea.
+  - do: Escribe «Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0».
+  - don't: No publiques una gráfica sin fuente. No dejes la fuente solo en el texto que la rodea.
 - **UMB-CHT-004** (**must**) — Horizontal gridlines only, with a darker baseline
-  - do: y.grid = true, x.grid = false, base en --u-baseline.
-  - don't: Retícula en ambos ejes, o marco alrededor de la gráfica.
+  - do: Pon y.grid en true, x.grid en false, y la base en --u-baseline.
+  - don't: No pongas retícula en ambos ejes. No dibujes un marco alrededor de la gráfica.
 - **UMB-CHT-005** (**must**) — Series are labelled directly at line ends; no legend box
-  - do: Plot.text en el último dato de cada serie.
-  - don't: Una caja de leyenda al costado.
+  - do: Dibuja el texto de la serie sobre su último dato.
+  - don't: No pongas una caja de leyenda al costado.
 - **UMB-CHT-006** (should) — A chart carries at most 5 series
-  - do: Una serie en signal, el resto en model/muted; el resto agrupado en «otros».
-  - don't: Ocho líneas y una leyenda para desenredarlas.
+  - do: Pon una serie en signal y el resto en model o muted. Agrupa la cola en «otros» y di cuántas agrupaste.
+  - don't: No dibujes ocho líneas con una leyenda para desenredarlas.
 - **UMB-CHT-007** (should) — Axis ticks are mono, abbreviated, with comma thousands separators
-  - do: 12k, 3.7M, 351,057.
-  - don't: 12000, 3700000, o cifras en la tipografía de cuerpo.
+  - do: Escribe 12k, 3.7M y 351,057.
+  - don't: No escribas 12000 ni 3700000. No pongas las cifras en la tipografía de cuerpo.
 - **UMB-CHT-008** (**must**) — The y-axis starts at zero for bars
-  - do: Barras desde 0, siempre.
-  - don't: Empezar el eje en el mínimo observado para «que se note la diferencia».
+  - do: Empieza las barras en 0 siempre.
+  - don't: No empieces el eje en el mínimo observado para que se note más la diferencia.
 - **UMB-CHT-009** (**must**) — Any axis truncation is annotated on the chart itself
-  - do: Marcar el corte y decirlo junto al eje.
-  - don't: Truncar en silencio.
+  - do: Marca el corte y dilo junto al eje.
+  - don't: No trunques el eje en silencio.
 - **UMB-CHT-010** (**must**) — No pie charts, 3D or dual axes
-  - do: Barras para composición, líneas para tiempo, dos paneles para dos unidades.
-  - don't: Pastel, dona, barras 3D, dos ejes y verticales con escalas distintas.
+  - do: Usa barras para composición, líneas para tiempo y dos paneles para dos unidades.
+  - don't: No uses pastel, dona, barras 3D ni dos ejes verticales con escalas distintas.
 - **UMB-CHT-011** (**must**) — Every projection or estimate shows its uncertainty
-  - do: Banda al 15% de opacidad del color de la serie; trazo punteado más allá del presente; regla vertical punteada etiquetada «hoy».
-  - don't: Una línea sólida que cruza hacia el futuro sin distinguirse del dato observado.
+  - do: Dibuja la banda al 15% de opacidad del color de la serie. Puntea el trazo más allá del presente. Etiqueta la regla vertical como «hoy».
+  - don't: No cruces al futuro con una línea sólida igual a la del dato observado.
 - **UMB-CHT-012** (**must**) — Every rate states its denominator and n
-  - do: «tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204».
-  - don't: Publicar la tasa sola.
+  - do: Escribe «tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204».
+  - don't: No publiques la tasa sola.

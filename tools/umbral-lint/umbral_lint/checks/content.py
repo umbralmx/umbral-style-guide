@@ -59,11 +59,124 @@ PLACEHOLDER = re.compile(
     r"|>\s*(foto|imagen|placeholder)\s*<"
     r"|\bplaceholder (text|content|copy|image)\b")
 
+# ── UMB-VOZ-005: one statement per sentence, 25 words maximum ─────────────
+# ASD-STE100 caps an instruction at 20 words and a description at 25. Prose is
+# measured against the looser cap, because the tighter one belongs to procedures.
+#
+# Only prose is measured. A table row, a code fence, a URL and a front-matter
+# block are not sentences, and counting them made the check report the type
+# scale and the contrast matrix — 60 findings, none of them writing.
+SENTENCE_WORDS_MAX = 25
+_SENTENCE_SPLIT = re.compile(r'''(?<=[.!?])\s+(?=[«"'(\[]?[A-ZÁÉÍÓÚÑ¿¡])''')
+_INLINE_CODE = re.compile(r"`[^`]*`")
+_MD_LINK = re.compile(r"\[([^\]]*)\]\([^)]*\)")
+_MD_MARKUP = re.compile(r"[*_>#|]+")
+_SKIP_LINE = re.compile(
+    # tables, fences, divs, includes, comments, bare URLs, checklist items, raw HTML
+    r"^\s*(\||```|~~~|:::|\{\{<|<!--|<[a-z/!]|https?://|[-*+]\s*\[[ x]\]|\d+\.\s*\[[ x]\])"
+    # A bolded lead-in whose colon sits inside the bold is a field, not a sentence:
+    # «- **Origen:** https://…». A bullet that opens with a bolded *statement*
+    # («- **El titular se sostiene.** Dice un rango…») keeps its colon outside, so
+    # it is still measured — which is right, because it is prose.
+    r"|^\s*[-*+]\s*\*\*[^*\n]*:\*\*"
+    # a bare YAML-ish key at the start of a line
+    r"|^\s*[-*+]?\s*(do|dont|title|title_en|rationale|check|note|evidence)\s*:")
+
+
+_LIST_ITEM = re.compile(r"^\s*([-*+]|\d+[.)])\s")
+
+
+def _prose_paragraphs(text: str):
+    """Yield (line_no, paragraph) for prose only.
+
+    Fenced blocks, front matter, tables, headings and directives are dropped
+    whole. Everything left is something a person reads as a sentence.
+
+    Each list item starts its own paragraph. Joined into one buffer, three
+    one-line bullets read as a single 30-word sentence, which is the wrong
+    reading and the wrong finding.
+    """
+    lines = text.splitlines()
+    out, buf, start, fenced, front = [], [], 0, False, False
+    if lines and lines[0].strip() == "---":
+        front = True
+    for i, raw in enumerate(lines, 1):
+        stripped = raw.strip()
+        if front:
+            if i > 1 and stripped == "---":
+                front = False
+            continue
+        if stripped.startswith(("```", "~~~")):
+            fenced = not fenced
+            continue
+        if fenced:
+            continue
+        if not stripped or stripped.startswith("#") or _SKIP_LINE.search(raw):
+            if buf:
+                out.append((start, " ".join(buf)))
+                buf = []
+            continue
+        if _LIST_ITEM.match(raw) and buf:
+            out.append((start, " ".join(buf)))
+            buf = []
+        if not buf:
+            start = i
+        buf.append(_LIST_ITEM.sub("", stripped, count=1))
+    if buf:
+        out.append((start, " ".join(buf)))
+    return out
+
+
+def _sentences(paragraph: str):
+    """Split a paragraph into sentences, with markup reduced first.
+
+    An inline code span becomes a single capitalised placeholder rather than
+    disappearing. It names one referent, so it counts as one word — and blanking
+    it instead hides the sentence boundary in «…first time. `theme: none` makes
+    Quarto…», which then reads as one 33-word sentence.
+    """
+    p = _MD_LINK.sub(r"\1", paragraph)
+    p = _INLINE_CODE.sub("X", p)
+    p = _MD_MARKUP.sub(" ", p)
+    return [s.strip() for s in _SENTENCE_SPLIT.split(p) if s.strip()]
+
+
+# UMB-VOZ-005 states three exceptions, and these are the two a path can decide.
+# Third-party licence text is reproduced verbatim as a legal obligation. An accepted
+# ADR is frozen by docs/adr/README.md — the rule binds new ADRs, not the record of a
+# decision already made. The third exception, a direct quotation, is a judgement and
+# is suppressed inline where it occurs.
+_FROZEN_FILE = re.compile(
+    r"(^|/)(LICEN[CS]E|COPYING|NOTICE|OFL)[\w.-]*$"
+    r"|(^|/)docs/adr/\d{4}-", re.I)
+
+
+def _long_sentences(ctx: Context) -> None:
+    for p in ctx.files({".md", ".qmd", ".rmd", ".txt"}):
+        if is_token_file(p) or _FROZEN_FILE.search(p.as_posix()):
+            continue
+        try:
+            text = p.read_text(errors="replace")
+        except OSError:
+            continue
+        for line, para in _prose_paragraphs(text):
+            for sentence in _sentences(para):
+                # «a · b · c» is a list set on one line, not a sentence
+                if sentence.count("·") >= 2:
+                    continue
+                words = sentence.split()
+                if len(words) > SENTENCE_WORDS_MAX:
+                    ctx.report("long-sentence", p, line,
+                               f"{len(words)} words in one sentence: "
+                               f"«{' '.join(words[:8])}…»",
+                               f"split it; {SENTENCE_WORDS_MAX} words is the ceiling")
+
 
 def run(ctx: Context) -> None:
     _markup(ctx)
     _charts(ctx)
     _prose(ctx)
+    _long_sentences(ctx)
 
 
 def _markup(ctx: Context) -> None:

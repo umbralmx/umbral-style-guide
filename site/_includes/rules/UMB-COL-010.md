@@ -5,12 +5,12 @@
 
 ### Dato faltante, dato suprimido y cero se distinguen visualmente entre sí
 
-En datos de desaparición y de delito la diferencia entre «no hay registro», «se suprimió por debajo del umbral de reporte» y «ocurrieron cero casos» es sustantiva. Representarlas igual es afirmar algo falso.
+«No hay registro», «se suprimió por debajo del umbral de reporte» y «ocurrieron cero casos» son tres hechos distintos. Representarlos igual afirma algo falso.
 
 | | |
 |---|---|
-| **Sí** | missing como relleno plano; suppressed con la trama de 45°; cero en el extremo de la rampa. |
-| **No** | Pintar el faltante como el valor más bajo de la escala. |
+| **Sí** | Usa missing como relleno plano, la trama de 45° para suprimido, y el extremo de la rampa para cero. |
+| **No** | No pintes el faltante como el valor más bajo de la escala. |
 
 *Comprobación:* En revisión.
 

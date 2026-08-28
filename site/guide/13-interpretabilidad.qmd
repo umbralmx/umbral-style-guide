@@ -1,11 +1,16 @@
 ---
-title: "Interpretabilidad y honestidad"
+title: "13 · Interpretabilidad y honestidad"
 lang: es
 ---
 
-# 13 · Interpretabilidad y honestidad
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.2.0
 
-Es la credibilidad del laboratorio. Se aplica en revisión, no solo en diseño.
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
+
+Aquí está la credibilidad del laboratorio. Se aplica en revisión, no solo en diseño.
 
 ## Descriptivo o causal
 
@@ -16,28 +21,27 @@ Es la credibilidad del laboratorio. Se aplica en revisión, no solo en diseño.
 | Serie de tiempo, corte transversal, correlación | «asociado con», «coincide con», «correlaciona», «es mayor en» |
 | RCT, diferencias-en-diferencias, regresión discontinua, variables instrumentales | «efecto», «reduce», «aumenta», «causa» |
 
-Cuando uses un verbo causal, la estrategia y su supuesto clave van **junto al estimado**:
+Cuando uses un verbo causal, pon la estrategia y su supuesto clave **junto al estimado**:
 
 > El programa redujo los homicidios en 2.4 por 100 mil (IC 95%: 0.7 a 4.1), estimado con
 > diferencias-en-diferencias contra municipios vecinos que no lo adoptaron. El supuesto clave es que
-> ambos grupos habrían seguido tendencias paralelas; la figura 3 muestra las tendencias previas.
+> ambos grupos habrían seguido tendencias paralelas. La figura 3 muestra las tendencias previas.
 
-Sin esa oración, el estimado no es interpretable. Con ella, alguien puede discutirlo — que es el
+Sin esa oración, el estimado no es interpretable. Con ella, alguien puede discutirlo. Ese es el
 punto.
 
 ## El titular responde por la figura
 
 {{< include /_includes/rules/UMB-MET-002.md >}}
 
-Un titular causal sobre una gráfica descriptiva es la forma más común de esta falla, y no se
-corrige poniendo un descargo debajo: el titular es lo que la gente lee y comparte.
+Un titular causal sobre una gráfica descriptiva es la forma más común de esta falla. No se corrige
+con un descargo debajo. El titular es lo que la gente lee y comparte.
 
 ## Denominadores
 
 {{< include /_includes/rules/UMB-MET-003.md >}}
 
-Comparar el conteo del Estado de México con el de Colima mide población, no incidencia. Ver
-[06 · Números](/guide/06-numeros.qmd) y [10 · Mapas](/guide/10-mapas.qmd).
+Ver [06 · Números](/guide/06-numeros.qmd) y [10 · Mapas](/guide/10-mapas.qmd).
 
 ## Ejes honestos
 
@@ -51,27 +55,27 @@ Comparar el conteo del Estado de México con el de Colima mide población, no in
 Un hueco declarado es un dato. Un hueco recortado es una afirmación falsa por omisión. Ver
 [12 · Datos y procedencia](/guide/12-datos-procedencia.qmd).
 
-Cuidado especial con el subreporte reciente: en un registro vivo, el último tramo de la serie
+Cuidado especial con el subreporte reciente. En un registro vivo, el último tramo de la serie
 siempre baja, y siempre se lee como una mejora. Ver [09 · Incertidumbre](/guide/09-incertidumbre.qmd).
 
 ## Dignidad
 
 {{< include /_includes/rules/UMB-MET-004.md >}}
 
-Detrás de cada registro del RNPDNO hay una persona y una familia, y muchas veces una búsqueda en
-curso.
+Detrás de cada registro del RNPDNO hay una persona y una familia. Muchas veces hay también una
+búsqueda en curso.
 
-- Se cuenta a las personas; no se hace espectáculo con ellas.
-- Sin mapeo a individuos identificables, ni siquiera con datos técnicamente públicos: la agregación
+- Cuenta a las personas. No hagas espectáculo con ellas.
+- No mapees a individuos identificables, ni siquiera con datos técnicamente públicos. La agregación
   a nivel municipal es el piso.
-- Sin fotografías, sin narrativas de caso para ilustrar una tendencia.
+- Sin fotografías. Sin narrativas de caso para ilustrar una tendencia.
 - Sin adjetivos que dramaticen el conteo. La cifra ya es grave.
 - Antes de publicar un desglose fino, pregunta si puede poner a alguien en riesgo. Ante la duda,
   agrega.
 
 {{< include /_includes/rules/UMB-MET-005.md >}}
 
-La terminología no es preferencia de estilo: ver [15 · Terminología](/guide/15-terminologia.qmd).
+La terminología no es preferencia de estilo. Ver [15 · Terminología](/guide/15-terminologia.qmd).
 
 ## Antes de publicar
 
@@ -82,3 +86,8 @@ La terminología no es preferencia de estilo: ver [15 · Terminología](/guide/1
 - [ ] ¿Los huecos están declarados?
 - [ ] ¿Alguien podría ser identificado a partir de esto?
 - [ ] ¿La terminología sigue el glosario?
+
+::: {.u-foot}
+umbral_ · v1.2.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

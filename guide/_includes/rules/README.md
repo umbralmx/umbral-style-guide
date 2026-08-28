@@ -13,5 +13,5 @@ That is what makes UMB-PRO-002 mechanical — the normative text on a guide page
 prose cannot drift from the norm. `tools/verify_guide.py` fails if a chapter states a rule's text
 without including its callout.
 
-Currently 69 rules: 58 `error`, 10 `warning`,
+Currently 74 rules: 58 `error`, 15 `warning`,
 1 `info`. The full index is `guide/_includes/rule-index.md`.

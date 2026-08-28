@@ -9,8 +9,8 @@ El hueco es información. Ocultarlo cambia la conclusión sin que el lector pued
 
 | | |
 |---|---|
-| **Sí** | Declararlo como hueco conocido, con su magnitud. |
-| **No** | Interpolar, rellenar con cero, o recortar el periodo hasta que el hueco desaparezca. |
+| **Sí** | Declara el hueco con su magnitud. |
+| **No** | No interpoles, no rellenes con cero, y no recortes el periodo hasta que el hueco desaparezca. |
 
 *Comprobación:* En revisión.
 

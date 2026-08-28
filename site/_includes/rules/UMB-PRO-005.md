@@ -5,12 +5,12 @@
 
 ### El capítulo de la guía y la entrada de la regla se actualizan juntos
 
-Separarlos es exactamente cómo se produce la deriva que este repositorio existe para eliminar.
+Separarlos produce exactamente la deriva que este repositorio existe para eliminar.
 
 | | |
 |---|---|
-| **Sí** | Un PR que toca rules.yaml también toca su capítulo, y al revés. |
-| **No** | Añadir una regla y dejar la guía para después. |
+| **Sí** | Haz que un PR que toca rules.yaml toque también su capítulo, y al revés. |
+| **No** | No añadas una regla dejando la guía para después. |
 
 *Comprobación:* En revisión.
 

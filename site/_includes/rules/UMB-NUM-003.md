@@ -5,12 +5,12 @@
 
 ### Las fechas van en ISO dentro de los datos y en prosa dentro del texto
 
-ISO ordena y no es ambiguo entre convenciones; en prosa se lee mal.
+ISO ordena y no es ambiguo entre convenciones. En prosa se lee mal.
 
 | | |
 |---|---|
-| **Sí** | Datos y etiquetas: 2026-07. Texto: julio de 2026. |
-| **No** | 07/06/2026, que significa cosas distintas en México y en Estados Unidos. |
+| **Sí** | Escribe 2026-07 en datos y etiquetas. Escribe julio de 2026 en el texto. |
+| **No** | No escribas 07/06/2026. Significa cosas distintas en México y en Estados Unidos. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `date-format`.
 

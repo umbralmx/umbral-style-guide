@@ -9,8 +9,8 @@ Un valor enunciado en dos lugares deja de coincidir. Así fue como el mplstyle d
 
 | | |
 |---|---|
-| **Sí** | var(--u-signal), tokens['signal'], umbral_laboratorio$signal. |
-| **No** | #128273 escrito directamente en una hoja de estilo, un notebook o una gráfica. |
+| **Sí** | Lee el valor desde var(--u-signal), tokens['signal'] o umbral_laboratorio$signal. |
+| **No** | No escribas #128273 en una hoja de estilo, un notebook ni una gráfica. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `hardcoded-token-hex`.
 

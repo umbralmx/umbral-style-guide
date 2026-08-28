@@ -1,19 +1,25 @@
 <!-- references/terminology.md — GENERATED from the normative layer of
-     umbralmx/umbral-style-guide v1.1.0. Do not edit; regenerate. -->
+     umbralmx/umbral-style-guide v1.2.0. Do not edit; regenerate. -->
 
 > Binding controlled vocabulary. Mirrored from `guide/15-terminologia.md`.
 > The distinctions here are legal and ethical, not stylistic — see UMB-MET-005.
 
 # 15 · Terminología
 
-Vocabulario controlado y **vinculante**. La diferencia entre «persona desaparecida» y «persona no
-localizada» es editorial, legal y ética a la vez: no es una preferencia de estilo, y elegir el
-término por brevedad o por costumbre es un error de método.
+Vocabulario controlado y **vinculante**.
+
+«Persona desaparecida» y «persona no localizada» nombran cosas distintas. La diferencia es
+editorial, legal y ética a la vez. Elegir el término por brevedad o por costumbre es un error de
+método, no de estilo.
 
 
-Cómo leer las tablas: **Preferido** es lo que se publica. **Evitar** es aceptable en una cita
-textual pero no en voz propia. **Nunca** no se publica, ni siquiera entre comillas, salvo que la
-nota trate precisamente sobre el uso del término.
+Cómo leer las tablas:
+
+| Columna | Qué significa |
+|---|---|
+| **Preferido** | Es lo que se publica. |
+| **Evitar** | Es aceptable en una cita textual, no en voz propia. |
+| **Nunca** | No se publica, ni entre comillas. La excepción es una nota sobre el uso del término. |
 
 ---
 
@@ -32,10 +38,10 @@ nota trate precisamente sobre el uso del término.
 | — | — | **se lo llevaron** (en voz propia) | Sin sujeto identificado, afirma un hecho que no está establecido. |
 
 
-Las tres categorías del RNPDNO —desaparecidas o no localizadas, localizadas con vida, localizadas
-sin vida— **particionan el total**. Si tu gráfica las suma, di eso en el subtítulo; si filtras una,
-di cuál y por qué. `desaparecidosmx` lo declara correctamente: «las tres categorías particionan el
-total».
+**particiones** · Las tres categorías del RNPDNO particionan el total: desaparecidas o no
+localizadas, localizadas con vida, localizadas sin vida. Si tu gráfica las suma, dilo en el
+subtítulo. Si filtras una, di cuál y por qué. `desaparecidosmx` lo declara así: «las tres categorías
+particionan el total».
 
 
 ---
@@ -69,10 +75,10 @@ total».
 | **persona en situación de calle** | «indigente» | — | |
 
 
-Cuando el desglose de la fuente no coincide con estas preferencias —el RNPDNO publica
-«Indeterminado»— **usa la etiqueta de la fuente en el dato** y explica la categoría en el subtítulo o
-en el `SOURCE.md`. Reetiquetar en silencio rompe la trazabilidad; no explicarla deja al lector
-adivinando.
+**etiquetas de la fuente** · A veces el desglose de la fuente no coincide con estas preferencias. El
+RNPDNO publica «Indeterminado». Usa la etiqueta de la fuente en el dato. Explica la categoría en el
+subtítulo o en el `SOURCE.md`. Reetiquetar en silencio rompe la trazabilidad. No explicarla deja al
+lector adivinando.
 
 
 ---
@@ -131,15 +137,17 @@ nuevo cada vez.
 | suprimido | suppressed |
 
 
-«Missing person» **no** es una traducción segura de «persona desaparecida»: en inglés cubre el caso
-sin indicios de delito, que en México es «persona no localizada». Cuando traduzcas, traduce la
-categoría del registro, no la palabra.
+**cuidado** · «Missing person» no es una traducción segura de «persona desaparecida». En inglés
+cubre el caso sin indicios de delito, que en México es «persona no localizada». Traduce la categoría
+del registro, no la palabra.
 
 
 ---
 
 ## Cómo se cambia este glosario
 
-Como cualquier otra norma: propuesta con su razón en `audit/open-questions.md`, discusión, y luego
-la entrada aquí junto a la regla. Un término que cambia después de haberse publicado se anota como
-cambio en `CHANGELOG.md` — los lectores que citaron la versión anterior tienen derecho a saberlo.
+Se cambia como cualquier otra norma. Primero una propuesta con su razón en
+`audit/open-questions.md`. Después la discusión. Al final, la entrada aquí junto a la regla.
+
+Un término que cambia después de haberse publicado se anota en `CHANGELOG.md`. Los lectores que
+citaron la versión anterior tienen derecho a saberlo.

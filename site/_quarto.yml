@@ -73,6 +73,8 @@ website:
             href: guide/15-terminologia.qmd
       - section: "Superficies"
         contents:
+          - text: "landing"
+            href: guide/14-superficies/landing.qmd
           - text: "web"
             href: guide/14-superficies/web.qmd
           - text: "streamlit"
@@ -99,7 +101,7 @@ website:
       - reglas.qmd
       - checklist.qmd
   page-footer:
-    left: "umbral_ · v1.1.0"
+    left: "umbral_ · v1.2.0"
     center: "Código MIT · contenido CC BY 4.0"
     right: "[Repositorio](https://github.com/umbralmx/umbral-style-guide)"
 

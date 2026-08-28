@@ -5,16 +5,16 @@
 
 ### No se mezclan los dos modos dentro de un mismo panel
 
-Los tokens cascadean por subárbol. Mezclarlos dentro de una superficie produce texto de un modo sobre fondo del otro, que es exactamente el caso que la compuerta de contraste no puede prever.
+Los tokens cascadean por subárbol. Mezclarlos dentro de una superficie pone texto de un modo sobre fondo del otro. La compuerta de contraste no puede prever ese caso.
 
 | | |
 |---|---|
-| **Sí** | data-mode="instrumento" sobre un contenedor completo. |
-| **No** | Un panel claro con una tarjeta oscura dentro, o al revés. |
+| **Sí** | Pon data-mode="instrumento" sobre un contenedor completo. |
+| **No** | No pongas una tarjeta oscura dentro de un panel claro, ni al revés. |
 
 **Excepciones**
 
-- Secciones alternas de una misma página son superficies distintas, no un mismo panel.
+- Dos secciones alternas de una misma página son superficies distintas, no un mismo panel.
 
 *Comprobación:* En revisión.
 

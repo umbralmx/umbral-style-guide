@@ -5,12 +5,12 @@
 
 ### Se respetan los tamaños mínimos: 12px mono en web, 24px en slides, 11pt en documentos
 
-Debajo de esos tamaños el texto deja de ser legible para una parte del público, y las cifras —que son el argumento— son lo primero que se pierde.
+Debajo de esos tamaños una parte del público deja de leer el texto. Las cifras son lo primero que se pierde.
 
 | | |
 |---|---|
-| **Sí** | Usar font.minimum de los tokens como piso. |
-| **No** | Reducir la fuente para que quepa más. |
+| **Sí** | Usa font.minimum de los tokens como piso. |
+| **No** | No reduzcas el tamaño de la fuente para que quepa más contenido. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `minimum-font-size`.
 

@@ -5,12 +5,12 @@
 
 ### Toda gráfica lleva su línea de fuente con licencia, sobre una regla de 1px
 
-Nombrar la fuente y su licencia es la mitad de la credibilidad del laboratorio, y es lo que permite que alguien más rehaga el cálculo.
+La fuente y su licencia son lo que permite que otra persona rehaga el cálculo. La gráfica circula sin su página, y la línea de fuente es lo único que viaja con ella.
 
 | | |
 |---|---|
-| **Sí** | «Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0». |
-| **No** | Publicar una gráfica sin fuente, o con la fuente solo en el texto que la rodea. |
+| **Sí** | Escribe «Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0». |
+| **No** | No publiques una gráfica sin fuente. No dejes la fuente solo en el texto que la rodea. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `chart-source-present`.
 

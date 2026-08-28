@@ -9,8 +9,8 @@ Los numerales tabulares alinean los dígitos y hacen comparable el eje de un vis
 
 | | |
 |---|---|
-| **Sí** | 12k, 3.7M, 351,057. |
-| **No** | 12000, 3700000, o cifras en la tipografía de cuerpo. |
+| **Sí** | Escribe 12k, 3.7M y 351,057. |
+| **No** | No escribas 12000 ni 3700000. No pongas las cifras en la tipografía de cuerpo. |
 
 *Comprobación:* En revisión.
 

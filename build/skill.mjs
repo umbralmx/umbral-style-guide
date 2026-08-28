@@ -403,6 +403,8 @@ Pin the tag. Never point at \`main\` — a token change would land without warni
 - Causal verbs only with a named identification strategy. Otherwise «asociado con».
 - \`lang="es"\`. Never encode meaning by colour alone.
 - Spanish first. Sensitive terminology is binding — see \`guide/15-terminologia.md\`.
+- One statement per sentence, 25 words maximum. Active voice. One word for one thing.
+- Section labels in mono lowercase. Lists are rows with 1px rules, not cards.
 
 **Never:** emoji · gradients · drop shadows · pill buttons · pure black or white · 700-weight
 display · a chart without its source · a figure that cannot be rebuilt from raw data.

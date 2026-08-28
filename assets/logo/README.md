@@ -11,11 +11,13 @@ Every variant comes from one parametric spec: bar ratio **5:44**, crossing at
 | `umbral-lockup-{light,dark}.svg` | Header, report cover, deck footer |
 | `umbral-favicon.svg` | Browser tab — coarser dashes so it survives 16px |
 
-The build gate checks two things numerically rather than by eye: the bar crosses left of the
-threshold line's centre, and both the bar and the dashed line clear 3:1 against their background.
+The build gate checks two things numerically rather than by eye:
 
-This exists because the v1.0 files shipped **three different bar ratios** (5:44 documented, 1:7.13
-in the isotype, 1:6.29 in the lockup) and the lockup's bar crossed to the *right* — contradicting
+1. The bar crosses left of the threshold line's centre.
+2. Both the bar and the dashed line clear 3:1 against their background.
+
+This exists because the v1.0 files shipped **three different bar ratios**: 5:44 documented, 1:7.13
+in the isotype, 1:6.29 in the lockup. The lockup's bar also crossed to the *right*. That contradicts
 the one geometric rule the brand states about its own mark. See OQ-007.
 
 The clear space is one bar-height on all four sides. That is a layout instruction, not part of the

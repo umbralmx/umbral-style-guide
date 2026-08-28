@@ -5,12 +5,12 @@
 
 ### El tracking del display va entre −0.02 y −0.03em
 
-Space Grotesk a tamaños grandes se abre demasiado con el tracking por defecto.
+Space Grotesk se abre demasiado a tamaños grandes con el tracking por defecto.
 
 | | |
 |---|---|
-| **Sí** | var(--u-tracking-display) en titulares. |
-| **No** | Tracking positivo o por defecto en display. |
+| **Sí** | Usa var(--u-tracking-display) en titulares. |
+| **No** | No dejes tracking positivo ni por defecto en display. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `display-tracking`.
 

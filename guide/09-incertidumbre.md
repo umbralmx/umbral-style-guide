@@ -5,8 +5,7 @@ lang: es
 
 # 09 · Incertidumbre
 
-La incertidumbre visible es la firma del laboratorio. Se reconoce una gráfica de Umbral porque
-muestra lo que no sabe.
+Una gráfica de Umbral muestra lo que no sabe. Es lo que la distingue de una gráfica cualquiera.
 
 {{< include _includes/rules/UMB-CHT-011.md >}}
 
@@ -18,8 +17,8 @@ muestra lo que no sabe.
 | **Proyección** | Trazo punteado (`7 5`) más allá del último dato observado. |
 | **Regla «hoy»** | Línea vertical punteada en `caption`, etiquetada `hoy` en mono. |
 
-La opacidad de la banda es un token (`opacity.uncertainty-band`), no un número suelto: se ajusta en
-un solo lugar y todas las gráficas del laboratorio cambian con él.
+La opacidad de la banda es un token (`opacity.uncertainty-band`), no un número suelto. Se ajusta en
+un solo lugar y todas las gráficas cambian con él.
 
 ## Qué banda es
 
@@ -32,8 +31,8 @@ Una banda sin etiqueta no dice nada. El subtítulo tiene que nombrarla:
 | Escenarios | `escenario base con rango alto–bajo` |
 | Cota publicada por la fuente | `la banda es el intervalo [cota inferior, cota superior] que publica Meta` |
 
-Ese último caso es el de `pautamx`, y es un buen modelo: la fuente publica intervalos y no cifras,
-así que el titular usa `≥` y el subtítulo explica de dónde viene la banda.
+El último caso es el de `pautamx` y es un buen modelo. La fuente publica intervalos y no cifras. El
+titular usa `≥` y el subtítulo explica de dónde viene la banda.
 
 ## Estimados puntuales
 
@@ -44,27 +43,27 @@ Un estimado sin intervalo afirma una precisión que el método no tiene. En text
 > El efecto estimado es de −2.4 puntos porcentuales (IC 95%: −4.1 a −0.7), estimado con
 > diferencias-en-diferencias sobre municipios vecinos.
 
-El intervalo va junto al estimado, no en una nota. La estrategia de identificación, también — ver
+El intervalo va junto al estimado, no en una nota. La estrategia de identificación también. Ver
 [13 · Interpretabilidad](13-interpretabilidad.md).
 
 ## Registros vivos
 
-El RNPDNO se actualiza retroactivamente: los conteos de meses pasados cambian entre consultas. Los
-periodos recientes están sistemáticamente subreportados, no porque hayan ocurrido menos hechos sino
-porque todavía no se registraron.
+El RNPDNO se actualiza retroactivamente. Los conteos de meses pasados cambian entre consultas. Los
+periodos recientes están sistemáticamente subreportados. No ocurrieron menos hechos: todavía no se
+registraron.
 
 Tratamiento obligatorio:
 
-1. Marca el tramo incompleto como **provisional** —punteado, o banda— y etiquétalo.
+1. Marca el tramo incompleto como **provisional**, con punteado o con banda, y etiquétalo.
 2. Dilo en el subtítulo: «el registro se actualiza retroactivamente».
 3. Fija el snapshot y nómbralo en la línea de fuente (`rnpdno-2026-07`).
 
-Sin esto, la caída final de la serie se lee como una mejora real. Es probablemente el error de
-interpretación más fácil de cometer con estos datos, y el más costoso.
+Sin esto, la caída final de la serie se lee como una mejora real. Es el error de interpretación más
+fácil de cometer con estos datos, y el más costoso.
 
-::: {.callout-note}
-`desaparecidosmx` ya lo hace bien: marca el tramo final como `provisional →` con una regla vertical
-punteada. Es el patrón a copiar.
+::: {.u-note}
+**patrón a copiar** · `desaparecidosmx` ya lo hace bien. Marca el tramo final como `provisional →`
+con una regla vertical punteada.
 :::
 
 ## Lo que no se hace

@@ -5,16 +5,16 @@
 
 ### No se usan degradados
 
-El degradado introduce una variación de color que no codifica nada. En una gráfica compite con la escala; en la interfaz es decoración.
+El degradado varía el color sin codificar nada. En una gráfica compite con la escala. En la interfaz es decoración.
 
 | | |
 |---|---|
-| **Sí** | Rellenos sólidos; una rampa secuencial si hay que codificar intensidad. |
-| **No** | linear-gradient decorativo, fondos con degradado, barras degradadas. |
+| **Sí** | Usa rellenos sólidos. Usa una rampa secuencial si tienes que codificar intensidad. |
+| **No** | No uses linear-gradient decorativo, fondos con degradado ni barras degradadas. |
 
 **Excepciones**
 
-- Un linear-gradient de un solo color usado para dibujar una regla de 1px es una técnica de layout, no un degradado. cabildo-libre lo usa correctamente.
+- Un linear-gradient de un solo color que dibuja una regla de 1px es una técnica de layout, no un degradado. cabildo-libre lo usa así.
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `no-gradient`.
 

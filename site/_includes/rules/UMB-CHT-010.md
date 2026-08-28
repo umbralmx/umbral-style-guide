@@ -5,12 +5,12 @@
 
 ### No se usan pastel, 3D ni doble eje
 
-El pastel codifica en ángulo, que se compara mal; el 3D distorsiona el área; el doble eje permite fabricar cualquier correlación aparente eligiendo las escalas.
+El pastel codifica en ángulo y el ángulo se compara mal. El 3D distorsiona el área. El doble eje permite fabricar cualquier correlación aparente eligiendo las escalas.
 
 | | |
 |---|---|
-| **Sí** | Barras para composición, líneas para tiempo, dos paneles para dos unidades. |
-| **No** | Pastel, dona, barras 3D, dos ejes y verticales con escalas distintas. |
+| **Sí** | Usa barras para composición, líneas para tiempo y dos paneles para dos unidades. |
+| **No** | No uses pastel, dona, barras 3D ni dos ejes verticales con escalas distintas. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `banned-chart-type`.
 

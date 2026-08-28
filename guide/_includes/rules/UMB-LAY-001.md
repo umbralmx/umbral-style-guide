@@ -5,12 +5,12 @@
 
 ### El radio de borde nunca pasa de 2px
 
-La marca es plana y recta. El radio grande —y sobre todo el botón tipo píldora— lee como producto de consumo, no como instrumento.
+La marca es plana y recta. Un radio grande, y sobre todo un botón tipo píldora, se lee como producto de consumo y no como instrumento.
 
 | | |
 |---|---|
-| **Sí** | var(--u-radius); como mucho var(--u-radius-max). |
-| **No** | border-radius: 8px, 999px, o cualquier píldora. |
+| **Sí** | Usa var(--u-radius). Como mucho, usa var(--u-radius-max). |
+| **No** | No uses border-radius de 8px, de 999px ni ninguna píldora. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `radius-max`.
 

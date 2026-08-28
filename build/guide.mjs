@@ -61,8 +61,9 @@ Comprobados ${contrast.summary.pairsChecked} pares · ${contrast.summary.failure
 ${contrast.summary.exempt} tokens de mobiliario exentos por declaración explícita.
 
 Los tokens con rol \`mobiliario\` —retícula, borde, línea base— están **deliberadamente** por debajo
-de 3:1: deben quedar por debajo del dato. La exención se declara token por token en
-\`tokens/src/semantic.color.tokens.json\` y nunca se hereda.
+de 3:1. Tienen que quedar por debajo del dato.
+
+La exención se declara token por token en \`tokens/src/semantic.color.tokens.json\`. Nunca se hereda.
 `);
 }
 
@@ -91,9 +92,10 @@ ${worst.join('\n')}
   };
   await fs.writeFile(`${OUT}/series-palette.md`, `${HEAD}
 ${MODES.map(block).join('\n')}
-Por debajo de ~0.10 dos marcas dejan de distinguirse con fiabilidad. Por eso la etiqueta directa
-(UMB-CHT-005) y la prohibición de codificar solo con color (UMB-A11Y-005) no son estilísticas: son
-la mitigación real del punto más débil de la paleta.
+Por debajo de ~0.10, dos marcas dejan de distinguirse con fiabilidad.
+
+Por eso la etiqueta directa (UMB-CHT-005) y la prohibición de codificar solo con color
+(UMB-A11Y-005) no son estilísticas. Son la mitigación real del punto más débil de la paleta.
 `);
 }
 

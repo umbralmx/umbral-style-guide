@@ -1,36 +1,40 @@
 ---
-title: "Marca"
+title: "01 · Marca"
 lang: es
 ---
 
-# 01 · Marca
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.2.0
+
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
 
 ## El wordmark
 
-`umbral_` en minúsculas, Space Grotesk 500, con el guión bajo en `signal-text`.
+`umbral_` en minúsculas, Space Grotesk 500. El guión bajo va en `signal-text`.
 
-El guión bajo es el umbral: es la marca diciendo lo que hace. En mayúsculas, en negrita o con el
-guión bajo del mismo color que el texto, deja de ser un logotipo y pasa a ser una palabra.
+El guión bajo es el umbral. Es la marca diciendo lo que hace. En mayúsculas, en negrita, o con el
+guión bajo del color del texto, deja de ser un logotipo y pasa a ser una palabra.
 
 {{< include /_includes/rules/UMB-BRD-001.md >}}
 
-::: {.callout-note}
-El guión bajo va en `signal-text`, no en `signal`. A 22px y peso 500 el wordmark no califica como
-«texto grande», así que necesita 4.5:1; `signal` alcanza 4.22:1. En v1.0 el logotipo del sitio
-incumplía la propia regla de contraste de la marca.
+::: {.u-note}
+**nota** · El guión bajo va en `signal-text`, no en `signal`. A 22px y peso 500 el wordmark no
+califica como «texto grande». Necesita 4.5:1 y `signal` alcanza 4.22:1. En v1.0 el logotipo del
+sitio incumplía la regla de contraste de la propia marca.
 :::
 
 ## El isotipo
 
-Una barra vertical —la señal— que cruza una línea horizontal punteada —el umbral de significancia.
+Una barra vertical cruza una línea horizontal punteada. La barra es la señal. La línea es el umbral
+de significancia.
 
 ```
         ╎
    ╌╌╌╌─┼─╌╌╌╌╌╌╌╌
         ╎
 ```
-
-Tres propiedades lo definen:
 
 | Propiedad | Valor |
 |---|---|
@@ -42,16 +46,13 @@ Tres propiedades lo definen:
 
 {{< include /_includes/rules/UMB-BRD-003.md >}}
 
-La barra cruza a la izquierda porque el umbral se cruza *avanzando*: queda más recorrido a la
-derecha que a la izquierda. No es un detalle decorativo, es la única regla geométrica que la marca
-enuncia sobre sí misma.
+La barra cruza a la izquierda porque el umbral se cruza avanzando. Queda más recorrido a la derecha
+que a la izquierda.
 
-::: {.callout-warning}
-## Los archivos de v1.0 no cumplían esta regla
-
-Los SVG entregados en v1.0 tenían tres proporciones distintas —5:44 documentada, 1:7.13 en el
-isotipo, 1:6.29 en el lockup— y **el lockup cruzaba a la derecha del centro**. Por eso todas las
-variantes se generan ahora desde una sola fuente paramétrica: para que no puedan volver a separarse.
+::: {.u-note}
+**v1.0** · Los SVG entregados tenían tres proporciones distintas: 5:44 documentada, 1:7.13 en el
+isotipo y 1:6.29 en el lockup. El lockup además cruzaba a la derecha del centro. Por eso todas las
+variantes se generan ahora desde una sola fuente paramétrica.
 :::
 
 ## Variantes
@@ -62,11 +63,16 @@ variantes se generan ahora desde una sola fuente paramétrica: para que no pueda
 | `umbral-lockup-{light,dark}.svg` | Encabezado, portada de informe, pie de deck |
 | `umbral-favicon.svg` | Pestaña del navegador |
 
-La línea punteada del umbral va en `caption`; la barra, en `signal`.
+La línea punteada del umbral va en `caption`. La barra va en `signal`.
 
 ## Lo que no se permite
 
 {{< include /_includes/rules/UMB-BRD-004.md >}}
 
 Concretamente: distorsionar, contornear, añadir sombra o efectos, recolorear fuera de los tokens,
-usar el wordmark en mayúsculas, o poner el guión bajo en un color distinto a señal.
+usar el wordmark en mayúsculas, o poner el guión bajo en otro color.
+
+::: {.u-foot}
+umbral_ · v1.2.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

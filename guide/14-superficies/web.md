@@ -7,6 +7,8 @@ lang: es
 
 **Modo laboratorio (claro).** El sitio, los micrositios de proyecto y los informes.
 
+La página de entrada tiene su propia hoja: ver [portada](landing.md).
+
 ## Arranque
 
 ```html
@@ -33,14 +35,17 @@ main { max-width: var(--u-measure); }
 
 ## Estructura
 
-- Encabezado: isotipo + wordmark a la izquierda, navegación a la derecha, regla inferior de 1px.
-- Héroe: titular de Space Grotesk 500 en dos líneas como máximo, un acento en señal, una oración de
-  apoyo.
-- Pie: licencia del código, licencia de los datos, enlace al repositorio.
+- **Marca:** al principio del contenido, alineada con el titular. Una barra de encabezado solo se
+  justifica cuando hay navegación real que mostrar.
+- **Héroe:** titular de Space Grotesk 500 en dos líneas como máximo, un acento en señal, y una
+  oración de apoyo.
+- **Secciones:** etiqueta en mono minúsculas, contenido en filas separadas por reglas de 1px. Ver
+  [04 · Layout](../04-layout.md).
+- **Pie:** licencia del código, licencia de los datos, enlace al repositorio.
 
 ## Secciones oscuras
 
-Una sección con `data-mode="instrumento"` es una superficie distinta, no un panel mezclado: está
+Una sección con `data-mode="instrumento"` es una superficie distinta, no un panel mezclado. Está
 permitido. Lo que no está permitido es una tarjeta clara dentro de una sección oscura.
 
 ## Metadatos sociales
@@ -52,7 +57,7 @@ permitido. Lo que no está permitido es una tarjeta clara dentro de una sección
 <meta name="twitter:card" content="summary_large_image">
 ```
 
-La tarjeta OG es 1200×630, modo instrumento, y lleva **una** cifra grande. Ver
+La tarjeta OG es de 1200×630, en modo instrumento, y lleva **una** cifra grande. Ver
 [social.md](social.md).
 
 ## Antes de publicar
@@ -62,4 +67,5 @@ La tarjeta OG es 1200×630, modo instrumento, y lleva **una** cifra grande. Ver
 - [ ] Ningún hex escrito a mano
 - [ ] Toda gráfica: título-hallazgo, subtítulo, fuente, `aria-label`, CSV
 - [ ] Un solo elemento en señal en la capa de datos
+- [ ] Etiquetas de sección en mono minúsculas; listas en filas, no en tarjetas
 - [ ] `:focus-visible` visible; `prefers-reduced-motion` respetado

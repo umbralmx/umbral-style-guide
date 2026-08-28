@@ -1,18 +1,23 @@
 ---
-title: "Color y modos"
+title: "02 · Color y modos"
 lang: es
 ---
 
-# 02 · Color y modos
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.2.0
+
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
 
 Los dos modos comparten tipografía, layout, logo y semántica. **Solo cambian los tokens de color.**
 
 | | Cuándo |
 |---|---|
 | **modo laboratorio** (claro) — por defecto | Sitio, informes, decks, documentos, prensa |
-| **modo instrumento** (oscuro) | Tableros en vivo, tarjetas sociales, pantallas de monitoreo, divisores de sección y diapositivas de cifra grande |
+| **modo instrumento** (oscuro) | Tableros en vivo, tarjetas sociales, pantallas de monitoreo, divisores de sección, diapositivas de cifra grande |
 
-Se cambia con `data-mode="instrumento"` o la clase `.u-dark` sobre un contenedor completo.
+Cambia de modo con `data-mode="instrumento"` o con la clase `.u-dark` sobre un contenedor completo.
 
 {{< include /_includes/rules/UMB-COL-007.md >}}
 
@@ -20,7 +25,7 @@ Se cambia con `data-mode="instrumento"` o la clase `.u-dark` sobre un contenedor
 
 {{< include /_includes/token-table.md >}}
 
-Cada token declara un **rol de contraste**, y ese rol es lo que la compuerta de CI comprueba:
+Cada token declara un **rol de contraste**. La compuerta de CI comprueba ese rol:
 
 | Rol | Umbral | Qué es |
 |---|---|---|
@@ -29,10 +34,11 @@ Cada token declara un **rol de contraste**, y ese rol es lo que la compuerta de 
 | `mobiliario` | exento | Retícula, borde, línea base |
 | `superficie` | — | Fondos: se mide contra ellos |
 
-La exención del mobiliario es deliberada y se declara token por token. Las líneas de retícula tienen
-que quedar **por debajo** del dato; exigirles 3:1 haría que compitieran con él. Esa es también la
-razón por la que la compuerta es creíble: si fallara permanentemente en la retícula, alguien la
-apagaría, y con ella las comprobaciones que sí importan.
+La exención del mobiliario se declara token por token. Las líneas de retícula tienen que quedar por
+debajo del dato. Exigirles 3:1 las haría competir con él.
+
+Esa exención es también lo que hace creíble a la compuerta. Una compuerta que falla siempre en la
+retícula acaba apagada, y con ella las comprobaciones que sí importan.
 
 {{< include /_includes/rules/UMB-COL-005.md >}}
 
@@ -40,20 +46,18 @@ apagaría, y con ella las comprobaciones que sí importan.
 
 ## La matriz de contraste
 
-Generada en cada build desde `tokens/build/contrast.json`. No es una opinión de revisión: es una
+Se genera en cada build desde `tokens/build/contrast.json`. No es una opinión de revisión. Es una
 compuerta que bloquea el release.
 
 {{< include /_includes/contrast-matrix.md >}}
 
-::: {.callout-note}
-## Qué cambió respecto a v1.0
+::: {.u-note}
+**v1.0** · `caption` pasó de 2.37:1 a 4.51:1 y `muted` de 4.25:1 a 6.08:1 en modo laboratorio.
+`caption` pasó de 2.93:1 a 4.51:1 en instrumento. Las correcciones mantienen el tono exacto y mueven
+solo la luminosidad. Cada token sigue siendo reconociblemente el mismo color.
 
-`caption` pasó de 2.37:1 a 4.51:1 y `muted` de 4.25:1 a 6.08:1 en modo laboratorio; `caption` de
-2.93:1 a 4.51:1 en instrumento. Las correcciones mantienen el tono exacto y mueven solo la
-luminosidad, de modo que cada token sigue siendo reconociblemente el mismo color.
-
-`muted` se oscureció **más allá** del mínimo a propósito: puesto justo en el umbral quedaba en la
-misma luminosidad que `caption` y los dos tokens colapsaban en un solo gris.
+`muted` se oscureció más allá del mínimo a propósito. Justo en el umbral quedaba a la misma
+luminosidad que `caption`, y los dos tokens colapsaban en un solo gris.
 :::
 
 ## La señal
@@ -65,9 +69,8 @@ misma luminosidad que `caption` y los dos tokens colapsaban en un solo gris.
 - **`signal`** es la marca de datos. Le aplica 3:1.
 - **`signal-text`** es cualquier texto o enlace en color señal. Le aplica 4.5:1.
 
-Lo mismo vale para `model-text` y `alert-text`. La razón es que la marca obliga a **etiquetar las
-series directamente al final de la línea** en vez de usar una caja de leyenda — y una etiqueta de
-serie es texto pequeño, no una marca.
+Lo mismo vale para `model-text` y `alert-text`. La marca obliga a etiquetar las series al final de
+la línea en vez de usar una caja de leyenda. Una etiqueta de serie es texto pequeño, no una marca.
 
 ## Las series categóricas
 
@@ -75,31 +78,29 @@ serie es texto pequeño, no una marca.
 
 {{< include /_includes/rules/UMB-COL-008.md >}}
 
-::: {.callout-important}
-## El punto débil heredado
+::: {.u-note}
+**punto débil heredado** · `signal` y `model` son indistinguibles bajo tritanopía. La separación
+OKLab es 0.014. Se hereda de v1.0 y no se puede corregir sin cambiar un color que define la marca.
 
-`signal` y `model` son **indistinguibles bajo tritanopía** (separación OKLab 0.014). Se hereda de
-v1.0 y no puede corregirse sin cambiar un color que define la marca.
-
-La mitigación no es cosmética: es la etiqueta directa obligatoria (UMB-CHT-005) y la prohibición de
-codificar significado solo con color (UMB-A11Y-005). Si respetas esas dos reglas, la debilidad de la
-paleta no llega al lector.
+La mitigación no es cosmética. Son dos reglas: la etiqueta directa obligatoria (UMB-CHT-005) y la
+prohibición de codificar significado solo con color (UMB-A11Y-005). Si las respetas, la debilidad de
+la paleta no llega al lector.
 :::
 
 ## Rampas
 
-Tres rampas, todas derivadas en OKLCH con pasos de luminosidad perceptualmente parejos:
+Tres rampas. Todas se derivan en OKLCH con pasos de luminosidad perceptualmente parejos.
 
 | Rampa | Para qué |
 |---|---|
-| Secuencial `signal` (7 pasos) | Intensidad de una variable. La rampa por defecto de un coroplético. |
+| Secuencial `signal` (7 pasos) | Intensidad de una variable. Es la rampa por defecto de un coroplético. |
 | Secuencial `model` (7 pasos) | Una segunda variable, **nunca en la misma figura** que la anterior. |
-| Divergente `alert`→neutro→`signal` (9 pasos) | Cambio, superávit/déficit, por encima/por debajo de lo esperado. |
+| Divergente `alert`→neutro→`signal` (9 pasos) | Cambio, superávit y déficit, por encima y por debajo de lo esperado. |
 
 {{< include /_includes/rules/UMB-COL-009.md >}}
 
-El punto neutro de la divergente está deliberadamente cerca del fondo de la página, para que «sin
-cambio» se lea como ausencia de énfasis y no como una categoría más.
+El punto neutro de la divergente queda cerca del fondo de la página. Así «sin cambio» se lee como
+ausencia de énfasis y no como una categoría más.
 
 {{< include /_includes/rules/UMB-COL-010.md >}}
 
@@ -110,3 +111,8 @@ cambio» se lea como ausencia de énfasis y no como una categoría más.
 {{< include /_includes/rules/UMB-COL-003.md >}}
 
 {{< include /_includes/rules/UMB-COL-002.md >}}
+
+::: {.u-foot}
+umbral_ · v1.2.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

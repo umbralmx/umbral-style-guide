@@ -5,12 +5,12 @@
 
 ### La precisión declarada no excede la del dato
 
-Escribir 9.24% sobre una muestra que sostiene un dígito significativo inventa exactitud. En un registro vivo que se revisa retroactivamente, además, cambia.
+Escribir 9.24% sobre una muestra que sostiene un dígito inventa exactitud. En un registro vivo, además, esos decimales cambian entre consultas.
 
 | | |
 |---|---|
-| **Sí** | Redondear a la precisión que el método sostiene y decir cuál es. |
-| **No** | Arrastrar todos los decimales que devuelve el cálculo. |
+| **Sí** | Redondea a la precisión que el método sostiene y di cuál es. |
+| **No** | No arrastres todos los decimales que devuelve el cálculo. |
 
 *Comprobación:* En revisión.
 

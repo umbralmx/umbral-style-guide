@@ -5,12 +5,12 @@
 
 ### Sin palabras hype, signos de exclamación, emoji ni preguntas retóricas como titular
 
-La voz es sobria y cívico-científica porque el tema lo exige. El énfasis tipográfico sustituye al énfasis retórico.
+El tema exige una voz sobria. El énfasis tipográfico sustituye al énfasis retórico.
 
 | | |
 |---|---|
-| **Sí** | «Los registros crecen 9% anual desde 2015». |
-| **No** | «¿Sabías que los registros se DISPARARON? 🚨» |
+| **Sí** | Escribe «Los registros crecen 9% anual desde 2015». |
+| **No** | No escribas «¿Sabías que los registros se DISPARARON? 🚨». |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `hype-language`.
 

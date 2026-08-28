@@ -1,7 +1,7 @@
 # Actas de cabildo — Ayuntamiento de Colima
 
 - **Origen:** https://www.colima.gob.mx/portal2016/actas-de-cabildo/
-- **Vía:** https://umbralmx.github.io/cabildo-libre/actas.csv (proyecto Umbral, estructura CC BY 4.0)
+- **Vía:** https://umbralmx.github.io/cabildo-libre/actas.csv — proyecto Umbral, estructura CC BY 4.0
 - **Institución:** Ayuntamiento de Colima
 - **Descargado por:** equipo umbral-style-guide
 - **Fecha de descarga:** 2026-07-26
