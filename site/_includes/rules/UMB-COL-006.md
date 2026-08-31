@@ -5,12 +5,12 @@
 
 ### Toda marca de datos alcanza 3:1; el mobiliario de la gráfica está exento y así se declara
 
-WCAG 1.4.11 aplica a los gráficos necesarios para entender el contenido. Las líneas de retícula no lo son: deben quedar por debajo del dato. Distinguir ambos casos es lo que permite que la compuerta de contraste sea creíble en vez de estar siempre apagada.
+WCAG 1.4.11 aplica a los gráficos necesarios para entender el contenido. Las líneas de retícula no lo son y tienen que quedar por debajo del dato. Distinguir ambos casos mantiene la compuerta de contraste encendida.
 
 | | |
 |---|---|
-| **Sí** | Declarar contrastRole en cada token: text, mark, furniture o surface. |
-| **No** | Exigir 3:1 a una retícula, ni eximir a una serie de datos. |
+| **Sí** | Declara contrastRole en cada token: text, mark, furniture o surface. |
+| **No** | No exijas 3:1 a una retícula. No eximas a una serie de datos. |
 
 *Comprobación:* Automática — `verify-tokens`, comprobación `contrast-mark`.
 

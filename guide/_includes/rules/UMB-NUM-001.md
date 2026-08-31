@@ -5,12 +5,12 @@
 
 ### es-MX y en usan coma para miles y punto para decimales
 
-México usa la convención anglosajona, a diferencia de España. Fijarlo evita que la misma cifra aparezca de dos formas en un mismo tablero.
+México usa la convención anglosajona, a diferencia de España. Fijarla evita que la misma cifra aparezca de dos formas en un mismo tablero.
 
 | | |
 |---|---|
-| **Sí** | 351,057 · 3.7 · 12.5% |
-| **No** | 351.057 · 3,7 |
+| **Sí** | Escribe 351,057 · 3.7 · 12.5% |
+| **No** | No escribas 351.057 ni 3,7 |
 
 *Comprobación:* En revisión.
 

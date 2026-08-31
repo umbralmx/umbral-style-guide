@@ -74,5 +74,6 @@ Comprobados 44 pares · 0 fallos ·
 8 tokens de mobiliario exentos por declaración explícita.
 
 Los tokens con rol `mobiliario` —retícula, borde, línea base— están **deliberadamente** por debajo
-de 3:1: deben quedar por debajo del dato. La exención se declara token por token en
-`tokens/src/semantic.color.tokens.json` y nunca se hereda.
+de 3:1. Tienen que quedar por debajo del dato.
+
+La exención se declara token por token en `tokens/src/semantic.color.tokens.json`. Nunca se hereda.

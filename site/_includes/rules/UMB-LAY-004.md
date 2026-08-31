@@ -5,12 +5,12 @@
 
 ### Todo espaciado es múltiplo de 8px
 
-Una escala única hace que las composiciones se alineen sin decidir cada vez.
+Una escala única alinea las composiciones sin que haya que decidir cada valor.
 
 | | |
 |---|---|
-| **Sí** | var(--u-space-1) … var(--u-space-10). |
-| **No** | Valores sueltos como 13px o 27px. |
+| **Sí** | Usa var(--u-space-1) hasta var(--u-space-10). |
+| **No** | No uses valores sueltos como 13px o 27px. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `spacing-scale`.
 

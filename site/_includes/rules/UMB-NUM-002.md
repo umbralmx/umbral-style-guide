@@ -5,12 +5,12 @@
 
 ### Las cifras grandes se abrevian en ejes y se escriben completas en el texto
 
-El eje necesita brevedad; la afirmación necesita precisión.
+El eje necesita brevedad. La afirmación necesita precisión.
 
 | | |
 |---|---|
-| **Sí** | Eje: 12k, 3.7M. Texto: 351,057 registros. |
-| **No** | «351.1k registros» en una oración. |
+| **Sí** | Escribe 12k y 3.7M en el eje. Escribe 351,057 registros en el texto. |
+| **No** | No escribas «351.1k registros» dentro de una oración. |
 
 *Comprobación:* En revisión.
 

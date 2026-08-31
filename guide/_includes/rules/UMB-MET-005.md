@@ -5,12 +5,12 @@
 
 ### La terminología sensible sigue el glosario, que es vinculante
 
-La diferencia entre «persona desaparecida», «persona no localizada» y «desaparecido» es editorial, legal y ética a la vez. No es una preferencia de estilo.
+«Persona desaparecida», «persona no localizada» y «desaparecido» nombran cosas distintas. La diferencia es legal y ética, no de estilo.
 
 | | |
 |---|---|
-| **Sí** | Consultar guide/15-terminologia.md y usar la forma preferida. |
-| **No** | Elegir el término por brevedad o por costumbre. |
+| **Sí** | Consulta guide/15-terminologia.md y usa la forma preferida. |
+| **No** | No elijas el término por brevedad ni por costumbre. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `terminology`.
 

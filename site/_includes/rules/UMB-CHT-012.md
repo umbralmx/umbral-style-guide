@@ -5,12 +5,12 @@
 
 ### Toda tasa declara su denominador y su n
 
-Una tasa por 100 mil sobre una población pequeña salta con un solo caso. Sin n el lector no puede saber si la diferencia es real.
+Una tasa por 100 mil sobre una población pequeña salta con un solo caso. Sin la n, el lector no puede saber si la diferencia es real.
 
 | | |
 |---|---|
-| **Sí** | «tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204». |
-| **No** | Publicar la tasa sola. |
+| **Sí** | Escribe «tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204». |
+| **No** | No publiques la tasa sola. |
 
 *Comprobación:* En revisión.
 

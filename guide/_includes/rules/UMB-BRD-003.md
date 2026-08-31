@@ -5,12 +5,12 @@
 
 ### El espacio de respeto es una altura de barra en los cuatro lados
 
-La marca necesita aire para leerse como marca y no como un elemento más de la interfaz.
+Sin ese espacio, el logo se lee como un elemento más de la interfaz.
 
 | | |
 |---|---|
-| **Sí** | Medir el espacio libre desde el borde del isotipo. |
-| **No** | Pegar el logo a un borde, a un titular o a la navegación. |
+| **Sí** | Mide el espacio libre desde el borde del isotipo. |
+| **No** | No pegues el logo a un borde, a un titular ni a la navegación. |
 
 *Comprobación:* En revisión.
 

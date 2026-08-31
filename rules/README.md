@@ -5,10 +5,13 @@
 edited by hand (UMB-PRO-001).
 
 The point of this layer is **UMB-PRO-002**: prose never states a rule `rules.yaml` does not also
-state. Guide chapters include the generated callout rather than restating the rule in their own
-words, so a chapter cannot drift from the norm — which is exactly what happened in v1.0, where the
-brand book and `umbral-engineering.md` disagreed about the third series colour and the version that
-failed contrast is the one that won in the Python tooling.
+state.
+
+A guide chapter includes the generated callout instead of restating the rule in its own words. That
+is what stops a chapter from drifting.
+
+v1.0 is what drift looks like. The brand book and `umbral-engineering.md` disagreed about the third
+series colour. The version that won in the Python tooling was the one that failed contrast.
 
 ## What is here
 
@@ -20,8 +23,8 @@ failed contrast is the one that won in the Python tooling.
 
 ## Adding a rule
 
-1. Append it to `rules.yaml`. Take the next free number in its category — **IDs are never reused
-   and never renumbered**, because prose, CI output and past PR reviews all cite them.
+1. Append it to `rules.yaml`. Take the next free number in its category. **IDs are never reused and
+   never renumbered.** Prose, CI output and past PR reviews all cite them.
 2. Write the `rationale`. If you cannot say *why*, it is a preference, not a rule, and it does not
    belong here.
 3. Pick a `severity` honestly. `error` blocks a release, so a rule nobody will actually enforce
@@ -39,15 +42,15 @@ failed contrast is the one that won in the Python tooling.
 
 ## What the build enforces beyond the schema
 
-- IDs are unique, and the prefix matches the category (`UMB-COL-*` must be `category: color`).
+- IDs are unique. The prefix matches the category: `UMB-COL-*` must be `category: color`.
 - `check.id` values are unique across the whole set — two rules cannot claim the same check.
 - Every `see_also` resolves to a rule that exists.
 - Every rule newer than 1.0 records its `evidence`.
 - An `automated` check names a tool that is actually shipped.
 
-`tools/verify_rules.py` re-checks all of this in Python with a different schema validator, and
-additionally verifies that the generated artifacts match the source and that every topic in the
-minimum rule list of `KICKOFF-PROMPT.md` §5 is covered.
+`tools/verify_rules.py` re-checks all of this in Python, with a different schema validator. It also
+verifies two more things. The generated artifacts match the source. And every topic in the minimum
+rule list of `KICKOFF-PROMPT.md` §5 is covered.
 
 ## Severity and semver
 

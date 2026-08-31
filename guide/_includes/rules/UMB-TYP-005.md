@@ -5,16 +5,16 @@
 
 ### Las tres fuentes se auto-hospedan, subconjuntadas a latin y latin-ext
 
-Un producto de datos de interés público tiene que funcionar sin conexión y dentro de redes de gobierno. Depender de un CDN externo también filtra la IP de cada lector a un tercero.
+Un producto de interés público tiene que funcionar sin conexión y dentro de redes de gobierno. Un CDN externo además entrega la IP de cada lector a un tercero.
 
 | | |
 |---|---|
-| **Sí** | Servir los .woff2 desde assets/fonts/ con su licencia OFL. |
-| **No** | fonts.googleapis.com, ni un @import a un CDN. |
+| **Sí** | Sirve los .woff2 desde assets/fonts/ con su licencia OFL al lado. |
+| **No** | No enlaces fonts.googleapis.com. No uses un @import a un CDN. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `font-hosting`.
 
-*Origen:* umbral-engineering.md §1 lo pide en prosa y entrega un <link> a Google Fonts en el bloque de código de la misma sección; umbralmx.github.io usa el CDN.
+*Origen:* umbral-engineering.md §1 lo pide en prosa. En el bloque de código de la misma sección entrega un <link> a Google Fonts. umbralmx.github.io usa el CDN.
 
 <small>Desde v1.0. Regla normativa: `rules/rules.yaml`.</small>
 

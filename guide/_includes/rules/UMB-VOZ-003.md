@@ -5,14 +5,16 @@
 
 ### Un adjetivo no sustituye a un número
 
-«Un aumento considerable» no se puede verificar ni refutar; «un aumento de 9%» sí.
+«Un aumento considerable» no se puede comprobar ni refutar. «Un aumento de 9%» sí.
 
 | | |
 |---|---|
-| **Sí** | Cuantificar. |
-| **No** | «dramático», «masivo», «considerable» sin la cifra al lado. |
+| **Sí** | Cuantifica. |
+| **No** | No escribas «dramático», «masivo» ni «considerable» sin la cifra al lado. |
 
 *Comprobación:* En revisión.
+
+*Ver también:* UMB-VOZ-005
 
 <small>Desde v1.0. Regla normativa: `rules/rules.yaml`.</small>
 

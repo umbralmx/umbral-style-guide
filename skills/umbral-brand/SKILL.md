@@ -15,8 +15,8 @@ Everything below is binding unless a human overrides it. The normative source is
 ## Before you do anything
 
 **Never type a hex, font name, or spacing value from memory.** Read `assets/tokens.json`. Every
-value in this skill is generated from that file — if you retype one, you have already introduced
-the exact defect this system exists to prevent (UMB-COL-002, UMB-PRO-003).
+value in this skill is generated from that file. Retype one and you have introduced the exact defect
+this system exists to prevent (UMB-COL-002, UMB-PRO-003).
 
 Then pick the mode:
 
@@ -39,7 +39,7 @@ panel (UMB-COL-007).
 - **Targeting a specific surface?** Read `references/surfaces.md`.
 - **Finishing up?** Run `references/checklist.md`.
 
-## The ten rules that get broken most
+## The eleven rules that get broken most
 
 1. **`signal` marks one thing.** One element in the data layer per view carries `signal`. If the
    logo, a button and a series are all teal, none of them is the point (UMB-COL-004).
@@ -62,7 +62,10 @@ panel (UMB-COL-007).
    Streamlit hardcodes `lang="en"` — see `references/surfaces.md` for the shim (UMB-A11Y-001).
 9. **Never encode meaning by color alone.** Series need text labels; deltas need an arrow or a word
    (UMB-A11Y-005).
-10. **No pure black or white, no gradients, no shadows, no radius > 2px, no emoji.**
+10. **Write one statement per sentence, 25 words maximum.** Active voice. One word for one thing.
+    It is ASD-STE100 discipline applied to the lab's prose, and it applies to what you write as
+    well as what you review (UMB-VOZ-005).
+11. **No pure black or white, no gradients, no shadows, no radius > 2px, no emoji.**
 
 ## The never list
 

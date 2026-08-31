@@ -9,9 +9,10 @@ Independent verification. Python, run via `npm run verify`.
 | `verify_guide.py` | That every rule naming a chapter is included by it, and that no chapter restates a rule's text instead of including its callout |
 | `verify_readmes.py` | That every folder has a README explaining what it's for |
 
-These deliberately re-implement what `build/` already did, in a different language. The point is
-that a mistake has to be made twice to reach the published system — the defect that motivated this
-repo was an accessibility claim nothing ever checked.
+These deliberately re-implement what `build/` already did, in a different language.
+
+The point is that a mistake has to be made twice to reach the published system. The defect that
+motivated this repo was an accessibility claim that nothing ever checked.
 
 `umbral-lint`, the CLI that checks *other* repos, arrives in Phase 5. These scripts check this one.
 

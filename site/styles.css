@@ -137,44 +137,132 @@ Code MIT · content CC BY 4.0
 }
 
 
-/* ── the site itself, built only from the tokens above ── */
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
+/* ── the site itself, built only from the tokens above ─────────────────────
+   The idiom is umbral.org.mx: a dot field in the outer margin, a content
+   sheet over it, mono lowercase labels for structure, and 1px rules doing all
+   the separating (UMB-LAY-006 · UMB-LAY-007 · UMB-LAY-008 · UMB-LAY-009).
+
+   'theme: none' means Quarto emits no navbar and no sidebar — only a title
+   block, a #TOC and the content, all direct children of <body>. So the top bar
+   is written into each page by build/site.mjs, and everything here styles bare
+   elements rather than framework classes. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+:root { --u-edge: var(--u-space-4); --u-sheet: 1120px; }
+@media (max-width: 720px) { :root { --u-edge: var(--u-space-3); } }
+
+/* UMB-LAY-009 — the dot field is fixed to the viewport behind everything, and
+   <body> is the sheet that paints over it. Putting the field on html::before
+   rather than body::before is what keeps it out from under the content: a
+   body-level pseudo-element paints above the body background, so it shows
+   through every margin between blocks. */
+html { background: var(--u-base); }
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(var(--u-baseline) 1px, transparent 1.6px);
+  background-size: 22px 22px;
+  opacity: 0.55;
 }
 
 body {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: var(--u-sheet);
+  /* Quarto emits the title block first, then the content. The top bar is written
+     into the document body, so it arrives after the title — a flex column and
+     one 'order' put it back on top without a template override. */
+  display: flex;
+  flex-direction: column;
   background: var(--u-base);
   color: var(--u-ink);
   font-family: var(--u-font-body);
   font-size: var(--u-size-body);
   line-height: 1.58;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Every top-level block shares one left edge. Only the inner width varies. */
+body > * {
+  align-self: stretch;
+  padding-inline: var(--u-edge);
+}
+
+/* ── the top bar, written in by build/site.mjs ── */
+.u-topbar {
+  order: -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--u-space-1) var(--u-space-3);
+  padding-block: var(--u-space-3) var(--u-space-2);
+  border-bottom: var(--u-rule) solid var(--u-border);
+  font-family: var(--u-font-mono);
+  font-size: var(--u-size-label);
+}
+.u-topbar p { margin: 0; }
+.u-topbar a { color: var(--u-caption); text-decoration: none; }
+.u-topbar a:hover { color: var(--u-ink); }
+.u-topbar .u-brand { color: var(--u-ink); font-weight: var(--u-weight-mono-medium); }
+.u-topbar .u-brand::after { content: "_"; color: var(--u-signal-text); }
+
+.u-foot {
+  margin-top: var(--u-space-10);
+  padding-block: var(--u-space-3) var(--u-space-6);
+  border-top: var(--u-rule) solid var(--u-border);
+  font-family: var(--u-font-mono);
+  font-size: var(--u-size-source);
+  color: var(--u-caption);
+}
+.u-foot p { margin: 0; }
+.u-foot a { color: var(--u-caption); }
+
+/* ── type ── */
 h1, h2, h3, h4, h5 {
   font-family: var(--u-font-display);
   font-weight: var(--u-weight-display);
   letter-spacing: var(--u-tracking-display);
   color: var(--u-ink);
+  text-wrap: balance;
 }
-h1 { font-size: var(--u-size-h1); }
-h2 { font-size: var(--u-size-h2); margin-top: var(--u-space-6); }
-h3 { font-size: var(--u-size-h3); margin-top: var(--u-space-4); }
+h1, header#title-block-header h1.title {
+  font-size: var(--u-size-h1);
+  line-height: 1.14;
+  margin: var(--u-space-8) 0 var(--u-space-4);
+  max-width: 24ch;
+}
+h2 { font-size: var(--u-size-h2); margin-top: var(--u-space-8); }
+h3 { font-size: var(--u-size-h3); margin-top: var(--u-space-5); }
+header#title-block-header { padding-bottom: 0; }
 
-/* Quarto puts prose in #quarto-document-content, so constraining the main element
-   alone leaves the measure unbounded — the guide's own UMB-LAY-003 violated on its
-   own site. Wide things (tables, swatch grids, ramps) opt back out. */
-#quarto-document-content > p,
-#quarto-document-content > ul,
-#quarto-document-content > ol,
-#quarto-document-content > blockquote,
-.u-rule > p, .u-rule > ul { max-width: var(--u-measure); }
-.u-swatches, .u-ramp, .u-compare, table, pre, figure { max-width: none; }
+/* UMB-LAY-003 — Quarto puts prose straight in <body>, so bounding a wrapper is
+   not an option. Wide things (tables, swatch grids, ramps) opt back out. */
+body > p, body > ul, body > ol, body > blockquote,
+.u-rule > p, .u-rule > ul, .u-note > p, .u-note > ul {
+  max-width: calc(var(--u-measure) + 2 * var(--u-edge));
+  margin-right: auto;
+}
+.u-swatches, .u-ramp, .u-compare, table, pre, figure, .u-index { max-width: none; }
+
 code, pre, .mono { font-family: var(--u-font-mono); font-variant-numeric: tabular-nums; }
 code { font-size: 0.92em; color: var(--u-ink); background: var(--u-panel); padding: 1px 4px; }
-pre { background: var(--u-panel); border: var(--u-rule) solid var(--u-border);
-      padding: var(--u-space-2); border-radius: var(--u-radius); overflow-x: auto; }
+pre {
+  background: var(--u-panel);
+  border: var(--u-rule) solid var(--u-border);
+  border-left: var(--u-rule-strong) solid var(--u-baseline);
+  padding: var(--u-space-2);
+  border-radius: var(--u-radius);
+  overflow-x: auto;
+  font-size: var(--u-size-body-small);
+}
 pre code { background: none; padding: 0; }
 
 a { color: var(--u-signal-text); text-decoration-thickness: 1px; text-underline-offset: 2px; }
@@ -191,54 +279,191 @@ blockquote { border-left: var(--u-rule-strong) solid var(--u-baseline);
              margin: var(--u-space-3) 0; padding-left: var(--u-space-2);
              color: var(--u-muted); }
 
-/* rule callouts, generated from rules.yaml */
-.u-rule {
-  border: var(--u-rule) solid var(--u-border);
-  background: var(--u-panel);
-  padding: var(--u-space-2) var(--u-space-3);
-  margin: var(--u-space-3) 0;
+/* ── UMB-LAY-006 · the table of contents, as one row of anchors ──
+   'theme: none' lands the TOC inline as <nav id="TOC">. A wrapping row of mono
+   anchors under the title reads as an index and costs no column, which is what
+   a page of this width needs. Sub-headings are dropped: a second level turns
+   the row into a paragraph. */
+nav#TOC {
+  margin: 0 0 var(--u-space-5);
+  padding: var(--u-space-2) 0;
+  border-bottom: var(--u-rule) solid var(--u-border);
+  font-family: var(--u-font-mono);
+  font-size: var(--u-size-source);
 }
-.u-rule[data-severity="error"]   { box-shadow: inset 3px 0 0 var(--u-alert); }
-.u-rule[data-severity="warning"] { box-shadow: inset 3px 0 0 var(--u-model); }
-.u-rule[data-severity="info"]    { box-shadow: inset 3px 0 0 var(--u-baseline); }
-.u-rule h3 { margin-top: var(--u-space-1); font-size: var(--u-size-h3); }
-.u-rule small { color: var(--u-caption); font-family: var(--u-font-mono); font-size: 12px; }
+nav#TOC #toc-title {
+  margin: 0 0 var(--u-space-1);
+  font-family: var(--u-font-mono);
+  font-weight: var(--u-weight-mono);
+  font-size: var(--u-size-source);
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--u-caption);
+}
+nav#TOC > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--u-space-1) var(--u-space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav#TOC > ul > li > ul { display: none; }
+nav#TOC li { margin: 0; line-height: 1.5; }
+nav#TOC a { color: var(--u-muted); text-decoration: none; }
+nav#TOC a::before { content: "#"; color: var(--u-baseline); margin-right: 2px; }
+nav#TOC a:hover { color: var(--u-signal-text); }
 
-/* demonstration surfaces */
-.u-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+/* ── UMB-LAY-006 · section labels ── */
+.u-label, .u-label p {
+  margin: 0;
+}
+.u-label {
+  margin: var(--u-space-6) 0 var(--u-space-1);
+  font-family: var(--u-font-mono);
+  font-weight: var(--u-weight-mono);
+  font-size: var(--u-size-label);
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+  color: var(--u-caption);
+}
+
+/* ── UMB-LAY-007 · a list of items is rows, not cards ──
+   Used by the index page and by anything else that enumerates. The rule runs to
+   the edge of the block, so the eye reads one column. */
+.u-index {
+  border-top: var(--u-rule) solid var(--u-baseline);
+  margin: 0 0 var(--u-space-6);
+  /* the padding moves to the row, so every rule reaches the sheet edge */
+  padding-inline: 0;
+}
+.u-row {
+  display: grid;
+  grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+  gap: var(--u-space-1) var(--u-space-4);
+  padding: var(--u-space-2) var(--u-edge);
+  border-bottom: var(--u-rule) solid var(--u-border);
+}
+.u-row > a, .u-row > .u-name {
+  font-family: var(--u-font-mono);
+  font-weight: var(--u-weight-mono-medium);
+  font-size: var(--u-size-body-small);
+  color: var(--u-ink);
+  text-decoration: none;
+}
+.u-row > a:hover { color: var(--u-signal-text); }
+.u-row > span, .u-row > p { margin: 0; color: var(--u-muted);
+                            font-size: var(--u-size-body-small); }
+@media (max-width: 720px) { .u-row { grid-template-columns: 1fr; } }
+
+/* ── UMB-LAY-008 · secondary controls ── */
+.u-btn, .u-modebar button {
+  display: inline-block;
+  padding: 8px 16px;
+  min-height: var(--u-touch-target);
+  font-family: var(--u-font-mono);
+  font-size: var(--u-size-source);
+  letter-spacing: 0.02em;
+  color: var(--u-ink);
+  background: transparent;
+  border: var(--u-rule) solid var(--u-baseline);
+  border-radius: var(--u-radius-max);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color .18s ease, color .18s ease;
+}
+.u-btn:hover, .u-modebar button:hover,
+.u-modebar button[aria-pressed="true"] { border-color: var(--u-signal); color: var(--u-signal-text); }
+
+/* ── rule callouts, generated from rules.yaml ──
+   A rule is a row in the norm, so it reads as a row: a rule above it, the ID in
+   mono, and no box. UMB-LAY-002 — the severity mark is an inset rule, not a
+   shadow. */
+.u-rule {
+  margin: var(--u-space-4) 0;
+  padding: var(--u-space-2) 0 var(--u-space-2) var(--u-space-3);
+  border-top: var(--u-rule) solid var(--u-baseline);
+  background: transparent;
+  /* one step down from prose: the norm is quoted, not narrated */
+  font-size: var(--u-size-body-small);
+}
+.u-rule[data-severity="error"]   { box-shadow: inset 2px 0 0 var(--u-alert); }
+.u-rule[data-severity="warning"] { box-shadow: inset 2px 0 0 var(--u-model); }
+.u-rule[data-severity="info"]    { box-shadow: inset 2px 0 0 var(--u-baseline); }
+.u-rule > p:first-of-type {
+  margin: 0;
+  font-family: var(--u-font-mono);
+  font-size: var(--u-size-source);
+  letter-spacing: 0.02em;
+  color: var(--u-caption);
+}
+.u-rule h3 {
+  margin: var(--u-space-1) 0 var(--u-space-1);
+  font-size: var(--u-size-h3);
+  max-width: var(--u-measure);
+}
+.u-rule table { max-width: var(--u-measure); }
+/* the trailing metadata lines — check, note, origin, see-also — are all set as
+   a leading emphasis run by build/rules.mjs, so one selector catches them */
+.u-rule em { font-style: normal; }
+.u-rule p:has(em) { color: var(--u-caption); font-size: var(--u-size-source); }
+.u-rule p:has(em) code { font-size: 1em; }
+.u-rule small { color: var(--u-caption); font-family: var(--u-font-mono);
+                font-size: var(--u-size-source); }
+
+/* ── notes ──
+   Replaces Quarto's coloured callouts, which carry icons and a radius the
+   system does not allow. A note is a labelled block behind a 1px rule; the
+   label is written as the first bold run of its first line. */
+.u-note {
+  margin: var(--u-space-3) 0;
+  padding: var(--u-space-2) 0 0 var(--u-space-3);
+  border-top: var(--u-rule) solid var(--u-border);
+  border-left: var(--u-rule) solid var(--u-border);
+  color: var(--u-muted);
+  font-size: var(--u-size-body-small);
+}
+.u-note > *:first-child { margin-top: 0; }
+.u-note > *:last-child { margin-bottom: 0; }
+.u-note strong:first-child {
+  font-family: var(--u-font-mono);
+  font-weight: var(--u-weight-mono-medium);
+  font-size: var(--u-size-source);
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--u-caption);
+}
+
+/* ── demonstration surfaces ── */
+.u-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(152px, 1fr));
               gap: var(--u-space-1); margin: var(--u-space-3) 0; }
 .u-swatch { border: var(--u-rule) solid var(--u-border); }
 .u-swatch .chip { height: 64px; }
 .u-swatch .meta { padding: var(--u-space-1); background: var(--u-panel);
-                  font-family: var(--u-font-mono); font-size: 12px; }
+                  font-family: var(--u-font-mono); font-size: var(--u-size-source); }
 .u-swatch .meta b { display: block; font-weight: 500; color: var(--u-ink); }
 .u-swatch .meta span { display: block; color: var(--u-caption); }
-.u-swatch .meta .role { color: var(--u-muted); font-size: 11px; text-transform: uppercase;
-                        letter-spacing: .04em; }
+.u-swatch .meta .role { color: var(--u-muted); font-size: var(--u-size-source);
+                        text-transform: uppercase; letter-spacing: .04em; }
 
 .u-ramp { display: flex; margin: var(--u-space-1) 0 var(--u-space-3); }
 .u-ramp div { flex: 1; height: 40px; }
 
-.u-specimen { border: var(--u-rule) solid var(--u-border); background: var(--u-panel);
-              padding: var(--u-space-3); margin: var(--u-space-2) 0; }
+.u-specimen { border-top: var(--u-rule) solid var(--u-border); background: transparent;
+              padding: var(--u-space-3) 0; margin: var(--u-space-2) 0; }
 
-.u-good, .u-bad { border: var(--u-rule) solid var(--u-border); padding: var(--u-space-2);
-                  background: var(--u-panel); }
-.u-good { box-shadow: inset 3px 0 0 var(--u-signal); }
-.u-bad  { box-shadow: inset 3px 0 0 var(--u-alert); }
-.u-compare { display: grid; grid-template-columns: 1fr 1fr; gap: var(--u-space-2);
+.u-good, .u-bad { border-top: var(--u-rule) solid var(--u-border);
+                  padding: var(--u-space-2) 0 var(--u-space-2) var(--u-space-2);
+                  background: transparent; }
+.u-good { box-shadow: inset 2px 0 0 var(--u-signal); }
+.u-bad  { box-shadow: inset 2px 0 0 var(--u-alert); }
+.u-compare { display: grid; grid-template-columns: 1fr 1fr; gap: var(--u-space-3);
              margin: var(--u-space-3) 0; }
 @media (max-width: 720px) { .u-compare { grid-template-columns: 1fr; } }
 
 .u-modebar { display: flex; gap: var(--u-space-1); align-items: center;
-             margin: var(--u-space-2) 0; font-family: var(--u-font-mono); font-size: 13px; }
-.u-modebar button {
-  font-family: var(--u-font-mono); font-size: 13px;
-  background: transparent; color: var(--u-ink);
-  border: var(--u-rule) solid var(--u-baseline); border-radius: var(--u-radius);
-  padding: 6px 14px; cursor: pointer; min-height: 44px;
-}
-.u-modebar button[aria-pressed="true"] { border-color: var(--u-signal); color: var(--u-signal-text); }
+             margin: var(--u-space-2) 0; font-family: var(--u-font-mono);
+             font-size: var(--u-size-label); }
 
 figure { margin: var(--u-space-3) 0; }
 figcaption { font-family: var(--u-font-mono); font-size: var(--u-size-source);
@@ -247,3 +472,9 @@ figcaption { font-family: var(--u-font-mono); font-size: var(--u-size-source);
 
 .u-source { font-family: var(--u-font-mono); font-size: var(--u-size-source);
             color: var(--u-caption); }
+
+/* UMB-A11Y-007 — nothing here communicates through movement. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

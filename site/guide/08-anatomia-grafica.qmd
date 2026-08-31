@@ -1,9 +1,14 @@
 ---
-title: "Anatomía de una gráfica"
+title: "08 · Anatomía de una gráfica"
 lang: es
 ---
 
-# 08 · Anatomía de una gráfica
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.3.0
+
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
 
 Las gráficas son el corazón de la marca. Toda gráfica, en todo medio, lleva el mismo marco.
 
@@ -33,15 +38,16 @@ Space Grotesk 500, 22px, alineado a la izquierda con el eje. Una oración comple
 
 {{< include /_includes/rules/UMB-CHT-002.md >}}
 
-Plex Sans, `muted`. Geografía · periodo · unidad, separados por `·`. Aquí es donde van las
-advertencias que el lector necesita antes de mirar: «el registro se actualiza retroactivamente»,
-«la banda es el intervalo que publica Meta».
+Plex Sans, `muted`. Geografía · periodo · unidad, separados por `·`.
+
+Aquí van las advertencias que el lector necesita antes de mirar: «el registro se actualiza
+retroactivamente», «la banda es el intervalo que publica Meta».
 
 ## La línea de fuente
 
 {{< include /_includes/rules/UMB-CHT-003.md >}}
 
-Plex Mono 12px, `caption`, encima de una regla de 1px. El orden es:
+Plex Mono 12px, `caption`, encima de una regla de 1px. El orden es fijo:
 
 ```
 <!-- umbral-lint: ignore[snapshot-tag] — plantilla, no una línea de fuente real -->
@@ -65,7 +71,7 @@ La gráfica circula sin su página en cuanto alguien la captura de pantalla. La 
 {{< include /_includes/rules/UMB-CHT-007.md >}}
 
 Plex Mono, 12px, `caption`. Abreviados (`12k`, `3.7M`), coma para miles. El eje y no lleva línea de
-dominio; el eje x sí, y es la línea base.
+dominio. El eje x sí, y es la línea base.
 
 ## Las etiquetas de serie
 
@@ -73,10 +79,10 @@ dominio; el eje x sí, y es la línea base.
 
 Al final de la línea, en el color de la serie, en Plex Sans. Sin caja de leyenda.
 
-::: {.callout-important}
-Como la etiqueta va en el color de la serie, **es texto pequeño en color de marca**. Por eso existen
-`signal-text`, `model-text` y `alert-text`, y por eso una etiqueta directa se colorea con esas
-variantes y no con `signal`, `model` o `alert`.
+::: {.u-note}
+**por qué existen los tokens `*-text`** · La etiqueta va en el color de la serie, así que es texto
+pequeño en color de marca. Por eso existen `signal-text`, `model-text` y `alert-text`. Una etiqueta
+directa se colorea con esas variantes, no con `signal`, `model` ni `alert`.
 :::
 
 ## Barras
@@ -84,8 +90,8 @@ variantes y no con `signal`, `model` o `alert`.
 {{< include /_includes/rules/UMB-CHT-008.md >}}
 
 - Siempre desde cero.
-- Rellenos sólidos; nada de degradados ni contornos.
-- Pista de la barra un paso más oscura que `panel`, si la hay.
+- Rellenos sólidos. Nada de degradados ni contornos.
+- La pista de la barra va un paso más oscura que `panel`, si la hay.
 - Etiquetas de valor en mono, dentro o al final de la barra.
 - Barras horizontales ordenadas por valor.
 
@@ -94,7 +100,7 @@ variantes y no con `signal`, `model` o `alert`.
 ## La jerarquía de color
 
 Una serie en `signal`. El resto en `model` y `muted`. `alert` solo cuando algo es efectivamente una
-alerta — no como tercer color por comodidad.
+alerta, nunca como tercer color por comodidad.
 
 {{< include /_includes/rules/UMB-COL-004.md >}}
 
@@ -107,3 +113,8 @@ Toda gráfica publicada lleva, además de lo visual:
 - el CSV descargable.
 
 Ver [11 · Accesibilidad](/guide/11-accesibilidad.qmd).
+
+::: {.u-foot}
+umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

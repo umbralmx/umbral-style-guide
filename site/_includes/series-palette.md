@@ -38,6 +38,7 @@ Los tres pares peor separados, medidos en distancia OKLab bajo simulación de di
 | `muted` / `series-5` | 0.18 | 0.163 | 0.09 | 0.2 |
 | `model` / `muted` | 0.134 | 0.134 | 0.133 | 0.107 |
 
-Por debajo de ~0.10 dos marcas dejan de distinguirse con fiabilidad. Por eso la etiqueta directa
-(UMB-CHT-005) y la prohibición de codificar solo con color (UMB-A11Y-005) no son estilísticas: son
-la mitigación real del punto más débil de la paleta.
+Por debajo de ~0.10, dos marcas dejan de distinguirse con fiabilidad.
+
+Por eso la etiqueta directa (UMB-CHT-005) y la prohibición de codificar solo con color
+(UMB-A11Y-005) no son estilísticas. Son la mitigación real del punto más débil de la paleta.

@@ -5,12 +5,12 @@
 
 ### Solo hay líneas de retícula horizontales, con la línea base más oscura
 
-La retícula vertical rara vez ayuda a leer un valor y sí ensucia. La línea base más oscura ancla el cero.
+La retícula vertical rara vez ayuda a leer un valor y sí ensucia la figura. La línea base más oscura ancla el cero.
 
 | | |
 |---|---|
-| **Sí** | y.grid = true, x.grid = false, base en --u-baseline. |
-| **No** | Retícula en ambos ejes, o marco alrededor de la gráfica. |
+| **Sí** | Pon y.grid en true, x.grid en false, y la base en --u-baseline. |
+| **No** | No pongas retícula en ambos ejes. No dibujes un marco alrededor de la gráfica. |
 
 *Comprobación:* En revisión.
 

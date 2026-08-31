@@ -5,12 +5,12 @@
 
 ### Ningún archivo fuera de tokens/src/ escribe un valor que ya existe como token
 
-Es la forma concreta que toma la deriva: el valor se copia una vez, la fuente cambia, y la copia se queda.
+Así se produce la deriva. Alguien copia el valor una vez, la fuente cambia, y la copia se queda.
 
 | | |
 |---|---|
-| **Sí** | Importar desde tokens/build/. |
-| **No** | Pegar #128273 en un notebook. |
+| **Sí** | Importa el valor desde tokens/build/. |
+| **No** | No pegues #128273 en un notebook. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `hardcoded-value`.
 

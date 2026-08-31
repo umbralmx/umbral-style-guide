@@ -5,12 +5,12 @@
 
 ### Todo conjunto de datos lleva su SOURCE.md
 
-Sin origen, fecha de descarga, licencia y limitaciones conocidas, el dato no se puede auditar ni volver a bajar igual.
+Sin origen, fecha de descarga, licencia y limitaciones conocidas, nadie puede auditar el dato ni volver a bajarlo igual.
 
 | | |
 |---|---|
-| **Sí** | URL de origen, quién lo descargó, cuándo, bajo qué licencia y qué se sabe que le falta. |
-| **No** | Un CSV suelto en data/raw/ sin procedencia. |
+| **Sí** | Escribe la URL de origen, quién lo descargó, cuándo, bajo qué licencia y qué se sabe que le falta. |
+| **No** | No dejes un CSV suelto en data/raw/ sin procedencia. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `source-md-present`.
 

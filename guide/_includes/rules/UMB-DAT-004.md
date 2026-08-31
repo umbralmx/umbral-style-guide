@@ -9,8 +9,8 @@ Los datos públicos regresan al público, mejorados. La licencia explícita es l
 
 | | |
 |---|---|
-| **Sí** | LICENSE-CODE y LICENSE-CONTENT en la raíz; licencia nombrada en cada línea de fuente. |
-| **No** | Publicar sin licencia y confiar en que se entiende. |
+| **Sí** | Pon LICENSE-CODE y LICENSE-CONTENT en la raíz y nombra la licencia en cada línea de fuente. |
+| **No** | No publiques sin licencia confiando en que se entiende. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `license-present`.
 

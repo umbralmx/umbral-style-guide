@@ -5,12 +5,12 @@
 
 ### La medida del texto no pasa de 65 caracteres
 
-Más allá de esa medida el ojo pierde el renglón al volver. Es la diferencia entre un informe que se lee y uno que se hojea.
+Pasados los 65 caracteres, el ojo pierde el renglón al volver a la izquierda.
 
 | | |
 |---|---|
-| **Sí** | max-width: var(--u-measure). |
-| **No** | Párrafos a todo el ancho de la ventana. |
+| **Sí** | Pon max-width: var(--u-measure) en la columna de texto. |
+| **No** | No dejes párrafos a todo el ancho de la ventana. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `measure-max`.
 

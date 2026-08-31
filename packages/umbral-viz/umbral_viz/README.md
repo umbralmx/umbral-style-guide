@@ -10,10 +10,10 @@
 
 ## Two rules this package holds itself to
 
-**No module writes a value as a literal.** Not a hex, not a font family, not a size — including in
-doctests, where pinning a value would make the docstring a second place it lives.
+**No module writes a value as a literal.** Not a hex, not a font family, not a size. That includes
+doctests: a pinned value there makes the docstring a second place the value lives.
 `tools/verify_packages.py` fails on any literal.
 
-**The themes do not draw the frame.** A theme cannot know your finding, so titles, subtitles, source
+**The themes do not draw the frame.** A theme cannot know your finding. Titles, subtitles, source
 lines and CSV buttons stay explicit. `chart.Frame` makes that the short path rather than the
 diligent one.

@@ -5,12 +5,12 @@
 
 ### No hay emoji, iconos de stock ni ilustración decorativa
 
-El argumento lo cargan los números. Un emoji en un informe sobre desapariciones no es neutral: cambia el registro de lo que se está diciendo.
+El dato sostiene el argumento. Un emoji en un informe sobre desapariciones cambia el registro de lo que se está diciendo.
 
 | | |
 |---|---|
-| **Sí** | Espacio en blanco, reglas de 1px, y la cifra. |
-| **No** | Emoji, iconografía genérica, ilustración de relleno. |
+| **Sí** | Usa espacio en blanco, reglas de 1px y la cifra. |
+| **No** | No uses emoji, iconografía genérica ni ilustración de relleno. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `no-emoji`.
 

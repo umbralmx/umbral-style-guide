@@ -1,16 +1,21 @@
 ---
-title: "Accesibilidad"
+title: "11 · Accesibilidad"
 lang: es
 ---
 
-# 11 · Accesibilidad
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.3.0
+
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
 
 No es negociable para un laboratorio de interés público. Si publicas sobre desapariciones y una
 parte del público no puede leerte, el trabajo no llegó.
 
 ## Contraste
 
-Comprobado en el build, no en la revisión. Ver la matriz generada en
+Se comprueba en el build, no en la revisión. Ver la matriz generada en
 [02 · Color](/guide/02-color.qmd#la-matriz-de-contraste).
 
 {{< include /_includes/rules/UMB-COL-005.md >}}
@@ -22,27 +27,23 @@ Comprobado en el build, no en la revisión. Ver la matriz generada en
 | Situación | Además del color |
 |---|---|
 | Series en una gráfica | Etiqueta de texto al final de cada línea |
-| Delta arriba/abajo | Flecha o palabra: `+9.2% ▲`, no solo verde |
+| Delta arriba o abajo | Flecha o palabra: `+9.2% ▲`, no solo verde |
 | Categorías en un mapa | Trama distinta, y la tabla al lado |
 | Estado en una tabla | Palabra en la celda |
 
-Esta regla es también la mitigación real del punto débil de la paleta: `signal` y `model` son
-indistinguibles bajo tritanopía. Si respetas la etiqueta directa, ese defecto no llega al lector.
+Esta regla es también la mitigación real del punto débil de la paleta. `signal` y `model` son
+indistinguibles bajo tritanopía. Con la etiqueta directa, ese defecto no llega al lector.
 
 ## Idioma
 
 {{< include /_includes/rules/UMB-A11Y-001.md >}}
 
-Un lector de pantalla pronuncia el español con fonética inglesa si `lang` miente. Para un
-laboratorio que publica en español es el defecto de accesibilidad más básico que existe — y los dos
-tableros del laboratorio lo tienen, porque Streamlit fija `lang="en"` y nadie lo corrigió.
-
-El *shim* está documentado en [14 · Superficies → Streamlit](/guide/14-superficies/streamlit.qmd).
+Los dos tableros del laboratorio tienen este defecto. Streamlit fija `lang="en"` y nadie lo
+corrigió. El *shim* está en [14 · Superficies → Streamlit](/guide/14-superficies/streamlit.qmd).
 
 ## Gráficas
 
-Una gráfica sin texto alternativo es un rectángulo vacío: el hallazgo desaparece por completo, no
-solo su forma visual.
+Una gráfica sin texto alternativo es un rectángulo vacío.
 
 {{< include /_includes/rules/UMB-A11Y-002.md >}}
 
@@ -50,7 +51,7 @@ solo su forma visual.
 
 {{< include /_includes/rules/UMB-A11Y-004.md >}}
 
-El `aria-label` lleva **la misma afirmación que el título**, no una descripción del tipo de gráfica:
+El `aria-label` lleva **la misma afirmación que el título**. No describe el tipo de gráfica:
 
 | | |
 |---|---|
@@ -61,17 +62,19 @@ El `aria-label` lleva **la misma afirmación que el título**, no una descripci�
 
 {{< include /_includes/rules/UMB-A11Y-006.md >}}
 
-- `:focus-visible` con contorno en `signal`, nunca `outline: none`.
-- Orden de tabulación que siga el orden visual.
-- Objetivos táctiles de 44px o más.
+- Usa `:focus-visible` con contorno en `signal`. Nunca `outline: none`.
+- Da al orden de tabulación el mismo orden que el visual.
+- Da 44px o más a los objetivos táctiles.
 - Todo lo que se pueda hacer con el ratón se puede hacer con el teclado.
+
+Un control secundario tiene borde de 1px y poco relleno. Su área táctil sigue siendo de 44px. Ver
+[04 · Layout](/guide/04-layout.qmd).
 
 ## Movimiento
 
 {{< include /_includes/rules/UMB-A11Y-007.md >}}
 
-Nada en el sistema depende de animación para comunicar, así que respetar la preferencia no cuesta
-nada:
+Respetar la preferencia no cuesta nada:
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -85,6 +88,11 @@ nada:
 - [ ] `lang` correcto en el documento y en cada subárbol
 - [ ] Toda gráfica: `aria-label` + tabla o `<details>` + CSV
 - [ ] Ningún significado codificado solo por color
-- [ ] Foco visible; nada inalcanzable con teclado
+- [ ] Foco visible. Nada inalcanzable con teclado.
 - [ ] `prefers-reduced-motion` respetado
 - [ ] Objetivos táctiles ≥ 44px
+
+::: {.u-foot}
+umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

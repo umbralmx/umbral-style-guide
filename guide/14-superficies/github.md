@@ -32,7 +32,7 @@ Qué necesitas y cuánto tarda.
 Código MIT · datos y contenido CC BY 4.0.
 ```
 
-Sin emoji (UMB-LAY-005). Sin badges decorativos: solo los que dicen algo verificable —build,
+Sin emoji (UMB-LAY-005). Sin badges decorativos. Solo los que dicen algo verificable: build,
 licencia, versión.
 
 ## Metadatos del repositorio
@@ -59,8 +59,8 @@ Una fase o funcionalidad por rama, un PR por rama.
 ## Descripciones de PR
 
 Di **qué cambia para quien consume el sistema**, no solo qué archivos tocaste. Si un valor de token
-cambia, dilo con todas sus letras: es un cambio mayor y re-renderiza todos los productos que lo
-usan (UMB-PRO-004).
+cambia, dilo con todas sus letras. Es un cambio mayor y re-renderiza todos los productos que lo usan
+(UMB-PRO-004).
 
 ## Consumir el sistema desde otro repositorio
 
@@ -68,7 +68,7 @@ usan (UMB-PRO-004).
 curl -O https://raw.githubusercontent.com/umbralmx/umbral-style-guide/v1.1.0/tokens/build/tokens.css
 ```
 
-Fija la versión. Nunca apuntes a `main`: un cambio de token entraría sin aviso.
+Fija la versión. Nunca apuntes a `main`. Un cambio de token entraría sin aviso.
 
 ## Antes de publicar el repositorio
 

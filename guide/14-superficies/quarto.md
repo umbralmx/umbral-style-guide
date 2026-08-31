@@ -5,7 +5,7 @@ lang: es
 
 # Quarto
 
-**Modo laboratorio (claro).** Informes, notas metodológicas, documentos reproducibles. Es la
+**Modo laboratorio (claro).** Informes, notas metodológicas y documentos reproducibles. Es la
 herramienta principal de documentos del laboratorio.
 
 ## `_quarto.yml`
@@ -25,8 +25,8 @@ format:
     geometry: margin=0.75in
 ```
 
-`_brand.yml` es **generado** desde los tokens: trae la paleta, las tres familias auto-hospedadas,
-los pesos y el color de enlace (`signal-text`, no `signal`). No lo edites.
+`_brand.yml` se **genera** desde los tokens. Trae la paleta, las tres familias auto-hospedadas, los
+pesos y el color de enlace, que es `signal-text` y no `signal`. No lo edites.
 
 ## Figuras
 
@@ -54,8 +54,8 @@ En Python, `tokens/build/tokens.py` y `umbral-laboratorio.mplstyle`.
 
 ## Reproducibilidad
 
-Un documento Quarto es la mejor demostración del principio del laboratorio: si la figura no se
-reconstruye desde el dato crudo, no se publica (UMB-DAT-003).
+Un documento Quarto demuestra el principio del laboratorio mejor que ninguna otra superficie. Si
+la figura no se reconstruye desde el dato crudo, no se publica (UMB-DAT-003).
 
 - `freeze: auto` para que el render no dependa de la red.
 - La etiqueta del snapshot, en el documento y en la línea de fuente.
@@ -66,7 +66,7 @@ reconstruye desde el dato crudo, no se publica (UMB-DAT-003).
 - Carta, márgenes de 0.75in.
 - Encabezados en Space Grotesk 500, cuerpo en Plex Sans 11–12pt, notas y fuentes en mono.
 - Mínimo absoluto 11pt (UMB-TYP-003).
-- Modo laboratorio siempre: el modo instrumento no se imprime.
+- Modo laboratorio siempre. El modo instrumento no se imprime.
 
 ## Antes de publicar
 

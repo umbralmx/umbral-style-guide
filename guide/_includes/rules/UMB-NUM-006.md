@@ -5,12 +5,12 @@
 
 ### Cero, nulo y suprimido se escriben distinto y significan distinto
 
-Convertir un nulo en cero es una imputación silenciosa, y en datos de desaparición o de delito cambia la afirmación.
+Convertir un nulo en cero es una imputación silenciosa. En datos de desaparición o de delito cambia la afirmación.
 
 | | |
 |---|---|
-| **Sí** | 0 · «sin dato» · «suprimido (< umbral de reporte)». |
-| **No** | Rellenar los huecos con 0 al construir la serie. |
+| **Sí** | Escribe 0 · «sin dato» · «suprimido (< umbral de reporte)». |
+| **No** | No rellenes los huecos con 0 al construir la serie. |
 
 *Comprobación:* En revisión.
 

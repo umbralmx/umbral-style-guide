@@ -27,7 +27,7 @@ frame.warnings()      # non-fatal gaps worth raising in review
 ```
 
 Constructing a `Frame` without `source` raises `MissingSource`. Asking `series()` for more than five
-raises too — a chart needing six series is two charts (UMB-CHT-006).
+raises too. A chart that needs six series is two charts (UMB-CHT-006).
 
 ## Uncertainty helpers
 
@@ -38,8 +38,8 @@ uv.themes.matplotlib_label_series(ax, x[-1], y[-1], "Desapariciones", c["signal-
 uv.themes.abbreviate_axis(ax)                     # 12k, 3.7M
 ```
 
-Direct labels use the `-text` variant, because a series label is small text needing 4.5:1 while the
-line itself only needs 3:1.
+Direct labels use the `-text` variant. A series label is small text and needs 4.5:1. The line
+itself only needs 3:1.
 
 ## Streamlit
 
@@ -53,8 +53,8 @@ ust.kpi("Registros", "351,057", delta="+9%", delta_good=False)
 ust.chart(fig, frame, df=df, filename="serie.csv")   # frame + table + CSV in one call
 ```
 
-`kpi()` requires `delta_good` when a delta is shown: whether a rise is good depends on the metric,
-never on the sign — and for disappearances it never is.
+`kpi()` requires `delta_good` whenever a delta is shown. Whether a rise is good depends on the
+metric, never on the sign. For disappearances it never is.
 
 ## Where the values come from
 

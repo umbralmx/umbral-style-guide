@@ -21,9 +21,9 @@ python3 lint.py ../../..                   # lint a whole repo
 ## What they deliberately don't do
 
 `apply_theme.py` does not draw the chart frame. Titles, subtitles, source lines and CSV buttons stay
-the caller's job — a theme cannot know your finding, and a chart without its source is the one thing
+the caller's job. A theme cannot know your finding, and a chart without its source is the one thing
 the brand never permits.
 
-`lint.py` is a subset of `tools/umbral-lint`. It misses bare hexes with no leading `#` (matplotlib
-style files write `xtick.color: 9AA19B`), and its chart-source check is a per-file heuristic. Both
-gaps are stated in its docstring so a clean run isn't over-trusted.
+`lint.py` is a subset of `tools/umbral-lint`. It misses bare hexes with no leading `#`; matplotlib
+style files write `xtick.color: 9AA19B`. Its chart-source check is a per-file heuristic. Both gaps
+are stated in its docstring, so a clean run is not over-trusted.

@@ -5,12 +5,12 @@
 
 ### El título de la gráfica enuncia el hallazgo como oración completa
 
-El título es la afirmación. Un tema («Registros por año») obliga al lector a deducir qué debía ver; un hallazgo («Los registros crecen 9% anual desde 2015») se puede verificar contra la gráfica y, por tanto, se puede discutir.
+Un tema como «Registros por año» obliga al lector a deducir qué debía ver. Un hallazgo como «Los registros crecen 9% anual desde 2015» se puede comprobar contra la gráfica. Un lector que puede comprobarlo también puede refutarlo.
 
 | | |
 |---|---|
-| **Sí** | «El gasto observable acumula ≥ 107.6 M MXN». |
-| **No** | «Gasto por mes». |
+| **Sí** | Escribe «El gasto observable acumula ≥ 107.6 M MXN». |
+| **No** | No escribas «Gasto por mes». |
 
 *Comprobación:* En revisión.
 

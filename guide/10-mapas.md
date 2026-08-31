@@ -5,48 +5,48 @@ lang: es
 
 # 10 · Mapas
 
-Capítulo nuevo en 1.1. v1.0 no definía ninguna regla cartográfica, y sin embargo los cuatro
-productos del laboratorio trabajan con datos por entidad y por municipio.
+Capítulo nuevo en 1.1. v1.0 no definía ninguna regla cartográfica. Los cuatro productos del
+laboratorio trabajan con datos por entidad y por municipio.
 
 ## Antes de hacer el mapa
 
 Pregunta si la geografía es **la variable de interés** o solo el índice del dato.
 
-- Si el hallazgo es «Colima tiene la tasa más alta», eso es un **ranking**, y unas barras ordenadas
-  lo dicen mejor y más rápido.
-- Si el hallazgo es «la incidencia se concentra en un corredor», eso es **espacial**, y ahí el mapa
-  es la herramienta correcta.
+- «Colima tiene la tasa más alta» es un **ranking**. Unas barras ordenadas lo dicen mejor y más
+  rápido.
+- «La incidencia se concentra en un corredor» es **espacial**. Ahí el mapa es la herramienta
+  correcta.
 
-Un coroplético de México dedica la mayor parte de su tinta a Chihuahua y Sonora, que son grandes y
-poco pobladas. El área del polígono no tiene relación con la magnitud del dato.
+Un coroplético de México dedica la mayor parte de su tinta a Chihuahua y Sonora. Son grandes y poco
+pobladas. El área del polígono no tiene relación con la magnitud del dato.
 
 ## Tasas, nunca conteos
 
 {{< include _includes/rules/UMB-MET-003.md >}}
 
-Un coroplético de conteos absolutos es un mapa de población. El Estado de México encabezará
-cualquier conteo por tener 17 millones de habitantes.
+Un coroplético de conteos absolutos es un mapa de población. El Estado de México encabeza cualquier
+conteo porque tiene 17 millones de habitantes.
 
-- Colorea **tasas por 100 mil**, con denominador declarado (CONAPO, año).
-- Declara el año del denominador: usar población de 2020 para hechos de 2026 introduce sesgo donde
+- Colorea **tasas por 100 mil**, con denominador declarado: CONAPO, año.
+- Declara el año del denominador. Usar población de 2020 para hechos de 2026 introduce sesgo donde
   la población creció rápido.
 
 ## El problema de la n pequeña
 
 Es el defecto cartográfico más común en datos de delito y desaparición.
 
-Un municipio de 3,000 habitantes con **un** caso tiene una tasa de 33 por 100 mil — el rojo más
-intenso del mapa. No es una señal, es un caso.
+Un municipio de 3,000 habitantes con **un** caso tiene una tasa de 33 por 100 mil. Es el rojo más
+intenso del mapa. No es una señal. Es un caso.
 
 Tratamiento obligatorio:
 
 | Situación | Qué hacer |
 |---|---|
 | Denominador por debajo del umbral | Suprime la celda y muéstrala con la trama de suprimido |
-| *n* pequeña pero publicable | Publica el conteo junto a la tasa en el tooltip y en el CSV |
+| *n* pequeña pero publicable | Publica el conteo junto a la tasa, en el tooltip y en el CSV |
 | Muchas unidades inestables | Agrega a nivel superior, o usa tasas suavizadas y dilo |
 
-Fija el umbral **antes** de ver los datos, decláralo en el subtítulo, y aplícalo igual a todas las
+Fija el umbral **antes** de ver los datos. Decláralo en el subtítulo. Aplícalo igual a todas las
 unidades.
 
 ## Faltante, suprimido y cero
@@ -75,30 +75,30 @@ entidades, cambian de grafía y traen acentos inconsistentes.
 | Municipio | `CVEGEO` | 5 |
 | Localidad | `CVEGEO` | 9 |
 
-Guárdalas como **texto**, con sus ceros a la izquierda. `01` de Aguascalientes se convierte en `1`
-en cuanto alguien abre el CSV en una hoja de cálculo.
+Guarda las claves como **texto**, con sus ceros a la izquierda. El `01` de Aguascalientes se
+convierte en `1` en cuanto alguien abre el CSV en una hoja de cálculo.
 
-Declara el año del marco geoestadístico: los municipios se crean y cambian de límites.
+Declara el año del marco geoestadístico. Los municipios se crean y cambian de límites.
 
 ## Escalas
 
 - **Secuencial** para intensidad de una variable. La rampa `signal` es la de por defecto.
-- **Divergente** para cambio o para desviación respecto a un esperado, con el neutro en cero.
+- **Divergente** para cambio, o para desviación respecto a un esperado, con el neutro en cero.
 - Cortes: cuantiles para ver el orden, intervalos iguales para ver la magnitud. **Di cuál usaste.**
   Los cortes naturales (Jenks) hacen el mapa bonito y las comparaciones entre mapas imposibles.
-- Los mismos cortes en toda una serie de mapas, o no son comparables.
+- Usa los mismos cortes en toda una serie de mapas. Si no, los mapas no son comparables.
 
 {{< include _includes/rules/UMB-COL-009.md >}}
 
 ## Marco del mapa
 
-Mismo marco que cualquier gráfica: título con el hallazgo, subtítulo con geografía, periodo, unidad
-y umbral de supresión, línea de fuente con el snapshot, CSV descargable.
+Es el mismo marco de cualquier gráfica. Título con el hallazgo, subtítulo con geografía, periodo,
+unidad y umbral de supresión, línea de fuente con el snapshot, y CSV descargable.
 
-Además: leyenda con las tres categorías especiales, y proyección declarada (cónica conforme de
-Lambert para México). Sin sombras, sin relieve, sin marcador de norte decorativo.
+Además: leyenda con las tres categorías especiales, y proyección declarada. Para México es la cónica
+conforme de Lambert. Sin sombras, sin relieve, sin marcador de norte decorativo.
 
 {{< include _includes/rules/UMB-A11Y-005.md >}}
 
-Un mapa codifica por color casi por definición, así que necesita más que un mapa: la tabla adyacente
-y el CSV no son opcionales aquí.
+Un mapa codifica por color casi por definición. Necesita más que el mapa: la tabla adyacente y el
+CSV no son opcionales aquí.

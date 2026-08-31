@@ -5,12 +5,12 @@
 
 ### Cualquier truncamiento del eje se anota en la propia gráfica
 
-En una serie de tiempo truncar puede ser legítimo; no declararlo nunca lo es. La anotación viaja con la imagen aunque el texto no.
+En una serie de tiempo, truncar el eje puede ser legítimo. No declararlo nunca lo es. La anotación viaja con la imagen aunque el texto no.
 
 | | |
 |---|---|
-| **Sí** | Marcar el corte y decirlo junto al eje. |
-| **No** | Truncar en silencio. |
+| **Sí** | Marca el corte y dilo junto al eje. |
+| **No** | No trunques el eje en silencio. |
 
 *Comprobación:* En revisión.
 

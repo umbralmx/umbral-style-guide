@@ -1,0 +1,107 @@
+---
+title: "Portada"
+lang: es
+---
+
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.3.0
+
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
+
+**Modo laboratorio (claro).** La página de entrada de `umbral.org.mx` y la de cada proyecto.
+
+Una portada tiene un solo trabajo: decir qué es esto y qué hay dentro. No es un folleto. No hay
+sección «acerca de», ni testimonios, ni ilustración.
+
+## Estructura
+
+```
+umbral_                                    ← marca, dentro del contenido, sin barra
+                                           
+umbral es un laboratorio de tecnología     ← una frase, display, máximo dos líneas
+cívica y análisis de datos
+
+proyectos                                  ← etiqueta de sección, mono, minúsculas
+──────────────────────────────────────────
+desaparecidosmx              EN DESARROLLO ← nombre en mono medio · estado en versalitas
+Pipeline que convierte el RNPDNO en CSV…   ← descripción, Plex Sans, muted, 65ch
+[ Dashboard ]  [ Código ]                  ← controles de 1px
+──────────────────────────────────────────
+observatorio-delictivo       EN DESARROLLO
+…
+
+hola@umbral.org.mx                         ← pie: una línea, mono
+```
+
+Cinco decisiones sostienen esa estructura, y las cinco son reglas:
+
+{{< include /_includes/rules/UMB-LAY-006.md >}}
+
+{{< include /_includes/rules/UMB-LAY-007.md >}}
+
+{{< include /_includes/rules/UMB-LAY-008.md >}}
+
+{{< include /_includes/rules/UMB-LAY-009.md >}}
+
+{{< include /_includes/rules/UMB-LAY-003.md >}}
+
+## Sin barra de navegación
+
+La marca va al principio del contenido, alineada con el titular. No hay header fijo ni menú.
+
+Una portada con cuatro proyectos no necesita navegación. Un menú de cuatro entradas ocupa una banda
+completa de la pantalla para repetir lo que la página ya muestra.
+
+## La frase de apertura
+
+Una sola frase, en display, en dos líneas como máximo. Dice qué es el laboratorio. No promete nada.
+
+| | |
+|---|---|
+| **Sí** | «umbral es un laboratorio de tecnología cívica y análisis de datos» |
+| **No** | «Transformamos datos en decisiones que cambian vidas» |
+
+Ver [05 · Voz](/guide/14-superficies/05-voz.qmd).
+
+## Cada elemento de la lista
+
+| Parte | Tipografía | Color |
+|---|---|---|
+| Nombre del proyecto | Plex Mono 500 | `ink` |
+| Estado | Plex Mono, versalitas, tracking +0.08em | `caption` |
+| Descripción | Plex Sans, medida 65ch | `muted` |
+| Controles | Plex Mono, borde 1px | `ink`; hover → `signal` |
+
+La descripción dice qué hace el proyecto y sobre qué datos. Nombra la fuente. No usa adjetivos.
+
+## Movimiento
+
+Una portada puede tener una animación de entrada. Una sola, y tiene que degradar a texto estático
+sin JavaScript.
+
+`umbral.org.mx` teclea el titular letra por letra. Cada letra entra en `signal` y decanta a `ink`.
+El cursor es un bloque en `signal-text`.
+
+{{< include /_includes/rules/UMB-A11Y-007.md >}}
+
+Con `prefers-reduced-motion` el tecleo se apaga y el titular aparece completo. El cursor sigue
+parpadeando: es un cursor de texto, no un adorno.
+
+## Antes de publicar
+
+- [ ] `lang="es"` correcto
+- [ ] Fuentes desde `assets/fonts/`, ninguna petición a un CDN
+- [ ] Ningún hex escrito a mano
+- [ ] Etiquetas de sección en mono, en minúsculas, en `caption`
+- [ ] La lista son filas con regla de 1px, no tarjetas
+- [ ] La retícula de puntos no toca ningún texto
+- [ ] Un solo elemento en señal
+- [ ] El titular se lee completo sin JavaScript
+- [ ] `:focus-visible` visible; `prefers-reduced-motion` respetado
+
+::: {.u-foot}
+umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

@@ -5,12 +5,12 @@
 
 ### Los snapshots se etiquetan y la gráfica dice cuál usó
 
-El RNPDNO es un registro vivo: los conteos cambian entre consultas. Sin la etiqueta del snapshot, dos gráficas correctas parecen contradecirse.
+El RNPDNO es un registro vivo y sus conteos cambian entre consultas. Sin la etiqueta del snapshot, dos gráficas correctas parecen contradecirse.
 
 | | |
 |---|---|
-| **Sí** | rnpdno-2026-07, y esa etiqueta en la línea de fuente. |
-| **No** | «Fuente: RNPDNO» sin fecha de consulta. |
+| **Sí** | Etiqueta el corte como rnpdno-2026-07 y pon esa etiqueta en la línea de fuente. |
+| **No** | No escribas «Fuente: RNPDNO» sin fecha de consulta. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `snapshot-tag`.
 

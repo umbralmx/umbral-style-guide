@@ -5,12 +5,12 @@
 
 ### El wordmark es «umbral_» en minúsculas, Space Grotesk 500, con el guión bajo en signal
 
-El guión bajo es el umbral: la marca dice lo que hace. En mayúsculas o en otro peso deja de ser el logotipo y pasa a ser texto.
+El guión bajo nombra lo que hace el laboratorio. En mayúsculas o en otro peso, el wordmark deja de leerse como logotipo y se lee como texto.
 
 | | |
 |---|---|
-| **Sí** | umbral_ en minúsculas, peso 500, guión bajo en signal-text. |
-| **No** | UMBRAL_, Umbral_, peso 700, o el guión bajo en el color del texto. |
+| **Sí** | Escribe umbral_ en minúsculas, peso 500, con el guión bajo en signal-text. |
+| **No** | No escribas UMBRAL_ ni Umbral_. No uses peso 700. No pongas el guión bajo en el color del texto. |
 
 *Comprobación:* En revisión.
 

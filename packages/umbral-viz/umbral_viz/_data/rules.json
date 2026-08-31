@@ -1,16 +1,16 @@
 {
   "$generated": "rules.json — GENERATED from rules/rules.yaml. Do not edit.",
-  "version": "1.1.0",
+  "version": "1.3.0",
   "counts": {
-    "total": 69,
+    "total": 75,
     "bySeverity": {
       "error": 58,
-      "warning": 10,
+      "warning": 16,
       "info": 1
     },
     "byCheckType": {
-      "review": 33,
-      "automated": 34,
+      "review": 38,
+      "automated": 35,
       "manual": 2
     }
   },
@@ -58,7 +58,7 @@
     "process": {
       "label": "Proceso",
       "label_en": "Process",
-      "description": "Reglas sobre cómo se construye el sistema, no sobre lo que produce. Categoría añadida en 1.1 — no estaba en la lista original del kickoff. Existe porque los defectos más graves encontrados en la auditoría de Phase 0 no fueron errores de diseño sino de proceso: valores enunciados en dos lugares que dejaron de coincidir.\n"
+      "description": "Reglas sobre cómo se construye el sistema, no sobre lo que produce. La categoría se añadió en 1.1. Los defectos más graves de la auditoría de Phase 0 no fueron errores de diseño. Fueron valores enunciados en dos lugares que dejaron de coincidir.\n"
     }
   },
   "index": {
@@ -94,7 +94,12 @@
         "UMB-LAY-002",
         "UMB-LAY-003",
         "UMB-LAY-004",
-        "UMB-LAY-005"
+        "UMB-LAY-005",
+        "UMB-LAY-006",
+        "UMB-LAY-007",
+        "UMB-LAY-008",
+        "UMB-LAY-009",
+        "UMB-LAY-010"
       ],
       "chart": [
         "UMB-CHT-001",
@@ -114,7 +119,8 @@
         "UMB-VOZ-001",
         "UMB-VOZ-002",
         "UMB-VOZ-003",
-        "UMB-VOZ-004"
+        "UMB-VOZ-004",
+        "UMB-VOZ-005"
       ],
       "numbers": [
         "UMB-NUM-001",
@@ -182,6 +188,11 @@
         "UMB-LAY-003",
         "UMB-LAY-004",
         "UMB-LAY-005",
+        "UMB-LAY-006",
+        "UMB-LAY-007",
+        "UMB-LAY-008",
+        "UMB-LAY-009",
+        "UMB-LAY-010",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -198,6 +209,7 @@
         "UMB-VOZ-002",
         "UMB-VOZ-003",
         "UMB-VOZ-004",
+        "UMB-VOZ-005",
         "UMB-NUM-001",
         "UMB-NUM-002",
         "UMB-NUM-003",
@@ -248,6 +260,9 @@
         "UMB-LAY-002",
         "UMB-LAY-004",
         "UMB-LAY-005",
+        "UMB-LAY-006",
+        "UMB-LAY-007",
+        "UMB-LAY-008",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -264,6 +279,7 @@
         "UMB-VOZ-002",
         "UMB-VOZ-003",
         "UMB-VOZ-004",
+        "UMB-VOZ-005",
         "UMB-NUM-001",
         "UMB-NUM-002",
         "UMB-NUM-003",
@@ -315,6 +331,10 @@
         "UMB-LAY-003",
         "UMB-LAY-004",
         "UMB-LAY-005",
+        "UMB-LAY-006",
+        "UMB-LAY-007",
+        "UMB-LAY-008",
+        "UMB-LAY-010",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -331,6 +351,7 @@
         "UMB-VOZ-002",
         "UMB-VOZ-003",
         "UMB-VOZ-004",
+        "UMB-VOZ-005",
         "UMB-NUM-001",
         "UMB-NUM-002",
         "UMB-NUM-003",
@@ -376,6 +397,7 @@
         "UMB-LAY-002",
         "UMB-LAY-003",
         "UMB-LAY-005",
+        "UMB-LAY-010",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -392,6 +414,7 @@
         "UMB-VOZ-002",
         "UMB-VOZ-003",
         "UMB-VOZ-004",
+        "UMB-VOZ-005",
         "UMB-NUM-001",
         "UMB-NUM-002",
         "UMB-NUM-003",
@@ -441,6 +464,10 @@
         "UMB-LAY-003",
         "UMB-LAY-004",
         "UMB-LAY-005",
+        "UMB-LAY-006",
+        "UMB-LAY-007",
+        "UMB-LAY-009",
+        "UMB-LAY-010",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -457,6 +484,7 @@
         "UMB-VOZ-002",
         "UMB-VOZ-003",
         "UMB-VOZ-004",
+        "UMB-VOZ-005",
         "UMB-NUM-001",
         "UMB-NUM-002",
         "UMB-NUM-003",
@@ -497,6 +525,7 @@
         "UMB-LAY-002",
         "UMB-LAY-004",
         "UMB-LAY-005",
+        "UMB-LAY-009",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -513,6 +542,7 @@
         "UMB-VOZ-002",
         "UMB-VOZ-003",
         "UMB-VOZ-004",
+        "UMB-VOZ-005",
         "UMB-NUM-001",
         "UMB-NUM-002",
         "UMB-NUM-003",
@@ -538,9 +568,12 @@
         "UMB-TYP-001",
         "UMB-TYP-002",
         "UMB-LAY-005",
+        "UMB-LAY-006",
+        "UMB-LAY-010",
         "UMB-VOZ-001",
         "UMB-VOZ-002",
         "UMB-VOZ-004",
+        "UMB-VOZ-005",
         "UMB-NUM-003",
         "UMB-DAT-004",
         "UMB-A11Y-001",
@@ -565,9 +598,11 @@
         "UMB-LAY-003",
         "UMB-LAY-004",
         "UMB-LAY-005",
+        "UMB-LAY-007",
         "UMB-VOZ-001",
         "UMB-VOZ-002",
         "UMB-VOZ-004",
+        "UMB-VOZ-005",
         "UMB-NUM-001",
         "UMB-NUM-004",
         "UMB-A11Y-001",
@@ -598,6 +633,7 @@
         "UMB-TYP-006",
         "UMB-LAY-003",
         "UMB-LAY-005",
+        "UMB-LAY-010",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -614,6 +650,7 @@
         "UMB-VOZ-002",
         "UMB-VOZ-003",
         "UMB-VOZ-004",
+        "UMB-VOZ-005",
         "UMB-NUM-001",
         "UMB-NUM-002",
         "UMB-NUM-003",
@@ -631,6 +668,7 @@
       ],
       "repo": [
         "UMB-COL-002",
+        "UMB-VOZ-005",
         "UMB-NUM-003",
         "UMB-NUM-006",
         "UMB-DAT-001",
@@ -774,6 +812,12 @@
       "severity": "error"
     },
     {
+      "rule": "UMB-VOZ-005",
+      "tool": "umbral-lint",
+      "check": "long-sentence",
+      "severity": "warning"
+    },
+    {
       "rule": "UMB-NUM-003",
       "tool": "umbral-lint",
       "check": "date-format",
@@ -870,12 +914,12 @@
         "email",
         "print"
       ],
-      "rationale": "El guión bajo es el umbral: la marca dice lo que hace. En mayúsculas o en otro peso deja de ser el logotipo y pasa a ser texto.\n",
-      "do": "umbral_ en minúsculas, peso 500, guión bajo en signal-text.",
-      "dont": "UMBRAL_, Umbral_, peso 700, o el guión bajo en el color del texto.",
+      "rationale": "El guión bajo nombra lo que hace el laboratorio. En mayúsculas o en otro peso, el wordmark deja de leerse como logotipo y se lee como texto.\n",
+      "do": "Escribe umbral_ en minúsculas, peso 500, con el guión bajo en signal-text.",
+      "dont": "No escribas UMBRAL_ ni Umbral_. No uses peso 700. No pongas el guión bajo en el color del texto.",
       "check": {
         "type": "review",
-        "note": "El wordmark se compone con tipografía viva; comprobar peso, caja y color del guión bajo exige la salida renderizada.\n"
+        "note": "El wordmark se compone con tipografía viva. Comprobar el peso, la caja y el color del guión bajo exige la salida renderizada.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.02; CLAUDE.md §5.",
@@ -899,9 +943,9 @@
         "github",
         "print"
       ],
-      "rationale": "La barra es la señal cruzando el umbral de significancia; que cruce a la izquierda del centro es la única regla geométrica que la marca enuncia. En v1.0 los archivos entregados tenían tres proporciones distintas (5:44 documentada, 1:7.13 en el isotipo, 1:6.29 en el lockup) y el lockup cruzaba a la derecha.\n",
-      "do": "Generar todas las variantes desde la fuente paramétrica única.",
-      "dont": "Redibujar el isotipo a mano o escalar la barra por separado.",
+      "rationale": "Es la única regla geométrica que la marca enuncia sobre sí misma. En v1.0 los archivos entregados tenían tres proporciones distintas: 5:44 documentada, 1:7.13 en el isotipo y 1:6.29 en el lockup. El lockup además cruzaba a la derecha.\n",
+      "do": "Genera todas las variantes desde la fuente paramétrica única.",
+      "dont": "No redibujes el isotipo a mano. No escales la barra por separado.",
       "check": {
         "type": "automated",
         "tool": "logo-build",
@@ -928,9 +972,9 @@
         "email",
         "print"
       ],
-      "rationale": "La marca necesita aire para leerse como marca y no como un elemento más de la interfaz.\n",
-      "do": "Medir el espacio libre desde el borde del isotipo.",
-      "dont": "Pegar el logo a un borde, a un titular o a la navegación.",
+      "rationale": "Sin ese espacio, el logo se lee como un elemento más de la interfaz.\n",
+      "do": "Mide el espacio libre desde el borde del isotipo.",
+      "dont": "No pegues el logo a un borde, a un titular ni a la navegación.",
       "check": {
         "type": "review"
       },
@@ -954,9 +998,9 @@
         "email",
         "print"
       ],
-      "rationale": "Un logo alterado deja de identificar. Además cualquier recoloreo fuera de los tokens rompe la garantía de contraste que el sistema comprueba en CI.\n",
-      "do": "Usar los SVG generados en assets/logo/.",
-      "dont": "Estirar, rotar, aplicar sombra, contorno, degradado o un color arbitrario.",
+      "rationale": "Un logo alterado deja de identificar al laboratorio. Un recoloreo fuera de los tokens rompe además la garantía de contraste que CI comprueba.\n",
+      "do": "Usa los SVG generados en assets/logo/.",
+      "dont": "No estires, rotes ni gires el logo. No le apliques sombra, contorno, degradado ni un color arbitrario.",
       "check": {
         "type": "review",
         "note": "La distorsión, el contorno y el efecto solo son visibles en el artefacto final, no en el fuente.\n"
@@ -981,9 +1025,9 @@
         "email",
         "print"
       ],
-      "rationale": "El blanco y el negro puros producen un contraste duro que cansa la lectura larga y delatan que el color no vino de los tokens. base e ink existen precisamente para eso.\n",
-      "do": "var(--u-base) y var(--u-ink).",
-      "dont": "#fff, #ffffff, #000, white, black.",
+      "rationale": "El blanco y el negro puros dan un contraste duro que cansa en lecturas largas. Su presencia indica además que el color no vino de los tokens.\n",
+      "do": "Usa var(--u-base) y var(--u-ink).",
+      "dont": "No escribas #fff, #ffffff, #000, white ni black.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1012,8 +1056,8 @@
         "repo"
       ],
       "rationale": "Un valor enunciado en dos lugares deja de coincidir. Así fue como el mplstyle de v1.0 terminó con una tercera serie distinta a la de su propio brand book.\n",
-      "do": "var(--u-signal), tokens['signal'], umbral_laboratorio$signal.",
-      "dont": "#128273 escrito directamente en una hoja de estilo, un notebook o una gráfica.",
+      "do": "Lee el valor desde var(--u-signal), tokens['signal'] o umbral_laboratorio$signal.",
+      "dont": "No escribas #128273 en una hoja de estilo, un notebook ni una gráfica.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1042,9 +1086,9 @@
         "email",
         "print"
       ],
-      "rationale": "El degradado introduce una variación de color que no codifica nada. En una gráfica compite con la escala; en la interfaz es decoración.\n",
-      "do": "Rellenos sólidos; una rampa secuencial si hay que codificar intensidad.",
-      "dont": "linear-gradient decorativo, fondos con degradado, barras degradadas.",
+      "rationale": "El degradado varía el color sin codificar nada. En una gráfica compite con la escala. En la interfaz es decoración.\n",
+      "do": "Usa rellenos sólidos. Usa una rampa secuencial si tienes que codificar intensidad.",
+      "dont": "No uses linear-gradient decorativo, fondos con degradado ni barras degradadas.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1052,7 +1096,7 @@
       },
       "since": "1.0",
       "exceptions": [
-        "Un linear-gradient de un solo color usado para dibujar una regla de 1px es una técnica de layout, no un degradado. cabildo-libre lo usa correctamente.\n"
+        "Un linear-gradient de un solo color que dibuja una regla de 1px es una técnica de layout, no un degradado. cabildo-libre lo usa así.\n"
       ],
       "guide": "02-color"
     },
@@ -1070,15 +1114,15 @@
         "slides",
         "social"
       ],
-      "rationale": "La jerarquía visual de Umbral depende de que exista un único punto de atención. Si todo resalta, nada resalta. El alcance se limita a la capa de datos porque Streamlit aplica primaryColor a todos sus widgets a la vez y no existe configuración que lo restrinja a un elemento.\n",
-      "do": "Una serie, una cifra o un elemento de UI en signal.",
-      "dont": "Signal en el logo, el botón y la serie principal a la vez.",
+      "rationale": "La jerarquía visual depende de que haya un único punto de atención. Si todo resalta, nada resalta. La regla se limita a la capa de datos porque Streamlit aplica primaryColor a todos sus widgets a la vez.\n",
+      "do": "Pon en signal una serie, una cifra o un elemento de interfaz.",
+      "dont": "No pongas signal en el logo, el botón y la serie principal a la vez.",
       "check": {
         "type": "review",
-        "note": "Requiere la salida renderizada de la gráfica, no el código fuente. Acotada además a la capa de datos (OQ-002), así que un linter de archivos no puede decidirla. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+        "note": "Requiere la salida renderizada de la gráfica, no el código fuente. La regla se acota además a la capa de datos (OQ-002), así que un linter de archivos no puede decidirla. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
-      "evidence": "Brand book p.03 «La señal es sagrada»; medido: 17 elementos en desaparecidosmx, 10 en pautamx, 4 en cabildo-libre.",
+      "evidence": "Brand book p.03; medido: 17 elementos en desaparecidosmx, 10 en pautamx, 4 en cabildo-libre.",
       "guide": "02-color"
     },
     {
@@ -1097,9 +1141,9 @@
         "email",
         "print"
       ],
-      "rationale": "Es un laboratorio de interés público: la lectura no puede depender de tener buena vista y una buena pantalla. v1.0 afirmaba cumplir AA en ambos modos y no lo cumplía en cuatro pares; el 44% del texto del sitio principal fallaba.\n",
-      "do": "Usar ink, muted, caption y las variantes *-text, que la compuerta ya verifica.",
-      "dont": "Usar signal, model o alert como color de texto pequeño en modo laboratorio.",
+      "rationale": "Leer al laboratorio no puede depender de tener buena vista ni buena pantalla. v1.0 afirmaba cumplir AA en ambos modos. Cuatro pares no lo cumplían y el 44% del texto del sitio principal fallaba.\n",
+      "do": "Usa ink, muted, caption y las variantes *-text. La compuerta ya las verifica.",
+      "dont": "No uses signal, model ni alert como color de texto pequeño en modo laboratorio.",
       "check": {
         "type": "automated",
         "tool": "verify-tokens",
@@ -1128,9 +1172,9 @@
         "social",
         "print"
       ],
-      "rationale": "WCAG 1.4.11 aplica a los gráficos necesarios para entender el contenido. Las líneas de retícula no lo son: deben quedar por debajo del dato. Distinguir ambos casos es lo que permite que la compuerta de contraste sea creíble en vez de estar siempre apagada.\n",
-      "do": "Declarar contrastRole en cada token: text, mark, furniture o surface.",
-      "dont": "Exigir 3:1 a una retícula, ni eximir a una serie de datos.",
+      "rationale": "WCAG 1.4.11 aplica a los gráficos necesarios para entender el contenido. Las líneas de retícula no lo son y tienen que quedar por debajo del dato. Distinguir ambos casos mantiene la compuerta de contraste encendida.\n",
+      "do": "Declara contrastRole en cada token: text, mark, furniture o surface.",
+      "dont": "No exijas 3:1 a una retícula. No eximas a una serie de datos.",
       "check": {
         "type": "automated",
         "tool": "verify-tokens",
@@ -1157,16 +1201,16 @@
         "social",
         "email"
       ],
-      "rationale": "Los tokens cascadean por subárbol. Mezclarlos dentro de una superficie produce texto de un modo sobre fondo del otro, que es exactamente el caso que la compuerta de contraste no puede prever.\n",
-      "do": "data-mode=\"instrumento\" sobre un contenedor completo.",
-      "dont": "Un panel claro con una tarjeta oscura dentro, o al revés.",
+      "rationale": "Los tokens cascadean por subárbol. Mezclarlos dentro de una superficie pone texto de un modo sobre fondo del otro. La compuerta de contraste no puede prever ese caso.\n",
+      "do": "Pon data-mode=\"instrumento\" sobre un contenedor completo.",
+      "dont": "No pongas una tarjeta oscura dentro de un panel claro, ni al revés.",
       "check": {
         "type": "review",
         "note": "Requiere el DOM resuelto: los modos cascadean por subárbol y la mezcla solo existe una vez renderizado. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "exceptions": [
-        "Secciones alternas de una misma página son superficies distintas, no un mismo panel."
+        "Dos secciones alternas de una misma página son superficies distintas, no un mismo panel."
       ],
       "guide": "02-color"
     },
@@ -1185,9 +1229,9 @@
         "social",
         "print"
       ],
-      "rationale": "Variar solo el tono no basta: para un dicrómata el tono colapsa a un solo eje. Medido, la mejor quinta serie posible variando solo tono queda en 0.042 de separación OKLab, por debajo del umbral de ~0.10 en el que dos marcas dejan de distinguirse.\n",
-      "do": "Variar tono y, si hace falta, luminosidad; verificar con audit/scripts/cvd.py.",
-      "dont": "Añadir una serie por parecido estético sin medir su separación.",
+      "rationale": "Variar solo el tono no basta. Para un dicrómata el tono colapsa a un solo eje. La mejor quinta serie posible variando solo tono queda en 0.042 de separación OKLab. Dos marcas dejan de distinguirse por debajo de 0.10.\n",
+      "do": "Varía el tono y, si hace falta, la luminosidad. Verifica con audit/scripts/cvd.py.",
+      "dont": "No añadas una serie por parecido estético sin medir su separación.",
       "check": {
         "type": "automated",
         "tool": "verify-tokens",
@@ -1212,9 +1256,9 @@
         "social",
         "print"
       ],
-      "rationale": "Las rampas ancladas en signal y en model son indistinguibles bajo tritanopía (separación OKLab 0.014). Dos mapas lado a lado codificados con ellas son el mismo mapa para ese lector.\n",
-      "do": "Una rampa secuencial por figura; si hacen falta dos, variar también el rango de luminosidad.",
-      "dont": "Un coroplético en rampa signal junto a otro en rampa model.",
+      "rationale": "Las rampas ancladas en signal y en model quedan a 0.014 de separación OKLab bajo tritanopía. Para ese lector, dos mapas codificados con ellas son el mismo mapa.\n",
+      "do": "Usa una rampa secuencial por figura. Si necesitas dos, varía también el rango de luminosidad.",
+      "dont": "No pongas un coroplético en rampa signal junto a otro en rampa model.",
       "check": {
         "type": "review",
         "note": "Saber qué codifica cada rampa en una figura exige entender la figura, no el código.\n"
@@ -1238,9 +1282,9 @@
         "social",
         "print"
       ],
-      "rationale": "En datos de desaparición y de delito la diferencia entre «no hay registro», «se suprimió por debajo del umbral de reporte» y «ocurrieron cero casos» es sustantiva. Representarlas igual es afirmar algo falso.\n",
-      "do": "missing como relleno plano; suppressed con la trama de 45°; cero en el extremo de la rampa.",
-      "dont": "Pintar el faltante como el valor más bajo de la escala.",
+      "rationale": "«No hay registro», «se suprimió por debajo del umbral de reporte» y «ocurrieron cero casos» son tres hechos distintos. Representarlos igual afirma algo falso.\n",
+      "do": "Usa missing como relleno plano, la trama de 45° para suprimido, y el extremo de la rampa para cero.",
+      "dont": "No pintes el faltante como el valor más bajo de la escala.",
       "check": {
         "type": "review",
         "note": "Que faltante, suprimido y cero se distingan es una propiedad de la leyenda renderizada.\n"
@@ -1269,9 +1313,9 @@
         "email",
         "print"
       ],
-      "rationale": "El peso medio es la firma heredada de la referencia Isomorphic. El 700 convierte una voz sobria en una voz que grita.\n",
-      "do": "font-weight 500 en titulares; 600 solo en etiquetas pequeñas.",
-      "dont": "font-weight 700, 800, 900 o `bold` en un selector de display.",
+      "rationale": "El peso medio es lo que distingue a la marca de un titular genérico. El 700 sube el volumen de la voz sin añadir información.\n",
+      "do": "Usa font-weight 500 en titulares. Usa 600 solo en etiquetas pequeñas.",
+      "dont": "No uses font-weight 700, 800, 900 ni `bold` en un selector de display.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1298,9 +1342,9 @@
         "email",
         "print"
       ],
-      "rationale": "La tipografía es la mitad de la identidad. Una sustitución silenciosa por la fuente por defecto del framework deshace el sistema sin que nadie lo note.\n",
-      "do": "Declarar las tres familias y auto-hospedarlas.",
-      "dont": "Inter, Roboto, Arial, Helvetica, o la Source Sans que Streamlit trae por defecto.",
+      "rationale": "La tipografía es la mitad de la identidad. Un framework que sustituye la familia por defecto deshace el sistema sin que nadie lo note.\n",
+      "do": "Declara las tres familias y auto-hospédalas.",
+      "dont": "No uses Inter, Roboto, Arial, Helvetica ni la Source Sans por defecto de Streamlit.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1326,9 +1370,9 @@
         "email",
         "print"
       ],
-      "rationale": "Debajo de esos tamaños el texto deja de ser legible para una parte del público, y las cifras —que son el argumento— son lo primero que se pierde.\n",
-      "do": "Usar font.minimum de los tokens como piso.",
-      "dont": "Reducir la fuente para que quepa más.",
+      "rationale": "Debajo de esos tamaños una parte del público deja de leer el texto. Las cifras son lo primero que se pierde.\n",
+      "do": "Usa font.minimum de los tokens como piso.",
+      "dont": "No reduzcas el tamaño de la fuente para que quepa más contenido.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1353,9 +1397,9 @@
         "social",
         "print"
       ],
-      "rationale": "El criterio es la alineación, no el tamaño. Los numerales tabulares existen para que los dígitos se comparen columna contra columna; una cifra dentro de una oración se lee como lenguaje.\n",
-      "do": "Plex Mono en KPIs, tablas y ejes; Space Grotesk 500 en una cifra suelta dentro de un titular.",
-      "dont": "Plex Sans para cifras — no es ninguna de las dos cosas.",
+      "rationale": "El criterio es la alineación, no el tamaño. Los numerales tabulares alinean los dígitos columna contra columna. Una cifra dentro de una oración se lee como lenguaje.\n",
+      "do": "Usa Plex Mono en KPIs, tablas y ejes. Usa Space Grotesk 500 en una cifra suelta dentro de un titular.",
+      "dont": "No uses Plex Sans para cifras. No es ninguno de los dos casos.",
       "check": {
         "type": "review"
       },
@@ -1376,16 +1420,16 @@
         "slides",
         "print"
       ],
-      "rationale": "Un producto de datos de interés público tiene que funcionar sin conexión y dentro de redes de gobierno. Depender de un CDN externo también filtra la IP de cada lector a un tercero.\n",
-      "do": "Servir los .woff2 desde assets/fonts/ con su licencia OFL.",
-      "dont": "fonts.googleapis.com, ni un @import a un CDN.",
+      "rationale": "Un producto de interés público tiene que funcionar sin conexión y dentro de redes de gobierno. Un CDN externo además entrega la IP de cada lector a un tercero.\n",
+      "do": "Sirve los .woff2 desde assets/fonts/ con su licencia OFL al lado.",
+      "dont": "No enlaces fonts.googleapis.com. No uses un @import a un CDN.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
         "id": "font-hosting"
       },
       "since": "1.0",
-      "evidence": "umbral-engineering.md §1 lo pide en prosa y entrega un <link> a Google Fonts en el bloque de código de la misma sección; umbralmx.github.io usa el CDN.\n",
+      "evidence": "umbral-engineering.md §1 lo pide en prosa. En el bloque de código de la misma sección entrega un <link> a Google Fonts. umbralmx.github.io usa el CDN.\n",
       "guide": "03-tipografia"
     },
     {
@@ -1402,9 +1446,9 @@
         "social",
         "print"
       ],
-      "rationale": "Space Grotesk a tamaños grandes se abre demasiado con el tracking por defecto.\n",
-      "do": "var(--u-tracking-display) en titulares.",
-      "dont": "Tracking positivo o por defecto en display.",
+      "rationale": "Space Grotesk se abre demasiado a tamaños grandes con el tracking por defecto.\n",
+      "do": "Usa var(--u-tracking-display) en titulares.",
+      "dont": "No dejes tracking positivo ni por defecto en display.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1428,9 +1472,9 @@
         "social",
         "email"
       ],
-      "rationale": "La marca es plana y recta. El radio grande —y sobre todo el botón tipo píldora— lee como producto de consumo, no como instrumento.\n",
-      "do": "var(--u-radius); como mucho var(--u-radius-max).",
-      "dont": "border-radius: 8px, 999px, o cualquier píldora.",
+      "rationale": "La marca es plana y recta. Un radio grande, y sobre todo un botón tipo píldora, se lee como producto de consumo y no como instrumento.\n",
+      "do": "Usa var(--u-radius). Como mucho, usa var(--u-radius-max).",
+      "dont": "No uses border-radius de 8px, de 999px ni ninguna píldora.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1454,9 +1498,9 @@
         "social",
         "email"
       ],
-      "rationale": "La profundidad falsa compite con el dato. Una regla de 1px separa igual y no añade ruido visual.\n",
-      "do": "1px sólido en var(--u-border).",
-      "dont": "box-shadow con desenfoque o desplazamiento; tarjetas elevadas.",
+      "rationale": "La profundidad falsa compite con el dato. Una regla de 1px separa igual y no añade ruido.\n",
+      "do": "Usa una regla sólida de 1px en var(--u-border).",
+      "dont": "No uses box-shadow con desenfoque ni con desplazamiento. No eleves tarjetas.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1464,7 +1508,7 @@
       },
       "since": "1.0",
       "exceptions": [
-        "box-shadow con `inset` usado para dibujar una regla —por ejemplo `inset 4px 0 0 var(--u-signal)`— no es una sombra. cabildo-libre lo usa así.\n"
+        "Un box-shadow con `inset` que dibuja una regla, por ejemplo `inset 4px 0 0 var(--u-signal)`, no es una sombra. cabildo-libre lo usa así.\n"
       ],
       "guide": "04-layout"
     },
@@ -1482,9 +1526,9 @@
         "email",
         "print"
       ],
-      "rationale": "Más allá de esa medida el ojo pierde el renglón al volver. Es la diferencia entre un informe que se lee y uno que se hojea.\n",
-      "do": "max-width: var(--u-measure).",
-      "dont": "Párrafos a todo el ancho de la ventana.",
+      "rationale": "Pasados los 65 caracteres, el ojo pierde el renglón al volver a la izquierda.\n",
+      "do": "Pon max-width: var(--u-measure) en la columna de texto.",
+      "dont": "No dejes párrafos a todo el ancho de la ventana.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1507,9 +1551,9 @@
         "social",
         "email"
       ],
-      "rationale": "Una escala única hace que las composiciones se alineen sin decidir cada vez.\n",
-      "do": "var(--u-space-1) … var(--u-space-10).",
-      "dont": "Valores sueltos como 13px o 27px.",
+      "rationale": "Una escala única alinea las composiciones sin que haya que decidir cada valor.\n",
+      "do": "Usa var(--u-space-1) hasta var(--u-space-10).",
+      "dont": "No uses valores sueltos como 13px o 27px.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1535,9 +1579,9 @@
         "email",
         "print"
       ],
-      "rationale": "El argumento lo cargan los números. Un emoji en un informe sobre desapariciones no es neutral: cambia el registro de lo que se está diciendo.\n",
-      "do": "Espacio en blanco, reglas de 1px, y la cifra.",
-      "dont": "Emoji, iconografía genérica, ilustración de relleno.",
+      "rationale": "El dato sostiene el argumento. Un emoji en un informe sobre desapariciones cambia el registro de lo que se está diciendo.\n",
+      "do": "Usa espacio en blanco, reglas de 1px y la cifra.",
+      "dont": "No uses emoji, iconografía genérica ni ilustración de relleno.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1546,6 +1590,140 @@
       "since": "1.0",
       "evidence": "Brand book p.05 y lista «Nunca» de CLAUDE.md §9.",
       "guide": "04-layout"
+    },
+    {
+      "id": "UMB-LAY-006",
+      "title": "Las etiquetas de sección van en mono, en minúsculas y en caption",
+      "title_en": "Section labels are set in mono, lowercase, in caption",
+      "category": "layout",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "slides",
+        "github"
+      ],
+      "rationale": "Una etiqueta de sección nombra la estructura de la página, no su contenido. El mono en minúsculas la separa del titular sin subir de tamaño ni de peso. Es el mismo recurso que ya usa la línea de fuente de una gráfica.\n",
+      "do": "Escribe «proyectos» en var(--u-font-mono), 13px, en var(--u-caption).",
+      "dont": "No pongas una etiqueta de sección en display, en versalitas ni en peso 600.",
+      "check": {
+        "type": "review"
+      },
+      "since": "1.2",
+      "evidence": "umbral.org.mx, agosto de 2026: encabezado «proyectos» en mono 13px sobre caption.",
+      "guide": "04-layout",
+      "see_also": [
+        "UMB-TYP-004",
+        "UMB-LAY-007"
+      ]
+    },
+    {
+      "id": "UMB-LAY-007",
+      "title": "Una lista de elementos se separa con reglas de 1px, no con tarjetas",
+      "title_en": "A list of items is separated by 1px rules, not by cards",
+      "category": "layout",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "slides",
+        "email"
+      ],
+      "rationale": "Una fila separada por una regla de 1px pesa lo mismo que las demás. Una tarjeta con borde y relleno propios sugiere una jerarquía que la lista no tiene. La regla llega hasta el borde del contenedor, así que el ojo lee una sola columna.\n",
+      "do": "Usa border-top de 1px en var(--u-border) sobre cada fila a partir de la segunda.",
+      "dont": "No envuelvas cada elemento en su propio recuadro, fondo o relleno.",
+      "check": {
+        "type": "review"
+      },
+      "since": "1.2",
+      "evidence": "umbral.org.mx, agosto de 2026: la lista de proyectos son filas con regla superior.",
+      "guide": "04-layout",
+      "see_also": [
+        "UMB-LAY-002",
+        "UMB-LAY-006"
+      ]
+    },
+    {
+      "id": "UMB-LAY-008",
+      "title": "Los controles secundarios son mono con borde de 1px y pasan a signal al enfocarse",
+      "title_en": "Secondary controls are mono with a 1px border and move to signal on focus",
+      "category": "layout",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto"
+      ],
+      "rationale": "Un control con borde de 1px y sin relleno se lee como control sin competir con el dato. Reservar signal para el estado activo mantiene libre el único punto de atención de la vista, que UMB-COL-004 asigna a la capa de datos.\n",
+      "do": "Dibuja el control con 1px en var(--u-baseline) y pasa el borde y el texto a signal en hover y en focus-visible.",
+      "dont": "No rellenes un control secundario con un color sólido. No lo dejes en signal en reposo.",
+      "check": {
+        "type": "review"
+      },
+      "since": "1.2",
+      "evidence": "umbral.org.mx, agosto de 2026: los enlaces «Dashboard» y «Código» son botones de 1px.",
+      "guide": "04-layout",
+      "see_also": [
+        "UMB-COL-004",
+        "UMB-LAY-001",
+        "UMB-A11Y-006"
+      ]
+    },
+    {
+      "id": "UMB-LAY-009",
+      "title": "La retícula de puntos solo ocupa el margen exterior de la hoja",
+      "title_en": "The dot field occupies only the outer margin of the sheet",
+      "category": "layout",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "slides",
+        "social"
+      ],
+      "rationale": "La retícula de puntos marca el papel milimétrico del instrumento. Debajo del texto reduce el contraste efectivo y contradice UMB-LAY-005, que prohíbe la decoración. En el margen no toca ningún texto y no cambia ningún contraste medido.\n",
+      "do": "Dibuja la retícula en var(--u-baseline) detrás de la página y tápala con var(--u-base) bajo el contenido.",
+      "dont": "No pongas la retícula debajo de texto, de una tabla ni de una gráfica.",
+      "check": {
+        "type": "review"
+      },
+      "since": "1.2",
+      "evidence": "umbral.org.mx, agosto de 2026: la retícula vive fuera de .sheet y desaparece en móvil.",
+      "guide": "04-layout",
+      "see_also": [
+        "UMB-LAY-005",
+        "UMB-COL-005"
+      ]
+    },
+    {
+      "id": "UMB-LAY-010",
+      "title": "Un diagrama muestra un mecanismo; se dibuja con reglas de 1px y texto",
+      "title_en": "A diagram shows a mechanism; it is drawn with 1px rules and text",
+      "category": "layout",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "quarto",
+        "notebook",
+        "slides",
+        "github",
+        "print"
+      ],
+      "rationale": "UMB-LAY-005 prohíbe la ilustración decorativa. Un diagrama es una excepción acotada: vale cuando muestra cómo funciona algo que la prosa explica peor. Un diagrama que repite el texto de al lado es decoración con otro nombre.\n",
+      "do": "Dibuja cajas de 1px, texto en mono y flechas de 1px. Etiqueta cada paso.",
+      "dont": "No uses iconos, relleno de color, sombra ni nodos redondeados. No dibujes lo que el párrafo ya dice.",
+      "check": {
+        "type": "review"
+      },
+      "since": "1.3",
+      "evidence": "La cadena normativa se explicaba con un bloque ASCII en tres archivos. Un diagrama real la muestra mejor y necesitaba una excepción escrita a UMB-LAY-005.\n",
+      "guide": "04-layout",
+      "see_also": [
+        "UMB-LAY-002",
+        "UMB-LAY-005",
+        "UMB-LAY-007"
+      ]
     },
     {
       "id": "UMB-CHT-001",
@@ -1562,12 +1740,12 @@
         "social",
         "print"
       ],
-      "rationale": "El título es la afirmación. Un tema («Registros por año») obliga al lector a deducir qué debía ver; un hallazgo («Los registros crecen 9% anual desde 2015») se puede verificar contra la gráfica y, por tanto, se puede discutir.\n",
-      "do": "«El gasto observable acumula ≥ 107.6 M MXN».",
-      "dont": "«Gasto por mes».",
+      "rationale": "Un tema como «Registros por año» obliga al lector a deducir qué debía ver. Un hallazgo como «Los registros crecen 9% anual desde 2015» se puede comprobar contra la gráfica. Un lector que puede comprobarlo también puede refutarlo.\n",
+      "do": "Escribe «El gasto observable acumula ≥ 107.6 M MXN».",
+      "dont": "No escribas «Gasto por mes».",
       "check": {
         "type": "review",
-        "note": "Un linter puede ver que hay un título; no puede juzgar si enuncia el hallazgo, que es precisamente la parte que importa. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+        "note": "Un linter puede ver que hay un título. No puede juzgar si el título enuncia el hallazgo, que es la parte que importa. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.05; pautamx y desaparecidosmx ya lo hacen bien.",
@@ -1591,12 +1769,12 @@
         "social",
         "print"
       ],
-      "rationale": "Sin unidad y sin periodo la cifra no significa nada, y la gráfica circula sin su contexto en cuanto alguien la captura de pantalla.\n",
-      "do": "«México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente».",
-      "dont": "Dejar la unidad implícita en el eje.",
+      "rationale": "Sin unidad y sin periodo, la cifra no significa nada. La gráfica pierde su contexto en cuanto alguien la captura de pantalla.\n",
+      "do": "Escribe «México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente».",
+      "dont": "No dejes la unidad implícita en el eje.",
       "check": {
         "type": "review",
-        "note": "Igual que el título: la presencia es detectable, la suficiencia —geografía, periodo, unidad— no. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+        "note": "La presencia del subtítulo es detectable. Su suficiencia —geografía, periodo, unidad— no lo es. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "08-anatomia-grafica"
@@ -1616,9 +1794,9 @@
         "social",
         "print"
       ],
-      "rationale": "Nombrar la fuente y su licencia es la mitad de la credibilidad del laboratorio, y es lo que permite que alguien más rehaga el cálculo.\n",
-      "do": "«Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0».",
-      "dont": "Publicar una gráfica sin fuente, o con la fuente solo en el texto que la rodea.",
+      "rationale": "La fuente y su licencia son lo que permite que otra persona rehaga el cálculo. La gráfica circula sin su página, y la línea de fuente es lo único que viaja con ella.\n",
+      "do": "Escribe «Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0».",
+      "dont": "No publiques una gráfica sin fuente. No dejes la fuente solo en el texto que la rodea.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1646,12 +1824,12 @@
         "social",
         "print"
       ],
-      "rationale": "La retícula vertical rara vez ayuda a leer un valor y sí ensucia. La línea base más oscura ancla el cero.\n",
-      "do": "y.grid = true, x.grid = false, base en --u-baseline.",
-      "dont": "Retícula en ambos ejes, o marco alrededor de la gráfica.",
+      "rationale": "La retícula vertical rara vez ayuda a leer un valor y sí ensucia la figura. La línea base más oscura ancla el cero.\n",
+      "do": "Pon y.grid en true, x.grid en false, y la base en --u-baseline.",
+      "dont": "No pongas retícula en ambos ejes. No dibujes un marco alrededor de la gráfica.",
       "check": {
         "type": "review",
-        "note": "Depende de la librería y de la configuración efectiva; detectarlo en el código produce demasiados falsos negativos para ser útil. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+        "note": "Depende de la librería y de la configuración efectiva. Detectarlo en el código produce demasiados falsos negativos. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "08-anatomia-grafica"
@@ -1671,9 +1849,9 @@
         "social",
         "print"
       ],
-      "rationale": "La leyenda obliga a ir y venir entre el dato y su nombre. La etiqueta directa también es la razón por la que los colores de serie cuentan como texto pequeño y deben cumplir 4.5:1, no 3:1.\n",
-      "do": "Plot.text en el último dato de cada serie.",
-      "dont": "Una caja de leyenda al costado.",
+      "rationale": "La leyenda obliga a ir y venir entre el dato y su nombre. La etiqueta directa es además la razón por la que un color de serie cuenta como texto pequeño y necesita 4.5:1.\n",
+      "do": "Dibuja el texto de la serie sobre su último dato.",
+      "dont": "No pongas una caja de leyenda al costado.",
       "check": {
         "type": "review",
         "note": "Muchas librerías dibujan leyenda por defecto sin que aparezca nada en el código. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
@@ -1700,9 +1878,9 @@
         "social",
         "print"
       ],
-      "rationale": "Más allá de cinco, ni las etiquetas directas ni la separación de color se sostienen. Si hacen falta más, son dos gráficas.\n",
-      "do": "Una serie en signal, el resto en model/muted; el resto agrupado en «otros».",
-      "dont": "Ocho líneas y una leyenda para desenredarlas.",
+      "rationale": "Pasadas cinco series, ni las etiquetas directas ni la separación de color se sostienen. Si hacen falta más, son dos gráficas.\n",
+      "do": "Pon una serie en signal y el resto en model o muted. Agrupa la cola en «otros» y di cuántas agrupaste.",
+      "dont": "No dibujes ocho líneas con una leyenda para desenredarlas.",
       "check": {
         "type": "review",
         "note": "El número de series suele depender de los datos en tiempo de ejecución, no del código. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
@@ -1726,11 +1904,11 @@
         "print"
       ],
       "rationale": "Los numerales tabulares alinean los dígitos y hacen comparable el eje de un vistazo.\n",
-      "do": "12k, 3.7M, 351,057.",
-      "dont": "12000, 3700000, o cifras en la tipografía de cuerpo.",
+      "do": "Escribe 12k, 3.7M y 351,057.",
+      "dont": "No escribas 12000 ni 3700000. No pongas las cifras en la tipografía de cuerpo.",
       "check": {
         "type": "review",
-        "note": "La familia del eje se hereda del tema; comprobarla en el código no dice lo que se renderiza. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+        "note": "La familia del eje se hereda del tema. Comprobarla en el código no dice lo que se renderiza. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "08-anatomia-grafica",
@@ -1755,11 +1933,11 @@
         "print"
       ],
       "rationale": "La longitud de la barra es la codificación. Truncar el eje multiplica visualmente una diferencia que no existe en los datos.\n",
-      "do": "Barras desde 0, siempre.",
-      "dont": "Empezar el eje en el mínimo observado para «que se note la diferencia».",
+      "do": "Empieza las barras en 0 siempre.",
+      "dont": "No empieces el eje en el mínimo observado para que se note más la diferencia.",
       "check": {
         "type": "review",
-        "note": "Requiere conocer los límites efectivos del eje, que casi siempre calcula la librería. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+        "note": "Requiere los límites efectivos del eje, que casi siempre calcula la librería. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "08-anatomia-grafica"
@@ -1779,9 +1957,9 @@
         "social",
         "print"
       ],
-      "rationale": "En una serie de tiempo truncar puede ser legítimo; no declararlo nunca lo es. La anotación viaja con la imagen aunque el texto no.\n",
-      "do": "Marcar el corte y decirlo junto al eje.",
-      "dont": "Truncar en silencio.",
+      "rationale": "En una serie de tiempo, truncar el eje puede ser legítimo. No declararlo nunca lo es. La anotación viaja con la imagen aunque el texto no.\n",
+      "do": "Marca el corte y dilo junto al eje.",
+      "dont": "No trunques el eje en silencio.",
       "check": {
         "type": "review",
         "note": "Detectar un truncamiento exige los límites efectivos del eje, que casi siempre calcula la librería.\n"
@@ -1804,9 +1982,9 @@
         "social",
         "print"
       ],
-      "rationale": "El pastel codifica en ángulo, que se compara mal; el 3D distorsiona el área; el doble eje permite fabricar cualquier correlación aparente eligiendo las escalas.\n",
-      "do": "Barras para composición, líneas para tiempo, dos paneles para dos unidades.",
-      "dont": "Pastel, dona, barras 3D, dos ejes y verticales con escalas distintas.",
+      "rationale": "El pastel codifica en ángulo y el ángulo se compara mal. El 3D distorsiona el área. El doble eje permite fabricar cualquier correlación aparente eligiendo las escalas.\n",
+      "do": "Usa barras para composición, líneas para tiempo y dos paneles para dos unidades.",
+      "dont": "No uses pastel, dona, barras 3D ni dos ejes verticales con escalas distintas.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1831,12 +2009,12 @@
         "social",
         "print"
       ],
-      "rationale": "Es la firma del laboratorio. Un estimado puntual sin intervalo afirma una precisión que el método no tiene.\n",
-      "do": "Banda al 15% de opacidad del color de la serie; trazo punteado más allá del presente; regla vertical punteada etiquetada «hoy».",
-      "dont": "Una línea sólida que cruza hacia el futuro sin distinguirse del dato observado.",
+      "rationale": "Un estimado puntual sin intervalo afirma una precisión que el método no tiene. Mostrar el intervalo es lo que distingue una gráfica de Umbral de una gráfica cualquiera.\n",
+      "do": "Dibuja la banda al 15% de opacidad del color de la serie. Puntea el trazo más allá del presente. Etiqueta la regla vertical como «hoy».",
+      "dont": "No cruces al futuro con una línea sólida igual a la del dato observado.",
       "check": {
         "type": "review",
-        "note": "Que una banda exista es detectable; que corresponda a la incertidumbre real del método no lo es.\n"
+        "note": "Que exista una banda es detectable. Que la banda corresponda a la incertidumbre real del método no lo es.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.08; pautamx lo hace bien con las cotas que publica Meta.",
@@ -1860,9 +2038,9 @@
         "social",
         "print"
       ],
-      "rationale": "Una tasa por 100 mil sobre una población pequeña salta con un solo caso. Sin n el lector no puede saber si la diferencia es real.\n",
-      "do": "«tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204».",
-      "dont": "Publicar la tasa sola.",
+      "rationale": "Una tasa por 100 mil sobre una población pequeña salta con un solo caso. Sin la n, el lector no puede saber si la diferencia es real.\n",
+      "do": "Escribe «tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204».",
+      "dont": "No publiques la tasa sola.",
       "check": {
         "type": "review",
         "note": "Comprobar que el denominador declarado es el correcto exige conocer el dato.\n"
@@ -1891,9 +2069,9 @@
         "email",
         "print"
       ],
-      "rationale": "El público principal del laboratorio es mexicano. Publicar primero en inglés sería escribir para otra audiencia y traducir para la propia.\n",
-      "do": "guide/ en español; inglés en código, commits y la capa meta.",
-      "dont": "Traducir del inglés al español como paso final.",
+      "rationale": "El público principal del laboratorio es mexicano. Publicar primero en inglés sería escribir para otra audiencia y dar a la propia la versión derivada.\n",
+      "do": "Escribe guide/ en español. Escribe el código, los commits y la capa meta en inglés.",
+      "dont": "No traduzcas del inglés al español como paso final.",
       "check": {
         "type": "review",
         "note": "La detección de idioma sobre fragmentos cortos es poco fiable, y el criterio es editorial.\n"
@@ -1901,7 +2079,8 @@
       "since": "1.0",
       "guide": "05-voz",
       "see_also": [
-        "UMB-A11Y-001"
+        "UMB-A11Y-001",
+        "UMB-VOZ-005"
       ]
     },
     {
@@ -1921,9 +2100,9 @@
         "email",
         "print"
       ],
-      "rationale": "La voz es sobria y cívico-científica porque el tema lo exige. El énfasis tipográfico sustituye al énfasis retórico.\n",
-      "do": "«Los registros crecen 9% anual desde 2015».",
-      "dont": "«¿Sabías que los registros se DISPARARON? 🚨»",
+      "rationale": "El tema exige una voz sobria. El énfasis tipográfico sustituye al énfasis retórico.\n",
+      "do": "Escribe «Los registros crecen 9% anual desde 2015».",
+      "dont": "No escribas «¿Sabías que los registros se DISPARARON? 🚨».",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1948,14 +2127,17 @@
         "social",
         "print"
       ],
-      "rationale": "«Un aumento considerable» no se puede verificar ni refutar; «un aumento de 9%» sí.\n",
-      "do": "Cuantificar.",
-      "dont": "«dramático», «masivo», «considerable» sin la cifra al lado.",
+      "rationale": "«Un aumento considerable» no se puede comprobar ni refutar. «Un aumento de 9%» sí.\n",
+      "do": "Cuantifica.",
+      "dont": "No escribas «dramático», «masivo» ni «considerable» sin la cifra al lado.",
       "check": {
         "type": "review"
       },
       "since": "1.0",
-      "guide": "05-voz"
+      "guide": "05-voz",
+      "see_also": [
+        "UMB-VOZ-005"
+      ]
     },
     {
       "id": "UMB-VOZ-004",
@@ -1974,9 +2156,9 @@
         "email",
         "print"
       ],
-      "rationale": "Un «Lorem ipsum» en producción dice que nadie revisó la página, y eso contamina la credibilidad de los números que están al lado.\n",
-      "do": "Publicar la sección cuando su texto exista.",
-      "dont": "Lorem ipsum, «foto», «TODO», o una biografía sin escribir.",
+      "rationale": "Un «Lorem ipsum» en producción dice que nadie revisó la página. Eso contamina la credibilidad de los números que están al lado.\n",
+      "do": "Publica la sección cuando su texto exista.",
+      "dont": "No dejes Lorem ipsum, «foto», «TODO» ni una biografía sin escribir.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -1985,6 +2167,45 @@
       "since": "1.1",
       "evidence": "Medido: las dos biografías de umbralmx.github.io son Lorem ipsum.",
       "guide": "05-voz"
+    },
+    {
+      "id": "UMB-VOZ-005",
+      "title": "Una oración enuncia una sola cosa y no pasa de 25 palabras",
+      "title_en": "A sentence states one thing and does not exceed 25 words",
+      "category": "voice",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "github",
+        "email",
+        "print",
+        "repo"
+      ],
+      "rationale": "Es la disciplina de ASD-STE100 aplicada al español. Una oración larga con subordinadas admite más de una lectura, y el lector no tiene a quién preguntarle. La regla vale para la prosa técnica del laboratorio, no para una cita textual.\n",
+      "do": "Corta en la conjunción. Usa voz activa. Nombra la misma cosa con la misma palabra en todo el documento.",
+      "dont": "No uses punto y coma para unir dos ideas. No apiles metáforas donde cabe un dato.",
+      "check": {
+        "type": "automated",
+        "tool": "umbral-lint",
+        "id": "long-sentence"
+      },
+      "since": "1.2",
+      "exceptions": [
+        "Una cita textual se reproduce como está. Acortarla la deja de ser una cita.\n",
+        "Un ADR aceptado y un registro de auditoría no se editan después de escribirse (docs/adr/README.md). La regla se aplica a los ADR nuevos, no a los ya aceptados.\n",
+        "El texto de una licencia de terceros se reproduce literalmente por obligación legal.\n"
+      ],
+      "evidence": "ASD-STE100 Issue 9 (2025), reglas 5.x y 6.x. Adoptada tras reescribir la guía completa en agosto de 2026.\n",
+      "guide": "05-voz",
+      "see_also": [
+        "UMB-VOZ-003",
+        "UMB-MET-005"
+      ]
     },
     {
       "id": "UMB-NUM-001",
@@ -2002,9 +2223,9 @@
         "email",
         "print"
       ],
-      "rationale": "México usa la convención anglosajona, a diferencia de España. Fijarlo evita que la misma cifra aparezca de dos formas en un mismo tablero.\n",
-      "do": "351,057 · 3.7 · 12.5%",
-      "dont": "351.057 · 3,7",
+      "rationale": "México usa la convención anglosajona, a diferencia de España. Fijarla evita que la misma cifra aparezca de dos formas en un mismo tablero.\n",
+      "do": "Escribe 351,057 · 3.7 · 12.5%",
+      "dont": "No escribas 351.057 ni 3,7",
       "check": {
         "type": "review",
         "note": "Sobre prosa produce demasiados falsos positivos —referencias, versiones, códigos— para bloquear un release. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
@@ -2028,9 +2249,9 @@
         "social",
         "print"
       ],
-      "rationale": "El eje necesita brevedad; la afirmación necesita precisión.\n",
-      "do": "Eje: 12k, 3.7M. Texto: 351,057 registros.",
-      "dont": "«351.1k registros» en una oración.",
+      "rationale": "El eje necesita brevedad. La afirmación necesita precisión.\n",
+      "do": "Escribe 12k y 3.7M en el eje. Escribe 351,057 registros en el texto.",
+      "dont": "No escribas «351.1k registros» dentro de una oración.",
       "check": {
         "type": "review"
       },
@@ -2055,9 +2276,9 @@
         "print",
         "repo"
       ],
-      "rationale": "ISO ordena y no es ambiguo entre convenciones; en prosa se lee mal.\n",
-      "do": "Datos y etiquetas: 2026-07. Texto: julio de 2026.",
-      "dont": "07/06/2026, que significa cosas distintas en México y en Estados Unidos.",
+      "rationale": "ISO ordena y no es ambiguo entre convenciones. En prosa se lee mal.\n",
+      "do": "Escribe 2026-07 en datos y etiquetas. Escribe julio de 2026 en el texto.",
+      "dont": "No escribas 07/06/2026. Significa cosas distintas en México y en Estados Unidos.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2083,9 +2304,9 @@
         "email",
         "print"
       ],
-      "rationale": "Consistencia tipográfica en cifras que aparecen miles de veces.\n",
-      "do": "9.2% — sin espacio entre la cifra y el símbolo.",
-      "dont": "9.2 % con espacio.",
+      "rationale": "Es una decisión tipográfica que se repite miles de veces. Fijarla evita dos formas de la misma cifra en una página.\n",
+      "do": "Escribe 9.2% sin espacio entre la cifra y el símbolo.",
+      "dont": "No escribas 9.2 % con espacio.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2110,9 +2331,9 @@
         "social",
         "print"
       ],
-      "rationale": "Escribir 9.24% sobre una muestra que sostiene un dígito significativo inventa exactitud. En un registro vivo que se revisa retroactivamente, además, cambia.\n",
-      "do": "Redondear a la precisión que el método sostiene y decir cuál es.",
-      "dont": "Arrastrar todos los decimales que devuelve el cálculo.",
+      "rationale": "Escribir 9.24% sobre una muestra que sostiene un dígito inventa exactitud. En un registro vivo, además, esos decimales cambian entre consultas.\n",
+      "do": "Redondea a la precisión que el método sostiene y di cuál es.",
+      "dont": "No arrastres todos los decimales que devuelve el cálculo.",
       "check": {
         "type": "review",
         "note": "La precisión que sostiene el dato depende del método, no del texto.\n"
@@ -2140,9 +2361,9 @@
         "print",
         "repo"
       ],
-      "rationale": "Convertir un nulo en cero es una imputación silenciosa, y en datos de desaparición o de delito cambia la afirmación.\n",
-      "do": "0 · «sin dato» · «suprimido (< umbral de reporte)».",
-      "dont": "Rellenar los huecos con 0 al construir la serie.",
+      "rationale": "Convertir un nulo en cero es una imputación silenciosa. En datos de desaparición o de delito cambia la afirmación.\n",
+      "do": "Escribe 0 · «sin dato» · «suprimido (< umbral de reporte)».",
+      "dont": "No rellenes los huecos con 0 al construir la serie.",
       "check": {
         "type": "review",
         "note": "Distinguir una imputación silenciosa de un cero legítimo exige entender la transformación, no el texto. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
@@ -2168,9 +2389,9 @@
         "streamlit",
         "web"
       ],
-      "rationale": "Sin origen, fecha de descarga, licencia y limitaciones conocidas, el dato no se puede auditar ni volver a bajar igual.\n",
-      "do": "URL de origen, quién lo descargó, cuándo, bajo qué licencia y qué se sabe que le falta.",
-      "dont": "Un CSV suelto en data/raw/ sin procedencia.",
+      "rationale": "Sin origen, fecha de descarga, licencia y limitaciones conocidas, nadie puede auditar el dato ni volver a bajarlo igual.\n",
+      "do": "Escribe la URL de origen, quién lo descargó, cuándo, bajo qué licencia y qué se sabe que le falta.",
+      "dont": "No dejes un CSV suelto en data/raw/ sin procedencia.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2195,9 +2416,9 @@
         "social",
         "print"
       ],
-      "rationale": "El RNPDNO es un registro vivo: los conteos cambian entre consultas. Sin la etiqueta del snapshot, dos gráficas correctas parecen contradecirse.\n",
-      "do": "rnpdno-2026-07, y esa etiqueta en la línea de fuente.",
-      "dont": "«Fuente: RNPDNO» sin fecha de consulta.",
+      "rationale": "El RNPDNO es un registro vivo y sus conteos cambian entre consultas. Sin la etiqueta del snapshot, dos gráficas correctas parecen contradecirse.\n",
+      "do": "Etiqueta el corte como rnpdno-2026-07 y pon esa etiqueta en la línea de fuente.",
+      "dont": "No escribas «Fuente: RNPDNO» sin fecha de consulta.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2223,9 +2444,9 @@
         "streamlit",
         "web"
       ],
-      "rationale": "Es el criterio que separa un laboratorio de un blog. Si no se puede reproducir, no se publica.\n",
-      "do": "make all reconstruye cada figura desde data/raw/.",
-      "dont": "Una cifra que salió de una edición manual en una hoja de cálculo.",
+      "rationale": "Si una cifra no se puede reproducir, no se puede defender. Es el criterio que separa un laboratorio de un blog con gráficas.\n",
+      "do": "Haz que `make all` reconstruya cada figura desde data/raw/.",
+      "dont": "No publiques una cifra que salió de una edición manual en una hoja de cálculo.",
       "check": {
         "type": "manual",
         "note": "Se verifica en revisión de PR ejecutando el comando de build declarado."
@@ -2248,8 +2469,8 @@
         "github"
       ],
       "rationale": "Los datos públicos regresan al público, mejorados. La licencia explícita es lo que lo hace cierto en la práctica.\n",
-      "do": "LICENSE-CODE y LICENSE-CONTENT en la raíz; licencia nombrada en cada línea de fuente.",
-      "dont": "Publicar sin licencia y confiar en que se entiende.",
+      "do": "Pon LICENSE-CODE y LICENSE-CONTENT en la raíz y nombra la licencia en cada línea de fuente.",
+      "dont": "No publiques sin licencia confiando en que se entiende.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2275,8 +2496,8 @@
         "print"
       ],
       "rationale": "El hueco es información. Ocultarlo cambia la conclusión sin que el lector pueda saberlo.\n",
-      "do": "Declararlo como hueco conocido, con su magnitud.",
-      "dont": "Interpolar, rellenar con cero, o recortar el periodo hasta que el hueco desaparezca.",
+      "do": "Declara el hueco con su magnitud.",
+      "dont": "No interpoles, no rellenes con cero, y no recortes el periodo hasta que el hueco desaparezca.",
       "check": {
         "type": "review",
         "note": "Distinguir un hueco declarado de uno omitido exige leer el pipeline completo.\n"
@@ -2303,8 +2524,8 @@
         "email"
       ],
       "rationale": "Un lector de pantalla pronuncia el español con fonética inglesa si lang miente. Para un laboratorio que publica en español es el defecto de accesibilidad más básico.\n",
-      "do": "lang=\"es\" en el documento; lang=\"en\" en el subárbol que sí esté en inglés.",
-      "dont": "Dejar el lang=\"en\" que trae el framework por defecto.",
+      "do": "Pon lang=\"es\" en el documento y lang=\"en\" en el subárbol que sí esté en inglés.",
+      "dont": "No dejes el lang=\"en\" que trae el framework por defecto.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2326,9 +2547,9 @@
         "quarto",
         "notebook"
       ],
-      "rationale": "Sin etiqueta, una gráfica es un rectángulo vacío para quien usa lector de pantalla — es decir, el hallazgo desaparece por completo, no solo su forma visual.\n",
-      "do": "aria-label con la misma afirmación que el título.",
-      "dont": "aria-label=\"gráfica\" o ninguno.",
+      "rationale": "Sin etiqueta, la gráfica es un rectángulo vacío para quien usa lector de pantalla. Lo que desaparece es el hallazgo, no solo su forma visual.\n",
+      "do": "Escribe en aria-label la misma afirmación que el título.",
+      "dont": "No escribas aria-label=\"gráfica\". No lo dejes vacío.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2350,12 +2571,12 @@
         "quarto",
         "notebook"
       ],
-      "rationale": "Da a los lectores de pantalla —y a quien quiera citar la cifra exacta— acceso al dato y no solo a su imagen.\n",
-      "do": "<details> con la tabla debajo de la gráfica.",
-      "dont": "Solo el SVG.",
+      "rationale": "Da acceso al dato, y no solo a su imagen, a los lectores de pantalla y a quien quiera citar la cifra exacta.\n",
+      "do": "Pon un <details> con la tabla debajo de la gráfica.",
+      "dont": "No publiques solo el SVG.",
       "check": {
         "type": "review",
-        "note": "La tabla adyacente suele generarse en tiempo de ejecución; su ausencia no es visible en el fuente. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+        "note": "La tabla adyacente suele generarse en tiempo de ejecución. Su ausencia no es visible en el fuente. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "guide": "11-accesibilidad"
@@ -2372,12 +2593,12 @@
         "quarto",
         "notebook"
       ],
-      "rationale": "Los datos públicos regresan al público. También es lo que permite que alguien refute la gráfica con la misma base.\n",
-      "do": "Un botón de descarga por vista.",
-      "dont": "Publicar la gráfica y dejar el CSV en el repo sin enlazarlo.",
+      "rationale": "Los datos públicos regresan al público. El CSV es también lo que permite que alguien refute la gráfica con la misma base.\n",
+      "do": "Pon un botón de descarga por vista.",
+      "dont": "No publiques la gráfica dejando el CSV en el repositorio sin enlazarlo.",
       "check": {
         "type": "review",
-        "note": "Igual: el botón de descarga se construye en ejecución. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+        "note": "El botón de descarga se construye en tiempo de ejecución. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "evidence": "Medido: desaparecidosmx lo tiene; pautamx no tiene ninguno.",
@@ -2402,12 +2623,12 @@
         "email",
         "print"
       ],
-      "rationale": "Es la razón por la que las etiquetas directas son obligatorias y no estilísticas. Además es la única mitigación real del punto débil heredado de la paleta: signal y model son indistinguibles bajo tritanopía.\n",
-      "do": "Etiqueta de texto en cada serie; flecha o palabra en cada delta.",
-      "dont": "Verde/rojo como única diferencia entre subida y bajada.",
+      "rationale": "Es la razón por la que las etiquetas directas son obligatorias. Es también la única mitigación real de la debilidad heredada de la paleta: signal y model son indistinguibles bajo tritanopía.\n",
+      "do": "Pon una etiqueta de texto en cada serie y una flecha o una palabra en cada delta.",
+      "dont": "No dejes el verde y el rojo como única diferencia entre subida y bajada.",
       "check": {
         "type": "review",
-        "note": "Que exista una etiqueta es detectable; que el significado no dependa del color no lo es.\n"
+        "note": "Que exista una etiqueta es detectable. Que el significado no dependa del color no lo es.\n"
       },
       "since": "1.0",
       "guide": "11-accesibilidad",
@@ -2427,9 +2648,9 @@
         "streamlit",
         "quarto"
       ],
-      "rationale": "Navegar con teclado tiene que ser posible sin adivinar dónde se está, y un objetivo menor a 44px falla en móvil para una parte del público.\n",
-      "do": ":focus-visible con contorno en signal; áreas táctiles de 44px.",
-      "dont": "outline: none.",
+      "rationale": "Quien navega con teclado tiene que ver dónde está sin adivinarlo. Un objetivo menor a 44px falla en móvil para una parte del público.\n",
+      "do": "Dibuja :focus-visible con contorno en signal y da 44px a las áreas táctiles.",
+      "dont": "No escribas outline: none.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2449,9 +2670,9 @@
         "streamlit",
         "quarto"
       ],
-      "rationale": "El movimiento puede provocar malestar vestibular. Nada en el sistema depende de animación para comunicar.\n",
-      "do": "@media (prefers-reduced-motion: reduce) { transition: none }.",
-      "dont": "Transiciones y animaciones incondicionales.",
+      "rationale": "El movimiento puede provocar malestar vestibular. Nada en el sistema depende de la animación para comunicar.\n",
+      "do": "Escribe @media (prefers-reduced-motion: reduce) { transition: none }.",
+      "dont": "No dejes transiciones ni animaciones incondicionales.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2477,12 +2698,12 @@
         "email",
         "print"
       ],
-      "rationale": "Es la diferencia entre un laboratorio y una nota de opinión con gráficas. La estrategia y su supuesto clave van junto al estimado, no en un anexo.\n",
-      "do": "«asociado con» / «correlaciona» para lo descriptivo; «efecto» / «reduce» solo con RCT, dif-en-dif, RD o VI declarada.",
-      "dont": "«X redujo Y» a partir de una serie de tiempo descriptiva.",
+      "rationale": "Un verbo causal sin diseño de identificación afirma más de lo que el método sostiene. La estrategia y su supuesto clave van junto al estimado, no en un anexo.\n",
+      "do": "Usa «asociado con» o «correlaciona» para lo descriptivo. Usa «efecto» o «reduce» solo con RCT, dif-en-dif, RD o VI declarada.",
+      "dont": "No escribas «X redujo Y» a partir de una serie de tiempo descriptiva.",
       "check": {
         "type": "review",
-        "note": "Detectar un verbo causal es fácil; decidir si hay una estrategia de identificación declarada al lado no lo es. Un falso positivo aquí desgasta la regla más importante del laboratorio. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
+        "note": "Detectar un verbo causal es fácil. Decidir si hay una estrategia de identificación declarada al lado no lo es. Un falso positivo aquí desgasta la regla más importante del laboratorio. Se comprueba en revisión hasta que exista una comprobación fiable.\n"
       },
       "since": "1.0",
       "evidence": "Brand book p.12; umbral-engineering.md §6.",
@@ -2503,9 +2724,9 @@
         "social",
         "print"
       ],
-      "rationale": "Si el título afirma algo que la gráfica no puede sostener, la gráfica está sirviendo de decorado a una afirmación que no se verificó.\n",
-      "do": "Que el lector pueda comprobar el título mirando la figura.",
-      "dont": "Un titular sobre causas encima de una gráfica descriptiva.",
+      "rationale": "Si el título afirma algo que la figura no puede sostener, la figura decora una afirmación que nadie verificó.\n",
+      "do": "Comprueba que el lector puede verificar el título mirando la figura.",
+      "dont": "No pongas un titular sobre causas encima de una gráfica descriptiva.",
       "check": {
         "type": "review",
         "note": "Juzgar si el titular se sostiene con la figura es exactamente el trabajo que no se puede automatizar.\n"
@@ -2533,8 +2754,8 @@
         "print"
       ],
       "rationale": "Comparar el conteo del Estado de México con el de Colima mide población, no incidencia.\n",
-      "do": "Tasa por 100 mil con denominador declarado, o comparar dentro de la misma unidad en el tiempo.",
-      "dont": "Un ranking de entidades por conteo absoluto.",
+      "do": "Usa una tasa por 100 mil con denominador declarado, o compara la misma unidad a lo largo del tiempo.",
+      "dont": "No publiques un ranking de entidades por conteo absoluto.",
       "check": {
         "type": "review",
         "note": "Requiere saber si dos unidades comparadas tienen poblaciones distintas.\n"
@@ -2562,9 +2783,9 @@
         "email",
         "print"
       ],
-      "rationale": "El laboratorio publica sobre desapariciones y violencia. Las personas detrás de cada registro no son un recurso narrativo, y el mapeo a individuos identificables puede ponerlas en riesgo.\n",
-      "do": "Agregados, lenguaje sobrio, terminología del glosario.",
-      "dont": "Mapas a nivel de individuo, fotografías, o adjetivos que dramatizan el conteo.",
+      "rationale": "El laboratorio publica sobre desapariciones y violencia. Detrás de cada registro hay una persona. Un desglose que llega al individuo puede ponerla en riesgo.\n",
+      "do": "Publica agregados, con lenguaje sobrio y la terminología del glosario.",
+      "dont": "No publiques mapas a nivel de individuo, fotografías, ni adjetivos que dramaticen el conteo.",
       "check": {
         "type": "review",
         "note": "El trato digno es un juicio editorial. Automatizarlo daría una falsa garantía sobre lo más delicado que publica el laboratorio.\n"
@@ -2593,9 +2814,9 @@
         "email",
         "print"
       ],
-      "rationale": "La diferencia entre «persona desaparecida», «persona no localizada» y «desaparecido» es editorial, legal y ética a la vez. No es una preferencia de estilo.\n",
-      "do": "Consultar guide/15-terminologia.md y usar la forma preferida.",
-      "dont": "Elegir el término por brevedad o por costumbre.",
+      "rationale": "«Persona desaparecida», «persona no localizada» y «desaparecido» nombran cosas distintas. La diferencia es legal y ética, no de estilo.\n",
+      "do": "Consulta guide/15-terminologia.md y usa la forma preferida.",
+      "dont": "No elijas el término por brevedad ni por costumbre.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2614,9 +2835,9 @@
       "applies_to": [
         "repo"
       ],
-      "rationale": "Editar la salida rompe la cadena normativa en silencio: la fuente y lo publicado dejan de coincidir y nada lo detecta hasta que alguien reconstruye.\n",
-      "do": "Cambiar tokens/src/ o rules/rules.yaml y reconstruir.",
-      "dont": "Corregir un hex en tokens/build/tokens.css.",
+      "rationale": "Editar la salida rompe la cadena normativa en silencio. La fuente y lo publicado dejan de coincidir, y nada lo detecta hasta la siguiente reconstrucción.\n",
+      "do": "Cambia tokens/src/ o rules/rules.yaml y reconstruye.",
+      "dont": "No corrijas un hex dentro de tokens/build/tokens.css.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2635,9 +2856,9 @@
       "applies_to": [
         "repo"
       ],
-      "rationale": "Es el mecanismo que impide que la guía y la norma se separen. En v1.0 el brand book y el documento de ingeniería se contradecían sobre el tercer color de serie, y ganó el que fallaba contraste.\n",
-      "do": "Añadir la regla aquí, con su ID, y citarla desde el capítulo.",
-      "dont": "Escribir «nunca hagas X» en un capítulo y dejarlo ahí.",
+      "rationale": "Es el mecanismo que impide que la guía y la norma se separen. En v1.0 el brand book y el documento de ingeniería se contradecían sobre el tercer color de serie. Ganó el que fallaba contraste.\n",
+      "do": "Añade la regla aquí, con su ID, y cítala desde el capítulo.",
+      "dont": "No escribas «nunca hagas X» en un capítulo y lo dejes ahí.",
       "check": {
         "type": "automated",
         "tool": "verify-guide",
@@ -2663,9 +2884,9 @@
         "social",
         "email"
       ],
-      "rationale": "Es la forma concreta que toma la deriva: el valor se copia una vez, la fuente cambia, y la copia se queda.\n",
-      "do": "Importar desde tokens/build/.",
-      "dont": "Pegar #128273 en un notebook.",
+      "rationale": "Así se produce la deriva. Alguien copia el valor una vez, la fuente cambia, y la copia se queda.\n",
+      "do": "Importa el valor desde tokens/build/.",
+      "dont": "No pegues #128273 en un notebook.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
@@ -2686,9 +2907,9 @@
       "applies_to": [
         "repo"
       ],
-      "rationale": "El semver aplica al sistema de diseño, no solo al código: un token que cambia re-renderiza todos los productos que lo consumen.\n",
-      "do": "MAYOR para un valor de token o una regla que sube a error; MENOR para una regla nueva en warning; PARCHE para prosa.",
-      "dont": "Cambiar un hex en un parche.",
+      "rationale": "El semver aplica al sistema de diseño, no solo al código. Un token que cambia re-renderiza todos los productos que lo consumen.\n",
+      "do": "Sube MAYOR por un valor de token o por una regla que pasa a error. Sube MENOR por una regla nueva en warning. Sube PARCHE por prosa.",
+      "dont": "No cambies un hex en un parche.",
       "check": {
         "type": "manual",
         "note": "Se verifica al preparar el release, contra CHANGELOG.md."
@@ -2705,9 +2926,9 @@
       "applies_to": [
         "repo"
       ],
-      "rationale": "Separarlos es exactamente cómo se produce la deriva que este repositorio existe para eliminar.\n",
-      "do": "Un PR que toca rules.yaml también toca su capítulo, y al revés.",
-      "dont": "Añadir una regla y dejar la guía para después.",
+      "rationale": "Separarlos produce exactamente la deriva que este repositorio existe para eliminar.\n",
+      "do": "Haz que un PR que toca rules.yaml toque también su capítulo, y al revés.",
+      "dont": "No añadas una regla dejando la guía para después.",
       "check": {
         "type": "review",
         "note": "Que un PR toque la regla y su capítulo se comprueba al revisar el PR, no dentro de un archivo.\n"

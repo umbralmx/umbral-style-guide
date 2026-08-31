@@ -7,8 +7,8 @@ lang: es
 
 **Modo instrumento (oscuro).** Tarjetas para redes y previsualizaciones OG.
 
-Una tarjeta social viaja sola, sin su página. Todo lo necesario para no malinterpretarla tiene que
-estar dentro de la imagen.
+Una tarjeta social viaja sola, sin su página. Todo lo que hace falta para no malinterpretarla tiene
+que estar dentro de la imagen.
 
 ## Formatos
 
@@ -35,17 +35,17 @@ estar dentro de la imagen.
 ```
 
 - **Una** cifra. Si hay dos, son dos tarjetas.
-- La cifra en Space Grotesk 500 — es una cifra heroica suelta, no una columna que se compara
+- La cifra va en Space Grotesk 500. Es una cifra heroica suelta, no una columna que se compara
   (UMB-TYP-004).
 - Una línea de explicación que incluya periodo y unidad.
-- Línea de fuente en mono, con la etiqueta del snapshot. **No es opcional en social**: es
+- Línea de fuente en mono, con la etiqueta del snapshot. **No es opcional en social.** Es
   precisamente donde la gráfica se separa de su contexto.
 - `umbral_` en mono abajo.
 
 ## Gráficas en social
 
-Si la tarjeta lleva gráfica en vez de cifra: mismo marco de siempre —título-hallazgo, subtítulo,
-línea de fuente— con tipografía más grande. Nada por debajo de 24px al tamaño de exportación.
+Si la tarjeta lleva gráfica en vez de cifra, usa el marco de siempre: título-hallazgo, subtítulo y
+línea de fuente, con tipografía más grande. Nada por debajo de 24px al tamaño de exportación.
 
 Sin leyenda: etiqueta directa, como en cualquier otra superficie.
 
@@ -55,7 +55,8 @@ Una imagen no tiene tabla ni CSV, así que:
 
 - El texto alternativo del post lleva **el hallazgo y la cifra**, no «gráfica de líneas».
 - El post enlaza a la página donde están el CSV y la tabla.
-- Contraste comprobado igual que en cualquier otra superficie: la tarjeta usa los mismos tokens.
+- El contraste se comprueba igual que en cualquier otra superficie. La tarjeta usa los mismos
+  tokens.
 
 ## Lo que no se hace
 

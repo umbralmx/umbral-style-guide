@@ -5,12 +5,12 @@
 
 ### El display es Space Grotesk 500; nunca 700
 
-El peso medio es la firma heredada de la referencia Isomorphic. El 700 convierte una voz sobria en una voz que grita.
+El peso medio es lo que distingue a la marca de un titular genérico. El 700 sube el volumen de la voz sin añadir información.
 
 | | |
 |---|---|
-| **Sí** | font-weight 500 en titulares; 600 solo en etiquetas pequeñas. |
-| **No** | font-weight 700, 800, 900 o `bold` en un selector de display. |
+| **Sí** | Usa font-weight 500 en titulares. Usa 600 solo en etiquetas pequeñas. |
+| **No** | No uses font-weight 700, 800, 900 ni `bold` en un selector de display. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `display-weight`.
 

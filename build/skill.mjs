@@ -182,6 +182,36 @@ series · a chart without its source.
 | Distribution | Histogram; box or ridge to compare; dots when n < 30 |
 | Relationship | Scatter; no trend line unless the model is declared |
 | Geography | Choropleth of **rates**, never counts — and ask if sorted bars read better |
+| Daily density over years | Calendar heatmap — one square cell per day, one sequential ramp |
+
+## The calendar heatmap
+
+One square cell per day, columns are weeks, rows are weekdays. Use it for cadence, not for trend.
+
+It breaks UMB-COL-010 more easily than any other chart. A day with no entry, a suppressed day and a
+measured zero all look like an empty cell. Draw three distinct fills and put all three in the
+legend.
+
+A live register makes this worse. Its recent tail is always empty, and empty reads as zero. Hatch
+the provisional range and say so in the subtitle.
+
+\`umbral_viz.heatmap.calendar()\` and \`@umbralmx/umbral-plot\`'s \`calendar()\` both do this.
+
+## The adjacent table
+
+Every chart ships one (UMB-A11Y-003). Top rule 2px \`ink\`, row rules 1px \`border\`, header in Plex
+Sans 600.
+
+Text columns align left. Figure columns align right, in Plex Mono with tabular numerals, because
+comparing columns is what the table is for.
+
+A delta carries an arrow or a word: \`+9.2% ▲\`. Colour never carries direction alone
+(UMB-A11Y-005), and never inside a filled pill (UMB-LAY-001).
+
+A missing cell reads \`sin dato\`. Never \`0\`, never empty (UMB-NUM-006).
+
+The table repeats the chart's exact figures at the same precision. Rounding differently in the two
+places publishes two numbers for one fact.
 
 ## Rules
 
@@ -403,6 +433,10 @@ Pin the tag. Never point at \`main\` — a token change would land without warni
 - Causal verbs only with a named identification strategy. Otherwise «asociado con».
 - \`lang="es"\`. Never encode meaning by colour alone.
 - Spanish first. Sensitive terminology is binding — see \`guide/15-terminologia.md\`.
+- One statement per sentence, 25 words maximum. Active voice. One word for one thing.
+- Section labels in mono lowercase. Lists are rows with 1px rules, not cards.
+- A diagram shows a mechanism, drawn in 1px rules and text. No icons, no fill, no rounded nodes.
+- A delta carries an arrow or a word. Colour never carries it alone, and never inside a pill.
 
 **Never:** emoji · gradients · drop shadows · pill buttons · pure black or white · 700-weight
 display · a chart without its source · a figure that cannot be rebuilt from raw data.

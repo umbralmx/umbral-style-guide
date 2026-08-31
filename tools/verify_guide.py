@@ -7,6 +7,7 @@ also state" — mechanical rather than aspirational:
   * every rule that names a chapter is actually included by that chapter;
   * every rule referenced by a chapter exists;
   * chapters include the generated callout instead of restating the rule;
+  * a chapter does not repeat a sentence of a rule's rationale next to its callout;
   * every generated partial a chapter includes actually exists.
 
 Implements the `prose-rule-drift` check claimed by UMB-PRO-002.
@@ -95,6 +96,32 @@ for p, t in text_of.items():
             check(f"_includes/rules/{r['id']}.md" in includes_of[p],
                   f"{p.name} states the text of {r['id']} without including its callout")
 
+# ── 4b. chapters must not repeat a rule's rationale either ────────────────
+# Stating a rule's title without the callout lets the two drift. Repeating a
+# whole sentence of its rationale *next to* the callout is a different defect
+# with the same cause: the page then says the same thing twice, once generated
+# and once by hand, and only one of them updates when the norm changes.
+SENTENCE = re.compile(r"(?<=[.!?])\s+")
+
+
+def _norm(t: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"[`*_«»\"']", "", t)).strip().lower()
+
+
+for p, t in text_of.items():
+    prose = _norm(INCLUDE.sub(" ", t))
+    for rid in includes_of[p]:
+        m = re.search(r"rules/(UMB-[\w-]+)\.md$", rid)
+        if not m or m.group(1) not in by_id:
+            continue
+        for sentence in SENTENCE.split(by_id[m.group(1)]["rationale"].strip()):
+            n = _norm(sentence)
+            if len(n.split()) < 7:
+                continue
+            check(n not in prose,
+                  f"{p.name} repeats a sentence of {m.group(1)}'s rationale in its own "
+                  f"prose: \"{sentence.strip()[:60]}…\"")
+
 # ── 5. front matter and language ──────────────────────────────────────────
 for p, t in text_of.items():
     check(t.startswith("---\n"), f"{p.name} has no YAML front matter")
@@ -108,7 +135,8 @@ EXPECTED = [
     "09-incertidumbre", "10-mapas", "11-accesibilidad", "12-datos-procedencia",
     "13-interpretabilidad", "15-terminologia",
 ]
-SURFACES = ["web", "streamlit", "quarto", "notebook", "social", "slides", "github", "email"]
+SURFACES = ["landing", "web", "streamlit", "quarto", "notebook", "social", "slides",
+            "github", "email"]
 stems = {p.stem for p in chapters}
 for name in EXPECTED:
     check(name in stems, f"KICKOFF §4 expects guide/{name}.md — missing")

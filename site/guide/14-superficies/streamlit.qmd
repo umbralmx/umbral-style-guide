@@ -1,9 +1,14 @@
 ---
-title: "Superficie · Streamlit"
+title: "Streamlit"
 lang: es
 ---
 
-# Streamlit
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.3.0
+
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
 
 **Modo instrumento (oscuro).** Los tableros en vivo: `desaparecidosmx`, `pautamx`.
 
@@ -25,14 +30,14 @@ textColor                = "#edf1f4"
 font                     = "IBM Plex Sans, sans-serif"
 ```
 
-::: {.callout-warning}
-## Dos errores heredados del brand book v1.0
+::: {.u-note}
+**dos errores heredados de v1.0**
 
-1. Sus claves aparecían como `sc-camel-primary-color` — un artefacto del export a PDF. Las claves
+1. Las claves aparecían como `sc-camel-primary-color`. Es un artefacto del export a PDF. Las claves
    reales son las de arriba.
-2. Fijaba `font = "sans serif"`, que es un valor **válido** de Streamlit y significa *la Source Sans
-   de Streamlit*. No era una errata: estaba mal. Es la razón por la que `pautamx` renderiza Source
-   Sans hoy.
+2. El brand book fijaba `font = "sans serif"`. Es un valor válido de Streamlit y significa *la
+   Source Sans de Streamlit*. No era una errata: estaba mal. Por eso `pautamx` renderiza Source Sans
+   hoy.
 
 Corregir solo los nombres de las claves deja el segundo defecto en pie.
 :::
@@ -47,7 +52,7 @@ h1, h2, h3 { font-family: 'Space Grotesk'; font-weight: 500; letter-spacing: -.0
 </style>""", unsafe_allow_html=True)
 ```
 
-Las cifras de `st.metric` van en **mono**, no en display: son una fila de KPIs que se comparan
+Las cifras de `st.metric` van en **mono**, no en display. Son una fila de KPIs que se compara
 columna contra columna (UMB-TYP-004).
 
 ## El atributo `lang`
@@ -71,8 +76,8 @@ fonética inglesa (UMB-A11Y-001).
 `primaryColor` se aplica a la vez a deslizadores, chips de multiselect, pestañas, enlaces y anillos
 de foco. **No existe configuración que lo restrinja a un elemento.**
 
-Por eso UMB-COL-004 está acotada a la capa de datos: en el tablero, la regla significa *una sola
-serie en señal por gráfica*. El cromo de los widgets está exento — no es una licencia, es el
+Por eso UMB-COL-004 está acotada a la capa de datos. En un tablero, la regla significa una sola
+serie en señal por gráfica. El cromo de los widgets está exento. No es una licencia: es el
 reconocimiento de un límite del framework.
 
 ## Gráficas
@@ -90,9 +95,9 @@ de descarga:
 st.download_button("Descargar CSV", df.to_csv(index=False), "serie.csv", "text/csv")
 ```
 
-::: {.callout-note}
-`pautamx` no tiene ningún botón de descarga; `desaparecidosmx` sí. Es la diferencia más visible
-entre los dos tableros y la más fácil de corregir (UMB-A11Y-004).
+::: {.u-note}
+**medido** · `pautamx` no tiene ningún botón de descarga. `desaparecidosmx` sí. Es la diferencia más
+visible entre los dos tableros, y la más fácil de corregir (UMB-A11Y-004).
 :::
 
 ## Antes de publicar
@@ -103,3 +108,8 @@ entre los dos tableros y la más fácil de corregir (UMB-A11Y-004).
 - [ ] Ningún `#ffffff` filtrándose de los valores por defecto de Streamlit
 - [ ] Una serie en señal por gráfica
 - [ ] Toda gráfica: `aria-label`, `st.caption` con la fuente, botón de CSV
+
+::: {.u-foot}
+umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

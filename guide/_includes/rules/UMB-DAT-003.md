@@ -5,12 +5,12 @@
 
 ### Toda figura publicada se reconstruye desde el dato crudo con un solo comando
 
-Es el criterio que separa un laboratorio de un blog. Si no se puede reproducir, no se publica.
+Si una cifra no se puede reproducir, no se puede defender. Es el criterio que separa un laboratorio de un blog con gráficas.
 
 | | |
 |---|---|
-| **Sí** | make all reconstruye cada figura desde data/raw/. |
-| **No** | Una cifra que salió de una edición manual en una hoja de cálculo. |
+| **Sí** | Haz que `make all` reconstruya cada figura desde data/raw/. |
+| **No** | No publiques una cifra que salió de una edición manual en una hoja de cálculo. |
 
 *Comprobación:* Manual. Se verifica en revisión de PR ejecutando el comando de build declarado.
 

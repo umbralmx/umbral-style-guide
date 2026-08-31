@@ -5,12 +5,12 @@
 
 ### El símbolo de porcentaje va pegado a la cifra
 
-Consistencia tipográfica en cifras que aparecen miles de veces.
+Es una decisión tipográfica que se repite miles de veces. Fijarla evita dos formas de la misma cifra en una página.
 
 | | |
 |---|---|
-| **Sí** | 9.2% — sin espacio entre la cifra y el símbolo. |
-| **No** | 9.2 % con espacio. |
+| **Sí** | Escribe 9.2% sin espacio entre la cifra y el símbolo. |
+| **No** | No escribas 9.2 % con espacio. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `percent-spacing`.
 
