@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| `umbral.css` | Byte-identical copy of `tokens/build/tokens.css` at v1.2.0 |
+| `umbral.css` | Byte-identical copy of `tokens/build/tokens.css` at v1.3.0 |
 
 Import it alongside the theme so `var(--u-*)` resolves:
 

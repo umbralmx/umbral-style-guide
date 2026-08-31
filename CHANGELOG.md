@@ -8,6 +8,63 @@ Semver applies to the **design system**, not just the code (UMB-PRO-004):
 
 ---
 
+## 1.3.0 — 2026-08-28
+
+Five component forms, taken from a survey of the Framer components marketplace and rebuilt against
+the tokens. One new rule. No token value changed, so nothing re-renders.
+
+The survey is worth recording. The marketplace holds 143 components across its five real
+categories.
+
+33 are excluded by their name alone: glass, glow, 3D, grain, parallax, carousel, pill, bento, card
+stack, pie, donut, radar. Most of the rest go once you look at them. The usual reason is a drop
+shadow, or a delta encoded in colour alone.
+
+Five forms survived. In every case the value was the form, not the code. A Framer component
+hard-codes its colours and radii, which is UMB-COL-002 and UMB-PRO-003 by construction.
+
+### Added — the diagram rule
+
+- **UMB-LAY-010** (`warning`) — a diagram shows a mechanism, drawn with 1px rules and text. No
+  icons, no colour fill, no rounded nodes.
+
+UMB-LAY-005 bans decorative illustration. Without this rule a diagram would be an unwritten
+exception to it, which is the same gap UMB-LAY-009 closed for the dot field.
+
+The other four forms needed no new rule. They needed specification and implementation, not a norm.
+
+The heatmap is already bound by UMB-COL-009 and UMB-COL-010. The table is bound by UMB-A11Y-003 and
+UMB-A11Y-005. The segmented control is bound by UMB-LAY-008, and the line-menu index by
+UMB-LAY-006.
+
+### Added — the five components
+
+| Form | Where it is specified | Where it ships |
+|---|---|---|
+| Calendar heatmap | `07-vocabulario-visual` § Densidad en el tiempo | both packages, `.u-heat` |
+| Data table with deltas | `04-layout` § Tablas de datos | both packages, `.u-table` |
+| Segmented control | `04-layout` § Controles (UMB-LAY-008) | `.u-seg` |
+| Line-menu index | `04-layout` § Etiquetas de sección (UMB-LAY-006) | `.u-toc-lines` |
+| Process diagram | `04-layout` § Diagramas (UMB-LAY-010) | `.u-diagram` |
+
+The calendar heatmap is the one that filled a real gap. The chart chooser had no entry for daily
+density over years, and the lab publishes on live daily registers.
+
+It is also the chart that breaks UMB-COL-010 most easily. A day with no entry, a suppressed day and
+a measured zero all look like an empty cell unless three fills are drawn. A live register makes it
+worse: the recent tail is always empty, and empty reads as zero.
+
+### Refused, and why
+
+- **Count-up counters** — the most tempting category on the marketplace. The animation carries no
+  information. On a disappearances count an odometer dramatises the figure, which UMB-MET-004
+  forbids.
+- **Pie, donut and radar charts** — UMB-CHT-010. Radar encodes in angle, with the same problem.
+- **Smooth-scroll hijacking** — it overrides native scrolling and fights `prefers-reduced-motion`.
+- **Arc maps** — an arc encodes nothing. An Umbral map is a rate choropleth.
+
+---
+
 ## 1.2.0 — 2026-08-28
 
 A minimal rewrite. It adds five rules at `warning`, one linter check and one surface chapter.

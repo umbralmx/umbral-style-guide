@@ -1,7 +1,7 @@
 <!-- GENERATED from the normative layer. Do not edit. -->
 
-74 reglas · 58 `error` ·
-15 `advertencia` · 1 `guía`.
+75 reglas · 58 `error` ·
+16 `advertencia` · 1 `guía`.
 
 ### Marca
 
@@ -51,6 +51,7 @@
 | [`UMB-LAY-007`](#umb-lay-007) | ▲ | Una lista de elementos se separa con reglas de 1px, no con tarjetas | review |
 | [`UMB-LAY-008`](#umb-lay-008) | ▲ | Los controles secundarios son mono con borde de 1px y pasan a signal al enfocarse | review |
 | [`UMB-LAY-009`](#umb-lay-009) | ▲ | La retícula de puntos solo ocupa el margen exterior de la hoja | review |
+| [`UMB-LAY-010`](#umb-lay-010) | ▲ | Un diagrama muestra un mecanismo; se dibuja con reglas de 1px y texto | review |
 
 ### Gráficas
 

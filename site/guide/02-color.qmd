@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.2.0
+[umbral]{.u-brand} guía de estilo · v1.3.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -113,6 +113,6 @@ ausencia de énfasis y no como una categoría más.
 {{< include /_includes/rules/UMB-COL-002.md >}}
 
 ::: {.u-foot}
-umbral_ · v1.2.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::

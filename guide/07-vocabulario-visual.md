@@ -20,6 +20,33 @@ Empieza por la pregunta, nunca por el tipo de gráfica.
 | Cambio respecto a una base | **Línea indexada** | Declara la base: `2015 = 100` |
 | Proyección | **Línea + banda** | Trazo punteado pasado «hoy». Ver [09](09-incertidumbre.md) |
 | Datos muy ruidosos | **Línea tenue + media móvil** | Nombra la ventana: `media móvil de 12 meses` |
+| Densidad diaria en años | **Mapa de calor de calendario** | Ver abajo. Nunca para comparar lugares. |
+
+## Densidad en el tiempo
+
+Un mapa de calor de calendario dibuja una celda por día. Las columnas son semanas y las filas
+son días de la semana. El color codifica el conteo del día sobre una rampa secuencial.
+
+Sirve cuando el patrón es de **cadencia**: qué días hay actividad y qué días no. Una sesión de
+cabildo, un día con registros, un día de publicación. Para una tendencia, usa una línea.
+
+Cuatro condiciones lo hacen legible:
+
+| Condición | Por qué |
+|---|---|
+| Celda cuadrada, sin radio | El radio come área y el área es la única variable de tamaño |
+| Una sola rampa secuencial | Dos rampas en la misma figura están prohibidas (UMB-COL-009) |
+| Faltante, suprimido y cero con relleno propio | Una celda vacía se lee como cero (UMB-COL-010) |
+| Etiquetas de mes y de día en mono, en `caption` | Son mobiliario, no dato |
+
+{{< include _includes/rules/UMB-COL-010.md >}}
+
+El tramo reciente de un registro vivo se ve vacío, y vacío se lee como «no pasó nada». Un mapa de
+calor no tiene línea que puntear, así que la marca de provisional va en el relleno y en el
+subtítulo. Ver [09 · Incertidumbre](09-incertidumbre.md).
+
+La leyenda lleva la rampa **y** los tres rellenos especiales. La tabla adyacente y el CSV tampoco
+son opcionales aquí: la celda de un día no se puede leer con precisión.
 
 ## Comparación entre categorías
 

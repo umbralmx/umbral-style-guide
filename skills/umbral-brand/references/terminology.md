@@ -1,5 +1,5 @@
 <!-- references/terminology.md — GENERATED from the normative layer of
-     umbralmx/umbral-style-guide v1.2.0. Do not edit; regenerate. -->
+     umbralmx/umbral-style-guide v1.3.0. Do not edit; regenerate. -->
 
 > Binding controlled vocabulary. Mirrored from `guide/15-terminologia.md`.
 > The distinctions here are legal and ethical, not stylistic — see UMB-MET-005.

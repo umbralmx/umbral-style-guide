@@ -1,15 +1,15 @@
 {
   "$generated": "rules.json — GENERATED from rules/rules.yaml. Do not edit.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "counts": {
-    "total": 74,
+    "total": 75,
     "bySeverity": {
       "error": 58,
-      "warning": 15,
+      "warning": 16,
       "info": 1
     },
     "byCheckType": {
-      "review": 37,
+      "review": 38,
       "automated": 35,
       "manual": 2
     }
@@ -98,7 +98,8 @@
         "UMB-LAY-006",
         "UMB-LAY-007",
         "UMB-LAY-008",
-        "UMB-LAY-009"
+        "UMB-LAY-009",
+        "UMB-LAY-010"
       ],
       "chart": [
         "UMB-CHT-001",
@@ -191,6 +192,7 @@
         "UMB-LAY-007",
         "UMB-LAY-008",
         "UMB-LAY-009",
+        "UMB-LAY-010",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -332,6 +334,7 @@
         "UMB-LAY-006",
         "UMB-LAY-007",
         "UMB-LAY-008",
+        "UMB-LAY-010",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -394,6 +397,7 @@
         "UMB-LAY-002",
         "UMB-LAY-003",
         "UMB-LAY-005",
+        "UMB-LAY-010",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -463,6 +467,7 @@
         "UMB-LAY-006",
         "UMB-LAY-007",
         "UMB-LAY-009",
+        "UMB-LAY-010",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -564,6 +569,7 @@
         "UMB-TYP-002",
         "UMB-LAY-005",
         "UMB-LAY-006",
+        "UMB-LAY-010",
         "UMB-VOZ-001",
         "UMB-VOZ-002",
         "UMB-VOZ-004",
@@ -627,6 +633,7 @@
         "UMB-TYP-006",
         "UMB-LAY-003",
         "UMB-LAY-005",
+        "UMB-LAY-010",
         "UMB-CHT-001",
         "UMB-CHT-002",
         "UMB-CHT-003",
@@ -1687,6 +1694,35 @@
       "see_also": [
         "UMB-LAY-005",
         "UMB-COL-005"
+      ]
+    },
+    {
+      "id": "UMB-LAY-010",
+      "title": "Un diagrama muestra un mecanismo; se dibuja con reglas de 1px y texto",
+      "title_en": "A diagram shows a mechanism; it is drawn with 1px rules and text",
+      "category": "layout",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "quarto",
+        "notebook",
+        "slides",
+        "github",
+        "print"
+      ],
+      "rationale": "UMB-LAY-005 prohíbe la ilustración decorativa. Un diagrama es una excepción acotada: vale cuando muestra cómo funciona algo que la prosa explica peor. Un diagrama que repite el texto de al lado es decoración con otro nombre.\n",
+      "do": "Dibuja cajas de 1px, texto en mono y flechas de 1px. Etiqueta cada paso.",
+      "dont": "No uses iconos, relleno de color, sombra ni nodos redondeados. No dibujes lo que el párrafo ya dice.",
+      "check": {
+        "type": "review"
+      },
+      "since": "1.3",
+      "evidence": "La cadena normativa se explicaba con un bloque ASCII en tres archivos. Un diagrama real la muestra mejor y necesitaba una excepción escrita a UMB-LAY-005.\n",
+      "guide": "04-layout",
+      "see_also": [
+        "UMB-LAY-002",
+        "UMB-LAY-005",
+        "UMB-LAY-007"
       ]
     },
     {

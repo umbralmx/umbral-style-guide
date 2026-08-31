@@ -89,6 +89,31 @@ de tarjetas.
 El nombre del elemento va en mono medio. El estado va en mono, en versalitas, en `caption`. La
 descripción va en Plex Sans, `muted`, con la medida de 65 caracteres.
 
+## Tablas de datos
+
+Toda gráfica publicada lleva una tabla al lado (UMB-A11Y-003). Ésta es su anatomía.
+
+| Parte | Construcción |
+|---|---|
+| Regla superior | 2px en `ink` |
+| Encabezado | Plex Sans 600, alineado como su columna |
+| Reglas de fila | 1px en `border` |
+| Columna de texto | Plex Sans, a la izquierda |
+| Columna de cifras | Plex Mono, numerales tabulares, **a la derecha** |
+| Delta | Plex Mono, con flecha o palabra: `+9.2% ▲` |
+| Celda sin dato | `sin dato` en `caption`, nunca `0` ni vacía |
+
+Las cifras se alinean a la derecha porque comparar columnas es para lo que existe la tabla. Los
+numerales tabulares alinean los dígitos, así que las unidades caen una debajo de otra.
+
+{{< include _includes/rules/UMB-A11Y-005.md >}}
+
+El delta lleva flecha o palabra. El color solo acompaña. Una píldora de color detrás del delta
+rompe además el radio máximo (UMB-LAY-001).
+
+La tabla repite las cifras exactas de la gráfica, con la misma precisión. Redondear distinto en
+los dos lugares es publicar dos cifras para el mismo hecho.
+
 ## Controles
 
 {{< include _includes/rules/UMB-LAY-008.md >}}
@@ -128,6 +153,23 @@ de una tabla ni de una gráfica, así que no cambia ningún contraste medido.
 retícula sería una excepción no escrita. Escrita, es una decisión acotada: vive en el margen, en un
 token de mobiliario, y desaparece en móvil.
 :::
+
+## Diagramas
+
+{{< include _includes/rules/UMB-LAY-010.md >}}
+
+Un diagrama vale cuando muestra un mecanismo que la prosa explica peor. La cadena normativa de
+[00 · Principios](00-principios.md) es el caso: tres etapas, dos transformaciones y una dirección.
+
+Ahí se dibuja como bloque de texto, porque ese capítulo se lee igual en el sitio, en GitHub y en la
+terminal. Un bloque de texto monoespaciado ya es un diagrama de reglas y texto.
+
+En una superficie que solo se lee renderizada, usa la versión con marcado. Cajas de 1px en
+`border`, texto en mono, conectores de 1px en `baseline`. Sin iconos, sin relleno de color, sin
+nodos redondeados.
+
+Un diagrama que repite el párrafo de al lado es decoración con otro nombre. Bórralo, o borra el
+párrafo.
 
 ## Sin decoración
 

@@ -5,7 +5,7 @@ toc: false
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.2.0
+[umbral]{.u-brand} guía de estilo · v1.3.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -17,8 +17,8 @@ delito y gasto público en México.
 
 Esta guía define cómo se ve y cómo se escribe todo lo que publica.
 
-**v1.2.0** · 74 reglas · 58 error ·
-15 advertencia · 1 guía
+**v1.3.0** · 75 reglas · 58 error ·
+16 advertencia · 1 guía
 
 ::: {.u-label}
 por dónde empezar
@@ -77,7 +77,7 @@ consumirlo desde otro repositorio
 :::
 
 ```bash
-curl -O https://raw.githubusercontent.com/umbralmx/umbral-style-guide/v1.2.0/tokens/build/tokens.css
+curl -O https://raw.githubusercontent.com/umbralmx/umbral-style-guide/v1.3.0/tokens/build/tokens.css
 pip install umbral-viz
 npm install @umbralmx/umbral-plot
 ```
@@ -85,6 +85,6 @@ npm install @umbralmx/umbral-plot
 Fija la versión. Nunca apuntes a `main`. Un cambio de token entraría sin aviso.
 
 ::: {.u-foot}
-umbral_ · v1.2.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::
