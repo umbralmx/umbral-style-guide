@@ -64,7 +64,7 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "enum": ["web", "streamlit", "quarto", "notebook", "slides", "social", "github", "email", "print", "repo"]
+            "enum": ["web", "framework", "streamlit", "quarto", "notebook", "slides", "social", "github", "email", "print", "repo"]
           }
         },
         "rationale": {

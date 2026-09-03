@@ -295,3 +295,38 @@ colour alone, which is why direct series labels are mandatory rather than stylis
 
 **Needs from Jay:** confirm the rule change for `guide/02-color.md`, or tell me to revert
 `series-4`/`series-5` to hue-only and accept the 0.042.
+
+---
+
+## OQ-010 — The KPI card collides with "rows, not cards"
+
+**Status:** open · **Blocks:** nothing — the generated stylesheet corrects the radius, so a
+Framework dashboard is shippable today · **Raised:** 2026-09-03
+
+UMB-LAY-007 says a list of items is rows separated by 1px rules, not cards. It landed in 1.2 at
+`warning`, from the minimal idiom that `umbral.org.mx` already uses.
+
+Observable Framework's dashboard vocabulary is `.card` inside `.grid`. That is not a stylistic
+default we can opt out of. It is how Framework's documentation, examples and layout system all
+express a dashboard.
+
+`tokens/build/observable-framework-*.css` corrects what is measurable: the radius drops from 12px
+to the 2px ceiling, and the shadow goes. What it does not answer is the design question.
+
+**The question.** Is a KPI card a *list item*, or is it a *figure*?
+
+- If it is a list item, UMB-LAY-007 binds, and a four-up KPI row should be four rows separated by
+  1px rules. That reads as the Umbral minimal idiom and looks unlike every other dashboard.
+- If it is a figure, UMB-LAY-007 does not bind, and a bordered card is the correct container. Then
+  the rule needs an explicit exception so nobody has to guess.
+
+**What the guide says now.** `guide/14-superficies/framework.md` takes the second reading and states
+the boundary: a card holds one figure or one chart, and a listing stays rows. That is a decision
+taken to ship, not a settled one.
+
+**Evidence worth gathering before deciding.** `cabildo-libre` is the most conformant product in the
+set and uses neither form. The two Streamlit dashboards use `st.metric`, which is card-shaped, and
+neither was designed against UMB-LAY-007 because the rule postdates them.
+
+**Needs from Jay:** confirm the figure reading, or state the exception text for UMB-LAY-007 so the
+rule says what the chapter says.

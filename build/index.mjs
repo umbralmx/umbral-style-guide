@@ -399,6 +399,166 @@ font                     = "${val(d, 'font.family.body')[0]}, sans-serif"
 });
 
 StyleDictionary.registerFormat({
+  name: 'umbral/framework',
+  format: ({ dictionary: d, options }) => {
+    const { mode } = options;
+    const s = semantic(d, mode);
+    const stack = (k) => val(d, `font.family.${k}`)
+      .map((f) => (f.includes(' ') ? `"${f}"` : f)).join(', ');
+    const light = mode === 'laboratorio';
+    // Aligned trailing comments: each names the token the value came from, so a
+    // reader can check the mapping without opening tokens.json.
+    const themeMap = [
+      ['--theme-foreground', s.ink, 'ink'],
+      ['--theme-background', s.base, 'base'],
+      ['--theme-background-alt', s.panel, 'panel'],
+      ['--theme-foreground-alt', s.ink, 'ink — headings'],
+      ['--theme-foreground-muted', s.caption, 'caption — secondary TEXT, clears 4.5:1'],
+      ['--theme-foreground-faint', s.baseline, 'baseline'],
+      ['--theme-foreground-fainter', s.border, 'border'],
+      ['--theme-foreground-faintest', s.gridline, 'gridline'],
+      ['--theme-foreground-focus', s['signal-text'], 'signal-text, not signal — links are text'],
+    ];
+    const w = Math.max(...themeMap.map(([k, v]) => `  ${k}: ${v};`.length));
+    const themeDecls = themeMap
+      .map(([k, v, why]) => `${`  ${k}: ${v};`.padEnd(w)}  /* ${why} */`).join('\n');
+    return `/*
+${HEADER(`observable-framework-${mode}.css`)}
+
+Observable Framework — modo ${mode} (${light ? 'light' : 'dark'}).
+
+  // observablehq.config.js
+  export default {
+    style: "observable-framework-${mode}.css",
+    globalStylesheets: []
+  };
+
+Three deliberate choices are baked in here.
+
+1. This is a \`style\`, not a \`theme\`. \`style\` overrides \`theme\`, so no built-in
+   theme loads. Framework's themes derive muted / faint / fainter / faintest with
+   color-mix() from one foreground, and a derived colour never reaches
+   contrast.json, so the gate cannot measure it (UMB-COL-012). All nine
+   --theme-* properties are declared below instead.
+
+2. One file per mode. Import exactly one. Framework's default pairs a light and a
+   dark theme under prefers-color-scheme, which lets the reader's operating system
+   pick the mode. The medium picks the mode (UMB-COL-011).
+
+3. \`globalStylesheets\` must be []. Its default loads Source Serif 4 from Google
+   Fonts. Self-host the three families instead (UMB-TYP-005).
+*/
+
+@import url("observablehq:default.css");
+
+:root {
+  color-scheme: ${light ? 'light' : 'dark'};
+
+  /* ── the nine --theme-* properties: declared, never derived (UMB-COL-012) ── */
+${themeDecls}
+
+  /* Framework's four accents. Umbral has no green and no yellow, so .green and
+     .yellow render as plain ink: they encode meaning by colour alone, which
+     UMB-A11Y-005 forbids, and rendering them prettily would hide that. */
+  --theme-blue: ${s.model};
+  --theme-red: ${s.alert};
+  --theme-green: ${s.ink};
+  --theme-yellow: ${s.ink};
+
+  /* ── type ── */
+  --u-font-display: ${stack('display')};
+  /* Umbral has no serif. --serif points at the body stack so a stray var(--serif)
+     left over from a Framework example cannot summon Times (UMB-TYP-002). */
+  --serif: ${stack('body')};
+  --sans-serif: ${stack('body')};
+  --monospace: ${stack('mono')};
+  --monospace-font: 14px/1.5 var(--monospace);
+
+  /* A row of KPIs is compared column against column, so .big is mono, not
+     display (UMB-TYP-004). Framework's default is 700 weight (UMB-TYP-001). */
+  --font-big: ${val(d, 'font.weight.mono-medium')} 32px/1 var(--monospace);
+  --font-small: 14px var(--sans-serif);
+
+  --u-measure: ${val(d, 'layout.measure')};
+  --u-radius-max: ${val(d, 'layout.radius-max')};
+  --u-touch-target: ${val(d, 'layout.touch-target')};
+}
+
+/* ── corrections to Framework's defaults ── */
+
+/* global.css sets 17px/1.5 var(--serif) on the body. */
+body {
+  font: 16px/1.5 var(--sans-serif);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--u-font-display);
+  font-weight: ${val(d, 'font.weight.display')};
+  letter-spacing: ${val(d, 'font.tracking.display')};
+}
+
+.big {
+  font-variant-numeric: tabular-nums;
+}
+
+/* card.css sets border-radius: 0.75rem — twelve times the maximum (UMB-LAY-001).
+   A card is still not the way to render a LIST; that stays rows separated by 1px
+   rules (UMB-LAY-007). */
+.card {
+  border-radius: var(--u-radius-max);
+  border-color: var(--theme-foreground-fainter);
+  box-shadow: none;
+}
+
+/* layout.css paints the footer in --theme-foreground-faint, which is furniture and
+   is exempt from 4.5:1. Footer text is text (UMB-COL-005). */
+#observablehq-footer {
+  color: var(--theme-foreground-muted);
+}
+
+/* Framework leaves prose unconstrained out to --observablehq-max-width, so the
+   measure has to be set here (UMB-LAY-003). Wide elements opt back out. */
+#observablehq-main > p,
+#observablehq-main > ul,
+#observablehq-main > ol,
+#observablehq-main > blockquote,
+#observablehq-main > h1,
+#observablehq-main > h2,
+#observablehq-main > h3 {
+  max-width: var(--u-measure);
+}
+
+#observablehq-main > .grid,
+#observablehq-main > figure,
+#observablehq-main > table,
+#observablehq-main > pre {
+  max-width: none;
+}
+
+/* UMB-A11Y-006 — 44px is a floor, not a suggestion. Framework's sidebar links and
+   form inputs ship well under it. */
+#observablehq-sidebar a,
+input, select, button, .observablehq-input input {
+  min-height: var(--u-touch-target);
+}
+
+/* UMB-A11Y-006 — focus is drawn in signal, and it is drawn everywhere. */
+:focus-visible {
+  outline: 2px solid var(--theme-foreground-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+`;
+  },
+});
+
+StyleDictionary.registerFormat({
   name: 'umbral/quarto-brand',
   format: ({ dictionary: d }) => {
     const l = semantic(d, 'laboratorio');
@@ -556,6 +716,12 @@ const sd = new StyleDictionary({
     },
     altair: { ...platformBase, files: [{ destination: 'altair-umbral.py', format: 'umbral/altair' }] },
     streamlit: { ...platformBase, files: [{ destination: 'streamlit-config.toml', format: 'umbral/streamlit' }] },
+    framework: {
+      ...platformBase,
+      files: MODES.map((mode) => ({
+        destination: `observable-framework-${mode}.css`, format: 'umbral/framework', options: { mode },
+      })),
+    },
     quarto: { ...platformBase, files: [{ destination: '_brand.yml', format: 'umbral/quarto-brand' }] },
     contrast: { ...platformBase, files: [{ destination: 'contrast.json', format: 'umbral/contrast' }] },
   },

@@ -10,7 +10,7 @@ for it.
 | `color.md` | Choosing any colour |
 | `charts.md` | **Before writing any chart code** |
 | `voice-and-numbers.md` | Writing prose, numbers, dates or rates |
-| `surfaces.md` | Targeting web, Streamlit, Quarto, notebooks, social, slides, GitHub or email |
+| `surfaces.md` | Targeting web, Observable Framework, Quarto, notebooks, social, slides, GitHub or email |
 | `terminology.md` | Anything touching disappearances, crime or victims — binding |
 | `checklist.md` | Finishing up |
 

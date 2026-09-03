@@ -63,6 +63,11 @@ for src, name in VENDORED:
 check(filecmp.cmp("tokens/build/tokens.css", PLOT / "dist/umbral.css", shallow=False),
       "umbral-plot/dist/umbral.css differs from tokens/build/tokens.css")
 
+for _mode in ("laboratorio", "instrumento"):
+    _css = f"observable-framework-{_mode}.css"
+    check(filecmp.cmp(f"tokens/build/{_css}", PLOT / "dist" / _css, shallow=False),
+          f"umbral-plot/dist/{_css} differs from tokens/build/{_css}")
+
 # ── 2. no module writes a value as a literal ──────────────────────────────
 live_hex = {v.lower() for m in tokens["mode"].values()
             for v in m.values() if isinstance(v, str) and v.startswith("#")}

@@ -16,6 +16,14 @@ Cambia de modo con `data-mode="instrumento"` o con la clase `.u-dark` sobre un c
 
 {{< include _includes/rules/UMB-COL-007.md >}}
 
+El modo lo decide el medio. No lo decide el lector.
+
+Varios frameworks emparejan un tema claro y uno oscuro bajo `prefers-color-scheme`. Observable
+Framework lo hace por defecto. Entonces dos lectores ven dos superficies distintas del mismo
+tablero. La captura de pantalla deja de ser reproducible.
+
+{{< include _includes/rules/UMB-COL-011.md >}}
+
 ## Los tokens
 
 {{< include _includes/token-table.md >}}
@@ -106,3 +114,12 @@ ausencia de énfasis y no como una categoría más.
 {{< include _includes/rules/UMB-COL-003.md >}}
 
 {{< include _includes/rules/UMB-COL-002.md >}}
+
+UMB-COL-002 prohíbe el hex escrito a mano. Una fórmula no es un hex, y por eso necesita su propia
+regla.
+
+Un tema que calcula `muted` o `border` con `color-mix()` desde el color de texto produce un valor
+que nunca entra en `contrast.json`. La compuerta mide los pares que existen en esa tabla. Un color
+que no está en la tabla pasa sin haber sido medido.
+
+{{< include _includes/rules/UMB-COL-012.md >}}

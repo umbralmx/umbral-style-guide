@@ -77,6 +77,8 @@ website:
             href: guide/14-superficies/landing.qmd
           - text: "web"
             href: guide/14-superficies/web.qmd
+          - text: "framework"
+            href: guide/14-superficies/framework.qmd
           - text: "streamlit"
             href: guide/14-superficies/streamlit.qmd
           - text: "quarto"
@@ -101,7 +103,7 @@ website:
       - reglas.qmd
       - checklist.qmd
   page-footer:
-    left: "umbral_ · v1.3.0"
+    left: "umbral_ · v1.4.0"
     center: "Código MIT · contenido CC BY 4.0"
     right: "[Repositorio](https://github.com/umbralmx/umbral-style-guide)"
 

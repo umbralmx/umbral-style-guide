@@ -13,7 +13,7 @@
 #
 # Validated against rules.schema.json. Built to rules.json by `npm run build:rules`.
 
-version: "1.3.0"
+version: "1.4.0"
 
 categories:
   brand:   { label: "Marca",              label_en: "Brand" }
@@ -42,7 +42,7 @@ rules:
     title_en: "The wordmark is `umbral_` in lowercase, Space Grotesk 500, underscore in signal"
     category: brand
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       El guión bajo nombra lo que hace el laboratorio. En mayúsculas o en otro peso, el
       wordmark deja de leerse como logotipo y se lee como texto.
@@ -62,7 +62,7 @@ rules:
     title_en: "The isotype bar has a 5:44 ratio and crosses left of centre"
     category: brand
     severity: error
-    applies_to: [web, streamlit, quarto, slides, social, github, print]
+    applies_to: [web, framework, streamlit, quarto, slides, social, github, print]
     rationale: >
       Es la única regla geométrica que la marca enuncia sobre sí misma. En v1.0 los archivos
       entregados tenían tres proporciones distintas: 5:44 documentada, 1:7.13 en el isotipo y
@@ -80,7 +80,7 @@ rules:
     title_en: "Clear space is one bar-height on all four sides"
     category: brand
     severity: warning
-    applies_to: [web, streamlit, quarto, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, slides, social, github, email, print]
     rationale: >
       Sin ese espacio, el logo se lee como un elemento más de la interfaz.
     do: "Mide el espacio libre desde el borde del isotipo."
@@ -94,7 +94,7 @@ rules:
     title_en: "The logo is never distorted, outlined, shadowed or recoloured outside the tokens"
     category: brand
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       Un logo alterado deja de identificar al laboratorio. Un recoloreo fuera de los tokens
       rompe además la garantía de contraste que CI comprueba.
@@ -114,7 +114,7 @@ rules:
     title_en: "Pure white and pure black are never used"
     category: color
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email, print]
     rationale: >
       El blanco y el negro puros dan un contraste duro que cansa en lecturas largas. Su
       presencia indica además que el color no vino de los tokens.
@@ -130,7 +130,7 @@ rules:
     title_en: "No colour is hand-typed; every value comes from the tokens"
     category: color
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print, repo]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print, repo]
     rationale: >
       Un valor enunciado en dos lugares deja de coincidir. Así fue como el mplstyle de v1.0
       terminó con una tercera serie distinta a la de su propio brand book.
@@ -147,7 +147,7 @@ rules:
     title_en: "No gradients"
     category: color
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email, print]
     rationale: >
       El degradado varía el color sin codificar nada. En una gráfica compite con la escala.
       En la interfaz es decoración.
@@ -166,11 +166,13 @@ rules:
     title_en: "signal is used on exactly one element of the data layer per view"
     category: color
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social]
     rationale: >
       La jerarquía visual depende de que haya un único punto de atención. Si todo resalta,
-      nada resalta. La regla se limita a la capa de datos porque Streamlit aplica primaryColor
-      a todos sus widgets a la vez.
+      nada resalta. La regla se limita a la capa de datos porque un framework suele pintar
+      todo su cromo con un mismo acento. Streamlit lo hace con primaryColor. Framework lo hace
+      con --theme-foreground-focus. La diferencia es que en Framework el acento sí se puede
+      acotar, así que ahí la regla alcanza también a los enlaces y a los controles.
     do: "Pon en signal una serie, una cifra o un elemento de interfaz."
     dont: "No pongas signal en el logo, el botón y la serie principal a la vez."
     check:
@@ -181,13 +183,14 @@ rules:
     since: "1.0"
     evidence: "Brand book p.03; medido: 17 elementos en desaparecidosmx, 10 en pautamx, 4 en cabildo-libre."
     guide: "02-color"
+    see_also: [UMB-COL-011]
 
   - id: UMB-COL-005
     title: "Todo texto alcanza 4.5:1 contra base y contra panel"
     title_en: "All text clears 4.5:1 against both base and panel"
     category: color
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email, print]
     rationale: >
       Leer al laboratorio no puede depender de tener buena vista ni buena pantalla. v1.0
       afirmaba cumplir AA en ambos modos. Cuatro pares no lo cumplían y el 44% del texto del
@@ -205,7 +208,7 @@ rules:
     title_en: "Every data mark clears 3:1; chart furniture is exempt and says so"
     category: color
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       WCAG 1.4.11 aplica a los gráficos necesarios para entender el contenido. Las líneas de
       retícula no lo son y tienen que quedar por debajo del dato. Distinguir ambos casos
@@ -223,7 +226,7 @@ rules:
     title_en: "The two modes are never mixed inside one panel"
     category: color
     severity: error
-    applies_to: [web, streamlit, quarto, slides, social, email]
+    applies_to: [web, framework, streamlit, quarto, slides, social, email]
     rationale: >
       Los tokens cascadean por subárbol. Mezclarlos dentro de una superficie pone texto de un
       modo sobre fondo del otro. La compuerta de contraste no puede prever ese caso.
@@ -244,7 +247,7 @@ rules:
     title_en: "A new categorical colour is derived in OKLCH and verified against dichromacy"
     category: color
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Variar solo el tono no basta. Para un dicrómata el tono colapsa a un solo eje. La mejor
       quinta serie posible variando solo tono queda en 0.042 de separación OKLab. Dos marcas
@@ -261,7 +264,7 @@ rules:
     title_en: "The two sequential ramps never encode two variables in one figure"
     category: color
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Las rampas ancladas en signal y en model quedan a 0.014 de separación OKLab bajo
       tritanopía. Para ese lector, dos mapas codificados con ellas son el mismo mapa.
@@ -280,7 +283,7 @@ rules:
     title_en: "Missing, suppressed and zero are visually distinct from one another"
     category: color
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       «No hay registro», «se suprimió por debajo del umbral de reporte» y «ocurrieron cero
       casos» son tres hechos distintos. Representarlos igual afirma algo falso.
@@ -295,13 +298,62 @@ rules:
     guide: "10-mapas"
     see_also: [UMB-NUM-006]
 
+  - id: UMB-COL-011
+    title: "El modo lo fija el medio, no la preferencia del sistema del lector"
+    title_en: "The medium sets the mode, not the reader's system preference"
+    category: color
+    severity: warning
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email, print]
+    rationale: >
+      El modo dice qué es la superficie. Laboratorio es lectura y documento. Instrumento es
+      tablero en vivo y pantalla de monitoreo. Si prefers-color-scheme decide, dos lectores ven
+      dos superficies distintas del mismo artefacto. La captura de pantalla deja de ser
+      reproducible y la tarjeta social deja de coincidir con su página.
+    do: "Fija un solo modo por superficie y decláralo en la configuración."
+    dont: "No emparejes un tema claro y uno oscuro bajo prefers-color-scheme."
+    check:
+      type: review
+      note: >
+        Exige leer la configuración de la superficie junto con su medio. Un linter de archivos
+        no sabe si una página es un documento o un tablero.
+    since: "1.4"
+    evidence: >
+      Observable Framework resuelve theme «dashboard» a air y near-midnight, y envuelve cada
+      import en una consulta prefers-color-scheme. Ver ADR-0004.
+    guide: "02-color"
+    see_also: [UMB-COL-007, UMB-COL-012]
+
+  - id: UMB-COL-012
+    title: "Un color semántico se declara desde su token; no se deriva por fórmula"
+    title_en: "A semantic colour is declared from its token; it is never derived by formula"
+    category: color
+    severity: warning
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email, print]
+    rationale: >
+      La compuerta de contraste mide los pares que existen en contrast.json. Un color que un
+      framework calcula con color-mix nunca entra en esa tabla. La compuerta lo declara verde
+      sin haberlo visto. UMB-COL-002 prohíbe el hex escrito a mano, y una fórmula no es un hex.
+    do: "Declara cada propiedad semántica de la superficie con el valor del token que le toca."
+    dont: "No dejes que el tema derive muted, faint o border desde el color de texto."
+    check:
+      type: review
+      note: >
+        Exige leer la hoja de estilo de la superficie contra tokens.json. La comprobación se
+        automatizará cuando umbral-lint sepa resolver una cadena de custom properties.
+    since: "1.4"
+    evidence: >
+      abstract-light.css de Observable Framework deriva muted, faint, fainter y faintest con
+      color-mix desde un solo foreground. Ver ADR-0004.
+    guide: "02-color"
+    see_also: [UMB-COL-002, UMB-COL-005, UMB-COL-006]
+
   # ── Tipografía ──────────────────────────────────────────────────────────
   - id: UMB-TYP-001
     title: "El display es Space Grotesk 500; nunca 700"
     title_en: "Display type is Space Grotesk 500; never 700"
     category: type
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       El peso medio es lo que distingue a la marca de un titular genérico. El 700 sube el
       volumen de la voz sin añadir información.
@@ -317,7 +369,7 @@ rules:
     title_en: "Only Space Grotesk, IBM Plex Sans and IBM Plex Mono are used"
     category: type
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       La tipografía es la mitad de la identidad. Un framework que sustituye la familia por
       defecto deshace el sistema sin que nadie lo note.
@@ -333,7 +385,7 @@ rules:
     title_en: "Minimum sizes are respected: 12px mono on web, 24px slides, 11pt documents"
     category: type
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email, print]
     rationale: >
       Debajo de esos tamaños una parte del público deja de leer el texto. Las cifras son lo
       primero que se pierde.
@@ -349,7 +401,7 @@ rules:
     title_en: "Figures that align or are compared use mono; a standalone hero figure uses display"
     category: type
     severity: warning
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       El criterio es la alineación, no el tamaño. Los numerales tabulares alinean los dígitos
       columna contra columna. Una cifra dentro de una oración se lee como lenguaje.
@@ -365,7 +417,7 @@ rules:
     title_en: "All three fonts are self-hosted, subset to latin and latin-ext"
     category: type
     severity: error
-    applies_to: [web, streamlit, quarto, slides, print]
+    applies_to: [web, framework, streamlit, quarto, slides, print]
     rationale: >
       Un producto de interés público tiene que funcionar sin conexión y dentro de redes de
       gobierno. Un CDN externo además entrega la IP de cada lector a un tercero.
@@ -383,7 +435,7 @@ rules:
     title_en: "Display tracking is between −0.02 and −0.03em"
     category: type
     severity: warning
-    applies_to: [web, streamlit, quarto, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, slides, social, print]
     rationale: >
       Space Grotesk se abre demasiado a tamaños grandes con el tracking por defecto.
     do: "Usa var(--u-tracking-display) en titulares."
@@ -398,7 +450,7 @@ rules:
     title_en: "Border radius never exceeds 2px"
     category: layout
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, email]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email]
     rationale: >
       La marca es plana y recta. Un radio grande, y sobre todo un botón tipo píldora, se lee
       como producto de consumo y no como instrumento.
@@ -413,7 +465,7 @@ rules:
     title_en: "No shadows; 1px rules do the structural work"
     category: layout
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, email]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email]
     rationale: >
       La profundidad falsa compite con el dato. Una regla de 1px separa igual y no añade ruido.
     do: "Usa una regla sólida de 1px en var(--u-border)."
@@ -431,7 +483,7 @@ rules:
     title_en: "Text measure does not exceed 65 characters"
     category: layout
     severity: warning
-    applies_to: [web, quarto, notebook, slides, email, print]
+    applies_to: [web, framework, quarto, notebook, slides, email, print]
     rationale: >
       Pasados los 65 caracteres, el ojo pierde el renglón al volver a la izquierda.
     do: "Pon max-width: var(--u-measure) en la columna de texto."
@@ -445,7 +497,7 @@ rules:
     title_en: "All spacing is a multiple of 8px"
     category: layout
     severity: warning
-    applies_to: [web, streamlit, quarto, slides, social, email]
+    applies_to: [web, framework, streamlit, quarto, slides, social, email]
     rationale: >
       Una escala única alinea las composiciones sin que haya que decidir cada valor.
     do: "Usa var(--u-space-1) hasta var(--u-space-10)."
@@ -459,7 +511,7 @@ rules:
     title_en: "No emoji, stock icons or decorative illustration"
     category: layout
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       El dato sostiene el argumento. Un emoji en un informe sobre desapariciones cambia el
       registro de lo que se está diciendo.
@@ -475,7 +527,7 @@ rules:
     title_en: "Section labels are set in mono, lowercase, in caption"
     category: layout
     severity: warning
-    applies_to: [web, streamlit, quarto, slides, github]
+    applies_to: [web, framework, streamlit, quarto, slides, github]
     rationale: >
       Una etiqueta de sección nombra la estructura de la página, no su contenido. El mono en
       minúsculas la separa del titular sin subir de tamaño ni de peso. Es el mismo recurso
@@ -493,7 +545,7 @@ rules:
     title_en: "A list of items is separated by 1px rules, not by cards"
     category: layout
     severity: warning
-    applies_to: [web, streamlit, quarto, slides, email]
+    applies_to: [web, framework, streamlit, quarto, slides, email]
     rationale: >
       Una fila separada por una regla de 1px pesa lo mismo que las demás. Una tarjeta con
       borde y relleno propios sugiere una jerarquía que la lista no tiene. La regla llega
@@ -511,7 +563,7 @@ rules:
     title_en: "Secondary controls are mono with a 1px border and move to signal on focus"
     category: layout
     severity: warning
-    applies_to: [web, streamlit, quarto]
+    applies_to: [web, framework, streamlit, quarto]
     rationale: >
       Un control con borde de 1px y sin relleno se lee como control sin competir con el dato.
       Reservar signal para el estado activo mantiene libre el único punto de atención de la
@@ -529,7 +581,7 @@ rules:
     title_en: "The dot field occupies only the outer margin of the sheet"
     category: layout
     severity: warning
-    applies_to: [web, slides, social]
+    applies_to: [web, framework, slides, social]
     rationale: >
       La retícula de puntos marca el papel milimétrico del instrumento. Debajo del texto
       reduce el contraste efectivo y contradice UMB-LAY-005, que prohíbe la decoración. En el
@@ -547,7 +599,7 @@ rules:
     title_en: "A diagram shows a mechanism; it is drawn with 1px rules and text"
     category: layout
     severity: warning
-    applies_to: [web, quarto, notebook, slides, github, print]
+    applies_to: [web, framework, quarto, notebook, slides, github, print]
     rationale: >
       UMB-LAY-005 prohíbe la ilustración decorativa. Un diagrama es una excepción acotada:
       vale cuando muestra cómo funciona algo que la prosa explica peor. Un diagrama que
@@ -568,7 +620,7 @@ rules:
     title_en: "The chart title states the finding as a full sentence"
     category: chart
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Un tema como «Registros por año» obliga al lector a deducir qué debía ver. Un hallazgo
       como «Los registros crecen 9% anual desde 2015» se puede comprobar contra la gráfica.
@@ -590,7 +642,7 @@ rules:
     title_en: "Every chart carries a subtitle with geography, period and unit"
     category: chart
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Sin unidad y sin periodo, la cifra no significa nada. La gráfica pierde su contexto en
       cuanto alguien la captura de pantalla.
@@ -609,7 +661,7 @@ rules:
     title_en: "Every chart carries its source line with licence, above a 1px rule"
     category: chart
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       La fuente y su licencia son lo que permite que otra persona rehaga el cálculo. La
       gráfica circula sin su página, y la línea de fuente es lo único que viaja con ella.
@@ -626,7 +678,7 @@ rules:
     title_en: "Horizontal gridlines only, with a darker baseline"
     category: chart
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       La retícula vertical rara vez ayuda a leer un valor y sí ensucia la figura. La línea
       base más oscura ancla el cero.
@@ -645,7 +697,7 @@ rules:
     title_en: "Series are labelled directly at line ends; no legend box"
     category: chart
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       La leyenda obliga a ir y venir entre el dato y su nombre. La etiqueta directa es además
       la razón por la que un color de serie cuenta como texto pequeño y necesita 4.5:1.
@@ -665,7 +717,7 @@ rules:
     title_en: "A chart carries at most 5 series"
     category: chart
     severity: warning
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Pasadas cinco series, ni las etiquetas directas ni la separación de color se sostienen.
       Si hacen falta más, son dos gráficas.
@@ -684,7 +736,7 @@ rules:
     title_en: "Axis ticks are mono, abbreviated, with comma thousands separators"
     category: chart
     severity: warning
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Los numerales tabulares alinean los dígitos y hacen comparable el eje de un vistazo.
     do: "Escribe 12k, 3.7M y 351,057."
@@ -703,7 +755,7 @@ rules:
     title_en: "The y-axis starts at zero for bars"
     category: chart
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       La longitud de la barra es la codificación. Truncar el eje multiplica visualmente una
       diferencia que no existe en los datos.
@@ -722,7 +774,7 @@ rules:
     title_en: "Any axis truncation is annotated on the chart itself"
     category: chart
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       En una serie de tiempo, truncar el eje puede ser legítimo. No declararlo nunca lo es.
       La anotación viaja con la imagen aunque el texto no.
@@ -740,7 +792,7 @@ rules:
     title_en: "No pie charts, 3D or dual axes"
     category: chart
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       El pastel codifica en ángulo y el ángulo se compara mal. El 3D distorsiona el área. El
       doble eje permite fabricar cualquier correlación aparente eligiendo las escalas.
@@ -756,7 +808,7 @@ rules:
     title_en: "Every projection or estimate shows its uncertainty"
     category: chart
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Un estimado puntual sin intervalo afirma una precisión que el método no tiene. Mostrar
       el intervalo es lo que distingue una gráfica de Umbral de una gráfica cualquiera.
@@ -776,7 +828,7 @@ rules:
     title_en: "Every rate states its denominator and n"
     category: chart
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Una tasa por 100 mil sobre una población pequeña salta con un solo caso. Sin la n, el
       lector no puede saber si la diferencia es real.
@@ -796,7 +848,7 @@ rules:
     title_en: "Spanish first; English is added where the audience earns it"
     category: voice
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       El público principal del laboratorio es mexicano. Publicar primero en inglés sería
       escribir para otra audiencia y dar a la propia la versión derivada.
@@ -815,7 +867,7 @@ rules:
     title_en: "No hype words, exclamation marks, emoji or rhetorical-question headlines"
     category: voice
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       El tema exige una voz sobria. El énfasis tipográfico sustituye al énfasis retórico.
     do: "Escribe «Los registros crecen 9% anual desde 2015»."
@@ -830,7 +882,7 @@ rules:
     title_en: "An adjective never replaces a number"
     category: voice
     severity: warning
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       «Un aumento considerable» no se puede comprobar ni refutar. «Un aumento de 9%» sí.
     do: "Cuantifica."
@@ -845,7 +897,7 @@ rules:
     title_en: "Placeholder content is never published"
     category: voice
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       Un «Lorem ipsum» en producción dice que nadie revisó la página. Eso contamina la
       credibilidad de los números que están al lado.
@@ -861,7 +913,7 @@ rules:
     title_en: "A sentence states one thing and does not exceed 25 words"
     category: voice
     severity: warning
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print, repo]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print, repo]
     rationale: >
       Es la disciplina de ASD-STE100 aplicada al español. Una oración larga con subordinadas
       admite más de una lectura, y el lector no tiene a quién preguntarle. La regla vale para
@@ -890,7 +942,7 @@ rules:
     title_en: "es-MX and en both use comma for thousands and point for decimals"
     category: numbers
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email, print]
     rationale: >
       México usa la convención anglosajona, a diferencia de España. Fijarla evita que la
       misma cifra aparezca de dos formas en un mismo tablero.
@@ -910,7 +962,7 @@ rules:
     title_en: "Large figures are abbreviated on axes and written in full in prose"
     category: numbers
     severity: warning
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       El eje necesita brevedad. La afirmación necesita precisión.
     do: "Escribe 12k y 3.7M en el eje. Escribe 351,057 registros en el texto."
@@ -925,7 +977,7 @@ rules:
     title_en: "Dates are ISO in data and prose-formatted in text"
     category: numbers
     severity: warning
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, print, repo]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, print, repo]
     rationale: >
       ISO ordena y no es ambiguo entre convenciones. En prosa se lee mal.
     do: "Escribe 2026-07 en datos y etiquetas. Escribe julio de 2026 en el texto."
@@ -940,7 +992,7 @@ rules:
     title_en: "The percent sign is set tight against the figure"
     category: numbers
     severity: info
-    applies_to: [web, streamlit, quarto, notebook, slides, social, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email, print]
     rationale: >
       Es una decisión tipográfica que se repite miles de veces. Fijarla evita dos formas de
       la misma cifra en una página.
@@ -956,7 +1008,7 @@ rules:
     title_en: "Stated precision never exceeds the precision of the data"
     category: numbers
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Escribir 9.24% sobre una muestra que sostiene un dígito inventa exactitud. En un
       registro vivo, además, esos decimales cambian entre consultas.
@@ -976,7 +1028,7 @@ rules:
     title_en: "Zero, null and suppressed are written differently and mean differently"
     category: numbers
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print, repo]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print, repo]
     rationale: >
       Convertir un nulo en cero es una imputación silenciosa. En datos de desaparición o de
       delito cambia la afirmación.
@@ -998,7 +1050,7 @@ rules:
     title_en: "Every dataset carries a SOURCE.md"
     category: data
     severity: error
-    applies_to: [repo, quarto, notebook, streamlit, web]
+    applies_to: [repo, quarto, notebook, streamlit, web, framework]
     rationale: >
       Sin origen, fecha de descarga, licencia y limitaciones conocidas, nadie puede auditar
       el dato ni volver a bajarlo igual.
@@ -1013,7 +1065,7 @@ rules:
     title_en: "Snapshots are tagged and the chart states which one it used"
     category: data
     severity: error
-    applies_to: [repo, quarto, notebook, streamlit, web, slides, social, print]
+    applies_to: [repo, quarto, notebook, streamlit, web, framework, slides, social, print]
     rationale: >
       El RNPDNO es un registro vivo y sus conteos cambian entre consultas. Sin la etiqueta del
       snapshot, dos gráficas correctas parecen contradecirse.
@@ -1030,7 +1082,7 @@ rules:
     title_en: "Every published figure rebuilds from raw data with one command"
     category: data
     severity: error
-    applies_to: [repo, quarto, notebook, streamlit, web]
+    applies_to: [repo, quarto, notebook, streamlit, web, framework]
     rationale: >
       Si una cifra no se puede reproducir, no se puede defender. Es el criterio que separa un
       laboratorio de un blog con gráficas.
@@ -1045,7 +1097,7 @@ rules:
     title_en: "Code is MIT; data and content are CC BY 4.0"
     category: data
     severity: error
-    applies_to: [repo, web, quarto, notebook, streamlit, github]
+    applies_to: [repo, web, framework, quarto, notebook, streamlit, github]
     rationale: >
       Los datos públicos regresan al público, mejorados. La licencia explícita es lo que lo
       hace cierto en la práctica.
@@ -1060,7 +1112,7 @@ rules:
     title_en: "Missing or under-reported data is disclosed, never silently dropped or imputed"
     category: data
     severity: error
-    applies_to: [repo, web, quarto, notebook, streamlit, slides, social, print]
+    applies_to: [repo, web, framework, quarto, notebook, streamlit, slides, social, print]
     rationale: >
       El hueco es información. Ocultarlo cambia la conclusión sin que el lector pueda saberlo.
     do: "Declara el hueco con su magnitud."
@@ -1081,17 +1133,19 @@ rules:
     title_en: "The lang attribute matches the actual language of the subtree"
     category: a11y
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, github, email]
+    applies_to: [web, framework, streamlit, quarto, notebook, github, email]
     rationale: >
       Un lector de pantalla pronuncia el español con fonética inglesa si lang miente. Para un
       laboratorio que publica en español es el defecto de accesibilidad más básico.
     do: "Pon lang=\"es\" en el documento y lang=\"en\" en el subárbol que sí esté en inglés."
-    dont: "No dejes el lang=\"en\" que trae el framework por defecto."
+    dont: "No dejes el lang que trae el framework, ni lo dejes ausente."
     check: { type: automated, tool: umbral-lint, id: lang-attribute }
     since: "1.0"
     evidence: >
       Streamlit fija lang=\"en\" y las dos apps lo sirven así. Decisión OQ-004: severidad
-      error, con el shim documentado en guide/14-superficies/streamlit.md.
+      error, con el shim documentado en guide/14-superficies/streamlit.md. Observable Framework
+      emite <html> sin ningún lang, que es el caso peor: el lector de pantalla usa la
+      configuración del sistema. El shim está en guide/14-superficies/framework.md.
     guide: "11-accesibilidad"
 
   - id: UMB-A11Y-002
@@ -1099,7 +1153,7 @@ rules:
     title_en: "Every chart carries an aria-label summarising the finding"
     category: a11y
     severity: error
-    applies_to: [web, streamlit, quarto, notebook]
+    applies_to: [web, framework, streamlit, quarto, notebook]
     rationale: >
       Sin etiqueta, la gráfica es un rectángulo vacío para quien usa lector de pantalla. Lo
       que desaparece es el hallazgo, no solo su forma visual.
@@ -1115,7 +1169,7 @@ rules:
     title_en: "Each chart has an adjacent data table or <details> with the figures"
     category: a11y
     severity: error
-    applies_to: [web, streamlit, quarto, notebook]
+    applies_to: [web, framework, streamlit, quarto, notebook]
     rationale: >
       Da acceso al dato, y no solo a su imagen, a los lectores de pantalla y a quien quiera
       citar la cifra exacta.
@@ -1134,7 +1188,7 @@ rules:
     title_en: "Each chart ships a downloadable CSV"
     category: a11y
     severity: error
-    applies_to: [web, streamlit, quarto, notebook]
+    applies_to: [web, framework, streamlit, quarto, notebook]
     rationale: >
       Los datos públicos regresan al público. El CSV es también lo que permite que alguien
       refute la gráfica con la misma base.
@@ -1155,7 +1209,7 @@ rules:
     title_en: "Meaning is never encoded by colour alone"
     category: a11y
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, email, print]
     rationale: >
       Es la razón por la que las etiquetas directas son obligatorias. Es también la única
       mitigación real de la debilidad heredada de la paleta: signal y model son
@@ -1175,7 +1229,7 @@ rules:
     title_en: "Focus-visible outlines are drawn in signal; touch targets are at least 44px"
     category: a11y
     severity: error
-    applies_to: [web, streamlit, quarto]
+    applies_to: [web, framework, streamlit, quarto]
     rationale: >
       Quien navega con teclado tiene que ver dónde está sin adivinarlo. Un objetivo menor a
       44px falla en móvil para una parte del público.
@@ -1190,7 +1244,7 @@ rules:
     title_en: "prefers-reduced-motion is respected"
     category: a11y
     severity: error
-    applies_to: [web, streamlit, quarto]
+    applies_to: [web, framework, streamlit, quarto]
     rationale: >
       El movimiento puede provocar malestar vestibular. Nada en el sistema depende de la
       animación para comunicar.
@@ -1206,7 +1260,7 @@ rules:
     title_en: "Causal verbs are used only with a named identification strategy"
     category: method
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       Un verbo causal sin diseño de identificación afirma más de lo que el método sostiene.
       La estrategia y su supuesto clave van junto al estimado, no en un anexo.
@@ -1226,7 +1280,7 @@ rules:
     title_en: "The headline is defensible from the data the chart shows"
     category: method
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Si el título afirma algo que la figura no puede sostener, la figura decora una
       afirmación que nadie verificó.
@@ -1245,7 +1299,7 @@ rules:
     title_en: "Raw counts are never compared across differently sized populations"
     category: method
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
       Comparar el conteo del Estado de México con el de Colima mide población, no incidencia.
     do: "Usa una tasa por 100 mil con denominador declarado, o compara la misma unidad a lo largo del tiempo."
@@ -1263,7 +1317,7 @@ rules:
     title_en: "Sensitive topics are handled with dignity: people are counted, never made spectacle"
     category: method
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       El laboratorio publica sobre desapariciones y violencia. Detrás de cada registro hay una
       persona. Un desglose que llega al individuo puede ponerla en riesgo.
@@ -1283,7 +1337,7 @@ rules:
     title_en: "Sensitive terminology follows the glossary, which is binding"
     category: method
     severity: error
-    applies_to: [web, streamlit, quarto, notebook, slides, social, github, email, print]
+    applies_to: [web, framework, streamlit, quarto, notebook, slides, social, github, email, print]
     rationale: >
       «Persona desaparecida», «persona no localizada» y «desaparecido» nombran cosas
       distintas. La diferencia es legal y ética, no de estilo.
@@ -1333,7 +1387,7 @@ rules:
     title_en: "No file outside tokens/src/ hard-codes a value that exists as a token"
     category: process
     severity: error
-    applies_to: [repo, web, streamlit, quarto, notebook, slides, social, email]
+    applies_to: [repo, web, framework, streamlit, quarto, notebook, slides, social, email]
     rationale: >
       Así se produce la deriva. Alguien copia el valor una vez, la fuente cambia, y la copia
       se queda.

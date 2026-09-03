@@ -8,6 +8,64 @@ Semver applies to the **design system**, not just the code (UMB-PRO-004):
 
 ---
 
+## 1.4.0 — 2026-09-03
+
+Observable Framework replaces Streamlit as the dashboard surface. Two new rules. One new generated
+target. No token value changed, so nothing re-renders.
+
+The decision and its costs are in [ADR-0004](docs/adr/0004-dashboard-surface.md).
+
+The move is cheaper than it looks. `packages/umbral-plot` already targets Observable Plot, and
+Framework renders Observable Plot natively, so the whole chart layer transfers unchanged.
+
+What did not transfer is the page around the chart. Nine Framework defaults collide with the guide.
+`guide/14-superficies/framework.md` lists all nine beside their fixes.
+
+Two of the nine could not be fixed in a stylesheet alone, because no rule covered them.
+
+`theme: "dashboard"` resolves to `air` and `near-midnight`, each wrapped in a `prefers-color-scheme`
+query. The reader's operating system then picks the mode. Umbral picks the mode by medium, and no
+rule had ever needed to say so. **UMB-COL-011** says it.
+
+Framework's themes derive `muted`, `faint`, `fainter` and `faintest` with `color-mix()` from one
+foreground. Those values never reach `contrast.json`, so the gate passes them without measuring
+them. UMB-COL-002 forbids a hand-written hex, and a formula is not a hex. **UMB-COL-012** closes it.
+
+Both ship at `warning`, following UMB-LAY-006 through UMB-LAY-010.
+
+### Added
+
+- `framework` surface in `rules.schema.json`, carrying all 71 `web` rules. Framework is the `web`
+  surface, not a reduced one: UMB-LAY-003, UMB-LAY-009 and UMB-LAY-010 apply again, because
+  Framework returns the CSS control Streamlit withheld.
+- `tokens/build/observable-framework-{laboratorio,instrumento}.css`. One file per mode, which is
+  how UMB-COL-011 is enforced by the artifact's shape rather than by review.
+- `guide/14-superficies/framework.md`, and its mirror in `site/`.
+- UMB-COL-011 and UMB-COL-012, rendered into `guide/02-color.md`.
+- `tools/verify_tokens.py` §8: 33 checks over the two stylesheets (208 to 241). Every `--theme-*`
+  must match its token. No `color-mix()`, no built-in theme import, no `prefers-color-scheme` and
+  no font CDN. `--font-big` must be mono, not Framework's 700-weight sans.
+- OQ-010, on whether a KPI card is a list item or a figure. UMB-LAY-007 and Framework's `.card`
+  disagree, and the chapter takes a position in order to ship.
+
+### Changed
+
+- UMB-A11Y-001 now covers an **absent** `lang` attribute. Framework emits `<html>` with none at all,
+  which is worse than Streamlit's wrong-but-present `lang="en"`.
+- UMB-COL-004's rationale no longer names Streamlit as the sole reason the rule is scoped to the
+  data layer. Framework has the same one-accent-for-all-chrome problem via
+  `--theme-foreground-focus`, but its accent can be bounded, so the rule reaches further there.
+- The Framework stylesheets ship in `@umbralmx/umbral-plot`, not `umbral-viz`. A Framework app
+  already depends on the JavaScript package for its charts.
+
+### Not done
+
+`desaparecidosmx` and `pautamx` still run on Streamlit. The `streamlit` surface stays in the rule
+set until both migrate. The execution model is the real cost: Streamlit re-runs Python per
+interaction, and Framework precomputes at build time and filters on the client.
+
+---
+
 ## 1.3.0 — 2026-08-28
 
 Five component forms, taken from a survey of the Framer components marketplace and rebuilt against

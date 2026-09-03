@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.3.0
+[umbral]{.u-brand} guía de estilo · v1.4.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -12,7 +12,7 @@ lang: es
 
 
 
-Umbral v1.3.0
+Umbral v1.4.0
 
 Esta hoja **no** repite las 29 reglas que CI ya comprueba sola. Si alguna falla, el
 release se bloquea sin que nadie tenga que acordarse.
@@ -87,12 +87,12 @@ npm run verify     # re-deriva contraste y reglas de forma independiente
 umbral-lint .      # las comprobaciones automáticas sobre este repo
 ```
 
-29 reglas `error` automáticas · 16 advertencias · 1 de guía. Todas en `rules/rules.yaml`.
+29 reglas `error` automáticas · 18 advertencias · 1 de guía. Todas en `rules/rules.yaml`.
 
 `■ error` bloquea el release · `▲ advertencia` se reporta y se justifica · `· guía` orienta.
 
 
 ::: {.u-foot}
-umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v1.4.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::
