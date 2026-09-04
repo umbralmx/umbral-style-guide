@@ -1,7 +1,7 @@
 <!-- GENERATED from the normative layer. Do not edit. -->
 
-77 reglas · 58 `error` ·
-18 `advertencia` · 1 `guía`.
+78 reglas · 58 `error` ·
+19 `advertencia` · 1 `guía`.
 
 ### Marca
 
@@ -114,6 +114,7 @@
 | [`UMB-A11Y-005`](#umb-a11y-005) | ■ | El significado nunca se codifica solo con color | review |
 | [`UMB-A11Y-006`](#umb-a11y-006) | ■ | El foco visible se dibuja en signal y los objetivos táctiles miden 44px o más | `focus-and-target` |
 | [`UMB-A11Y-007`](#umb-a11y-007) | ■ | Se respeta prefers-reduced-motion | `reduced-motion` |
+| [`UMB-A11Y-008`](#umb-a11y-008) | ▲ | Una capa superpuesta atrapa el foco, cierra con Escape y lo devuelve al abrirse | review |
 
 ### Método
 

@@ -23,6 +23,7 @@ its place.
 | `13-interpretabilidad.md` | Causal vs descriptive language, dignity |
 | `14-superficies/` | One guide per surface: landing, web, Observable Framework, Streamlit, Quarto, notebook, social, slides, GitHub, email |
 | `15-terminologia.md` | Bilingual controlled vocabulary — **new in 1.1**, and the most credibility-relevant page |
+| `16-componentes.md` | El catálogo de shadcn/ui mapeado contra las reglas: adopta, adapta, rechaza |
 
 `CHECKLIST.md` and `_includes/` are **generated**. Don't edit them.
 

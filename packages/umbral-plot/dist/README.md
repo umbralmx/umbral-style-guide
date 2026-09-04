@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| `umbral.css` | Byte-identical copy of `tokens/build/tokens.css` at v1.4.0 |
+| `umbral.css` | Byte-identical copy of `tokens/build/tokens.css` at v1.5.0 |
 | `observable-framework-laboratorio.css` | Framework `style`, modo laboratorio |
 | `observable-framework-instrumento.css` | Framework `style`, modo instrumento |
 

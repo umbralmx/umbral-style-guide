@@ -133,7 +133,7 @@ EXPECTED = [
     "00-principios", "01-marca", "02-color", "03-tipografia", "04-layout",
     "05-voz", "06-numeros", "07-vocabulario-visual", "08-anatomia-grafica",
     "09-incertidumbre", "10-mapas", "11-accesibilidad", "12-datos-procedencia",
-    "13-interpretabilidad", "15-terminologia",
+    "13-interpretabilidad", "15-terminologia", "16-componentes",
 ]
 SURFACES = ["landing", "web", "framework", "streamlit", "quarto", "notebook", "social", "slides",
             "github", "email"]

@@ -330,3 +330,56 @@ neither was designed against UMB-LAY-007 because the rule postdates them.
 
 **Needs from Jay:** confirm the figure reading, or state the exception text for UMB-LAY-007 so the
 rule says what the chapter says.
+
+---
+
+## OQ-011 — What may a transient message carry?
+
+**Status:** open · **Blocks:** nothing — `guide/16-componentes.md` takes a position to ship ·
+**Raised:** 2026-09-03
+
+`toast` and `sonner` show a message that removes itself after a few seconds.
+
+The lab's own rules assume a finding stays put. UMB-CHT-001 says a chart title states the finding as
+a sentence. UMB-DAT-003 says a published figure rebuilds from raw. Neither survives a container that
+deletes itself.
+
+A screen-reader user gets the message once, through `aria-live`, with no way back. A reader who
+looks away misses it entirely. Neither can quote it.
+
+**Position taken to ship:** a transient message confirms an action. It never carries a finding, a
+number, or an error the reader must act on. Those go in the page.
+
+**The question:** is that a rule, or is it guidance? It reads like a rule. It is not in
+`rules.yaml`, so `guide/16-componentes.md` currently states it as a constraint in a table cell,
+which UMB-PRO-002 tolerates only because the cell cites no rule ID.
+
+**Needs from Jay:** promote it to a rule at `warning`, or confirm it stays guidance.
+
+---
+
+## OQ-012 — Disabled controls and the 4.5:1 floor
+
+**Status:** open · **Blocks:** nothing · **Raised:** 2026-09-03
+
+UMB-COL-005 requires 4.5:1 for all text, against both `base` and `panel`. It states no exception.
+
+Every mature component system, shadcn/ui included, draws disabled text below that floor
+deliberately. The low contrast *is* the affordance: it signals "not available now".
+
+WCAG 1.4.3 exempts disabled controls. Umbral's rule does not mention them, so the repo currently
+has a rule stricter than the standard it cites, and no disabled state that satisfies it.
+
+Three ways out:
+
+1. **Add the exception to UMB-COL-005**, matching WCAG. Cheapest, and it matches every other system.
+2. **Keep the floor and never draw a disabled control.** Remove the control, or explain in words why
+   it is unavailable. Strictest, and arguably better for a public-interest surface.
+3. **Keep the floor and mark disabled by means other than contrast** — a word, a struck rule, an
+   `aria-disabled` with visible text.
+
+Option 2 has real appeal here. A disabled button with no explanation is a dead end, and the lab's
+readers include people looking for a specific missing person.
+
+**Needs from Jay:** pick one. Option 1 is the conventional answer; option 2 is the Umbral answer.
+

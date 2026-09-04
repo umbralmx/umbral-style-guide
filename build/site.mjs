@@ -106,7 +106,7 @@ async function quartoYml() {
     ['08-anatomia-grafica', 'Anatomía de una gráfica'], ['09-incertidumbre', 'Incertidumbre'],
     ['10-mapas', 'Mapas'], ['11-accesibilidad', 'Accesibilidad'],
     ['12-datos-procedencia', 'Datos y procedencia'], ['13-interpretabilidad', 'Interpretabilidad'],
-    ['15-terminologia', 'Terminología'],
+    ['15-terminologia', 'Terminología'], ['16-componentes', 'Componentes'],
   ];
   const surfaces = ['landing', 'web', 'framework', 'streamlit', 'quarto', 'notebook', 'social', 'slides',
     'github', 'email'];

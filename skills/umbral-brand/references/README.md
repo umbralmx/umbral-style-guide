@@ -11,9 +11,10 @@ for it.
 | `charts.md` | **Before writing any chart code** |
 | `voice-and-numbers.md` | Writing prose, numbers, dates or rates |
 | `surfaces.md` | Targeting web, Observable Framework, Quarto, notebooks, social, slides, GitHub or email |
+| `components.md` | Building any UI component — the shadcn/ui catalogue, mapped |
 | `terminology.md` | Anything touching disappearances, crime or victims — binding |
 | `checklist.md` | Finishing up |
 
-All six are generated from `tokens/build/`, `rules/rules.json` and `guide/`, so the skill cannot
+All seven are generated from `tokens/build/`, `rules/rules.json` and `guide/`, so the skill cannot
 state a value or a rule the normative layer does not. The v1.0 skill restated token values in prose
 and kept handing out colours that failed contrast long after they were known to be wrong.

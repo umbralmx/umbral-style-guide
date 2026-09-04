@@ -1,5 +1,5 @@
 <!-- references/voice-and-numbers.md — GENERATED from the normative layer of
-     umbralmx/umbral-style-guide v1.4.0. Do not edit; regenerate. -->
+     umbralmx/umbral-style-guide v1.5.0. Do not edit; regenerate. -->
 
 # Voice, numbers and method
 
