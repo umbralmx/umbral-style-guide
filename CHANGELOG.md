@@ -8,6 +8,66 @@ Semver applies to the **design system**, not just the code (UMB-PRO-004):
 
 ---
 
+## 1.5.0 — 2026-09-03
+
+The shadcn/ui catalogue mapped against the rules. One new chapter, one new rule, one new skill
+reference. No token value changed, so nothing re-renders.
+
+`guide/16-componentes.md` covers all 66 components the shadcn docs list. Each gets a verdict:
+37 adopt, 20 adapt, 3 reject, 6 out of scope.
+
+The useful finding is that the corrections are not per-component. Five of them cover almost
+everything, and they were read out of the shadcn source rather than remembered.
+
+| | shadcn ships | Rule |
+|---|---|---|
+| 1 | `rounded-md`, `rounded-xl`, `rounded-full` | UMB-LAY-001 |
+| 2 | `shadow-xs`, `shadow-sm` | UMB-LAY-002 |
+| 3 | Control heights `h-7` to `h-10` | UMB-A11Y-006 |
+| 4 | Tailwind palette and its own variables | UMB-COL-002 |
+| 5 | `font-semibold` headings | UMB-TYP-001 |
+
+No default shadcn control height reaches 44px. `badge` and `switch` are `rounded-full`, which is a
+pill, and the pill is on the Never list.
+
+The forms are mostly fine. It is the defaults that are not.
+
+### Added — the overlay rule
+
+- **UMB-A11Y-008** (`warning`) — an overlay traps focus, closes on Escape, and returns focus to the
+  control that opened it.
+
+Six catalogue components are overlays: `dialog`, `alert-dialog`, `sheet`, `drawer`, `popover` and
+`command`. Radix gives them this contract inside React. Nothing gave it to us outside React, and
+UMB-A11Y-006 only covered the focus outline, not where the focus goes.
+
+### Added
+
+- `guide/16-componentes.md`, and its mirror in `site/`.
+- `skills/umbral-brand/references/components.md`, parsed out of the chapter so the verdicts have one
+  source. It is the seventh reference.
+- OQ-011 — what a transient message may carry. A `toast` deletes itself, and a finding that deletes
+  itself cannot be quoted or verified.
+- OQ-012 — disabled controls against the 4.5:1 floor. UMB-COL-005 states no exception, WCAG 1.4.3
+  does, and the repo currently has no disabled state that satisfies its own rule.
+
+### Refused, and why
+
+- **`switch`** — the form *is* a pill. An interrupted pill stops reading as a switch, so this is not
+  a styling detail. The segmented control names both states in words instead.
+- **`chart`** — it wraps a second charting library. Twelve UMB-CHT rules and `@umbralmx/umbral-plot`
+  already cover this, and a second system means a second place a colour lives.
+- **`carousel`** — already excluded by name in the 1.3 Framer survey. It hides content behind motion
+  and fights `prefers-reduced-motion`.
+
+### Note on 1.3.0
+
+The 1.3.0 entry lists five component forms as shipping in "both packages" as `.u-heat`, `.u-table`,
+`.u-seg`, `.u-toc-lines` and `.u-diagram`. The guide sections that specify them exist. The classes
+do not exist in either package. The specification shipped; the implementation did not.
+
+---
+
 ## 1.4.0 — 2026-09-03
 
 Observable Framework replaces Streamlit as the dashboard surface. Two new rules. One new generated

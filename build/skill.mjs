@@ -366,6 +366,86 @@ ${bySurface}
 `);
 }
 
+// ── references/components.md ──────────────────────────────────────────────
+// Parsed out of guide/16-componentes.md so the verdicts have one source. The
+// chapter is normative; this is its English index for an agent.
+{
+  const chapter = await fs.readFile('guide/16-componentes.md', 'utf8');
+  const rows = [...chapter.matchAll(/^\| `([a-z-]+)` \| (adopta|adapta|rechaza) \| (.+?) \|$/gm)]
+    .map((m) => ({ name: m[1], verdict: m[2], note: m[3] }));
+  const OUT_OF_SCOPE = ['attachment', 'bubble', 'message', 'message-scroller',
+    'questionnaire', 'marker'];
+  const EN = { adopta: 'adopt', adapta: 'adapt', rechaza: 'reject' };
+  const count = (v) => rows.filter((r) => r.verdict === v).length;
+  const table = (v) => rows.filter((r) => r.verdict === v)
+    .map((r) => `| \`${r.name}\` | ${r.note} |`).join('\n');
+
+  await fs.writeFile(`${REF}/components.md`, `${HEAD('references/components.md')}
+# Components
+
+The shadcn/ui catalogue mapped against the rules. The normative text is
+\`guide/16-componentes.md\`; this is its index.
+
+shadcn/ui is copied code, not a dependency. Take the **form** and the accessibility contract. Never
+take the values — a shadcn component writes its colours and radii into Tailwind classes, which is
+UMB-COL-002 and UMB-PRO-003 by construction.
+
+## The five systematic corrections
+
+They apply to every component. Apply them before reading any entry below.
+
+| | shadcn ships | Umbral applies | Rule |
+|---|---|---|---|
+| 1 | \`rounded-md\`, \`rounded-xl\`, \`rounded-full\` | 2px radius ceiling; a pill is banned outright | UMB-LAY-001 |
+| 2 | \`shadow-xs\`, \`shadow-sm\` | No shadows; 1px rules carry the structure | UMB-LAY-002 |
+| 3 | Control heights \`h-7\` to \`h-10\` | 44px touch target minimum | UMB-A11Y-006 |
+| 4 | Tailwind palette and its own variables | Every colour from the tokens | UMB-COL-002 |
+| 5 | \`font-semibold\` headings | Space Grotesk 500; 600 is for small labels only | UMB-TYP-001 |
+
+No default shadcn control height reaches 44px. The touch target may exceed the visible border, so
+the fix does not force a fatter control.
+
+## Overlays
+
+\`dialog\`, \`alert-dialog\`, \`sheet\`, \`drawer\`, \`popover\` and \`command\` share one contract
+(UMB-A11Y-008): focus enters on open, is trapped while open, Escape closes, and focus returns to
+the control that opened it. Radix supplies this in React. It has to be written by hand elsewhere.
+
+## Reject (${count('rechaza')})
+
+| Component | Instead |
+|---|---|
+${table('rechaza')}
+
+## Adapt (${count('adapta')})
+
+| Component | The specific change |
+|---|---|
+${table('adapta')}
+
+## Adopt (${count('adopta')})
+
+Form is fine. Apply the five corrections and nothing else.
+
+| Component | Note |
+|---|---|
+${table('adopta')}
+
+## Out of scope (${OUT_OF_SCOPE.length})
+
+${OUT_OF_SCOPE.map((n) => `\`${n}\``).join(' · ')}
+
+The catalogue's chat pieces. Umbral does not publish a conversational product.
+
+## Open
+
+OQ-011 asks what a transient message may carry. OQ-012 asks how a disabled control meets the 4.5:1
+floor, which UMB-COL-005 states without an exception.
+`);
+  console.log(`  components: ${rows.length} verdicts (${count('adopta')} adopt, `
+    + `${count('adapta')} adapt, ${count('rechaza')} reject)`);
+}
+
 // ── references/terminology.md ─────────────────────────────────────────────
 {
   const src = await fs.readFile('guide/15-terminologia.md', 'utf8');
@@ -500,10 +580,11 @@ for it.
 | \`charts.md\` | **Before writing any chart code** |
 | \`voice-and-numbers.md\` | Writing prose, numbers, dates or rates |
 | \`surfaces.md\` | Targeting web, Observable Framework, Quarto, notebooks, social, slides, GitHub or email |
+| \`components.md\` | Building any UI component — the shadcn/ui catalogue, mapped |
 | \`terminology.md\` | Anything touching disappearances, crime or victims — binding |
 | \`checklist.md\` | Finishing up |
 
-All six are generated from \`tokens/build/\`, \`rules/rules.json\` and \`guide/\`, so the skill cannot
+All seven are generated from \`tokens/build/\`, \`rules/rules.json\` and \`guide/\`, so the skill cannot
 state a value or a rule the normative layer does not. The v1.0 skill restated token values in prose
 and kept handing out colours that failed contrast long after they were known to be wrong.
 `);

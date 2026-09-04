@@ -1,15 +1,15 @@
 {
   "$generated": "rules.json — GENERATED from rules/rules.yaml. Do not edit.",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "counts": {
-    "total": 77,
+    "total": 78,
     "bySeverity": {
       "error": 58,
-      "warning": 18,
+      "warning": 19,
       "info": 1
     },
     "byCheckType": {
-      "review": 40,
+      "review": 41,
       "automated": 35,
       "manual": 2
     }
@@ -146,7 +146,8 @@
         "UMB-A11Y-004",
         "UMB-A11Y-005",
         "UMB-A11Y-006",
-        "UMB-A11Y-007"
+        "UMB-A11Y-007",
+        "UMB-A11Y-008"
       ],
       "method": [
         "UMB-MET-001",
@@ -232,6 +233,7 @@
         "UMB-A11Y-005",
         "UMB-A11Y-006",
         "UMB-A11Y-007",
+        "UMB-A11Y-008",
         "UMB-MET-001",
         "UMB-MET-002",
         "UMB-MET-003",
@@ -307,6 +309,7 @@
         "UMB-A11Y-005",
         "UMB-A11Y-006",
         "UMB-A11Y-007",
+        "UMB-A11Y-008",
         "UMB-MET-001",
         "UMB-MET-002",
         "UMB-MET-003",
@@ -379,6 +382,7 @@
         "UMB-A11Y-005",
         "UMB-A11Y-006",
         "UMB-A11Y-007",
+        "UMB-A11Y-008",
         "UMB-MET-001",
         "UMB-MET-002",
         "UMB-MET-003",
@@ -453,6 +457,7 @@
         "UMB-A11Y-005",
         "UMB-A11Y-006",
         "UMB-A11Y-007",
+        "UMB-A11Y-008",
         "UMB-MET-001",
         "UMB-MET-002",
         "UMB-MET-003",
@@ -2906,6 +2911,32 @@
       },
       "since": "1.0",
       "guide": "11-accesibilidad"
+    },
+    {
+      "id": "UMB-A11Y-008",
+      "title": "Una capa superpuesta atrapa el foco, cierra con Escape y lo devuelve al abrirse",
+      "title_en": "An overlay traps focus, closes on Escape, and returns focus on close",
+      "category": "a11y",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "framework",
+        "streamlit",
+        "quarto"
+      ],
+      "rationale": "Un diálogo sin trampa de foco deja al lector de teclado navegando la página de atrás, que no puede ver. Devolver el foco al control que abrió la capa es lo que permite seguir trabajando sin volver a buscar el lugar.\n",
+      "do": "Mueve el foco dentro de la capa al abrirla, atrápalo mientras está abierta, y devuélvelo al control de origen al cerrarla.",
+      "dont": "No dejes el foco en el documento de atrás. No quites el cierre con Escape.",
+      "check": {
+        "type": "review",
+        "note": "Exige recorrer la capa con teclado. Un linter de archivos no observa el orden del foco.\n"
+      },
+      "since": "1.5",
+      "evidence": "Las capas de shadcn/ui (dialog, sheet, drawer, popover, dropdown-menu, command) heredan este contrato de Radix. La regla lo enuncia para que valga también fuera de React.\n",
+      "guide": "16-componentes",
+      "see_also": [
+        "UMB-A11Y-006"
+      ]
     },
     {
       "id": "UMB-MET-001",

@@ -13,7 +13,7 @@
 #
 # Validated against rules.schema.json. Built to rules.json by `npm run build:rules`.
 
-version: "1.4.0"
+version: "1.5.0"
 
 categories:
   brand:   { label: "Marca",              label_en: "Brand" }
@@ -1255,6 +1255,29 @@ rules:
     guide: "11-accesibilidad"
 
   # ── Método ──────────────────────────────────────────────────────────────
+  - id: UMB-A11Y-008
+    title: "Una capa superpuesta atrapa el foco, cierra con Escape y lo devuelve al abrirse"
+    title_en: "An overlay traps focus, closes on Escape, and returns focus on close"
+    category: a11y
+    severity: warning
+    applies_to: [web, framework, streamlit, quarto]
+    rationale: >
+      Un diálogo sin trampa de foco deja al lector de teclado navegando la página de atrás, que
+      no puede ver. Devolver el foco al control que abrió la capa es lo que permite seguir
+      trabajando sin volver a buscar el lugar.
+    do: "Mueve el foco dentro de la capa al abrirla, atrápalo mientras está abierta, y devuélvelo al control de origen al cerrarla."
+    dont: "No dejes el foco en el documento de atrás. No quites el cierre con Escape."
+    check:
+      type: review
+      note: >
+        Exige recorrer la capa con teclado. Un linter de archivos no observa el orden del foco.
+    since: "1.5"
+    evidence: >
+      Las capas de shadcn/ui (dialog, sheet, drawer, popover, dropdown-menu, command) heredan
+      este contrato de Radix. La regla lo enuncia para que valga también fuera de React.
+    guide: "16-componentes"
+    see_also: [UMB-A11Y-006]
+
   - id: UMB-MET-001
     title: "Los verbos causales solo se usan con una estrategia de identificación nombrada"
     title_en: "Causal verbs are used only with a named identification strategy"

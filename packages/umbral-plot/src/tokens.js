@@ -1,10 +1,10 @@
 /**
- * tokens.js — GENERATED from tokens/build/tokens.json at v1.4.0. Do not edit.
+ * tokens.js — GENERATED from tokens/build/tokens.json at v1.5.0. Do not edit.
  *
  * umbralmx/umbral-style-guide · code MIT · content CC BY 4.0
  */
 
-export const version = "1.4.0";
+export const version = "1.5.0";
 
 export const font = {
   "display": "Space Grotesk",

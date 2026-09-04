@@ -140,7 +140,8 @@ check("/main/" not in snip and "@main" not in snip,
 check(len(snip.splitlines()) < 80, "CLAUDE.snippet.md is longer than a snippet should be")
 
 # ── 8. references are all present and generated ───────────────────────────
-for name in ["color", "charts", "voice-and-numbers", "surfaces", "terminology", "checklist"]:
+for name in ["color", "charts", "voice-and-numbers", "surfaces", "components",
+             "terminology", "checklist"]:
     p = REF / f"{name}.md"
     check(p.exists(), f"references/{name}.md missing (KICKOFF §6)")
     if p.exists():

@@ -1,0 +1,200 @@
+---
+title: "16 · Componentes"
+lang: es
+---
+
+# 16 · Componentes
+
+Este capítulo mapea el catálogo de [shadcn/ui](https://ui.shadcn.com/docs/components) contra las
+reglas de Umbral. Sirve para reconstruir cualquiera de sus componentes sin copiar sus valores.
+
+shadcn/ui no es una dependencia. Es código que se copia al proyecto. Eso es una ventaja aquí,
+porque el valor está en la **forma**, no en el código.
+
+Un componente de shadcn trae sus colores y sus radios escritos en clases de Tailwind. Eso es
+UMB-COL-002 y UMB-PRO-003 por construcción. Copiamos la anatomía y el contrato de accesibilidad.
+Los valores salen de `tokens/build/`.
+
+Es el mismo método que la encuesta de componentes de Framer en 1.3. Ver `CHANGELOG.md`.
+
+::: {.u-note}
+**alcance**
+
+Umbral no publica en React hoy. Las superficies son Quarto, Observable Framework y HTML propio.
+Este capítulo describe forma, anatomía y contrato. El envoltorio en JSX es una capa delgada sobre
+eso, y no cambia ninguna decisión de aquí.
+:::
+
+## Las cinco correcciones sistemáticas
+
+Casi todo lo que hay que cambiar de shadcn se cambia igual en los 66 componentes. Estas cinco
+correcciones se aplican siempre. Las entradas del catálogo solo anotan lo que es específico.
+
+| | Lo que trae shadcn | Lo que aplica | Regla |
+|---|---|---|---|
+| 1 | `rounded-md`, `rounded-xl`, `rounded-full` | Radio de 2px como máximo. `rounded-full` es una píldora y está prohibida. | UMB-LAY-001 |
+| 2 | `shadow-xs`, `shadow-sm` | Sin sombras. La regla de 1px hace el trabajo estructural. | UMB-LAY-002 |
+| 3 | Alturas de control `h-7`, `h-8`, `h-9`, `h-10` | Área táctil de 44px o más. | UMB-A11Y-006 |
+| 4 | Paleta de Tailwind y variables propias | Todo color sale de los tokens. | UMB-COL-002 |
+| 5 | `font-semibold` en títulos | Display es Space Grotesk 500. El 600 es para etiquetas pequeñas. | UMB-TYP-001 |
+
+Las alturas merecen una nota. `h-9` es la altura por defecto de un botón y de un campo en shadcn.
+Ninguna de las cuatro alturas del catálogo alcanza 44px. El área táctil puede exceder al borde
+visible, así que la corrección no obliga a engordar el control.
+
+## El contrato que sí conviene copiar
+
+Los componentes de shadcn se apoyan en primitivas de Radix. Radix aporta el contrato de teclado y
+de ARIA, que es la parte cara de construir bien.
+
+Ese contrato no depende de React. Vale igual en HTML propio.
+
+{{< include _includes/rules/UMB-A11Y-008.md >}}
+
+Seis componentes del catálogo son capas superpuestas: `dialog`, `alert-dialog`, `sheet`, `drawer`,
+`popover` y `command`. Los seis comparten el mismo contrato.
+
+- El foco entra en la capa al abrirse.
+- El foco no sale de la capa mientras está abierta.
+- `Escape` cierra.
+- El foco vuelve al control que abrió la capa.
+- La capa declara `role` y `aria-modal` según corresponda.
+
+## El catálogo
+
+Cuatro veredictos.
+
+| Veredicto | Qué significa |
+|---|---|
+| **adopta** | La forma sirve. Aplica las cinco correcciones y nada más. |
+| **adapta** | La forma sirve con un cambio específico, anotado en la fila. |
+| **rechaza** | No lo construyas. La fila dice qué usar en su lugar. |
+| **fuera de alcance** | Pertenece a un producto de chat. Umbral no publica uno. |
+
+### Estructura y navegación
+
+| Componente | Veredicto | Lo que aplica |
+|---|---|---|
+| `accordion` | adopta | Patrón de divulgación. El encabezado es un `button`, no un `div`. |
+| `breadcrumb` | adopta | El elemento actual lleva `aria-current="page"`. |
+| `collapsible` | adopta | — |
+| `navigation-menu` | adapta | Una portada no lleva barra de navegación. Ver `14-superficies/landing.md`. |
+| `menubar` | adopta | — |
+| `pagination` | adopta | Los números van en mono (UMB-TYP-004). |
+| `resizable` | adopta | El separador alcanza 44px de área táctil. |
+| `scroll-area` | adapta | Prefiere el scroll nativo. Una barra propia rompe el comportamiento del sistema. |
+| `separator` | adopta | Es la regla de 1px. El componente más umbral del catálogo. |
+| `sidebar` | adopta | — |
+| `tabs` | adapta | Toma la forma del control segmentado (UMB-LAY-008), no la pestaña con relleno. |
+| `direction` | adopta | Utilidad de dirección. Ver también `lang` (UMB-A11Y-001). |
+
+### Superficies y contenedores
+
+| Componente | Veredicto | Lo que aplica |
+|---|---|---|
+| `card` | adapta | Radio y sombra fuera. Una **lista** no se hace con tarjetas (UMB-LAY-007). Ver OQ-010. |
+| `item` | adopta | Es la fila separada por regla de 1px. La forma que UMB-LAY-007 pide. |
+| `aspect-ratio` | adopta | Utilidad de layout, sin superficie visual. |
+| `sheet` | adopta | Capa superpuesta: UMB-A11Y-008. |
+| `drawer` | adopta | Capa superpuesta: UMB-A11Y-008. |
+| `dialog` | adopta | Capa superpuesta: UMB-A11Y-008. |
+| `alert-dialog` | adopta | Capa superpuesta. La acción destructiva se nombra en el botón, no solo en color. |
+| `popover` | adopta | Capa superpuesta: UMB-A11Y-008. |
+| `hover-card` | adapta | El hover no existe en táctil. El mismo contenido abre con foco. |
+| `tooltip` | adapta | Nunca es el único portador de un significado (UMB-A11Y-005). Abre con foco. |
+| `empty` | adapta | Declara **cuál** vacío es: sin registro, suprimido o cero medido (UMB-COL-010, UMB-NUM-006). |
+
+### Controles y formularios
+
+| Componente | Veredicto | Lo que aplica |
+|---|---|---|
+| `button` | adapta | Rectángulo de 1px sin relleno para el secundario (UMB-LAY-008). Radio, sombra y altura fuera. |
+| `button-group` | adopta | — |
+| `toggle` | adapta | El estado activo mueve borde y texto a `signal` (UMB-LAY-008). |
+| `toggle-group` | adopta | Es el control segmentado. Forma canónica de UMB-LAY-008. |
+| `switch` | rechaza | `rounded-full` es una píldora. Usa el control segmentado o una casilla. |
+| `checkbox` | adopta | Área táctil de 44px. El radio baja a 0. |
+| `radio-group` | adopta | Área táctil de 44px. |
+| `input` | adapta | Radio, sombra y altura fuera. El borde es de 1px en `border`. |
+| `input-group` | adopta | — |
+| `input-otp` | adopta | Las casillas van en mono (UMB-TYP-004). |
+| `native-select` | adopta | Preferido sobre `select`. El control nativo ya trae su accesibilidad. |
+| `select` | adopta | Úsalo solo cuando `native-select` no alcance. |
+| `combobox` | adopta | — |
+| `command` | adopta | Capa superpuesta: UMB-A11Y-008. |
+| `context-menu` | adopta | Toda acción del menú tiene otra ruta. El clic derecho no se descubre solo. |
+| `dropdown-menu` | adopta | Capa superpuesta: UMB-A11Y-008. |
+| `textarea` | adopta | El ancho se acota con la medida de UMB-LAY-003. |
+| `label` | adopta | Todo campo lleva etiqueta visible. El `placeholder` no es una etiqueta. |
+| `field` | adopta | — |
+| `form` | adopta | El error se nombra con palabras, no solo con color (UMB-A11Y-005). |
+| `slider` | adapta | Lleva su valor en cifra, en mono. El pulgar alcanza 44px. |
+| `calendar` | adopta | Las fechas van en ISO dentro del dato (UMB-NUM-003). |
+| `date-picker` | adopta | Composición de `calendar` y `popover`. |
+| `kbd` | adopta | Mono, por definición. |
+
+### Estado y retroalimentación
+
+| Componente | Veredicto | Lo que aplica |
+|---|---|---|
+| `alert` | adapta | La severidad se nombra con palabras. `alert` solo marca advertencia (UMB-COL-004). |
+| `badge` | adapta | `rounded-full` fuera. Rectángulo de 1px en mono minúsculas. |
+| `progress` | adapta | Lleva su porcentaje en cifra. El símbolo va pegado al número (UMB-NUM-004). |
+| `skeleton` | adapta | Respeta `prefers-reduced-motion` (UMB-A11Y-007). No imita la forma del dato que falta. |
+| `spinner` | adapta | Respeta `prefers-reduced-motion`. |
+| `sonner` | adapta | Confirma una acción. Nunca lleva un hallazgo ni una cifra. Ver OQ-011. |
+| `toast` | adapta | Igual que `sonner`. |
+| `avatar` | adapta | Nunca para una persona de un conjunto de datos (UMB-MET-004). Equipo y autoría, sí. |
+
+### Datos
+
+| Componente | Veredicto | Lo que aplica |
+|---|---|---|
+| `table` | adopta | Ya especificado en [04 · Layout](04-layout.md) § Tablas de datos. |
+| `data-table` | adopta | Composición sobre `table`. Las cifras en mono, alineadas a la derecha. |
+| `chart` | rechaza | Umbral grafica con `@umbralmx/umbral-plot`. Doce reglas UMB-CHT lo gobiernan. |
+| `carousel` | rechaza | Esconde contenido detrás de movimiento. Pon las piezas una junto a otra. |
+| `typography` | adapta | Umbral tiene su propia escala. Ver [03 · Tipografía](03-tipografia.md). |
+
+### Fuera de alcance
+
+`attachment` · `bubble` · `message` · `message-scroller` · `questionnaire` · `marker`
+
+Son las piezas de chat del catálogo. Umbral no publica un producto de conversación. Si algún día lo
+hace, este capítulo gana una sección y no antes.
+
+## Los tres rechazos, con su razón
+
+**`switch`.** La forma es una píldora, y la píldora está en la lista de nunca. No es un detalle de
+estilo: un interruptor sin píldora deja de leerse como interruptor. Sustituirlo por el control
+segmentado nombra los dos estados con palabras, que es mejor de todos modos.
+
+**`chart`.** El componente de shadcn envuelve otra librería de gráficas. Umbral ya tiene marco,
+tema, rampas y ayudas de incertidumbre en `@umbralmx/umbral-plot`. Un segundo sistema de gráficas
+crearía un segundo lugar donde vive un color. Ese es exactamente el defecto que la cadena normativa
+existe para impedir.
+
+**`carousel`.** La encuesta de Framer de 1.3 ya lo excluyó por su nombre. El carrusel esconde
+contenido detrás de una interacción y pelea con `prefers-reduced-motion`. Si las piezas importan,
+caben una junto a otra. Si no importan, bórralas.
+
+## Lo que este capítulo no decide
+
+Dos preguntas quedaron abiertas y están en `audit/open-questions.md`.
+
+**OQ-011** pregunta qué puede llevar un mensaje transitorio. Un `toast` desaparece solo. Un hallazgo
+que desaparece solo no se puede citar ni verificar.
+
+**OQ-012** pregunta cómo se trata el estado deshabilitado. UMB-COL-005 exige 4.5:1 a todo texto. El
+texto deshabilitado se dibuja por debajo de ese umbral en casi todos los sistemas, a propósito.
+
+## Antes de construir un componente
+
+- [ ] La forma existe en este catálogo y su veredicto no es rechaza
+- [ ] Las cinco correcciones sistemáticas están aplicadas
+- [ ] Ningún color, radio ni espaciado escrito a mano; todos desde `tokens/build/`
+- [ ] Si es una capa superpuesta, cumple UMB-A11Y-008 recorrido con teclado
+- [ ] El área táctil mide 44px o más
+- [ ] Ningún significado descansa solo en el color
+- [ ] Toda cifra va en mono
+- [ ] `:focus-visible` se dibuja en `signal`

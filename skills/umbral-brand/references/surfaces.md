@@ -1,5 +1,5 @@
 <!-- references/surfaces.md — GENERATED from the normative layer of
-     umbralmx/umbral-style-guide v1.4.0. Do not edit; regenerate. -->
+     umbralmx/umbral-style-guide v1.5.0. Do not edit; regenerate. -->
 
 # Surfaces
 
@@ -79,10 +79,10 @@ data layer — in a dashboard it means *one series in signal per chart*. Widget 
 
 | Surface | Rules |
 |---|---|
-| `web` | 73 |
-| `framework` | 73 |
-| `quarto` | 72 |
-| `streamlit` | 70 |
+| `web` | 74 |
+| `framework` | 74 |
+| `quarto` | 73 |
+| `streamlit` | 71 |
 | `slides` | 63 |
 | `notebook` | 61 |
 | `social` | 58 |
