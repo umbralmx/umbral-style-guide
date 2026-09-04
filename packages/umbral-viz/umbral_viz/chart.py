@@ -17,8 +17,8 @@ from dataclasses import dataclass
 
 from . import tokens
 
-_SNAPSHOT = re.compile(r"consultado\s+\d{4}-\d{2}|\b[a-z][\w-]*-\d{4}-\d{2}\b", re.I)
-_LICENCE = re.compile(r"CC BY|MIT|dominio p[úu]blico", re.I)
+_ACCESSED = re.compile(r"\d{4}-\d{2}-\d{2}")
+_BUILT = re.compile(r"acumulad|total|tasa|promedio|mediana|cambio|porcentaje|suma|\d{4}", re.I)
 
 
 class MissingSource(ValueError):
@@ -31,56 +31,65 @@ class Frame:
 
     >>> f = Frame(
     ...     title="El RNPDNO acumula 351,057 registros con hechos entre 2010-01 y 2026-07",
-    ...     subtitle="México · registros por mes de la fecha de hechos",
-    ...     source="RNPDNO (CNB/SEGOB)",
-    ...     accessed="2026-07-09",
-    ...     snapshot="rnpdno-2026-07",
+    ...     subtitle="Suma acumulada de personas desaparecidas por estado, 2021-2026",
+    ...     source="Elaboración propia con datos del RNPDNO (CNB/SEGOB)",
+    ...     accessed="2026-07-20",
     ... )
     >>> f.source_line()
-    'Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0'
+    'Fuente: Elaboración propia con datos del RNPDNO (CNB/SEGOB). Consulta realizada el 2026-07-20.'
+    >>> f.site_line()
+    'umbral.org.mx'
     """
 
     title: str
     subtitle: str
     source: str
     accessed: str = ""
-    snapshot: str = ""
-    licence: str = "CC BY 4.0"
-    site: str = "umbral.mx"
+    site: str = "umbral.org.mx"
     strict: bool = True
 
     def __post_init__(self) -> None:
         if not self.source or not self.source.strip():
             raise MissingSource(
-                "a chart needs its source (UMB-CHT-003). Pass source=, and ideally "
-                "accessed= and snapshot= — the RNPDNO's counts change between queries, "
-                "so a chart without a snapshot tag cannot be reconciled later.")
+                "a chart needs its source (UMB-CHT-003). Pass source= and accessed= — "
+                "the RNPDNO's counts change between queries, so a chart with no access "
+                "date cannot be reconciled later. The snapshot tag and the licence "
+                "belong on the page (UMB-DAT-002, UMB-DAT-004), not on this line.")
         if not self.title.strip():
             raise ValueError("a chart title states the finding as a sentence (UMB-CHT-001)")
         if self.strict and not self.subtitle.strip():
             raise ValueError(
-                "a chart needs a subtitle with geography, period and unit (UMB-CHT-002). "
-                "Pass strict=False only for a deliberately bare figure.")
+                "a chart subtitle says how the figure is built — the transformation, "
+                "the unit, the scope and the period (UMB-CHT-002). «Suma acumulada de "
+                "personas desaparecidas por estado, 2021-2026». Pass strict=False only "
+                "for a deliberately bare figure.")
 
     # ── rendering ─────────────────────────────────────────────────────────
-    # umbral-lint: ignore[snapshot-tag] — the line below is assembled, not quoted
     def source_line(self) -> str:
-        parts = [f"Fuente: {self.source.strip()}"]
+        """The left half: where the data came from, and when it was read.
+
+        The licence and the snapshot tag are deliberately absent. They live on the
+        page (UMB-DAT-004, UMB-DAT-002). A five-field line does not survive a social
+        card or a slide, which is what 2.0 fixed.
+        """
+        # umbral-lint: ignore[snapshot-tag] — assembled here, not quoted
+        origin = self.source.strip().rstrip(".")
+        line = f"Fuente: {origin}."
         if self.accessed:
-            parts.append(f"consultado {self.accessed}")
-        if self.snapshot:
-            parts.append(self.snapshot)
-        parts += [self.site, f"datos {self.licence}"]
-        return " · ".join(parts)
+            line += f" Consulta realizada el {self.accessed}."
+        return line
+
+    def site_line(self) -> str:
+        """The right half: the attribution, read at a glance."""
+        return self.site.strip()
 
     def warnings(self) -> list[str]:
         """Non-fatal gaps worth surfacing in review."""
         out = []
-        line = self.source_line()
-        if not _SNAPSHOT.search(line):
-            out.append("source line names no access date or snapshot tag (UMB-DAT-002)")
-        if not _LICENCE.search(line):
-            out.append("source line names no licence (UMB-DAT-004)")
+        if not _ACCESSED.search(self.accessed):
+            out.append('no ISO access date; pass accessed="2026-07-20" (UMB-CHT-003)')
+        if not _BUILT.search(self.subtitle or ""):
+            out.append("the subtitle names no transformation and no period (UMB-CHT-002)")
         if self.title.rstrip().endswith("."):
             out.append("chart titles carry no full stop")
         if len(self.title.split()) < 4:

@@ -105,7 +105,7 @@ website:
       - reglas.qmd
       - checklist.qmd
   page-footer:
-    left: "umbral_ · v1.6.0"
+    left: "umbral_ · v2.0.0"
     center: "Código MIT · contenido CC BY 4.0"
     right: "[Repositorio](https://github.com/umbralmx/umbral-style-guide)"
 

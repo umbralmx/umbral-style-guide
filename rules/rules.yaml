@@ -13,7 +13,7 @@
 #
 # Validated against rules.schema.json. Built to rules.json by `npm run build:rules`.
 
-version: "1.6.0"
+version: "2.0.0"
 
 categories:
   brand:   { label: "Marca",              label_en: "Brand" }
@@ -638,40 +638,53 @@ rules:
     see_also: [UMB-MET-002]
 
   - id: UMB-CHT-002
-    title: "Toda gráfica lleva subtítulo con geografía, periodo y unidad"
-    title_en: "Every chart carries a subtitle with geography, period and unit"
+    title: "Toda gráfica lleva subtítulo que dice cómo está construida la cifra"
+    title_en: "Every chart carries a subtitle saying how its figure is built"
     category: chart
     severity: error
     applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
-      Sin unidad y sin periodo, la cifra no significa nada. La gráfica pierde su contexto en
-      cuanto alguien la captura de pantalla.
-    do: "Escribe «México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente»."
-    dont: "No dejes la unidad implícita en el eje."
+      El título dice qué se encontró. El subtítulo dice qué se está mirando. Una suma
+      acumulada y un total anual dibujan curvas distintas con los mismos datos. Sin nombrar
+      la transformación, el lector no sabe cuál de las dos tiene enfrente.
+    do: >
+      Nombra la transformación, la unidad, el alcance y el periodo, en una frase.
+      «Suma acumulada de personas desaparecidas por estado, 2021-2026».
+    dont: >
+      No pongas solo campos separados por puntos medios. No dejes implícito si la cifra es
+      total, acumulada, tasa o cambio porcentual.
     check:
       type: review
       note: >
-        La presencia del subtítulo es detectable. Su suficiencia —geografía, periodo, unidad— no lo es.
+        La presencia del subtítulo es detectable. Que nombre la transformación no lo es.
         Se comprueba en revisión hasta que exista una comprobación fiable.
     since: "1.0"
     guide: "08-anatomia-grafica"
 
   - id: UMB-CHT-003
-    title: "Toda gráfica lleva su línea de fuente con licencia, sobre una regla de 1px"
-    title_en: "Every chart carries its source line with licence, above a 1px rule"
+    title: "Toda gráfica lleva su línea de fuente sobre una regla de 1px, con el sitio a la derecha"
+    title_en: "Every chart carries its source line above a 1px rule, with the site on the right"
     category: chart
     severity: error
     applies_to: [web, framework, streamlit, quarto, notebook, slides, social, print]
     rationale: >
-      La fuente y su licencia son lo que permite que otra persona rehaga el cálculo. La
-      gráfica circula sin su página, y la línea de fuente es lo único que viaja con ella.
-    do: "Escribe «Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0»."
-    dont: "No publiques una gráfica sin fuente. No dejes la fuente solo en el texto que la rodea."
+      La gráfica circula sin su página. La línea de fuente es lo único que viaja con ella.
+      Dice de dónde salió el dato y cuándo se consultó, que es lo que permite rehacer el
+      cálculo. El sitio va a la derecha para que la atribución se lea de un vistazo.
+    do: >
+      A la izquierda, «Fuente: Elaboración propia con datos del RNPDNO (CNB/SEGOB).
+      Consulta realizada el 2026-07-20.» A la derecha, «umbral.org.mx».
+    dont: >
+      No publiques una gráfica sin fuente. No dejes la fuente solo en el texto que la rodea.
+      No metas la licencia ni la etiqueta del corte en esta línea: van en la página.
     check: { type: automated, tool: umbral-lint, id: chart-source-present }
     since: "1.0"
-    evidence: "desaparecidosmx es el mejor ejemplo del portafolio: incluye la etiqueta del snapshot."
+    evidence: >
+      En 2.0 la línea se simplificó. La licencia y la etiqueta del corte se movieron a la
+      página, porque una línea de cinco campos no se lee en una tarjeta social ni en una
+      diapositiva. Lo que viaja con la gráfica es el origen, la fecha de consulta y el sitio.
     guide: "08-anatomia-grafica"
-    see_also: [UMB-DAT-002]
+    see_also: [UMB-DAT-002, UMB-DAT-004]
 
   - id: UMB-CHT-004
     title: "Solo hay líneas de retícula horizontales, con la línea base más oscura"
@@ -1061,19 +1074,25 @@ rules:
     guide: "12-datos-procedencia"
 
   - id: UMB-DAT-002
-    title: "Los snapshots se etiquetan y la gráfica dice cuál usó"
-    title_en: "Snapshots are tagged and the chart states which one it used"
+    title: "Los snapshots se etiquetan y la página dice cuál usó"
+    title_en: "Snapshots are tagged and the page states which one it used"
     category: data
     severity: error
     applies_to: [repo, quarto, notebook, streamlit, web, framework, slides, social, print]
     rationale: >
       El RNPDNO es un registro vivo y sus conteos cambian entre consultas. Sin la etiqueta del
       snapshot, dos gráficas correctas parecen contradecirse.
-    do: "Etiqueta el corte como rnpdno-2026-07 y pon esa etiqueta en la línea de fuente."
-    dont: "No escribas «Fuente: RNPDNO» sin fecha de consulta."
+    do: >
+      Etiqueta el corte como rnpdno-2026-07 y declara esa etiqueta en la página, junto al
+      enlace al CSV. La línea de fuente de la gráfica lleva la fecha de consulta.
+    dont: >
+      No publiques una cifra de un registro vivo sin decir de qué corte salió. No escribas
+      «Fuente: RNPDNO» sin fecha de consulta.
     check: { type: automated, tool: umbral-lint, id: snapshot-tag }
     since: "1.0"
-    evidence: "desaparecidosmx ya lo hace: «consultado 2026-07-09 · rnpdno-2026-07»."
+    evidence: >
+      desaparecidosmx ya lo hacía en la línea de fuente. En 2.0 la etiqueta se movió a la
+      página, donde cabe junto al CSV y al SOURCE.md que la explican.
     guide: "12-datos-procedencia"
     see_also: [UMB-CHT-003]
 
@@ -1101,8 +1120,12 @@ rules:
     rationale: >
       Los datos públicos regresan al público, mejorados. La licencia explícita es lo que lo
       hace cierto en la práctica.
-    do: "Pon LICENSE-CODE y LICENSE-CONTENT en la raíz y nombra la licencia en cada línea de fuente."
-    dont: "No publiques sin licencia confiando en que se entiende."
+    do: >
+      Pon LICENSE-CODE y LICENSE-CONTENT en la raíz y nombra la licencia en la página que
+      publica la gráfica, junto al enlace al CSV.
+    dont: >
+      No publiques sin licencia confiando en que se entiende. No la metas en la línea de
+      fuente de cada gráfica: ahí no cabe y no se lee.
     check: { type: automated, tool: umbral-lint, id: license-present }
     since: "1.0"
     guide: "12-datos-procedencia"

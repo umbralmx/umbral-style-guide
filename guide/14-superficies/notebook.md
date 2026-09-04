@@ -36,7 +36,7 @@ documento.
 ax.set_title("Los registros crecen 9% anual desde 2015", loc="left")
 ax.set_xlabel("")
 fig.text(0.01, -0.02,
-         "Fuente: RNPDNO · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · CC BY 4.0",
+         "Fuente: RNPDNO · consultado 2026-07-09 · rnpdno-2026-07 · umbral.org.mx · CC BY 4.0",
          family=tokens.FONT["mono"], size=9, color=tokens.LABORATORIO["caption"])
 ```
 

@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.6.0
+[umbral]{.u-brand} guía de estilo · v2.0.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -88,6 +88,6 @@ La terminología no es preferencia de estilo. Ver [15 · Terminología](/guide/1
 - [ ] ¿La terminología sigue el glosario?
 
 ::: {.u-foot}
-umbral_ · v1.6.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v2.0.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::

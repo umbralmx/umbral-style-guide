@@ -180,7 +180,7 @@ def check_file(p: pathlib.Path) -> None:
         if plots and not re.search(r"Fuente\s*:", text, re.I):
             report("UMB-CHT-003", "error", p, text[:plots.start()].count("\n") + 1,
                    "chart code with no source line",
-                   "Fuente: ORIGEN · consultado FECHA · SNAPSHOT · umbral.mx · CC BY 4.0")
+                   "Fuente: ORIGEN · consultado FECHA · SNAPSHOT · umbral.org.mx · CC BY 4.0")
 
 
 def walk(root: pathlib.Path):

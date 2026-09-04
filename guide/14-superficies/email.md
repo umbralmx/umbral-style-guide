@@ -46,7 +46,7 @@ Dos o tres párrafos.
 
 Fuente · licencia · enlace a los datos
 ─────────────────────────────────────
-Darse de baja · umbral.mx
+Darse de baja · umbral.org.mx
 ```
 
 Ancho de 600px. Medida de 65 caracteres. Cuerpo de 16px como mínimo.

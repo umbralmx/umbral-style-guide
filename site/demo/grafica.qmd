@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.6.0
+[umbral]{.u-brand} guía de estilo · v2.0.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -34,7 +34,7 @@ El dato viene de [Actas Abiertas — Cabildo de Colima](https://umbralmx.github.
     <summary style="font-family:var(--u-font-mono);font-size:12px;color:var(--u-caption);cursor:pointer">Ver los datos</summary>
     <div id="u-table"></div>
   </details>
-  <figcaption>Fuente: Ayuntamiento de Colima, actas de cabildo · consultado 2026-07-26 · cabildo-2026-07 · umbral.mx · estructura CC BY 4.0
+  <figcaption>Fuente: Elaboración propia con actas de cabildo del Ayuntamiento de Colima. Consulta realizada el 2026-07-26.
     <a href="../data/sesiones-por-anio.csv" download style="margin-left:12px">Descargar CSV</a>
   </figcaption>
 </figure>
@@ -125,6 +125,6 @@ setMode('laboratorio');
 - **Reproducible**: `npm run build:site` reconstruye el CSV desde `data/raw/`.
 
 ::: {.u-foot}
-umbral_ · v1.6.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v2.0.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::

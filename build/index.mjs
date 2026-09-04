@@ -570,7 +570,7 @@ StyleDictionary.registerFormat({
 
 meta:
   name: umbral_
-  link: https://umbral.mx
+  link: https://umbral.org.mx
 
 logo:
   images:

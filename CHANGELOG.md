@@ -8,6 +8,72 @@ Semver applies to the **design system**, not just the code (UMB-PRO-004):
 
 ---
 
+## 2.0.0 — 2026-09-04
+
+**Breaking.** Every chart's subtitle and source line changes. Four rules change with them. No token
+value changed, so nothing re-renders — but every chart the lab has published is now non-conformant
+and needs its frame rewritten.
+
+The title does not change. It still states the finding as a sentence (UMB-CHT-001).
+
+### The subtitle now says how the figure is built
+
+It was `geografía · periodo · unidad`, three fields joined by middots. It is now a phrase naming
+four things: the transformation, the unit, the scope and the period.
+
+```
+antes:   México · registros por mes de la fecha de hechos
+después: Suma acumulada de personas desaparecidas por estado, 2021-2026
+         Totales anuales y cambio porcentual respecto al año anterior, 2021-2026
+         Tasa de desaparición por 100 mil habitantes, por estado, 2024
+```
+
+The transformation is the part that could not be omitted and had no home. A cumulative sum and an
+annual total draw different curves from the same data, and the old subtitle named neither.
+
+### The source line has two sides
+
+<!-- umbral-lint: ignore[snapshot-tag] — antes/después, no líneas de fuente reales -->
+```
+antes:   Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0
+después: Fuente: Elaboración propia con datos del RNPDNO (CNB/SEGOB).        umbral.org.mx
+                 Consulta realizada el 2026-07-20.
+```
+
+Left: where the data came from, and when it was read. Right: the site. Five fields on one line did
+not survive a social card or a slide.
+
+`Elaboración propia con datos de …` is now the standard opening. It is the accurate description
+almost every time: the calculation is ours, the raw data is someone else's.
+
+### Rules changed
+
+- **UMB-CHT-002** — the subtitle names the construction, not three metadata fields.
+- **UMB-CHT-003** — the source line is two-sided, and carries neither licence nor snapshot tag.
+- **UMB-DAT-002** — the snapshot tag moves from the chart to the **page**, next to the CSV link.
+- **UMB-DAT-004** — the licence moves from every source line to the **page**.
+
+The last two are relaxations at the chart and tightenings nowhere. A chart that travels alone now
+carries no licence. That was the deliberate trade for a line people will actually read.
+
+### Also
+
+- `umbral.mx` is `umbral.org.mx` everywhere. The repo had been citing a domain the lab does not
+  publish on.
+- `Frame` in both packages drops `snapshot` and `licence` parameters and gains `siteLine()`. Its
+  `warnings()` now flags a subtitle that names no transformation and no period.
+- `umbral-lint`'s `snapshot-tag` check accepts `Consulta realizada el AAAA-MM-DD`.
+- Dates stay ISO. `20-07-2026` is ambiguous between conventions and `date-format` rejects it
+  (UMB-NUM-003), so the line reads `Consulta realizada el 2026-07-20`.
+
+### Migration
+
+Every chart in `desaparecidosmx`, `pautamx`, `cabildo-libre` and `umbral.org.mx` needs a new
+subtitle and a new source line. `Frame` still refuses to construct without a source. It now also warns on a
+subtitle that names no transformation. The packages point at the work rather than hiding it.
+
+---
+
 ## 1.6.0 — 2026-09-03
 
 The ten components, built. No new rule, no token change. `@umbralmx/umbral-plot` gains one public

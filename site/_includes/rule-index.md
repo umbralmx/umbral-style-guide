@@ -60,8 +60,8 @@
 | ID | | Regla | Comprobación |
 |---|---|---|---|
 | [`UMB-CHT-001`](#umb-cht-001) | ■ | El título de la gráfica enuncia el hallazgo como oración completa | review |
-| [`UMB-CHT-002`](#umb-cht-002) | ■ | Toda gráfica lleva subtítulo con geografía, periodo y unidad | review |
-| [`UMB-CHT-003`](#umb-cht-003) | ■ | Toda gráfica lleva su línea de fuente con licencia, sobre una regla de 1px | `chart-source-present` |
+| [`UMB-CHT-002`](#umb-cht-002) | ■ | Toda gráfica lleva subtítulo que dice cómo está construida la cifra | review |
+| [`UMB-CHT-003`](#umb-cht-003) | ■ | Toda gráfica lleva su línea de fuente sobre una regla de 1px, con el sitio a la derecha | `chart-source-present` |
 | [`UMB-CHT-004`](#umb-cht-004) | ■ | Solo hay líneas de retícula horizontales, con la línea base más oscura | review |
 | [`UMB-CHT-005`](#umb-cht-005) | ■ | Las series se etiquetan directamente al final de la línea; no hay caja de leyenda | review |
 | [`UMB-CHT-006`](#umb-cht-006) | ▲ | Una gráfica lleva como máximo 5 series | review |
@@ -98,7 +98,7 @@
 | ID | | Regla | Comprobación |
 |---|---|---|---|
 | [`UMB-DAT-001`](#umb-dat-001) | ■ | Todo conjunto de datos lleva su SOURCE.md | `source-md-present` |
-| [`UMB-DAT-002`](#umb-dat-002) | ■ | Los snapshots se etiquetan y la gráfica dice cuál usó | `snapshot-tag` |
+| [`UMB-DAT-002`](#umb-dat-002) | ■ | Los snapshots se etiquetan y la página dice cuál usó | `snapshot-tag` |
 | [`UMB-DAT-003`](#umb-dat-003) | ■ | Toda figura publicada se reconstruye desde el dato crudo con un solo comando | manual |
 | [`UMB-DAT-004`](#umb-dat-004) | ■ | El código va bajo MIT y los datos y el contenido bajo CC BY 4.0 | `license-present` |
 | [`UMB-DAT-005`](#umb-dat-005) | ■ | Los datos faltantes o subreportados se declaran; no se omiten ni se imputan en silencio | review |

@@ -32,7 +32,7 @@ pesos y el color de enlace, que es `signal-text` y no `signal`. No lo edites.
 
 ```{r}
 #| label: fig-registros
-#| fig-cap: "Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · CC BY 4.0"
+#| fig-cap: "Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.org.mx · CC BY 4.0"
 #| fig-alt: "El RNPDNO acumula 351,057 registros con hechos entre 2010-01 y 2026-07"
 source("R/tema-umbral.R")
 ```

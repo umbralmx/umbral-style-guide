@@ -9,7 +9,7 @@ Las gráficas son el corazón de la marca. Toda gráfica, en todo medio, lleva e
 
 ```
 El RNPDNO acumula 351,057 registros con hechos entre 2010-01 y 2026-07   ← título: el hallazgo
-México · registros por mes de la fecha de hechos                          ← subtítulo: geo · unidad
+Suma acumulada de personas desaparecidas por estado, 2021-2026            ← subtítulo: cómo se construyó
                                                                         
   3.5k ┤                                            ╱╲                    ← eje mono, abreviado
        │                                      ╱╲  ╱   ╲          
@@ -19,8 +19,7 @@ México · registros por mes de la fecha de hechos                          ← 
        └────────────────────────────────────────────────────           ← línea base más oscura
         2010        2015        2020        2025
        ────────────────────────────────────────────────────           ← regla de 1px
-       Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 ·             ← fuente en mono
-       rnpdno-2026-07 · umbral.mx · datos CC BY 4.0
+       Fuente: … Consulta realizada el 2026-07-20.   umbral.org.mx   ← dos lados
 ```
 
 ## El título enuncia el hallazgo
@@ -33,24 +32,57 @@ Space Grotesk 500, 22px, alineado a la izquierda con el eje. Una oración comple
 
 {{< include _includes/rules/UMB-CHT-002.md >}}
 
-Plex Sans, `muted`. Geografía · periodo · unidad, separados por `·`.
+Plex Sans, `muted`. Una frase, no una lista de campos separados por puntos medios.
 
-Aquí van las advertencias que el lector necesita antes de mirar: «el registro se actualiza
+El subtítulo responde una pregunta: **¿qué estoy mirando exactamente?** Cuatro cosas la contestan.
+
+| | Ejemplo |
+|---|---|
+| La transformación | suma acumulada, total anual, tasa por 100 mil, cambio porcentual |
+| La unidad | personas desaparecidas, registros, sesiones de cabildo |
+| El alcance | por estado, por municipio, nacional |
+| El periodo | 2021-2026, desde 2015 |
+
+```
+Suma acumulada de personas desaparecidas por estado, 2021-2026
+Totales anuales y cambio porcentual respecto al año anterior, 2021-2026
+Tasa de desaparición por 100 mil habitantes, por estado, 2024
+```
+
+La transformación es la parte que no se puede omitir. Si al leer el subtítulo no puedes decir qué
+operación se aplicó al dato crudo, el subtítulo no está terminado.
+
+Aquí van también las advertencias que el lector necesita antes de mirar: «el registro se actualiza
 retroactivamente», «la banda es el intervalo que publica Meta».
 
 ## La línea de fuente
 
 {{< include _includes/rules/UMB-CHT-003.md >}}
 
-Plex Mono 12px, `caption`, encima de una regla de 1px. El orden es fijo:
+Plex Mono 12px, `caption`, encima de una regla de 1px. Tiene dos lados.
 
 ```
 <!-- umbral-lint: ignore[snapshot-tag] — plantilla, no una línea de fuente real -->
-Fuente: ORIGEN · consultado FECHA · TAG-DE-SNAPSHOT · umbral.mx · datos CC BY 4.0
+Fuente: Elaboración propia con datos de ORIGEN.          umbral.org.mx
+Consulta realizada el AAAA-MM-DD.
 ```
 
-La gráfica circula sin su página en cuanto alguien la captura de pantalla. La línea de fuente es lo
-único que viaja con ella.
+A la izquierda, de dónde salió el dato y cuándo se leyó. A la derecha, el sitio. En una pantalla
+angosta los dos lados se apilan en lugar de chocar.
+
+«Elaboración propia con datos de …» es la forma correcta cuando el cálculo es nuestro y el dato
+crudo es de alguien más. Ese es el caso casi siempre.
+
+::: {.u-note}
+**qué ya no va en esta línea**
+
+Hasta 1.6 la línea llevaba cinco campos: origen, consulta, corte, sitio y licencia. No se leía en
+una tarjeta social ni en una diapositiva.
+
+Desde 2.0 la licencia vive en la página (UMB-DAT-004) y la etiqueta del corte también, junto al
+enlace al CSV (UMB-DAT-002). Lo que viaja con la gráfica es lo mínimo para rehacer el cálculo.
+
+:::
 
 ## La retícula
 

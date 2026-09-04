@@ -646,7 +646,7 @@ ${specimen("'IBM Plex Sans'", 400, '17px',
 
 ${specimen("'IBM Plex Mono'", 400, '17px', '351,057 &middot; 12.5% &middot; 2026-07-09 &middot; 3.7M')}
 ${specimen("'IBM Plex Mono'", 400, '12px',
-    'Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0')}
+    'Fuente: Elaboración propia con datos del RNPDNO (CNB/SEGOB). Consulta realizada el 2026-07-09.')}
 
 Los numerales tabulares alinean los dígitos, que es la razón de usar mono en cualquier cifra que se
 compare columna contra columna.
@@ -711,7 +711,7 @@ ${pair('El título',
     + 'gráfica y, por lo tanto, discutir (UMB-CHT-001).')}
 
 ${pair('La línea de fuente',
-    '<span class="u-source">Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0</span>',
+    '<span class="u-source">Fuente: Elaboración propia con datos del RNPDNO (CNB/SEGOB). Consulta realizada el 2026-07-09.</span>',
     '<span class="u-source">Fuente: RNPDNO</span>',
     'Sin fecha de consulta ni etiqueta de snapshot, dos gráficas correctas hechas con dos semanas '
     + 'de diferencia parecen contradecirse (UMB-DAT-002).')}
@@ -801,7 +801,7 @@ ${meta.points.toLocaleString('en-US')} puntos de órden del día, reconstruidos 
     <summary style="font-family:var(--u-font-mono);font-size:12px;color:var(--u-caption);cursor:pointer">Ver los datos</summary>
     <div id="u-table"></div>
   </details>
-  <figcaption>Fuente: Ayuntamiento de Colima, actas de cabildo · consultado 2026-07-26 · cabildo-2026-07 · umbral.mx · estructura CC BY 4.0
+  <figcaption>Fuente: Elaboración propia con actas de cabildo del Ayuntamiento de Colima. Consulta realizada el 2026-07-26.
     <a href="../data/sesiones-por-anio.csv" download style="margin-left:12px">Descargar CSV</a>
   </figcaption>
 </figure>

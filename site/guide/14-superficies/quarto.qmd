@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.6.0
+[umbral]{.u-brand} guía de estilo · v2.0.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -37,7 +37,7 @@ pesos y el color de enlace, que es `signal-text` y no `signal`. No lo edites.
 
 ```r
 #| label: fig-registros
-#| fig-cap: "Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · CC BY 4.0"
+#| fig-cap: "Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.org.mx · CC BY 4.0"
 #| fig-alt: "El RNPDNO acumula 351,057 registros con hechos entre 2010-01 y 2026-07"
 source("R/tema-umbral.R")
 ```
@@ -81,6 +81,6 @@ la figura no se reconstruye desde el dato crudo, no se publica (UMB-DAT-003).
 - [ ] El documento renderiza limpio desde cero
 
 ::: {.u-foot}
-umbral_ · v1.6.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v2.0.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::

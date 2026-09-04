@@ -3,20 +3,22 @@
 
 **■ UMB-CHT-003** · Gráficas · error
 
-### Toda gráfica lleva su línea de fuente con licencia, sobre una regla de 1px
+### Toda gráfica lleva su línea de fuente sobre una regla de 1px, con el sitio a la derecha
 
-La fuente y su licencia son lo que permite que otra persona rehaga el cálculo. La gráfica circula sin su página, y la línea de fuente es lo único que viaja con ella.
+La gráfica circula sin su página. La línea de fuente es lo único que viaja con ella. Dice de dónde salió el dato y cuándo se consultó, que es lo que permite rehacer el cálculo. El sitio va a la derecha para que la atribución se lea de un vistazo.
 
 | | |
 |---|---|
-| **Sí** | Escribe «Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0». |
-| **No** | No publiques una gráfica sin fuente. No dejes la fuente solo en el texto que la rodea. |
+| **Sí** | A la izquierda, «Fuente: Elaboración propia con datos del RNPDNO (CNB/SEGOB). Consulta realizada el 2026-07-20.» A la derecha, «umbral.org.mx».
+ |
+| **No** | No publiques una gráfica sin fuente. No dejes la fuente solo en el texto que la rodea. No metas la licencia ni la etiqueta del corte en esta línea: van en la página.
+ |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `chart-source-present`.
 
-*Origen:* desaparecidosmx es el mejor ejemplo del portafolio: incluye la etiqueta del snapshot.
+*Origen:* En 2.0 la línea se simplificó. La licencia y la etiqueta del corte se movieron a la página, porque una línea de cinco campos no se lee en una tarjeta social ni en una diapositiva. Lo que viaja con la gráfica es el origen, la fecha de consulta y el sitio.
 
-*Ver también:* UMB-DAT-002
+*Ver también:* UMB-DAT-002 · UMB-DAT-004
 
 <small>Desde v1.0. Regla normativa: `rules/rules.yaml`.</small>
 

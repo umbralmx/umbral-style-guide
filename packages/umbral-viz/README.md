@@ -22,7 +22,7 @@ frame = uv.Frame(
     source="RNPDNO (CNB/SEGOB)", accessed="2026-07-09", snapshot="rnpdno-2026-07",
 )
 frame.apply_matplotlib(fig, ax)
-frame.source_line()   # Fuente: … · consultado … · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0
+frame.source_line()   # Fuente: … · consultado … · rnpdno-2026-07 · umbral.org.mx · datos CC BY 4.0
 frame.warnings()      # non-fatal gaps worth raising in review
 ```
 

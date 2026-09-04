@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.6.0
+[umbral]{.u-brand} guía de estilo · v2.0.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -29,7 +29,7 @@ Peso **500** siempre. El 600 existe solo para etiquetas pequeñas. **El 700 no e
 ## IBM Plex Mono — cifras, ejes y fuentes
 
 <div class="u-specimen" style="font-family:'IBM Plex Mono';font-weight:400;font-size:17px;letter-spacing:normal;line-height:1.2">351,057 &middot; 12.5% &middot; 2026-07-09 &middot; 3.7M</div>
-<div class="u-specimen" style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:normal;line-height:1.2">Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0</div>
+<div class="u-specimen" style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:normal;line-height:1.2">Fuente: Elaboración propia con datos del RNPDNO (CNB/SEGOB). Consulta realizada el 2026-07-09.</div>
 
 Los numerales tabulares alinean los dígitos, que es la razón de usar mono en cualquier cifra que se
 compare columna contra columna.
@@ -39,6 +39,6 @@ compare columna contra columna.
 {{< include /_includes/type-scale.md >}}
 
 ::: {.u-foot}
-umbral_ · v1.6.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v2.0.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::

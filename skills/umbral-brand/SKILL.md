@@ -46,7 +46,7 @@ panel (UMB-COL-007).
 2. **Chart titles state the finding, as a sentence.** «Los registros crecen 9% anual desde 2015»,
    not «Registros por año» (UMB-CHT-001).
 <!-- umbral-lint: ignore[snapshot-tag] — format template, not a real source line -->
-3. **Every chart has a source line.** `Fuente: ORIGEN · consultado FECHA · SNAPSHOT · umbral.mx ·
+3. **Every chart has a source line.** `Fuente: ORIGEN · consultado FECHA · SNAPSHOT · umbral.org.mx ·
    datos CC BY 4.0`. A chart circulates without its page; the source line is what travels with it
    (UMB-CHT-003).
 4. **Display type is Space Grotesk 500. Never 700.** The medium weight is the signature
@@ -115,7 +115,7 @@ Title that states the finding                      Space Grotesk 500
 Geography · period · unit                          Plex Sans, muted
 [ chart: horizontal gridlines only, darker baseline, no border ]
 ────────────────────────────────────────────       1px rule
-Fuente: … · umbral.mx · datos CC BY 4.0            Plex Mono, caption
+Fuente: … · umbral.org.mx · datos CC BY 4.0            Plex Mono, caption
 ```
 
 Plus: `aria-label` carrying the finding, an adjacent table or `<details>`, and a downloadable CSV.

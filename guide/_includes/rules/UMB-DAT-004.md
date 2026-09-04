@@ -9,8 +9,10 @@ Los datos públicos regresan al público, mejorados. La licencia explícita es l
 
 | | |
 |---|---|
-| **Sí** | Pon LICENSE-CODE y LICENSE-CONTENT en la raíz y nombra la licencia en cada línea de fuente. |
-| **No** | No publiques sin licencia confiando en que se entiende. |
+| **Sí** | Pon LICENSE-CODE y LICENSE-CONTENT en la raíz y nombra la licencia en la página que publica la gráfica, junto al enlace al CSV.
+ |
+| **No** | No publiques sin licencia confiando en que se entiende. No la metas en la línea de fuente de cada gráfica: ahí no cabe y no se lee.
+ |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `license-present`.
 

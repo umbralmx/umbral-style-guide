@@ -3,14 +3,16 @@
 
 **■ UMB-CHT-002** · Gráficas · error
 
-### Toda gráfica lleva subtítulo con geografía, periodo y unidad
+### Toda gráfica lleva subtítulo que dice cómo está construida la cifra
 
-Sin unidad y sin periodo, la cifra no significa nada. La gráfica pierde su contexto en cuanto alguien la captura de pantalla.
+El título dice qué se encontró. El subtítulo dice qué se está mirando. Una suma acumulada y un total anual dibujan curvas distintas con los mismos datos. Sin nombrar la transformación, el lector no sabe cuál de las dos tiene enfrente.
 
 | | |
 |---|---|
-| **Sí** | Escribe «México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente». |
-| **No** | No dejes la unidad implícita en el eje. |
+| **Sí** | Nombra la transformación, la unidad, el alcance y el periodo, en una frase. «Suma acumulada de personas desaparecidas por estado, 2021-2026».
+ |
+| **No** | No pongas solo campos separados por puntos medios. No dejes implícito si la cifra es total, acumulada, tasa o cambio porcentual.
+ |
 
 *Comprobación:* En revisión.
 

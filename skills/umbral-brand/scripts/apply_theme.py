@@ -96,7 +96,7 @@ ax.fill_between(x, lo, hi, color=t["signal"], alpha=0.15)   # uncertainty band
 # The frame is not optional — the theme cannot supply it.
 ax.set_title("Los registros crecen 9% anual desde 2015", loc="left")
 fig.text(0.01, -0.02,
-         "Fuente: RNPDNO · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · CC BY 4.0",
+         "Fuente: RNPDNO · consultado 2026-07-09 · rnpdno-2026-07 · umbral.org.mx · CC BY 4.0",
          family=font["mono"], size=9, color=t["caption"])''',
 
     "plotly": '''import json, plotly.graph_objects as go

@@ -1,5 +1,5 @@
 <!-- references/color.md — GENERATED from the normative layer of
-     umbralmx/umbral-style-guide v1.6.0. Do not edit; regenerate. -->
+     umbralmx/umbral-style-guide v2.0.0. Do not edit; regenerate. -->
 
 # Color
 

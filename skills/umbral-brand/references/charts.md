@@ -1,5 +1,5 @@
 <!-- references/charts.md — GENERATED from the normative layer of
-     umbralmx/umbral-style-guide v1.6.0. Do not edit; regenerate. -->
+     umbralmx/umbral-style-guide v2.0.0. Do not edit; regenerate. -->
 
 # Charts
 
@@ -13,7 +13,7 @@ Geography · period · unit                         Plex Sans, muted
 [ plot area ]                                     horizontal gridlines only,
                                                   darker baseline, no border, no fill
 ──────────────────────────────────────            1px rule
-Fuente: … · umbral.mx · datos CC BY 4.0           Plex Mono 12px, caption
+Fuente: … Consulta realizada el …      umbral.org.mx   Plex Mono 12px, caption
 ```
 
 Plus, always:
@@ -25,7 +25,9 @@ Plus, always:
 ## Source line format
 
 ```
-Fuente: ORIGEN (INSTITUCIÓN) · consultado AAAA-MM-DD · SNAPSHOT-TAG · umbral.mx · datos CC BY 4.0
+Fuente: Elaboración propia con datos de ORIGEN (INSTITUCIÓN). Consulta realizada el AAAA-MM-DD.
+…and umbral.org.mx on the right of the same rule. The licence and the snapshot tag go on the
+page, not in this line (UMB-DAT-004, UMB-DAT-002).
 ```
 
 The snapshot tag matters for live registers: the RNPDNO's counts for past months change between
@@ -93,12 +95,16 @@ places publishes two numbers for one fact.
 - **UMB-CHT-001** (**must**) — The chart title states the finding as a full sentence
   - do: Escribe «El gasto observable acumula ≥ 107.6 M MXN».
   - don't: No escribas «Gasto por mes».
-- **UMB-CHT-002** (**must**) — Every chart carries a subtitle with geography, period and unit
-  - do: Escribe «México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente».
-  - don't: No dejes la unidad implícita en el eje.
-- **UMB-CHT-003** (**must**) — Every chart carries its source line with licence, above a 1px rule
-  - do: Escribe «Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · datos CC BY 4.0».
-  - don't: No publiques una gráfica sin fuente. No dejes la fuente solo en el texto que la rodea.
+- **UMB-CHT-002** (**must**) — Every chart carries a subtitle saying how its figure is built
+  - do: Nombra la transformación, la unidad, el alcance y el periodo, en una frase. «Suma acumulada de personas desaparecidas por estado, 2021-2026».
+
+  - don't: No pongas solo campos separados por puntos medios. No dejes implícito si la cifra es total, acumulada, tasa o cambio porcentual.
+
+- **UMB-CHT-003** (**must**) — Every chart carries its source line above a 1px rule, with the site on the right
+  - do: A la izquierda, «Fuente: Elaboración propia con datos del RNPDNO (CNB/SEGOB). Consulta realizada el 2026-07-20.» A la derecha, «umbral.org.mx».
+
+  - don't: No publiques una gráfica sin fuente. No dejes la fuente solo en el texto que la rodea. No metas la licencia ni la etiqueta del corte en esta línea: van en la página.
+
 - **UMB-CHT-004** (**must**) — Horizontal gridlines only, with a darker baseline
   - do: Pon y.grid en true, x.grid en false, y la base en --u-baseline.
   - don't: No pongas retícula en ambos ejes. No dibujes un marco alrededor de la gráfica.

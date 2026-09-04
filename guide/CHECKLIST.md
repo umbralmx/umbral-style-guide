@@ -2,7 +2,7 @@
 
 # Checklist de entrega
 
-Umbral v1.6.0
+Umbral v2.0.0
 
 Esta hoja **no** repite las 29 reglas que CI ya comprueba sola. Si alguna falla, el
 release se bloquea sin que nadie tenga que acordarse.
@@ -26,7 +26,7 @@ Antes de publicar, verificar estas **29**:
 ### Gráficas
 
 - [ ] **UMB-CHT-001** — El título de la gráfica enuncia el hallazgo como oración completa
-- [ ] **UMB-CHT-002** — Toda gráfica lleva subtítulo con geografía, periodo y unidad
+- [ ] **UMB-CHT-002** — Toda gráfica lleva subtítulo que dice cómo está construida la cifra
 - [ ] **UMB-CHT-004** — Solo hay líneas de retícula horizontales, con la línea base más oscura
 - [ ] **UMB-CHT-005** — Las series se etiquetan directamente al final de la línea; no hay caja de leyenda
 - [ ] **UMB-CHT-008** — El eje y de las barras empieza en cero

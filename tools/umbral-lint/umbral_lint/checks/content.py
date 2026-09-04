@@ -18,7 +18,11 @@ PLOT_CALL = re.compile(
     r"|go\.(Figure|Scatter|Bar)|px\.\w+|Plot\.plot|alt\.Chart|ggplot|st\.(line|bar|area)_chart"
     r"|st\.(plotly|altair|pyplot|vega_lite)_chart)\s*\(")
 SOURCE_LINE = re.compile(r"Fuente\s*:", re.I)
-SNAPSHOT = re.compile(r"consultado\s+\d{4}-\d{2}|\b[a-z][\w-]*-\d{4}-\d{2}\b", re.I)
+# 2.0: the access date travels with the chart; the snapshot tag lives on the page
+# (UMB-DAT-002), so either form still satisfies the check.
+SNAPSHOT = re.compile(
+    r"consulta\s+realizada\s+el\s+\d{4}-\d{2}|consultado\s+\d{4}-\d{2}"
+    r"|\b[a-z][\w-]*-\d{4}-\d{2}\b", re.I)
 
 BANNED_CHARTS = re.compile(
     r"\b(px\.pie|go\.Pie|plt\.pie|ax\.pie|\.pie\s*\(|type\s*=\s*['\"]pie['\"]"
@@ -224,7 +228,8 @@ def _charts(ctx: Context) -> None:
             if not SOURCE_LINE.search(text):
                 ctx.report("chart-source-present", p, line,
                            "chart code with no «Fuente:» line anywhere in the file",
-                           "Fuente: ORIGEN · consultado FECHA · SNAPSHOT · umbral.mx · CC BY 4.0")
+                           "Fuente: Elaboración propia con datos de ORIGEN. "
+                           "Consulta realizada el AAAA-MM-DD. — and umbral.org.mx on the right")
 
         for n, line in code_lines(text):
             m = BANNED_CHARTS.search(line)
@@ -237,8 +242,9 @@ def _charts(ctx: Context) -> None:
         for n, line in enumerate(text.splitlines(), 1):
             if SOURCE_LINE.search(line) and not SNAPSHOT.search(line):
                 ctx.report("snapshot-tag", p, n,
-                           "source line names no access date or snapshot tag",
-                           "add «consultado AAAA-MM-DD» and the snapshot tag")
+                           "source line names no access date",
+                           "add «Consulta realizada el AAAA-MM-DD»; the snapshot tag "
+                           "goes on the page, not here (UMB-DAT-002)")
 
 
 def _prose(ctx: Context) -> None:

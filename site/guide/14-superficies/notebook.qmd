@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.6.0
+[umbral]{.u-brand} guía de estilo · v2.0.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -41,7 +41,7 @@ documento.
 ax.set_title("Los registros crecen 9% anual desde 2015", loc="left")
 ax.set_xlabel("")
 fig.text(0.01, -0.02,
-         "Fuente: RNPDNO · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · CC BY 4.0",
+         "Fuente: RNPDNO · consultado 2026-07-09 · rnpdno-2026-07 · umbral.org.mx · CC BY 4.0",
          family=tokens.FONT["mono"], size=9, color=tokens.LABORATORIO["caption"])
 ```
 
@@ -74,6 +74,6 @@ Evita los valores por defecto de seaborn: pelean con el estilo.
 - [ ] Incertidumbre visible donde haya estimación
 
 ::: {.u-foot}
-umbral_ · v1.6.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v2.0.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::

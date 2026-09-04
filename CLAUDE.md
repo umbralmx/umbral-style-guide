@@ -72,8 +72,12 @@ and it crosses left of centre. Clear space is one bar-height on all four sides. 
 outline, no effects, no recolour outside the tokens.
 
 **Charts are the heart of the brand.** Every chart, in every medium, carries three things: a title
-that *states the finding* as a sentence (Space Grotesk 500), a subtitle (geography · period · unit),
-and a source line in mono (`Fuente: … · umbral.mx · CC BY 4.0`) above a 1px rule.
+that *states the finding* as a sentence (Space Grotesk 500), a subtitle saying **how the figure is
+built** — the transformation, the unit, the scope and the period, as a phrase, not middot-separated
+fields («Suma acumulada de personas desaparecidas por estado, 2021-2026») — and a two-sided source
+line in mono above a 1px rule: `Fuente: Elaboración propia con datos de … Consulta realizada el
+AAAA-MM-DD.` on the left, `umbral.org.mx` on the right. The licence and the snapshot tag go on the
+**page**, not in that line.
 Horizontal gridlines only, darker baseline, no chart border. Label series directly at line ends. No
 legend boxes. Maximum 4–5 series: one in `signal`, the rest in `model` or `muted`. Use `alert` only
 for warnings. Axis ticks are mono and abbreviated (`12k`, `3.7M`), with comma thousands separators.
@@ -151,7 +155,8 @@ per view · a chart without its source · a published figure that cannot be rebu
 - [ ] Correct mode for the medium — light by default, dark only where `guide/14-superficies/` says
 - [ ] Every colour, font and spacing value pulled from `tokens/build/`, none hand-typed
 - [ ] Display is Space Grotesk 500, not bold. Body is Plex Sans. Every number is Plex Mono.
-- [ ] Every chart: finding-title, subtitle, source line, licence, downloadable CSV
+- [ ] Every chart: finding-title, construction subtitle, two-sided source line, downloadable CSV
+- [ ] The page — not the chart — names the licence and the snapshot tag
 - [ ] Uncertainty shown wherever a projection or estimate appears
 - [ ] Exactly one `signal`-coloured element per view
 - [ ] AA contrast verified from the generated matrix. Meaning never carried by colour alone.

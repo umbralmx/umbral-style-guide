@@ -138,7 +138,7 @@ Geography · period · unit                         Plex Sans, muted
 [ plot area ]                                     horizontal gridlines only,
                                                   darker baseline, no border, no fill
 ──────────────────────────────────────            1px rule
-Fuente: … · umbral.mx · datos CC BY 4.0           Plex Mono 12px, caption
+Fuente: … Consulta realizada el …      umbral.org.mx   Plex Mono 12px, caption
 \`\`\`
 
 Plus, always:
@@ -150,7 +150,9 @@ Plus, always:
 ## Source line format
 
 \`\`\`
-Fuente: ORIGEN (INSTITUCIÓN) · consultado AAAA-MM-DD · SNAPSHOT-TAG · umbral.mx · datos CC BY 4.0
+Fuente: Elaboración propia con datos de ORIGEN (INSTITUCIÓN). Consulta realizada el AAAA-MM-DD.
+…and umbral.org.mx on the right of the same rule. The licence and the snapshot tag go on the
+page, not in this line (UMB-DAT-004, UMB-DAT-002).
 \`\`\`
 
 The snapshot tag matters for live registers: the RNPDNO's counts for past months change between

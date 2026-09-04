@@ -3,18 +3,20 @@
 
 **■ UMB-DAT-002** · Datos y procedencia · error
 
-### Los snapshots se etiquetan y la gráfica dice cuál usó
+### Los snapshots se etiquetan y la página dice cuál usó
 
 El RNPDNO es un registro vivo y sus conteos cambian entre consultas. Sin la etiqueta del snapshot, dos gráficas correctas parecen contradecirse.
 
 | | |
 |---|---|
-| **Sí** | Etiqueta el corte como rnpdno-2026-07 y pon esa etiqueta en la línea de fuente. |
-| **No** | No escribas «Fuente: RNPDNO» sin fecha de consulta. |
+| **Sí** | Etiqueta el corte como rnpdno-2026-07 y declara esa etiqueta en la página, junto al enlace al CSV. La línea de fuente de la gráfica lleva la fecha de consulta.
+ |
+| **No** | No publiques una cifra de un registro vivo sin decir de qué corte salió. No escribas «Fuente: RNPDNO» sin fecha de consulta.
+ |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `snapshot-tag`.
 
-*Origen:* desaparecidosmx ya lo hace: «consultado 2026-07-09 · rnpdno-2026-07».
+*Origen:* desaparecidosmx ya lo hacía en la línea de fuente. En 2.0 la etiqueta se movió a la página, donde cabe junto al CSV y al SOURCE.md que la explican.
 
 *Ver también:* UMB-CHT-003
 

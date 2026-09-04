@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.6.0
+[umbral]{.u-brand} guía de estilo · v2.0.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -58,7 +58,7 @@ permitido. Lo que no está permitido es una tarjeta clara dentro de una sección
 ```html
 <meta property="og:title" content="El hallazgo, como oración">
 <meta property="og:description" content="Geografía · periodo · unidad">
-<meta property="og:image" content="https://umbral.mx/og/proyecto.png">
+<meta property="og:image" content="https://umbral.org.mx/og/proyecto.png">
 <meta name="twitter:card" content="summary_large_image">
 ```
 
@@ -76,6 +76,6 @@ La tarjeta OG es de 1200×630, en modo instrumento, y lleva **una** cifra grande
 - [ ] `:focus-visible` visible; `prefers-reduced-motion` respetado
 
 ::: {.u-foot}
-umbral_ · v1.6.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v2.0.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::

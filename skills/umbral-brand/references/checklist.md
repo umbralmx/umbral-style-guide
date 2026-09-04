@@ -1,5 +1,5 @@
 <!-- references/checklist.md — GENERATED from the normative layer of
-     umbralmx/umbral-style-guide v1.6.0. Do not edit; regenerate. -->
+     umbralmx/umbral-style-guide v2.0.0. Do not edit; regenerate. -->
 
 # Pre-ship checklist
 
@@ -13,7 +13,7 @@
 - [ ] **UMB-COL-009** — The two sequential ramps never encode two variables in one figure
 - [ ] **UMB-COL-010** — Missing, suppressed and zero are visually distinct from one another
 - [ ] **UMB-CHT-001** — The chart title states the finding as a full sentence
-- [ ] **UMB-CHT-002** — Every chart carries a subtitle with geography, period and unit
+- [ ] **UMB-CHT-002** — Every chart carries a subtitle saying how its figure is built
 - [ ] **UMB-CHT-004** — Horizontal gridlines only, with a darker baseline
 - [ ] **UMB-CHT-005** — Series are labelled directly at line ends; no legend box
 - [ ] **UMB-CHT-008** — The y-axis starts at zero for bars

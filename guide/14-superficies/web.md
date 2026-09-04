@@ -53,7 +53,7 @@ permitido. Lo que no está permitido es una tarjeta clara dentro de una sección
 ```html
 <meta property="og:title" content="El hallazgo, como oración">
 <meta property="og:description" content="Geografía · periodo · unidad">
-<meta property="og:image" content="https://umbral.mx/og/proyecto.png">
+<meta property="og:image" content="https://umbral.org.mx/og/proyecto.png">
 <meta name="twitter:card" content="summary_large_image">
 ```
 
