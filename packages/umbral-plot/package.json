@@ -1,6 +1,6 @@
 {
   "name": "@umbralmx/umbral-plot",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "The Umbral design system for Observable Plot — theme, chart frame and uncertainty helpers",
   "type": "module",
   "main": "src/index.js",
@@ -9,7 +9,8 @@
     "./tokens": "./src/tokens.js",
     "./dist/umbral.css": "./dist/umbral.css",
     "./dist/observable-framework-laboratorio.css": "./dist/observable-framework-laboratorio.css",
-    "./dist/observable-framework-instrumento.css": "./dist/observable-framework-instrumento.css"
+    "./dist/observable-framework-instrumento.css": "./dist/observable-framework-instrumento.css",
+    "./components.css": "./src/components.css"
   },
   "files": [
     "src",

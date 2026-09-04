@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.5.0
+[umbral]{.u-brand} guía de estilo · v1.6.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -101,6 +101,6 @@ automáticamente se comprueba en una lista corta que cabe en una página.
 {{< include /_includes/rule-index.md >}}
 
 ::: {.u-foot}
-umbral_ · v1.5.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v1.6.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::

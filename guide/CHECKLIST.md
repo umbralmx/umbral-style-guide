@@ -2,7 +2,7 @@
 
 # Checklist de entrega
 
-Umbral v1.5.0
+Umbral v1.6.0
 
 Esta hoja **no** repite las 29 reglas que CI ya comprueba sola. Si alguna falla, el
 release se bloquea sin que nadie tenga que acordarse.

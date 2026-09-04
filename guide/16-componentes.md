@@ -188,6 +188,38 @@ que desaparece solo no se puede citar ni verificar.
 **OQ-012** pregunta cómo se trata el estado deshabilitado. UMB-COL-005 exige 4.5:1 a todo texto. El
 texto deshabilitado se dibuja por debajo de ese umbral en casi todos los sistemas, a propósito.
 
+## Los diez que ya existen
+
+Diez formas cubren una superficie de datos completa. Están construidas en
+`packages/umbral-plot/src/components.css`, que es CSS escrito a mano y no generado.
+
+| Clase | Cubre del catálogo |
+|---|---|
+| `.u-rule` | `separator` |
+| `.u-label` | la etiqueta de sección de UMB-LAY-006 |
+| `.u-rows` · `.u-row` | `item`, y la lista que `card` no debe hacer |
+| `.u-btn` | `button` |
+| `.u-seg` | `tabs`, `toggle`, `toggle-group` |
+| `.u-input` · `.u-select` | `input`, `native-select` |
+| `.u-table` | `table`, `data-table` |
+| `.u-cell` · `.u-empty` | `empty`, y los tres vacíos de UMB-COL-010 |
+| `.u-dialog` | `dialog`, `alert-dialog`, `sheet`, `drawer`, `popover` |
+| `.u-kpi` | la cifra de un `card` |
+
+`examples/componentes.html` las muestra todas, en los dos modos, sin construcción previa.
+
+El resto del catálogo se consulta cuando hace falta una forma. No se construye por adelantado.
+
+::: {.u-note}
+**una trampa del cambio de modo**
+
+Las propiedades personalizadas se heredan. Un `color` ya calculado no se recalcula.
+
+Una sección con `data-mode="instrumento"` dentro de una página clara hereda la tinta de afuera y
+queda oscuro sobre oscuro. Por eso `components.css` hace que todo contenedor de modo pinte su
+propio `color` y su propio fondo.
+:::
+
 ## Antes de construir un componente
 
 - [ ] La forma existe en este catálogo y su veredicto no es rechaza

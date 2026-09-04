@@ -8,6 +8,61 @@ Semver applies to the **design system**, not just the code (UMB-PRO-004):
 
 ---
 
+## 1.6.0 — 2026-09-03
+
+The ten components, built. No new rule, no token change. `@umbralmx/umbral-plot` gains one public
+export, which is why this is a minor and not a patch.
+
+1.5.0 catalogued 66 shadcn/ui components. This ships the ten a data surface actually needs, and
+stops there. The other 56 stay a lookup table.
+
+`packages/umbral-plot/src/components.css` is **authored**, not generated. It is the one stylesheet
+in the system a human edits, which makes it the one place a literal could re-enter. It is checked
+twice: by `umbral-lint` like any file, and by `verify_packages.py` for a hex, a shadow, or a missing
+export. Both guards were confirmed to fire.
+
+| Class | Covers |
+|---|---|
+| `.u-rule` | `separator` |
+| `.u-label` | the UMB-LAY-006 section label |
+| `.u-rows` · `.u-row` | `item`, and the list `card` must not make |
+| `.u-btn` | `button` |
+| `.u-seg` | `tabs`, `toggle`, `toggle-group` |
+| `.u-input` · `.u-select` | `input`, `native-select` |
+| `.u-table` | `table`, `data-table` |
+| `.u-cell` · `.u-empty` | `empty`, and the three empties of UMB-COL-010 |
+| `.u-dialog` | `dialog`, `alert-dialog`, `sheet`, `drawer`, `popover` |
+| `.u-kpi` | the figure inside a `card` |
+
+Five overlay forms collapse into one. A native `<dialog>` opened with `showModal()` supplies the
+whole UMB-A11Y-008 contract: focus enters, focus is trapped, Escape closes, focus returns. That was
+verified in a browser, not assumed.
+
+### Added
+
+- `examples/componentes.html` — all ten, both modes, no build step. The first entry in `examples/`,
+  which CLAUDE.md's definition of done has required since 1.0 and which did not exist until now.
+
+### Fixed — the mode-switch trap
+
+A section carrying `data-mode="instrumento"` inside a light page rendered dark-on-dark.
+
+Custom properties inherit. A computed `color` does not re-resolve, so children kept the outer mode's
+ink while the container painted the inner mode's background. `components.css` now makes any mode
+container assert its own `color` and `background`.
+
+This was found by opening the example, not by reading it. It would have hit the first Framework
+dashboard with a dark panel.
+
+### Note
+
+The segmented control's active underline was drawn with an inset `box-shadow` in the first pass.
+That is a rule faked with a shadow, against UMB-LAY-002, and `umbral-lint` did not catch it because
+the check looks for drop shadows. It is a `border-bottom` now. The linter gap is real but small, and
+is not worth a check that would flag every legitimate inset.
+
+---
+
 ## 1.5.0 — 2026-09-03
 
 The shadcn/ui catalogue mapped against the rules. One new chapter, one new rule, one new skill

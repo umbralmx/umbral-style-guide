@@ -68,6 +68,17 @@ for _mode in ("laboratorio", "instrumento"):
     check(filecmp.cmp(f"tokens/build/{_css}", PLOT / "dist" / _css, shallow=False),
           f"umbral-plot/dist/{_css} differs from tokens/build/{_css}")
 
+# components.css is AUTHORED, not generated — it is the one CSS file in the repo
+# a human edits. That makes it the one place a literal could re-enter the system,
+# so it is checked here as well as by umbral-lint.
+_comp = (PLOT / "src/components.css").read_text()
+check((PLOT / "src/components.css").exists(), "umbral-plot/src/components.css missing")
+check("GENERATED" not in _comp[:400], "components.css claims to be generated; it is authored")
+check(not re.search(r"#[0-9a-fA-F]{3,8}\b", _comp), "components.css writes a hex")
+check("box-shadow" not in _comp, "components.css draws a shadow (UMB-LAY-002)")
+check(json.loads((PLOT / "package.json").read_text())["exports"].get("./components.css"),
+      "umbral-plot does not export ./components.css")
+
 # ── 2. no module writes a value as a literal ──────────────────────────────
 live_hex = {v.lower() for m in tokens["mode"].values()
             for v in m.values() if isinstance(v, str) and v.startswith("#")}

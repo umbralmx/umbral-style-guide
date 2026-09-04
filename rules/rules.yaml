@@ -13,7 +13,7 @@
 #
 # Validated against rules.schema.json. Built to rules.json by `npm run build:rules`.
 
-version: "1.5.0"
+version: "1.6.0"
 
 categories:
   brand:   { label: "Marca",              label_en: "Brand" }

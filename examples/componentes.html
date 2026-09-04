@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Componentes · Umbral</title>
+<!--
+  The ten components, in both modes. Open the file directly; it needs no build.
+
+  Nothing here writes a value. The two stylesheets carry every colour, size and
+  space. Change a token and this page changes with it, which is the point.
+-->
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../tokens/build/tokens.css">
+<link rel="stylesheet" href="../packages/umbral-plot/src/components.css">
+<style>
+  body {
+    margin: 0;
+    padding: var(--u-space-4);
+    background: var(--u-base);
+    color: var(--u-ink);
+    font-family: var(--u-font-body);
+    font-size: var(--u-size-body-small);
+  }
+  main { max-width: var(--u-measure); }
+  h1 {
+    font-family: var(--u-font-display);
+    font-weight: var(--u-weight-display);
+    font-size: var(--u-size-h2);
+    letter-spacing: var(--u-tracking-display);
+    margin: 0 0 var(--u-space-1);
+  }
+  section { margin: var(--u-space-5) 0; }
+  .u-note {
+    font-family: var(--u-font-mono);
+    font-size: var(--u-size-source);
+    color: var(--u-caption);
+    margin: 0 0 var(--u-space-2);
+  }
+  .kpis { display: flex; gap: var(--u-space-4); }
+</style>
+</head>
+<body>
+<main>
+
+  <h1>Componentes</h1>
+  <p class="u-label">los diez que una superficie de datos necesita</p>
+
+  <hr class="u-rule">
+
+  <section>
+    <p class="u-label">filas</p>
+    <p class="u-note">UMB-LAY-007 — una lista es filas con reglas de 1px, no tarjetas</p>
+    <ul class="u-rows">
+      <li class="u-row"><span>Aguascalientes</span><span data-numeric>1,204</span></li>
+      <li class="u-row"><span>Baja California</span><span data-numeric>15,860</span></li>
+      <li class="u-row"><span>Campeche</span><span data-numeric>318</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="u-label">controles</p>
+    <p class="u-note">UMB-LAY-008 — rectángulo de 1px, sin relleno; el activo pasa a signal</p>
+    <p>
+      <button class="u-btn" type="button">Descargar CSV</button>
+      <button class="u-btn" type="button" disabled>No disponible</button>
+    </p>
+    <div class="u-seg" role="tablist">
+      <button role="tab" aria-selected="true" type="button">Año</button>
+      <button role="tab" aria-selected="false" type="button">Mes</button>
+      <button role="tab" aria-selected="false" type="button">Día</button>
+    </div>
+    <p>
+      <input class="u-input" type="search" placeholder="Buscar entidad" aria-label="Buscar entidad">
+      <select class="u-select" aria-label="Periodo">
+        <option>2015–2026</option>
+        <option>2020–2026</option>
+      </select>
+    </p>
+  </section>
+
+  <section>
+    <p class="u-label">cifras</p>
+    <p class="u-note">UMB-TYP-004 — se comparan columna contra columna, así que van en mono</p>
+    <div class="kpis">
+      <div class="u-kpi">
+        <span class="u-kpi__value">351,057</span>
+        <span class="u-kpi__label">registros</span>
+        <span class="u-kpi__note">rnpdno-2026-07</span>
+      </div>
+      <div class="u-kpi">
+        <span class="u-kpi__value">9.1%</span>
+        <span class="u-kpi__label">crecimiento anual</span>
+        <span class="u-kpi__note">n = 11 años</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="u-label">tabla</p>
+    <p class="u-note">UMB-A11Y-005 — la flecha y el signo llevan el significado; el color acompaña</p>
+    <table class="u-table">
+      <caption class="u-note" style="text-align: left">Registros por entidad, 2026</caption>
+      <thead>
+        <tr><th scope="col">Entidad</th><th scope="col" data-numeric>Registros</th><th scope="col" data-numeric>Cambio</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Jalisco</td><td data-numeric>15,860</td><td data-numeric data-delta="sube">▲ 4.2%</td></tr>
+        <tr><td>Tamaulipas</td><td data-numeric>12,204</td><td data-numeric data-delta="baja">▼ 1.8%</td></tr>
+      </tbody>
+    </table>
+    
+  </section>
+
+  <section>
+    <p class="u-label">vacíos</p>
+    <p class="u-note">UMB-COL-010 — sin registro, suprimido y cero medido son tres hechos distintos</p>
+    <table class="u-table">
+      <tbody>
+        <tr>
+          <td class="u-cell" data-estado="sin-registro"></td>
+          <td>Sin registro — la fuente no publicó el dato</td>
+        </tr>
+        <tr>
+          <td class="u-cell" data-estado="suprimido"></td>
+          <td>Suprimido — por debajo del umbral de reporte</td>
+        </tr>
+        <tr>
+          <td class="u-cell" data-estado="cero"></td>
+          <td>Cero medido — ocurrieron cero casos</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="u-empty">Sin registro para este periodo. La fuente no publicó el dato.</div>
+  </section>
+
+  <section>
+    <p class="u-label">capa superpuesta</p>
+    <p class="u-note">UMB-A11Y-008 — showModal() da las cuatro partes del contrato</p>
+    <button class="u-btn" type="button" id="abrir">Abrir método</button>
+    <dialog class="u-dialog" id="dlg">
+      <h2 class="u-dialog__title">Cómo se calculó</h2>
+      <p>La tasa usa la población de CONAPO a mitad de año como denominador.</p>
+      <button class="u-btn" type="button" id="cerrar">Cerrar</button>
+    </dialog>
+    
+  </section>
+
+  <hr class="u-rule">
+
+  <section data-mode="instrumento" style="padding: var(--u-space-3)">
+    <p class="u-label">modo instrumento</p>
+    <p class="u-note">los mismos componentes, otros tokens</p>
+    <ul class="u-rows">
+      <li class="u-row"><span>Jalisco</span><span data-numeric>15,860</span></li>
+      <li class="u-row"><span>Tamaulipas</span><span data-numeric>12,204</span></li>
+    </ul>
+    <p>
+      <button class="u-btn" type="button">Descargar CSV</button>
+    </p>
+    <div class="u-seg">
+      <button aria-pressed="true" type="button">Año</button>
+      <button aria-pressed="false" type="button">Mes</button>
+    </div>
+  </section>
+
+  <hr class="u-rule">
+  <p class="u-note">
+    Fuente: RNPDNO (CNB/SEGOB) · consultado 2026-07-09 · rnpdno-2026-07 · umbral.mx · CC BY 4.0
+  </p>
+
+</main>
+<script type="module">
+  // The native dialog carries UMB-A11Y-008 on its own: showModal() moves focus
+  // in, traps it, closes on Escape, and returns focus to the opener.
+  const dlg = document.getElementById('dlg');
+  document.getElementById('abrir').addEventListener('click', () => dlg.showModal());
+  document.getElementById('cerrar').addEventListener('click', () => dlg.close());
+</script>
+</body>
+</html>

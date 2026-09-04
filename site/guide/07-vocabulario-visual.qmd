@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.5.0
+[umbral]{.u-brand} guía de estilo · v1.6.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -120,6 +120,6 @@ Si hacen falta más de cinco, casi siempre son dos gráficas. La otra salida es 
 `signal` con el resto en `muted` de fondo. Es la forma preferida del laboratorio.
 
 ::: {.u-foot}
-umbral_ · v1.5.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v1.6.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::

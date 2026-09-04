@@ -1,6 +1,6 @@
 {
   "$generated": "rules.json — GENERATED from rules/rules.yaml. Do not edit.",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "counts": {
     "total": 78,
     "bySeverity": {
