@@ -61,7 +61,7 @@ curl -O https://raw.githubusercontent.com/umbralmx/umbral-style-guide/v1.1.0/tok
 
 Available build targets: `tokens.css` · `tokens.json` · `_tokens.scss` · `tokens.py` · `tokens.R` ·
 `umbral-{laboratorio,instrumento}.mplstyle` · `plotly-umbral-*.json` · `altair-umbral.py` ·
-`streamlit-config.toml` · `_brand.yml` (Quarto) · `contrast.json`.
+`streamlit-config.toml` · `observable-framework-*.css` · `_brand.yml` (Quarto) · `contrast.json`.
 
 ## Making an AI follow this guide in another project
 
@@ -167,6 +167,7 @@ Change the source and rebuild. CI diffs the committed output and fails if it's s
 | 6 · Packages (`umbral-viz`, `umbral-plot`) | done |
 | 7 · Site + release | done |
 | 8 · Retrofit the four products | done — PRs open |
+| 9 · Observable Framework surface | done — dashboards not yet ported |
 
 Open decisions live in [`audit/open-questions.md`](audit/open-questions.md); released changes in
 [`CHANGELOG.md`](CHANGELOG.md).

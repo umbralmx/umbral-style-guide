@@ -108,7 +108,7 @@ async function quartoYml() {
     ['12-datos-procedencia', 'Datos y procedencia'], ['13-interpretabilidad', 'Interpretabilidad'],
     ['15-terminologia', 'Terminología'],
   ];
-  const surfaces = ['landing', 'web', 'streamlit', 'quarto', 'notebook', 'social', 'slides',
+  const surfaces = ['landing', 'web', 'framework', 'streamlit', 'quarto', 'notebook', 'social', 'slides',
     'github', 'email'];
 
   await fs.writeFile(`${SITE}/_quarto.yml`, `# ${HEAD.replace(/<!--|-->/g, '').trim()}
@@ -1095,7 +1095,7 @@ Copies of the guide chapters as \`.qmd\`, with two rewrites applied:
 `],
   [`${SITE}/guide/14-superficies`, `# \`site/guide/14-superficies/\`
 
-**Generated.** One page per surface, copied from \`guide/14-superficies/\`: web, Streamlit, Quarto,
+**Generated.** One page per surface, copied from \`guide/14-superficies/\`: web, Framework, Streamlit, Quarto,
 notebooks, social, slides, GitHub and email. Same system everywhere — only the constraints change.
 Edit the originals under \`guide/\`, not these.
 `],

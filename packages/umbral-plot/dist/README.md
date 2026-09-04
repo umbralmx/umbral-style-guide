@@ -4,10 +4,15 @@
 
 | | |
 |---|---|
-| `umbral.css` | Byte-identical copy of `tokens/build/tokens.css` at v1.3.0 |
+| `umbral.css` | Byte-identical copy of `tokens/build/tokens.css` at v1.4.0 |
+| `observable-framework-laboratorio.css` | Framework `style`, modo laboratorio |
+| `observable-framework-instrumento.css` | Framework `style`, modo instrumento |
 
-Import it alongside the theme so `var(--u-*)` resolves:
+Import the tokens alongside the theme so `var(--u-*)` resolves:
 
 ```js
 import '@umbralmx/umbral-plot/dist/umbral.css';
 ```
+
+In Observable Framework, copy **one** stylesheet into the source root and point
+`style` at it instead. One file per mode is the point — see UMB-COL-011.

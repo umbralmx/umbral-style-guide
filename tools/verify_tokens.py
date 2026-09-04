@@ -183,6 +183,64 @@ check("IBM Plex Sans" in toml_decls.get("font", ""),
 check(toml_decls.get("primaryColor", "").lower() == tokens["mode"]["instrumento"]["signal"].lower(),
       "streamlit-config.toml primaryColor does not match the instrumento signal token")
 
+# ── 8. the Framework stylesheets declare every --theme-* from a token ──────
+# The whole point of shipping a `style` instead of a `theme` is that Framework's
+# own themes derive four of these with color-mix() from one foreground, and a
+# derived colour never reaches contrast.json (UMB-COL-012). If a property goes
+# missing here, Framework falls back to its own default and the gate goes blind.
+THEME_PROPS = {
+    "--theme-foreground": "ink",
+    "--theme-background": "base",
+    "--theme-background-alt": "panel",
+    "--theme-foreground-alt": "ink",
+    "--theme-foreground-muted": "caption",
+    "--theme-foreground-faint": "baseline",
+    "--theme-foreground-fainter": "border",
+    "--theme-foreground-faintest": "gridline",
+    "--theme-foreground-focus": "signal-text",
+}
+
+for mode in ("laboratorio", "instrumento"):
+    raw = (BUILD / f"observable-framework-{mode}.css").read_text()
+    # Same discipline as §7. The file documents the defaults it corrects, so it
+    # names color-mix(), prefers-color-scheme and Source Serif in its comments.
+    # Searching the raw text would flag the explanation instead of a violation.
+    css = re.sub(r"/\*.*?\*/", "", raw, flags=re.S)
+    decls = dict(re.findall(r"^\s*(--[\w-]+)\s*:\s*([^;]+);", css, re.M))
+    for prop, token in THEME_PROPS.items():
+        want = tokens["mode"][mode][token].lower()
+        got = decls.get(prop, "").strip().lower()
+        check(got == want,
+              f"observable-framework-{mode}.css: {prop} is {got!r}, "
+              f"not the {token} token ({want})")
+    # No property may be derived. color-mix() is exactly the mechanism the gate
+    # cannot see, so its presence anywhere in the file is the failure.
+    check("color-mix(" not in css,
+          f"observable-framework-{mode}.css derives a colour with color-mix()")
+    # A built-in theme import would reintroduce the derivation it just removed.
+    check("observablehq:theme-" not in css,
+          f"observable-framework-{mode}.css imports a built-in Framework theme")
+    check('@import url("observablehq:default.css");' in css,
+          f"observable-framework-{mode}.css does not import observablehq:default.css")
+    # prefers-color-scheme would hand the mode to the reader's OS (UMB-COL-011).
+    # prefers-reduced-motion is required (UMB-A11Y-007), so match the exact query.
+    check("prefers-color-scheme" not in css,
+          f"observable-framework-{mode}.css keys a colour off prefers-color-scheme")
+    check("prefers-reduced-motion" in css,
+          f"observable-framework-{mode}.css does not honour prefers-reduced-motion")
+    # Framework's --font-big default is 700 (UMB-TYP-001) in a sans stack.
+    big = decls.get("--font-big", "")
+    check(not big.startswith("700") and "var(--monospace)" in big,
+          f"observable-framework-{mode}.css --font-big is {big!r}, "
+          "expected mono at the display-safe weight")
+    # umbral-lint: ignore[font-hosting] — naming the CDN is how the check finds it
+    check("Source Serif" not in css and "fonts.googleapis.com" not in css,
+          f"observable-framework-{mode}.css reaches a font CDN")
+
+check(len({(BUILD / f"observable-framework-{m}.css").read_text()
+           for m in ("laboratorio", "instrumento")}) == 2,
+      "the two Framework stylesheets are identical")
+
 # ── report ────────────────────────────────────────────────────────────────
 print(f"verify_tokens: {checks} checks, {len(failures)} failed")
 if failures:

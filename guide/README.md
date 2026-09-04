@@ -21,7 +21,7 @@ its place.
 | `11-accesibilidad.md` | Contrast, `lang`, chart alternatives, keyboard |
 | `12-datos-procedencia.md` | `SOURCE.md`, snapshots, licences, reproducibility |
 | `13-interpretabilidad.md` | Causal vs descriptive language, dignity |
-| `14-superficies/` | One guide per surface: landing, web, Streamlit, Quarto, notebook, social, slides, GitHub, email |
+| `14-superficies/` | One guide per surface: landing, web, Observable Framework, Streamlit, Quarto, notebook, social, slides, GitHub, email |
 | `15-terminologia.md` | Bilingual controlled vocabulary — **new in 1.1**, and the most credibility-relevant page |
 
 `CHECKLIST.md` and `_includes/` are **generated**. Don't edit them.

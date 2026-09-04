@@ -289,7 +289,8 @@ ${ruleList([...inCategory('voice'), ...inCategory('numbers'), ...inCategory('met
 | Surface | Mode | The thing that bites |
 |---|---|---|
 | Web | laboratorio | Self-host fonts; never a CDN |
-| Streamlit | instrumento | \`primaryColor\` hits every widget; \`lang="en"\` is hardcoded |
+| Observable Framework | instrumento | \`style\`, never \`theme\`; \`<html>\` ships with no \`lang\` at all |
+| Streamlit | instrumento | \`primaryColor\` hits every widget; \`lang="en"\` is hardcoded (superseded) |
 | Quarto | laboratorio | Use the generated \`_brand.yml\`; \`fig-alt\` carries the finding |
 | Notebook | laboratorio | Use the generated \`.mplstyle\`; the v1.0 one failed contrast |
 | Social | instrumento | The card travels without its page — the source line is mandatory |
@@ -297,7 +298,46 @@ ${ruleList([...inCategory('voice'), ...inCategory('numbers'), ...inCategory('met
 | GitHub | — | No emoji, no decorative badges, both licence files |
 | Email | laboratorio | No CSS variables; inline values copied from the build |
 
+## Observable Framework — the dashboard surface
+
+Framework replaced Streamlit as the dashboard surface in 1.4 (ADR-0004). It is the \`web\` surface,
+not a reduced one: UMB-LAY-003, UMB-LAY-009 and UMB-LAY-010 all apply again.
+
+\`\`\`js
+// observablehq.config.js
+export default {
+  style: "observable-framework-instrumento.css",   // copied from assets/
+  globalStylesheets: [],                            // its default is Google Fonts
+  head: '<script>document.documentElement.lang="es"</script>',
+};
+\`\`\`
+
+\`\`\`bash
+cp assets/observable-framework-instrumento.css src/
+\`\`\`
+
+**Ship \`style\`, never \`theme\`.** Framework's own themes derive muted, faint, fainter and faintest
+with \`color-mix()\` from one foreground. A derived colour never reaches \`contrast.json\`, so the
+gate cannot measure it (UMB-COL-012). The generated stylesheet declares all nine \`--theme-*\`
+properties from the tokens instead.
+
+**One file per mode.** \`theme: "dashboard"\` resolves to \`air\` and \`near-midnight\` under
+\`prefers-color-scheme\`, which hands the mode to the reader's operating system. The medium sets the
+mode (UMB-COL-011). Two stylesheets ship; import exactly one.
+
+**\`<html>\` has no \`lang\` attribute at all.** Not a wrong value — an absent one, which is the worse
+case of UMB-A11Y-001. Framework does not expose the tag, so the shim goes in \`head\`.
+
+**Charts need no new work.** Framework renders Observable Plot natively, so \`@umbralmx/umbral-plot\`
+applies unchanged: \`theme()\`, \`Frame\`, \`band()\`, \`label()\`.
+
+**Cards.** Framework's dashboard vocabulary is \`.card\` inside \`.grid\`. The generated stylesheet
+fixes the 12px radius. It does not make a card the right container for a *list* — that stays rows
+separated by 1px rules (UMB-LAY-007).
+
 ## Streamlit — the two traps
+
+Streamlit is superseded but still live in \`desaparecidosmx\` and \`pautamx\` until both migrate.
 
 **1. The config keys.** v1.0's brand book rendered them as \`sc-camel-primary-color\`, a PDF-export
 artifact. It also set \`font = "sans serif"\`, which is a *valid* Streamlit value meaning Streamlit's
@@ -377,6 +417,8 @@ const ASSET_COPIES = [
   ['tokens/build/plotly-umbral-laboratorio.json', 'plotly-umbral-laboratorio.json'],
   ['tokens/build/plotly-umbral-instrumento.json', 'plotly-umbral-instrumento.json'],
   ['tokens/build/streamlit-config.toml', 'streamlit-config.toml'],
+  ['tokens/build/observable-framework-laboratorio.css', 'observable-framework-laboratorio.css'],
+  ['tokens/build/observable-framework-instrumento.css', 'observable-framework-instrumento.css'],
   ['tokens/build/_brand.yml', '_brand.yml'],
   ['rules/rules.json', 'rules.json'],
 ];
@@ -409,6 +451,7 @@ ${RAW}/tokens/build/tokens.css     # web
 ${RAW}/tokens/build/tokens.json    # anything
 ${RAW}/tokens/build/tokens.py      # Python / Streamlit / notebooks
 ${RAW}/tokens/build/tokens.R       # R / Quarto
+${RAW}/tokens/build/observable-framework-instrumento.css   # Observable Framework
 ${RAW}/tokens/build/streamlit-config.toml
 ${RAW}/rules/rules.json            # the ${rules.counts.total} rules, machine-readable
 \`\`\`
@@ -456,7 +499,7 @@ for it.
 | \`color.md\` | Choosing any colour |
 | \`charts.md\` | **Before writing any chart code** |
 | \`voice-and-numbers.md\` | Writing prose, numbers, dates or rates |
-| \`surfaces.md\` | Targeting web, Streamlit, Quarto, notebooks, social, slides, GitHub or email |
+| \`surfaces.md\` | Targeting web, Observable Framework, Quarto, notebooks, social, slides, GitHub or email |
 | \`terminology.md\` | Anything touching disappearances, crime or victims — binding |
 | \`checklist.md\` | Finishing up |
 
@@ -476,6 +519,7 @@ ${TAG}, so the skill works offline and cannot disagree with the repo it came fro
 | \`contrast.json\` | The generated contrast matrix — what \`check_contrast.py --audit\` reads |
 | \`rules.json\` | All ${rules.counts.total} rules, machine-readable |
 | \`umbral-*.mplstyle\` \`plotly-umbral-*.json\` | Chart themes, per mode |
+| \`observable-framework-*.css\` | Framework \`style\` — copy ONE into the source root |
 | \`streamlit-config.toml\` | Copy to \`.streamlit/config.toml\` — real keys, correct font |
 | \`_brand.yml\` | Quarto brand file |
 | \`umbral-*.svg\` | Logo variants, generated from the 5:44 spec |

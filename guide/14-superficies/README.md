@@ -7,6 +7,7 @@ change.
 |---|---|---|
 | `landing.md` | laboratorio | No nav bar. One sentence. Rows, not cards. |
 | `web.md` | laboratorio | Fonts must be self-hosted, not a CDN |
+| `framework.md` | instrumento | `style`, never `theme`. `<html>` ships with no `lang` at all. |
 | `streamlit.md` | instrumento | `primaryColor` hits every widget. `lang="en"` needs a shim. |
 | `quarto.md` | laboratorio | Use the generated `_brand.yml`. `fig-alt` carries the finding. |
 | `notebook.md` | laboratorio | Do not copy the old `mplstyle`. Its axis colour failed contrast. |

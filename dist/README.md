@@ -7,7 +7,7 @@
 | `CLAUDE.snippet.md` | ~40 lines. The minimum any downstream Umbral repo's `CLAUDE.md` needs. |
 
 Paste it into the `CLAUDE.md` of a repo that consumes the design system. It is **pinned to
-v1.3.0** and points at raw token URLs at that tag rather than at `main`, so a token change cannot
+v1.4.0** and points at raw token URLs at that tag rather than at `main`, so a token change cannot
 land in a downstream repo without someone choosing it.
 
 Regenerate after a version bump:

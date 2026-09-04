@@ -1,5 +1,5 @@
 <!-- references/color.md — GENERATED from the normative layer of
-     umbralmx/umbral-style-guide v1.3.0. Do not edit; regenerate. -->
+     umbralmx/umbral-style-guide v1.4.0. Do not edit; regenerate. -->
 
 # Color
 
@@ -105,3 +105,9 @@ must look different from one another.
 - **UMB-COL-010** (**must**) — Missing, suppressed and zero are visually distinct from one another
   - do: Usa missing como relleno plano, la trama de 45° para suprimido, y el extremo de la rampa para cero.
   - don't: No pintes el faltante como el valor más bajo de la escala.
+- **UMB-COL-011** (should) — The medium sets the mode, not the reader's system preference
+  - do: Fija un solo modo por superficie y decláralo en la configuración.
+  - don't: No emparejes un tema claro y uno oscuro bajo prefers-color-scheme.
+- **UMB-COL-012** (should) — A semantic colour is declared from its token; it is never derived by formula
+  - do: Declara cada propiedad semántica de la superficie con el valor del token que le toca.
+  - don't: No dejes que el tema derive muted, faint o border desde el color de texto.

@@ -2,7 +2,7 @@
 
 # Checklist de entrega
 
-Umbral v1.3.0
+Umbral v1.4.0
 
 Esta hoja **no** repite las 29 reglas que CI ya comprueba sola. Si alguna falla, el
 release se bloquea sin que nadie tenga que acordarse.
@@ -77,6 +77,6 @@ npm run verify     # re-deriva contraste y reglas de forma independiente
 umbral-lint .      # las comprobaciones automáticas sobre este repo
 ```
 
-29 reglas `error` automáticas · 16 advertencias · 1 de guía. Todas en `rules/rules.yaml`.
+29 reglas `error` automáticas · 18 advertencias · 1 de guía. Todas en `rules/rules.yaml`.
 
 `■ error` bloquea el release · `▲ advertencia` se reporta y se justifica · `· guía` orienta.

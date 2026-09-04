@@ -1,15 +1,15 @@
 {
   "$generated": "rules.json — GENERATED from rules/rules.yaml. Do not edit.",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "counts": {
-    "total": 75,
+    "total": 77,
     "bySeverity": {
       "error": 58,
-      "warning": 16,
+      "warning": 18,
       "info": 1
     },
     "byCheckType": {
-      "review": 38,
+      "review": 40,
       "automated": 35,
       "manual": 2
     }
@@ -79,7 +79,9 @@
         "UMB-COL-007",
         "UMB-COL-008",
         "UMB-COL-009",
-        "UMB-COL-010"
+        "UMB-COL-010",
+        "UMB-COL-011",
+        "UMB-COL-012"
       ],
       "type": [
         "UMB-TYP-001",
@@ -177,6 +179,83 @@
         "UMB-COL-008",
         "UMB-COL-009",
         "UMB-COL-010",
+        "UMB-COL-011",
+        "UMB-COL-012",
+        "UMB-TYP-001",
+        "UMB-TYP-002",
+        "UMB-TYP-003",
+        "UMB-TYP-004",
+        "UMB-TYP-005",
+        "UMB-TYP-006",
+        "UMB-LAY-001",
+        "UMB-LAY-002",
+        "UMB-LAY-003",
+        "UMB-LAY-004",
+        "UMB-LAY-005",
+        "UMB-LAY-006",
+        "UMB-LAY-007",
+        "UMB-LAY-008",
+        "UMB-LAY-009",
+        "UMB-LAY-010",
+        "UMB-CHT-001",
+        "UMB-CHT-002",
+        "UMB-CHT-003",
+        "UMB-CHT-004",
+        "UMB-CHT-005",
+        "UMB-CHT-006",
+        "UMB-CHT-007",
+        "UMB-CHT-008",
+        "UMB-CHT-009",
+        "UMB-CHT-010",
+        "UMB-CHT-011",
+        "UMB-CHT-012",
+        "UMB-VOZ-001",
+        "UMB-VOZ-002",
+        "UMB-VOZ-003",
+        "UMB-VOZ-004",
+        "UMB-VOZ-005",
+        "UMB-NUM-001",
+        "UMB-NUM-002",
+        "UMB-NUM-003",
+        "UMB-NUM-004",
+        "UMB-NUM-005",
+        "UMB-NUM-006",
+        "UMB-DAT-001",
+        "UMB-DAT-002",
+        "UMB-DAT-003",
+        "UMB-DAT-004",
+        "UMB-DAT-005",
+        "UMB-A11Y-001",
+        "UMB-A11Y-002",
+        "UMB-A11Y-003",
+        "UMB-A11Y-004",
+        "UMB-A11Y-005",
+        "UMB-A11Y-006",
+        "UMB-A11Y-007",
+        "UMB-MET-001",
+        "UMB-MET-002",
+        "UMB-MET-003",
+        "UMB-MET-004",
+        "UMB-MET-005",
+        "UMB-PRO-003"
+      ],
+      "framework": [
+        "UMB-BRD-001",
+        "UMB-BRD-002",
+        "UMB-BRD-003",
+        "UMB-BRD-004",
+        "UMB-COL-001",
+        "UMB-COL-002",
+        "UMB-COL-003",
+        "UMB-COL-004",
+        "UMB-COL-005",
+        "UMB-COL-006",
+        "UMB-COL-007",
+        "UMB-COL-008",
+        "UMB-COL-009",
+        "UMB-COL-010",
+        "UMB-COL-011",
+        "UMB-COL-012",
         "UMB-TYP-001",
         "UMB-TYP-002",
         "UMB-TYP-003",
@@ -250,6 +329,8 @@
         "UMB-COL-008",
         "UMB-COL-009",
         "UMB-COL-010",
+        "UMB-COL-011",
+        "UMB-COL-012",
         "UMB-TYP-001",
         "UMB-TYP-002",
         "UMB-TYP-003",
@@ -320,6 +401,8 @@
         "UMB-COL-008",
         "UMB-COL-009",
         "UMB-COL-010",
+        "UMB-COL-011",
+        "UMB-COL-012",
         "UMB-TYP-001",
         "UMB-TYP-002",
         "UMB-TYP-003",
@@ -389,6 +472,8 @@
         "UMB-COL-008",
         "UMB-COL-009",
         "UMB-COL-010",
+        "UMB-COL-011",
+        "UMB-COL-012",
         "UMB-TYP-001",
         "UMB-TYP-002",
         "UMB-TYP-003",
@@ -453,6 +538,8 @@
         "UMB-COL-008",
         "UMB-COL-009",
         "UMB-COL-010",
+        "UMB-COL-011",
+        "UMB-COL-012",
         "UMB-TYP-001",
         "UMB-TYP-002",
         "UMB-TYP-003",
@@ -516,6 +603,8 @@
         "UMB-COL-008",
         "UMB-COL-009",
         "UMB-COL-010",
+        "UMB-COL-011",
+        "UMB-COL-012",
         "UMB-TYP-001",
         "UMB-TYP-002",
         "UMB-TYP-003",
@@ -590,6 +679,8 @@
         "UMB-COL-003",
         "UMB-COL-005",
         "UMB-COL-007",
+        "UMB-COL-011",
+        "UMB-COL-012",
         "UMB-TYP-001",
         "UMB-TYP-002",
         "UMB-TYP-003",
@@ -625,6 +716,8 @@
         "UMB-COL-008",
         "UMB-COL-009",
         "UMB-COL-010",
+        "UMB-COL-011",
+        "UMB-COL-012",
         "UMB-TYP-001",
         "UMB-TYP-002",
         "UMB-TYP-003",
@@ -905,6 +998,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -936,6 +1030,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "slides",
@@ -964,6 +1059,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "slides",
@@ -989,6 +1085,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1017,6 +1114,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1045,6 +1143,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1078,6 +1177,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1108,13 +1208,14 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
         "slides",
         "social"
       ],
-      "rationale": "La jerarquía visual depende de que haya un único punto de atención. Si todo resalta, nada resalta. La regla se limita a la capa de datos porque Streamlit aplica primaryColor a todos sus widgets a la vez.\n",
+      "rationale": "La jerarquía visual depende de que haya un único punto de atención. Si todo resalta, nada resalta. La regla se limita a la capa de datos porque un framework suele pintar todo su cromo con un mismo acento. Streamlit lo hace con primaryColor. Framework lo hace con --theme-foreground-focus. La diferencia es que en Framework el acento sí se puede acotar, así que ahí la regla alcanza también a los enlaces y a los controles.\n",
       "do": "Pon en signal una serie, una cifra o un elemento de interfaz.",
       "dont": "No pongas signal en el logo, el botón y la serie principal a la vez.",
       "check": {
@@ -1123,7 +1224,10 @@
       },
       "since": "1.0",
       "evidence": "Brand book p.03; medido: 17 elementos en desaparecidosmx, 10 en pautamx, 4 en cabildo-libre.",
-      "guide": "02-color"
+      "guide": "02-color",
+      "see_also": [
+        "UMB-COL-011"
+      ]
     },
     {
       "id": "UMB-COL-005",
@@ -1133,6 +1237,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1165,6 +1270,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1195,6 +1301,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "slides",
@@ -1222,6 +1329,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1249,6 +1357,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1275,6 +1384,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1297,6 +1407,71 @@
       ]
     },
     {
+      "id": "UMB-COL-011",
+      "title": "El modo lo fija el medio, no la preferencia del sistema del lector",
+      "title_en": "The medium sets the mode, not the reader's system preference",
+      "category": "color",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "framework",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email",
+        "print"
+      ],
+      "rationale": "El modo dice qué es la superficie. Laboratorio es lectura y documento. Instrumento es tablero en vivo y pantalla de monitoreo. Si prefers-color-scheme decide, dos lectores ven dos superficies distintas del mismo artefacto. La captura de pantalla deja de ser reproducible y la tarjeta social deja de coincidir con su página.\n",
+      "do": "Fija un solo modo por superficie y decláralo en la configuración.",
+      "dont": "No emparejes un tema claro y uno oscuro bajo prefers-color-scheme.",
+      "check": {
+        "type": "review",
+        "note": "Exige leer la configuración de la superficie junto con su medio. Un linter de archivos no sabe si una página es un documento o un tablero.\n"
+      },
+      "since": "1.4",
+      "evidence": "Observable Framework resuelve theme «dashboard» a air y near-midnight, y envuelve cada import en una consulta prefers-color-scheme. Ver ADR-0004.\n",
+      "guide": "02-color",
+      "see_also": [
+        "UMB-COL-007",
+        "UMB-COL-012"
+      ]
+    },
+    {
+      "id": "UMB-COL-012",
+      "title": "Un color semántico se declara desde su token; no se deriva por fórmula",
+      "title_en": "A semantic colour is declared from its token; it is never derived by formula",
+      "category": "color",
+      "severity": "warning",
+      "applies_to": [
+        "web",
+        "framework",
+        "streamlit",
+        "quarto",
+        "notebook",
+        "slides",
+        "social",
+        "email",
+        "print"
+      ],
+      "rationale": "La compuerta de contraste mide los pares que existen en contrast.json. Un color que un framework calcula con color-mix nunca entra en esa tabla. La compuerta lo declara verde sin haberlo visto. UMB-COL-002 prohíbe el hex escrito a mano, y una fórmula no es un hex.\n",
+      "do": "Declara cada propiedad semántica de la superficie con el valor del token que le toca.",
+      "dont": "No dejes que el tema derive muted, faint o border desde el color de texto.",
+      "check": {
+        "type": "review",
+        "note": "Exige leer la hoja de estilo de la superficie contra tokens.json. La comprobación se automatizará cuando umbral-lint sepa resolver una cadena de custom properties.\n"
+      },
+      "since": "1.4",
+      "evidence": "abstract-light.css de Observable Framework deriva muted, faint, fainter y faintest con color-mix desde un solo foreground. Ver ADR-0004.\n",
+      "guide": "02-color",
+      "see_also": [
+        "UMB-COL-002",
+        "UMB-COL-005",
+        "UMB-COL-006"
+      ]
+    },
+    {
       "id": "UMB-TYP-001",
       "title": "El display es Space Grotesk 500; nunca 700",
       "title_en": "Display type is Space Grotesk 500; never 700",
@@ -1304,6 +1479,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1333,6 +1509,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1362,6 +1539,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1390,6 +1568,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1415,6 +1594,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "slides",
@@ -1440,6 +1620,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "slides",
@@ -1465,6 +1646,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1491,6 +1673,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1520,6 +1703,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "quarto",
         "notebook",
         "slides",
@@ -1545,6 +1729,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "slides",
@@ -1570,6 +1755,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1599,6 +1785,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "slides",
@@ -1626,6 +1813,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "slides",
@@ -1653,6 +1841,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto"
       ],
@@ -1679,6 +1868,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "slides",
         "social"
       ],
@@ -1704,6 +1894,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "quarto",
         "notebook",
         "slides",
@@ -1733,6 +1924,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1762,6 +1954,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1787,6 +1980,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1817,6 +2011,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1842,6 +2037,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1871,6 +2067,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1896,6 +2093,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1925,6 +2123,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1950,6 +2149,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -1975,6 +2175,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2002,6 +2203,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2031,6 +2233,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2060,6 +2263,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2091,6 +2295,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2120,6 +2325,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2147,6 +2353,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2176,6 +2383,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2215,6 +2423,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2242,6 +2451,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2267,6 +2477,7 @@
       "severity": "warning",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2296,6 +2507,7 @@
       "severity": "info",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2324,6 +2536,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2353,6 +2566,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2387,7 +2601,8 @@
         "quarto",
         "notebook",
         "streamlit",
-        "web"
+        "web",
+        "framework"
       ],
       "rationale": "Sin origen, fecha de descarga, licencia y limitaciones conocidas, nadie puede auditar el dato ni volver a bajarlo igual.\n",
       "do": "Escribe la URL de origen, quién lo descargó, cuándo, bajo qué licencia y qué se sabe que le falta.",
@@ -2412,6 +2627,7 @@
         "notebook",
         "streamlit",
         "web",
+        "framework",
         "slides",
         "social",
         "print"
@@ -2442,7 +2658,8 @@
         "quarto",
         "notebook",
         "streamlit",
-        "web"
+        "web",
+        "framework"
       ],
       "rationale": "Si una cifra no se puede reproducir, no se puede defender. Es el criterio que separa un laboratorio de un blog con gráficas.\n",
       "do": "Haz que `make all` reconstruya cada figura desde data/raw/.",
@@ -2463,6 +2680,7 @@
       "applies_to": [
         "repo",
         "web",
+        "framework",
         "quarto",
         "notebook",
         "streamlit",
@@ -2488,6 +2706,7 @@
       "applies_to": [
         "repo",
         "web",
+        "framework",
         "quarto",
         "notebook",
         "streamlit",
@@ -2517,6 +2736,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2525,14 +2745,14 @@
       ],
       "rationale": "Un lector de pantalla pronuncia el español con fonética inglesa si lang miente. Para un laboratorio que publica en español es el defecto de accesibilidad más básico.\n",
       "do": "Pon lang=\"es\" en el documento y lang=\"en\" en el subárbol que sí esté en inglés.",
-      "dont": "No dejes el lang=\"en\" que trae el framework por defecto.",
+      "dont": "No dejes el lang que trae el framework, ni lo dejes ausente.",
       "check": {
         "type": "automated",
         "tool": "umbral-lint",
         "id": "lang-attribute"
       },
       "since": "1.0",
-      "evidence": "Streamlit fija lang=\\\"en\\\" y las dos apps lo sirven así. Decisión OQ-004: severidad error, con el shim documentado en guide/14-superficies/streamlit.md.\n",
+      "evidence": "Streamlit fija lang=\\\"en\\\" y las dos apps lo sirven así. Decisión OQ-004: severidad error, con el shim documentado en guide/14-superficies/streamlit.md. Observable Framework emite <html> sin ningún lang, que es el caso peor: el lector de pantalla usa la configuración del sistema. El shim está en guide/14-superficies/framework.md.\n",
       "guide": "11-accesibilidad"
     },
     {
@@ -2543,6 +2763,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook"
@@ -2567,6 +2788,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook"
@@ -2589,6 +2811,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook"
@@ -2615,6 +2838,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2645,6 +2869,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto"
       ],
@@ -2667,6 +2892,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto"
       ],
@@ -2689,6 +2915,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2717,6 +2944,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2746,6 +2974,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2774,6 +3003,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2805,6 +3035,7 @@
       "severity": "error",
       "applies_to": [
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",
@@ -2877,6 +3108,7 @@
       "applies_to": [
         "repo",
         "web",
+        "framework",
         "streamlit",
         "quarto",
         "notebook",

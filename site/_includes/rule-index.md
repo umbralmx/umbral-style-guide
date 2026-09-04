@@ -1,7 +1,7 @@
 <!-- GENERATED from the normative layer. Do not edit. -->
 
-75 reglas · 58 `error` ·
-16 `advertencia` · 1 `guía`.
+77 reglas · 58 `error` ·
+18 `advertencia` · 1 `guía`.
 
 ### Marca
 
@@ -26,6 +26,8 @@
 | [`UMB-COL-008`](#umb-col-008) | ■ | Un color categórico nuevo se deriva en OKLCH y se verifica contra dicromacia | `series-separation` |
 | [`UMB-COL-009`](#umb-col-009) | ■ | Las dos rampas secuenciales no codifican dos variables en la misma figura | review |
 | [`UMB-COL-010`](#umb-col-010) | ■ | Dato faltante, dato suprimido y cero se distinguen visualmente entre sí | review |
+| [`UMB-COL-011`](#umb-col-011) | ▲ | El modo lo fija el medio, no la preferencia del sistema del lector | review |
+| [`UMB-COL-012`](#umb-col-012) | ▲ | Un color semántico se declara desde su token; no se deriva por fórmula | review |
 
 ### Tipografía
 

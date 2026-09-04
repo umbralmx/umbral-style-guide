@@ -135,7 +135,7 @@ EXPECTED = [
     "09-incertidumbre", "10-mapas", "11-accesibilidad", "12-datos-procedencia",
     "13-interpretabilidad", "15-terminologia",
 ]
-SURFACES = ["landing", "web", "streamlit", "quarto", "notebook", "social", "slides",
+SURFACES = ["landing", "web", "framework", "streamlit", "quarto", "notebook", "social", "slides",
             "github", "email"]
 stems = {p.stem for p in chapters}
 for name in EXPECTED:

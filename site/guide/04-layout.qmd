@@ -4,7 +4,7 @@ lang: es
 ---
 
 ::: {.u-topbar}
-[umbral]{.u-brand} guía de estilo · v1.3.0
+[umbral]{.u-brand} guía de estilo · v1.4.0
 
 [guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
 :::
@@ -163,13 +163,17 @@ token de mobiliario, y desaparece en móvil.
 
 {{< include /_includes/rules/UMB-LAY-010.md >}}
 
-Un diagrama vale cuando muestra un mecanismo que la prosa explica peor. La cadena normativa es el
-caso: tres etapas, dos transformaciones, y una dirección.
+Un diagrama vale cuando muestra un mecanismo que la prosa explica peor. La cadena normativa de
+[00 · Principios](/guide/00-principios.qmd) es el caso: tres etapas, dos transformaciones y una dirección.
 
-Se dibuja con lo mismo que todo lo demás. Cajas de 1px en `border`, texto en mono, flechas de 1px
-en `baseline`. Sin iconos, sin relleno de color, sin nodos redondeados.
+Ahí se dibuja como bloque de texto, porque ese capítulo se lee igual en el sitio, en GitHub y en la
+terminal. Un bloque de texto monoespaciado ya es un diagrama de reglas y texto.
 
-Un diagrama que repite el párrafo de al lado es decoración con otro nombre. Bórralo o borra el
+En una superficie que solo se lee renderizada, usa la versión con marcado. Cajas de 1px en
+`border`, texto en mono, conectores de 1px en `baseline`. Sin iconos, sin relleno de color, sin
+nodos redondeados.
+
+Un diagrama que repite el párrafo de al lado es decoración con otro nombre. Bórralo, o borra el
 párrafo.
 
 ## Sin decoración
@@ -187,6 +191,6 @@ resto de la columna.
 El pie lleva la licencia del código, la licencia de los datos y el enlace al repositorio.
 
 ::: {.u-foot}
-umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
+umbral_ · v1.4.0 · código MIT · contenido CC BY 4.0 ·
 [repositorio](https://github.com/umbralmx/umbral-style-guide)
 :::

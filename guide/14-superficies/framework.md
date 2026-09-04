@@ -1,0 +1,218 @@
+---
+title: "Superficie · Observable Framework"
+lang: es
+---
+
+# Observable Framework
+
+**Modo instrumento (oscuro)** para tableros en vivo. **Modo laboratorio (claro)** para sitios de
+informe. Framework sustituye a Streamlit como superficie de tablero. La decisión está en
+[ADR-0004](../../docs/adr/0004-dashboard-surface.md).
+
+Framework es la superficie `web`, no una superficie reducida. Streamlit estaba exento de tres
+reglas: UMB-LAY-003, UMB-LAY-009 y UMB-LAY-010. Aquí las tres vuelven a aplicar. Framework entrega
+el control del CSS que Streamlit retenía.
+
+## `observablehq.config.js`
+
+```js
+export default {
+  title: "Desapariciones",
+  root: "src",
+  style: "observable-framework-instrumento.css",  // generado
+  globalStylesheets: [],
+  head: '<script>document.documentElement.lang="es"</script>',
+};
+```
+
+Copia la hoja **generada**, no la escribas:
+
+```bash
+cp tokens/build/observable-framework-instrumento.css src/
+```
+
+Las cuatro líneas hacen cuatro cosas distintas. Ninguna es opcional.
+
+## `style`, no `theme`
+
+`style` tiene precedencia sobre `theme`. Ningún tema propio de Framework se carga. Eso es
+deliberado.
+
+Los temas de Framework derivan `muted`, `faint`, `fainter` y `faintest` con `color-mix()` desde un
+solo color de texto. Un color derivado nunca entra en `tokens/build/contrast.json`. La compuerta de
+contraste lo declara verde sin haberlo medido (UMB-COL-012).
+
+La hoja generada declara las nueve propiedades `--theme-*` desde los tokens:
+
+| Propiedad de Framework | Token |
+|---|---|
+| `--theme-foreground` | `ink` |
+| `--theme-background` | `base` |
+| `--theme-background-alt` | `panel` |
+| `--theme-foreground-alt` | `ink` |
+| `--theme-foreground-muted` | `caption` |
+| `--theme-foreground-faint` | `baseline` |
+| `--theme-foreground-fainter` | `border` |
+| `--theme-foreground-faintest` | `gridline` |
+| `--theme-foreground-focus` | `signal-text` |
+
+El color de enlace es `signal-text`, no `signal`. Un enlace es texto y debe alcanzar 4.5:1
+(UMB-COL-005). Es la misma decisión que toma el `_brand.yml` de Quarto.
+
+## Un archivo por modo
+
+Hay dos hojas generadas. Importa exactamente una.
+
+El valor `theme: "dashboard"` resuelve a `air` y `near-midnight`. Framework envuelve cada import en
+una consulta `prefers-color-scheme`. Entonces el sistema operativo del lector elige el modo.
+
+En Umbral el modo lo elige el medio (UMB-COL-011). Un tablero en vivo es `instrumento` para todo el
+mundo. Si el modo cambia por lector, la captura de pantalla deja de ser reproducible.
+
+## Fuentes
+
+`globalStylesheets` trae un valor por defecto que carga Source Serif 4 desde Google Fonts. Ponlo en
+`[]` y auto-hospeda las tres familias (UMB-TYP-005).
+
+```js
+// src/observablehq.config.js
+globalStylesheets: [],
+```
+
+```html
+<!-- head, junto al shim de lang -->
+<link rel="stylesheet" href="/fonts/fonts.css">
+```
+
+El cuerpo de Framework usa `var(--serif)` a 17px. Umbral no tiene serif. La hoja generada apunta
+`--serif` a la pila de Plex Sans, para que un `var(--serif)` heredado de un ejemplo no invoque
+Times.
+
+## El atributo `lang`
+
+Framework emite `<html>` **sin ningún `lang`**. No es un valor incorrecto: es la ausencia del
+atributo. El lector de pantalla entonces usa la configuración del sistema.
+
+Es el caso peor de UMB-A11Y-001, y Framework no expone la etiqueta `<html>`. La corrección va en
+`head`:
+
+```js
+head: '<script>document.documentElement.lang="es"</script>',
+```
+
+## Gráficas
+
+El paquete ya existe. Framework renderiza Observable Plot de forma nativa.
+
+```js
+import * as Plot from "npm:@observablehq/plot";
+import { theme, Frame, band, label } from "npm:@umbralmx/umbral-plot";
+```
+
+```js
+// umbral-lint: ignore[chart-source-present] — el marco va en el bloque siguiente
+const grafica = Plot.plot({
+  ...theme("instrumento"),
+  marks: [
+    Plot.areaY(serie, band({ x: "fecha", y1: "lo", y2: "hi" })),
+    Plot.lineY(serie, { x: "fecha", y: "n", stroke: "signal" }),
+    Plot.text([ultimo], label("signal", { x: "fecha", y: "n", text: () => "Registros" })),
+  ],
+});
+```
+
+El marco es obligatorio. Lleva el título-hallazgo, el subtítulo, el `aria-label`, la línea de fuente
+y el enlace al CSV:
+
+```js
+const marco = new Frame({
+  title: "Los registros crecen 9% anual desde 2015",
+  subtitle: "México · registros por año · escenario base con IC 80%",
+  source: "RNPDNO (CNB/SEGOB)", accessed: "2026-07-09", snapshot: "rnpdno-2026-07",
+});
+display(marco.render(grafica, { csv: "serie.csv" }));
+```
+
+Construir un `Frame` sin `source` lanza `MissingSourceError` (UMB-CHT-003).
+
+## Reproducibilidad
+
+Un cargador de datos corre en tiempo de construcción y escribe el archivo que la página lee.
+
+```js
+// src/data/registros.csv.js — el cargador ES el comando de reconstrucción
+```
+
+Esto es lo que Streamlit no podía dar. La figura se reconstruye desde el dato crudo con
+`npm run build` (UMB-DAT-003). Declara el snapshot en la línea de fuente y en el `SOURCE.md`.
+
+::: {.u-note}
+**el costo real de la migración**
+
+Streamlit vuelve a correr Python en cada interacción. Framework precalcula y filtra en el cliente.
+`desaparecidosmx` tiene 351,057 registros. Su filtrado necesita DuckDB o un extracto más estrecho.
+Ver ADR-0004.
+:::
+
+## Tarjetas y retícula
+
+El vocabulario de tablero de Framework es `.card` dentro de `.grid`. La hoja generada corrige el
+radio de la tarjeta, que viene en 12px (UMB-LAY-001).
+
+Corregir el radio no vuelve legítima la tarjeta para cualquier contenido. **Una lista sigue siendo
+filas separadas por reglas de 1px** (UMB-LAY-007). La tarjeta es para una cifra o una gráfica, no
+para un listado.
+
+## Cifras grandes
+
+```html
+<div class="card">
+  <h2>Registros acumulados</h2>
+  <span class="big">351,057</span>
+</div>
+```
+
+`--font-big` viene en peso 700 y en la pila sans. La hoja generada lo corrige a mono con peso 500.
+
+Una fila de KPIs se compara columna contra columna, así que la cifra va en mono (UMB-TYP-004). El
+peso 700 no existe en Umbral (UMB-TYP-001).
+
+## Los acentos de Framework
+
+Framework declara cuatro acentos y los expone como clases: `.blue`, `.red`, `.green` y `.yellow`.
+
+La hoja generada mapea `blue` a `model` y `red` a `alert`. Umbral no tiene verde ni amarillo, así
+que `.green` y `.yellow` se pintan en `ink`.
+
+No es un descuido. Esas dos clases codifican significado solo con color, que UMB-A11Y-005 prohíbe.
+Pintarlas de un color bonito escondería el problema. Una delta necesita una flecha o una palabra.
+
+## Los nueve valores por defecto que chocan
+
+| Valor por defecto de Framework | Regla | Corregido en |
+|---|---|---|
+| `globalStylesheets` carga Source Serif 4 desde Google Fonts | UMB-TYP-005 | `observablehq.config.js` |
+| `body` usa `var(--serif)` a 17px | UMB-TYP-002 | hoja generada |
+| `--font-big` es peso 700 en pila sans | UMB-TYP-001, UMB-TYP-004 | hoja generada |
+| `--monospace` es Menlo y Consolas | UMB-TYP-002 | hoja generada |
+| `--theme-blue`, `-green`, `-red`, `-yellow` fijos | UMB-COL-002, UMB-A11Y-005 | hoja generada |
+| `.card` tiene `border-radius: 0.75rem` | UMB-LAY-001 | hoja generada |
+| `<html>` sale sin `lang` | UMB-A11Y-001 | `head` |
+| `theme: "dashboard"` sigue `prefers-color-scheme` | UMB-COL-011 | `style`, un archivo por modo |
+| Los temas derivan cuatro colores con `color-mix()` | UMB-COL-012 | `style`, no `theme` |
+
+`tools/verify_tokens.py` comprueba las cinco correcciones que viven en la hoja generada. Las cuatro
+restantes viven en la configuración de cada tablero y se revisan a mano.
+
+## Antes de publicar
+
+- [ ] `style` apunta a la hoja generada; `theme` no está puesto
+- [ ] Una sola hoja importada, y su modo corresponde al medio
+- [ ] `globalStylesheets: []` y las fuentes servidas desde el propio sitio
+- [ ] El shim de `lang` está en `head`
+- [ ] Toda gráfica pasa por `Frame`: hallazgo, subtítulo, `aria-label`, fuente, CSV
+- [ ] Una serie en señal por gráfica
+- [ ] Las cifras de KPI van en mono; ninguna en peso 700
+- [ ] Los listados son filas con reglas de 1px, no tarjetas
+- [ ] Nada por debajo de 12px
+- [ ] Cada figura se reconstruye con `npm run build` desde el dato crudo
