@@ -5,12 +5,12 @@
 
 ### Un color categórico nuevo se deriva en OKLCH y se verifica contra dicromacia
 
-Variar solo el tono no basta: para un dicrómata el tono colapsa a un solo eje. Medido, la mejor quinta serie posible variando solo tono queda en 0.042 de separación OKLab, por debajo del umbral de ~0.10 en el que dos marcas dejan de distinguirse.
+Variar solo el tono no basta. Para un dicrómata el tono colapsa a un solo eje. La mejor quinta serie posible variando solo tono queda en 0.042 de separación OKLab. Dos marcas dejan de distinguirse por debajo de 0.10.
 
 | | |
 |---|---|
-| **Sí** | Variar tono y, si hace falta, luminosidad; verificar con audit/scripts/cvd.py. |
-| **No** | Añadir una serie por parecido estético sin medir su separación. |
+| **Sí** | Varía el tono y, si hace falta, la luminosidad. Verifica con audit/scripts/cvd.py. |
+| **No** | No añadas una serie por parecido estético sin medir su separación. |
 
 *Comprobación:* Automática — `verify-tokens`, comprobación `series-separation`.
 

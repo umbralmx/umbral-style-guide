@@ -1,5 +1,5 @@
 <!-- references/voice-and-numbers.md — GENERATED from the normative layer of
-     umbralmx/umbral-style-guide v1.1.0. Do not edit; regenerate. -->
+     umbralmx/umbral-style-guide v1.3.0. Do not edit; regenerate. -->
 
 # Voice, numbers and method
 
@@ -53,47 +53,50 @@ counted, never made spectacle, and never mapped to identifiable individuals.
 ## Rules
 
 - **UMB-VOZ-001** (**must**) — Spanish first; English is added where the audience earns it
-  - do: guide/ en español; inglés en código, commits y la capa meta.
-  - don't: Traducir del inglés al español como paso final.
+  - do: Escribe guide/ en español. Escribe el código, los commits y la capa meta en inglés.
+  - don't: No traduzcas del inglés al español como paso final.
 - **UMB-VOZ-002** (**must**) — No hype words, exclamation marks, emoji or rhetorical-question headlines
-  - do: «Los registros crecen 9% anual desde 2015».
-  - don't: «¿Sabías que los registros se DISPARARON? 🚨»
+  - do: Escribe «Los registros crecen 9% anual desde 2015».
+  - don't: No escribas «¿Sabías que los registros se DISPARARON? 🚨».
 - **UMB-VOZ-003** (should) — An adjective never replaces a number
-  - do: Cuantificar.
-  - don't: «dramático», «masivo», «considerable» sin la cifra al lado.
+  - do: Cuantifica.
+  - don't: No escribas «dramático», «masivo» ni «considerable» sin la cifra al lado.
 - **UMB-VOZ-004** (**must**) — Placeholder content is never published
-  - do: Publicar la sección cuando su texto exista.
-  - don't: Lorem ipsum, «foto», «TODO», o una biografía sin escribir.
+  - do: Publica la sección cuando su texto exista.
+  - don't: No dejes Lorem ipsum, «foto», «TODO» ni una biografía sin escribir.
+- **UMB-VOZ-005** (should) — A sentence states one thing and does not exceed 25 words
+  - do: Corta en la conjunción. Usa voz activa. Nombra la misma cosa con la misma palabra en todo el documento.
+  - don't: No uses punto y coma para unir dos ideas. No apiles metáforas donde cabe un dato.
 - **UMB-NUM-001** (**must**) — es-MX and en both use comma for thousands and point for decimals
-  - do: 351,057 · 3.7 · 12.5%
-  - don't: 351.057 · 3,7
+  - do: Escribe 351,057 · 3.7 · 12.5%
+  - don't: No escribas 351.057 ni 3,7
 - **UMB-NUM-002** (should) — Large figures are abbreviated on axes and written in full in prose
-  - do: Eje: 12k, 3.7M. Texto: 351,057 registros.
-  - don't: «351.1k registros» en una oración.
+  - do: Escribe 12k y 3.7M en el eje. Escribe 351,057 registros en el texto.
+  - don't: No escribas «351.1k registros» dentro de una oración.
 - **UMB-NUM-003** (should) — Dates are ISO in data and prose-formatted in text
-  - do: Datos y etiquetas: 2026-07. Texto: julio de 2026.
-  - don't: 07/06/2026, que significa cosas distintas en México y en Estados Unidos.
+  - do: Escribe 2026-07 en datos y etiquetas. Escribe julio de 2026 en el texto.
+  - don't: No escribas 07/06/2026. Significa cosas distintas en México y en Estados Unidos.
 - **UMB-NUM-004** (may) — The percent sign is set tight against the figure
-  - do: 9.2% — sin espacio entre la cifra y el símbolo.
-  - don't: 9.2 % con espacio.
+  - do: Escribe 9.2% sin espacio entre la cifra y el símbolo.
+  - don't: No escribas 9.2 % con espacio.
 - **UMB-NUM-005** (**must**) — Stated precision never exceeds the precision of the data
-  - do: Redondear a la precisión que el método sostiene y decir cuál es.
-  - don't: Arrastrar todos los decimales que devuelve el cálculo.
+  - do: Redondea a la precisión que el método sostiene y di cuál es.
+  - don't: No arrastres todos los decimales que devuelve el cálculo.
 - **UMB-NUM-006** (**must**) — Zero, null and suppressed are written differently and mean differently
-  - do: 0 · «sin dato» · «suprimido (< umbral de reporte)».
-  - don't: Rellenar los huecos con 0 al construir la serie.
+  - do: Escribe 0 · «sin dato» · «suprimido (< umbral de reporte)».
+  - don't: No rellenes los huecos con 0 al construir la serie.
 - **UMB-MET-001** (**must**) — Causal verbs are used only with a named identification strategy
-  - do: «asociado con» / «correlaciona» para lo descriptivo; «efecto» / «reduce» solo con RCT, dif-en-dif, RD o VI declarada.
-  - don't: «X redujo Y» a partir de una serie de tiempo descriptiva.
+  - do: Usa «asociado con» o «correlaciona» para lo descriptivo. Usa «efecto» o «reduce» solo con RCT, dif-en-dif, RD o VI declarada.
+  - don't: No escribas «X redujo Y» a partir de una serie de tiempo descriptiva.
 - **UMB-MET-002** (**must**) — The headline is defensible from the data the chart shows
-  - do: Que el lector pueda comprobar el título mirando la figura.
-  - don't: Un titular sobre causas encima de una gráfica descriptiva.
+  - do: Comprueba que el lector puede verificar el título mirando la figura.
+  - don't: No pongas un titular sobre causas encima de una gráfica descriptiva.
 - **UMB-MET-003** (**must**) — Raw counts are never compared across differently sized populations
-  - do: Tasa por 100 mil con denominador declarado, o comparar dentro de la misma unidad en el tiempo.
-  - don't: Un ranking de entidades por conteo absoluto.
+  - do: Usa una tasa por 100 mil con denominador declarado, o compara la misma unidad a lo largo del tiempo.
+  - don't: No publiques un ranking de entidades por conteo absoluto.
 - **UMB-MET-004** (**must**) — Sensitive topics are handled with dignity: people are counted, never made spectacle
-  - do: Agregados, lenguaje sobrio, terminología del glosario.
-  - don't: Mapas a nivel de individuo, fotografías, o adjetivos que dramatizan el conteo.
+  - do: Publica agregados, con lenguaje sobrio y la terminología del glosario.
+  - don't: No publiques mapas a nivel de individuo, fotografías, ni adjetivos que dramaticen el conteo.
 - **UMB-MET-005** (**must**) — Sensitive terminology follows the glossary, which is binding
-  - do: Consultar guide/15-terminologia.md y usar la forma preferida.
-  - don't: Elegir el término por brevedad o por costumbre.
+  - do: Consulta guide/15-terminologia.md y usa la forma preferida.
+  - don't: No elijas el término por brevedad ni por costumbre.

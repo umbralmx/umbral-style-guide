@@ -5,12 +5,12 @@
 
 ### El titular se sostiene con los datos que la gráfica muestra
 
-Si el título afirma algo que la gráfica no puede sostener, la gráfica está sirviendo de decorado a una afirmación que no se verificó.
+Si el título afirma algo que la figura no puede sostener, la figura decora una afirmación que nadie verificó.
 
 | | |
 |---|---|
-| **Sí** | Que el lector pueda comprobar el título mirando la figura. |
-| **No** | Un titular sobre causas encima de una gráfica descriptiva. |
+| **Sí** | Comprueba que el lector puede verificar el título mirando la figura. |
+| **No** | No pongas un titular sobre causas encima de una gráfica descriptiva. |
 
 *Comprobación:* En revisión.
 

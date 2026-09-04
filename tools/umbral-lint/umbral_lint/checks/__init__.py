@@ -39,6 +39,7 @@ IMPLEMENTED: dict[str, str] = {
     # voice, numbers, terminology
     "placeholder-content": "lorem ipsum, TODO, FIXME, placeholder",
     "hype-language": "hype words",
+    "long-sentence": "a sentence above 25 words in prose",
     "percent-spacing": "a space before %",
     "date-format": "an ambiguous dd/mm/yyyy date",
     "terminology": "a term the glossary bans or replaces",

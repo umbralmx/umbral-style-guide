@@ -1,13 +1,16 @@
 ---
-title: "Datos y procedencia"
+title: "12 · Datos y procedencia"
 lang: es
 ---
 
-# 12 · Datos y procedencia
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.3.0
+
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
 
 > Si una cifra no se puede reproducir, no se publica.
-
-Es el criterio que separa un laboratorio de un blog con gráficas.
 
 ## `SOURCE.md`
 
@@ -40,7 +43,7 @@ que nadie miró el dato con suficiente cuidado.
 {{< include /_includes/rules/UMB-DAT-002.md >}}
 
 Los registros vivos cambian. Sin etiqueta de snapshot, dos gráficas correctas hechas con dos semanas
-de diferencia parecen contradecirse, y no hay forma de saber cuál estaba bien.
+de diferencia parecen contradecirse. Nadie puede saber cuál estaba bien.
 
 - Formato: `fuente-AAAA-MM` → `rnpdno-2026-07`
 - Los datos crudos son **inmutables** una vez etiquetados.
@@ -59,8 +62,8 @@ output/          figuras y CSV publicados
 
 {{< include /_includes/rules/UMB-DAT-003.md >}}
 
-`make all` reconstruye cada figura desde `data/raw/`. Toda cifra publicada tiene que rastrearse
-hasta una transformación programada, nunca hasta una edición manual.
+`make all` reconstruye cada figura desde `data/raw/`. Toda cifra publicada se rastrea hasta una
+transformación programada, nunca hasta una edición manual.
 
 ## Nombres y claves
 
@@ -74,13 +77,13 @@ hasta una transformación programada, nunca hasta una edición manual.
 
 {{< include /_includes/rules/UMB-DAT-005.md >}}
 
-El hueco es información. Declararlo con su magnitud:
+El hueco es información. Declara su magnitud:
 
 > Vacíos conocidos, declarados y no imputados: 27 sesiones cuyo órden del día no aparece en el
-> índice oficial, una sesión sin fecha publicada, y enlaces PDF de 2013–2014 que el servidor del
+> índice oficial. Una sesión sin fecha publicada. Enlaces PDF de 2013–2014 que el servidor del
 > ayuntamiento ya no resuelve. Se conservan en los datos tal como están.
 
-Ese párrafo es de `cabildo-libre` y es el modelo del laboratorio: dice qué falta, cuánto falta, y
+Ese párrafo es de `cabildo-libre` y es el modelo del laboratorio. Dice qué falta, cuánto falta, y
 que no se rellenó.
 
 ## Licencias
@@ -90,14 +93,21 @@ que no se rellenó.
 - Código: **MIT** (`LICENSE-CODE`)
 - Datos y contenido: **CC BY 4.0** (`LICENSE-CONTENT`)
 
-Los datos públicos regresan al público, mejorados. Publica el CSV limpio junto a la figura, no solo
-la figura.
+Publica el CSV limpio junto a la figura, no solo la figura.
 
 ## Contenido generado por modelos
 
 Si un modelo produjo parte de lo publicado —un resumen, una clasificación, una extracción de OCR—
 **dilo en la página**, no en el repositorio.
 
-`cabildo-libre` lo hace bien: declara que los resúmenes son generados por IA sobre texto OCR, que
-pueden contener errores, que cuando el acta no declara un resultado se marca «sin resultado
-registrado» en vez de inventarlo, y que el enlace lleva siempre al documento original.
+`cabildo-libre` lo hace bien. Declara cuatro cosas en la propia página:
+
+1. Los resúmenes son generados por IA sobre texto OCR.
+2. Pueden contener errores.
+3. Un acta que no declara resultado se marca «sin resultado registrado», nunca se inventa.
+4. El enlace lleva siempre al documento original.
+
+::: {.u-foot}
+umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

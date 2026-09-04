@@ -18,16 +18,18 @@ python3 scripts/apply_theme.py --show matplotlib        # setup code to paste
 python3 scripts/lint.py <path>                          # conformance checks
 ```
 
-`lint.py` is a standalone subset of `tools/umbral-lint`. It parses declarations rather than
-string-matching, because naive greps for the banned strings are almost entirely false positives on
-real Umbral code — `Inter` matches `cursor: pointer`, `white` matches `white-space`, and an `inset`
-box-shadow is a 1px rule, not a shadow.
+`lint.py` is a standalone subset of `tools/umbral-lint`. It parses declarations instead of matching
+strings.
+
+A naive grep for the banned strings is almost entirely false positives on real Umbral code. `Inter`
+matches `cursor: pointer`. `white` matches `white-space`. An `inset` box-shadow is a 1px rule, not a
+shadow.
 
 ## Progressive disclosure
 
 `SKILL.md` stays under ~150 lines and points to `references/` for depth. An agent reads the body
-first and pulls in a reference only when the task calls for it — chart code needs
-`references/charts.md`, anything about disappearances needs `references/terminology.md`.
+first and pulls a reference in only when the task calls for it. Chart code needs
+`references/charts.md`. Anything about disappearances needs `references/terminology.md`.
 
 ## Editing
 

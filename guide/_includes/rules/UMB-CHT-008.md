@@ -9,8 +9,8 @@ La longitud de la barra es la codificación. Truncar el eje multiplica visualmen
 
 | | |
 |---|---|
-| **Sí** | Barras desde 0, siempre. |
-| **No** | Empezar el eje en el mínimo observado para «que se note la diferencia». |
+| **Sí** | Empieza las barras en 0 siempre. |
+| **No** | No empieces el eje en el mínimo observado para que se note más la diferencia. |
 
 *Comprobación:* En revisión.
 

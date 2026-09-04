@@ -5,12 +5,12 @@
 
 ### Todo texto alcanza 4.5:1 contra base y contra panel
 
-Es un laboratorio de interés público: la lectura no puede depender de tener buena vista y una buena pantalla. v1.0 afirmaba cumplir AA en ambos modos y no lo cumplía en cuatro pares; el 44% del texto del sitio principal fallaba.
+Leer al laboratorio no puede depender de tener buena vista ni buena pantalla. v1.0 afirmaba cumplir AA en ambos modos. Cuatro pares no lo cumplían y el 44% del texto del sitio principal fallaba.
 
 | | |
 |---|---|
-| **Sí** | Usar ink, muted, caption y las variantes *-text, que la compuerta ya verifica. |
-| **No** | Usar signal, model o alert como color de texto pequeño en modo laboratorio. |
+| **Sí** | Usa ink, muted, caption y las variantes *-text. La compuerta ya las verifica. |
+| **No** | No uses signal, model ni alert como color de texto pequeño en modo laboratorio. |
 
 *Comprobación:* Automática — `verify-tokens`, comprobación `contrast-text`.
 

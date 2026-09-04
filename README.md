@@ -1,7 +1,7 @@
 # umbral-style-guide
 
-The design system and editorial style guide for **Umbral** (`umbral_`) — an independent,
-Spanish-first, open-source data lab publishing on disappearances, crime and public spending in
+The design system and editorial style guide for **Umbral** (`umbral_`). Umbral is an independent,
+Spanish-first, open-source data lab. It publishes on disappearances, crime and public spending in
 Mexico.
 
 This repo is the single source of truth for three different consumers:
@@ -32,8 +32,8 @@ WCAG AA**. Almost none of it was sloppiness. The defects were instructions being
 
 - The engineering doc asked for self-hosted fonts in prose and shipped a Google Fonts `<link>` in
   the code block of the same section. The site copied the code block.
-- The brand book and the engineering doc disagreed about the third series colour, and the version
-  that failed contrast is the one that won in the Python tooling.
+- The brand book and the engineering doc disagreed about the third series colour. The version that
+  failed contrast is the one that won in the Python tooling.
 - The docs claimed both modes met WCAG AA. Four token pairs did not, and nothing checked.
 
 So the fix is structural: state a value once, generate the rest, and fail the build when a token
@@ -107,8 +107,8 @@ decided centrally rather than per repo.
 
 ### How to actually prompt it
 
-With the skill installed you usually don't need to say anything — mentioning Umbral, a product name,
-or asking for a chart is enough to trigger it. When you do want to be explicit:
+With the skill installed you usually do not need to say anything. Mentioning Umbral, naming a
+product, or asking for a chart is enough to trigger it. When you do want to be explicit:
 
 > Build the dashboard following the Umbral style guide. Read the skill's `references/charts.md`
 > before writing any chart code.

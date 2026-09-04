@@ -20,8 +20,9 @@
 
 ## The release gate
 
-`release.yml` refuses to publish a tag whose name disagrees with `rules.json`'s version. The skill,
-`dist/CLAUDE.snippet.md` and both packages are all pinned to that version — a mismatched tag would
-point every downstream consumer at something that does not exist.
+`release.yml` refuses to publish a tag whose name disagrees with the version in `rules.json`.
+
+The skill, `dist/CLAUDE.snippet.md` and both packages are all pinned to that version. A mismatched
+tag would point every downstream consumer at something that does not exist.
 
 The release is created as a **draft**, so a human reads the notes before it goes out.

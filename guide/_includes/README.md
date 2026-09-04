@@ -1,7 +1,9 @@
 # `guide/_includes/`
 
-**Generated. Do not edit.** Chapters include these instead of transcribing values or rules, so the
-guide cannot state a colour, a ratio or a rule that the normative layer doesn't.
+**Everything in this folder except this README is generated. Do not edit the partials.**
+
+A chapter includes a partial instead of transcribing a value or a rule. That is what stops the
+guide stating a colour, a ratio or a rule the normative layer does not.
 
 | | Generated from | By |
 |---|---|---|
@@ -12,5 +14,7 @@ guide cannot state a colour, a ratio or a rule that the normative layer doesn't.
 | `type-scale.md` | `tokens/build/tokens.json` | `build/guide.mjs` |
 | `rule-index.md` | `rules/rules.json` | `build/rules.mjs` |
 
-Rebuild with `npm run build`. `tools/verify_guide.py` checks that every partial here is used by at
-least one chapter, and that every include in a chapter resolves to a file that exists.
+Rebuild with `npm run build`.
+
+`tools/verify_guide.py` checks two things. Every partial here is used by at least one chapter. And
+every include in a chapter resolves to a file that exists.

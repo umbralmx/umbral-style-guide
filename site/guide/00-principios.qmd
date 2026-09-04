@@ -1,50 +1,62 @@
 ---
-title: "Principios"
+title: "00 · Principios"
 lang: es
 ---
 
-# 00 · Principios
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.3.0
+
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
 
 Umbral es un laboratorio de datos independiente y de código abierto. Publica sobre desapariciones,
-delito y gasto público en México. Todo lo que aquí se define es vinculante salvo que un humano
-indique lo contrario.
+delito y gasto público en México. *Umbral* es el punto donde la evidencia se vuelve significativa.
 
-*Umbral* = el punto donde la evidencia se vuelve significativa.
+Todo lo que esta guía define es vinculante. Solo un humano puede decidir lo contrario.
 
 ## Los cinco principios
 
-**1. El título es la afirmación.** Una gráfica se titula con el hallazgo, no con el tema, y el
-hallazgo tiene que sostenerse con lo que la gráfica muestra. Si el título dice algo que la figura no
-puede probar, la figura está decorando una afirmación que nadie verificó.
+**1. El título es la afirmación.** Titula la gráfica con el hallazgo, no con el tema. El hallazgo
+tiene que sostenerse con lo que la gráfica muestra. Si no se sostiene, la figura decora una
+afirmación que nadie verificó.
 
-**2. La incertidumbre es visible.** Intervalos en las proyecciones, IC en las estimaciones, *n* y
-denominador en las tasas. Un estimado puntual sin intervalo afirma una precisión que el método no
-tiene. Es la firma del laboratorio: se reconoce una gráfica de Umbral porque muestra lo que no sabe.
+**2. La incertidumbre es visible.** Muestra intervalos en las proyecciones y en las estimaciones.
+Declara la *n* y el denominador de cada tasa. Un estimado puntual sin intervalo afirma una precisión
+que el método no tiene.
 
 **3. Los huecos se declaran.** El dato faltante es información. Interpolarlo, rellenarlo con cero o
-recortar el periodo hasta que desaparezca cambia la conclusión sin que el lector pueda saberlo.
+recortar el periodo cambia la conclusión sin que el lector pueda saberlo.
 
-**4. El lenguaje causal es deliberado.** «Asociado con» para lo descriptivo. «Efecto» y «reduce»
-solo con una estrategia de identificación nombrada junto al estimado. Es la diferencia entre un
-laboratorio y una nota de opinión con gráficas.
+**4. El lenguaje causal es deliberado.** Usa «asociado con» para lo descriptivo. Usa «efecto» y
+«reduce» solo con una estrategia de identificación nombrada junto al estimado.
 
 **5. Las personas se cuentan, nunca se hacen espectáculo.** Detrás de cada registro del RNPDNO hay
-una persona y una familia. El tratamiento sobrio no es frialdad: es la forma de respeto que puede
-ofrecer un laboratorio de datos.
+una persona y una familia. El trato sobrio es la forma de respeto que puede ofrecer un laboratorio
+de datos.
 
 ## Cómo leer esta guía
 
-La guía es prosa; la norma es `rules/rules.yaml`. Cada capítulo **incluye** sus reglas desde ahí en
-vez de reescribirlas, de modo que no puedan separarse.
+La guía es prosa. La norma es `rules/rules.yaml`. Cada capítulo **incluye** sus reglas desde ahí en
+vez de reescribirlas. Así no pueden separarse.
 
-Cuando veas un recuadro con un identificador —`UMB-COL-004`— estás leyendo el texto normativo,
-generado. Cuando leas párrafos como éste, estás leyendo explicación, que orienta pero no obliga.
+Un recuadro con un identificador —`UMB-COL-004`— es texto normativo generado. Un párrafo como éste
+es explicación. La explicación orienta y no obliga.
 
 | Severidad | Qué significa |
 |---|---|
 | `■ error` | Bloquea el release. CI falla o la revisión rechaza. |
 | `▲ advertencia` | Se reporta y hay que justificarla. |
 | `· guía` | Orienta. |
+
+## Cómo se escribe esta guía
+
+Una oración enuncia una sola cosa. La voz es activa. El límite son 25 palabras.
+
+Sirve para que un lector, o un agente, no pueda leer dos cosas distintas en la misma línea. Ver
+[05 · Voz](/guide/05-voz.qmd).
+
+{{< include /_includes/rules/UMB-VOZ-005.md >}}
 
 ## La cadena normativa
 
@@ -56,7 +68,7 @@ tokens/build/*  ·  rules/rules.json                ← generado, versionado, nu
 guide/*.md  ·  site/  ·  packages/  ·  skills/  ·  tools/umbral-lint
 ```
 
-Tres consecuencias que gobiernan todo lo demás:
+Tres consecuencias gobiernan todo lo demás:
 
 {{< include /_includes/rules/UMB-PRO-003.md >}}
 
@@ -66,19 +78,18 @@ Tres consecuencias que gobiernan todo lo demás:
 
 ## Por qué existe este repositorio
 
-La versión 1.0 de la marca era buena y estaba bien aplicada. La auditoría de julio de 2026 encontró
-que aun así el 44% del texto del sitio principal no alcanzaba el contraste mínimo de accesibilidad —
-y que casi ningún defecto era un error de aplicación. Eran instrucciones que se siguieron al pie de
-la letra:
+La marca v1.0 era buena y estaba bien aplicada. Aun así, la auditoría de julio de 2026 encontró que
+el 44% del texto del sitio principal no alcanzaba el contraste mínimo. Casi ningún defecto era un
+error de aplicación. Eran instrucciones que se siguieron al pie de la letra:
 
-- El documento de ingeniería pedía auto-hospedar las fuentes en prosa y entregaba un enlace a Google
-  Fonts en el bloque de código de la misma sección. El sitio copió el bloque de código.
-- El brand book y el documento de ingeniería no coincidían sobre el tercer color de serie, y la
+- El documento de ingeniería pedía auto-hospedar las fuentes en prosa. En el bloque de código de la
+  misma sección entregaba un enlace a Google Fonts. El sitio copió el bloque de código.
+- El brand book y el documento de ingeniería no coincidían sobre el tercer color de serie. La
   versión que ganó en las herramientas de Python era la que fallaba contraste.
 - El documento afirmaba que ambos modos cumplían WCAG AA. Cuatro pares no lo cumplían, y nadie
   tenía forma de comprobarlo.
 
-De ahí la arquitectura: un valor se enuncia en un solo lugar, y lo que no se puede comprobar
+De ahí la arquitectura. Un valor se enuncia en un solo lugar. Lo que no se puede comprobar
 automáticamente se comprueba en una lista corta que cabe en una página.
 
 {{< include /_includes/rules/UMB-PRO-004.md >}}
@@ -88,3 +99,8 @@ automáticamente se comprueba en una lista corta que cabe en una página.
 ## Índice de reglas
 
 {{< include /_includes/rule-index.md >}}
+
+::: {.u-foot}
+umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

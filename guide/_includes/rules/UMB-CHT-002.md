@@ -5,12 +5,12 @@
 
 ### Toda gráfica lleva subtítulo con geografía, periodo y unidad
 
-Sin unidad y sin periodo la cifra no significa nada, y la gráfica circula sin su contexto en cuanto alguien la captura de pantalla.
+Sin unidad y sin periodo, la cifra no significa nada. La gráfica pierde su contexto en cuanto alguien la captura de pantalla.
 
 | | |
 |---|---|
-| **Sí** | «México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente». |
-| **No** | Dejar la unidad implícita en el eje. |
+| **Sí** | Escribe «México · registros por mes de la fecha de hechos · el registro se actualiza retroactivamente». |
+| **No** | No dejes la unidad implícita en el eje. |
 
 *Comprobación:* En revisión.
 

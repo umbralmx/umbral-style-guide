@@ -34,8 +34,8 @@ const frame = new Frame({
 document.body.append(frame.render(plot, { csv: 'serie.csv' }));
 ```
 
-`render()` returns a `<figure>` with the title, subtitle, an `aria-label` carrying the finding
-(UMB-A11Y-002), the source line above a 1px rule, and the CSV link (UMB-A11Y-004).
+`render()` returns a `<figure>`. It carries the title, the subtitle, an `aria-label` with the
+finding (UMB-A11Y-002), the source line above a 1px rule, and the CSV link (UMB-A11Y-004).
 
 Constructing a `Frame` without `source` throws `MissingSourceError`. `categorical(n)` throws past
 five (UMB-CHT-006).

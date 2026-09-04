@@ -5,12 +5,12 @@
 
 ### El logo no se distorsiona, contornea, sombrea ni recolorea fuera de los tokens
 
-Un logo alterado deja de identificar. Además cualquier recoloreo fuera de los tokens rompe la garantía de contraste que el sistema comprueba en CI.
+Un logo alterado deja de identificar al laboratorio. Un recoloreo fuera de los tokens rompe además la garantía de contraste que CI comprueba.
 
 | | |
 |---|---|
-| **Sí** | Usar los SVG generados en assets/logo/. |
-| **No** | Estirar, rotar, aplicar sombra, contorno, degradado o un color arbitrario. |
+| **Sí** | Usa los SVG generados en assets/logo/. |
+| **No** | No estires, rotes ni gires el logo. No le apliques sombra, contorno, degradado ni un color arbitrario. |
 
 *Comprobación:* En revisión.
 

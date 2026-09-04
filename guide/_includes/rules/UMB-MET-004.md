@@ -5,12 +5,12 @@
 
 ### Los temas sensibles se tratan con dignidad: se cuenta a las personas, no se les hace espectáculo
 
-El laboratorio publica sobre desapariciones y violencia. Las personas detrás de cada registro no son un recurso narrativo, y el mapeo a individuos identificables puede ponerlas en riesgo.
+El laboratorio publica sobre desapariciones y violencia. Detrás de cada registro hay una persona. Un desglose que llega al individuo puede ponerla en riesgo.
 
 | | |
 |---|---|
-| **Sí** | Agregados, lenguaje sobrio, terminología del glosario. |
-| **No** | Mapas a nivel de individuo, fotografías, o adjetivos que dramatizan el conteo. |
+| **Sí** | Publica agregados, con lenguaje sobrio y la terminología del glosario. |
+| **No** | No publiques mapas a nivel de individuo, fotografías, ni adjetivos que dramaticen el conteo. |
 
 *Comprobación:* En revisión.
 

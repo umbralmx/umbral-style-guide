@@ -25,9 +25,10 @@ cp -r skills/umbral-brand ~/.claude/skills/
 
 ## If you already have a v1.0 skill installed
 
-Replace it. The v1.0 skill bundles the old token values — including `caption` at 2.37:1 and `muted`
-at 4.25:1, both of which fail WCAG AA — and the old logo SVGs with the wrong bar ratios. An
-installed copy keeps handing those out no matter what the repo says.
+Replace it. The v1.0 skill bundles the old token values, including `caption` at 2.37:1 and `muted`
+at 4.25:1. Both fail WCAG AA. It also bundles the old logo SVGs with the wrong bar ratios.
+
+An installed copy keeps handing those out no matter what the repo says.
 
 ```bash
 rm -rf ~/.claude/skills/umbral-brand
@@ -40,4 +41,4 @@ cp -r skills/umbral-brand ~/.claude/skills/
 `assets/`, which are **generated from the normative layer** by `build/skill.mjs`.
 
 That is the whole point. A skill that restates token values in prose is a second place those values
-live, and it will drift — which is exactly what the v1.0 skill did.
+live. It will drift, which is exactly what the v1.0 skill did.

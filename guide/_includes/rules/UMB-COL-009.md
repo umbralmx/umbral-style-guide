@@ -5,12 +5,12 @@
 
 ### Las dos rampas secuenciales no codifican dos variables en la misma figura
 
-Las rampas ancladas en signal y en model son indistinguibles bajo tritanopía (separación OKLab 0.014). Dos mapas lado a lado codificados con ellas son el mismo mapa para ese lector.
+Las rampas ancladas en signal y en model quedan a 0.014 de separación OKLab bajo tritanopía. Para ese lector, dos mapas codificados con ellas son el mismo mapa.
 
 | | |
 |---|---|
-| **Sí** | Una rampa secuencial por figura; si hacen falta dos, variar también el rango de luminosidad. |
-| **No** | Un coroplético en rampa signal junto a otro en rampa model. |
+| **Sí** | Usa una rampa secuencial por figura. Si necesitas dos, varía también el rango de luminosidad. |
+| **No** | No pongas un coroplético en rampa signal junto a otro en rampa model. |
 
 *Comprobación:* En revisión.
 

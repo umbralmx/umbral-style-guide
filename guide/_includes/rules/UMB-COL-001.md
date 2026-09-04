@@ -5,12 +5,12 @@
 
 ### No se usa blanco ni negro puros
 
-El blanco y el negro puros producen un contraste duro que cansa la lectura larga y delatan que el color no vino de los tokens. base e ink existen precisamente para eso.
+El blanco y el negro puros dan un contraste duro que cansa en lecturas largas. Su presencia indica además que el color no vino de los tokens.
 
 | | |
 |---|---|
-| **Sí** | var(--u-base) y var(--u-ink). |
-| **No** | #fff, #ffffff, #000, white, black. |
+| **Sí** | Usa var(--u-base) y var(--u-ink). |
+| **No** | No escribas #fff, #ffffff, #000, white ni black. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `pure-black-white`.
 

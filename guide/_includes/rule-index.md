@@ -1,7 +1,7 @@
 <!-- GENERATED from the normative layer. Do not edit. -->
 
-69 reglas · 58 `error` ·
-10 `advertencia` · 1 `guía`.
+75 reglas · 58 `error` ·
+16 `advertencia` · 1 `guía`.
 
 ### Marca
 
@@ -47,6 +47,11 @@
 | [`UMB-LAY-003`](#umb-lay-003) | ▲ | La medida del texto no pasa de 65 caracteres | `measure-max` |
 | [`UMB-LAY-004`](#umb-lay-004) | ▲ | Todo espaciado es múltiplo de 8px | `spacing-scale` |
 | [`UMB-LAY-005`](#umb-lay-005) | ■ | No hay emoji, iconos de stock ni ilustración decorativa | `no-emoji` |
+| [`UMB-LAY-006`](#umb-lay-006) | ▲ | Las etiquetas de sección van en mono, en minúsculas y en caption | review |
+| [`UMB-LAY-007`](#umb-lay-007) | ▲ | Una lista de elementos se separa con reglas de 1px, no con tarjetas | review |
+| [`UMB-LAY-008`](#umb-lay-008) | ▲ | Los controles secundarios son mono con borde de 1px y pasan a signal al enfocarse | review |
+| [`UMB-LAY-009`](#umb-lay-009) | ▲ | La retícula de puntos solo ocupa el margen exterior de la hoja | review |
+| [`UMB-LAY-010`](#umb-lay-010) | ▲ | Un diagrama muestra un mecanismo; se dibuja con reglas de 1px y texto | review |
 
 ### Gráficas
 
@@ -73,6 +78,7 @@
 | [`UMB-VOZ-002`](#umb-voz-002) | ■ | Sin palabras hype, signos de exclamación, emoji ni preguntas retóricas como titular | `hype-language` |
 | [`UMB-VOZ-003`](#umb-voz-003) | ▲ | Un adjetivo no sustituye a un número | review |
 | [`UMB-VOZ-004`](#umb-voz-004) | ■ | No se publica contenido de relleno | `placeholder-content` |
+| [`UMB-VOZ-005`](#umb-voz-005) | ▲ | Una oración enuncia una sola cosa y no pasa de 25 palabras | `long-sentence` |
 
 ### Números y unidades
 

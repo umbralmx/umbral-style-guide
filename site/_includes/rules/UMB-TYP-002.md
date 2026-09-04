@@ -5,12 +5,12 @@
 
 ### Solo se usan Space Grotesk, IBM Plex Sans e IBM Plex Mono
 
-La tipografía es la mitad de la identidad. Una sustitución silenciosa por la fuente por defecto del framework deshace el sistema sin que nadie lo note.
+La tipografía es la mitad de la identidad. Un framework que sustituye la familia por defecto deshace el sistema sin que nadie lo note.
 
 | | |
 |---|---|
-| **Sí** | Declarar las tres familias y auto-hospedarlas. |
-| **No** | Inter, Roboto, Arial, Helvetica, o la Source Sans que Streamlit trae por defecto. |
+| **Sí** | Declara las tres familias y auto-hospédalas. |
+| **No** | No uses Inter, Roboto, Arial, Helvetica ni la Source Sans por defecto de Streamlit. |
 
 *Comprobación:* Automática — `umbral-lint`, comprobación `banned-font-family`.
 

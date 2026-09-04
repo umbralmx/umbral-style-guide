@@ -1,18 +1,22 @@
 ---
-title: "Números, fechas y unidades"
+title: "06 · Números, fechas y unidades"
 lang: es
 ---
 
-# 06 · Números, fechas y unidades
+::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v1.3.0
 
-Este capítulo es el que las guías del *Economist* y del *FT* dedican casi por entero a este tema, y
-el que faltaba completo en v1.0. Son decisiones pequeñas que se repiten miles de veces: si no están
-fijadas, la misma cifra aparece de dos formas en un mismo tablero.
+[guía](/guide/00-principios.qmd) · [reglas](/reglas.qmd) · [demostración](/demo/color.qmd) · [checklist](/checklist.qmd) · [github](https://github.com/umbralmx/umbral-style-guide)
+:::
+
+
+Son decisiones pequeñas que se repiten miles de veces. Sin fijarlas, la misma cifra aparece de dos
+formas en un mismo tablero. Las guías del *Economist* y del *FT* dedican casi un capítulo entero a
+esto. En v1.0 faltaba completo.
 
 ## Separadores
 
-**México usa la convención anglosajona**, a diferencia de España: coma para miles, punto para
-decimales. En español y en inglés, igual.
+Coma para miles, punto para decimales. Igual en español y en inglés.
 
 | | |
 |---|---|
@@ -23,7 +27,7 @@ decimales. En español y en inglés, igual.
 
 ## Abreviación
 
-El eje necesita brevedad; la afirmación necesita precisión.
+El eje necesita brevedad. La afirmación necesita precisión.
 
 | Contexto | Forma |
 |---|---|
@@ -35,7 +39,7 @@ El eje necesita brevedad; la afirmación necesita precisión.
 
 ## Porcentajes y puntos porcentuales
 
-Pegado a la cifra: `9.2%`.
+El símbolo va pegado a la cifra: `9.2%`.
 
 Distingue **por ciento** de **puntos porcentuales**. Pasar de 10% a 12% es un aumento de 2 puntos
 porcentuales, o de 20%. Confundirlos duplica o divide una magnitud sin que se note.
@@ -46,20 +50,20 @@ porcentuales, o de 20%. Confundirlos duplica o divide una magnitud sin que se no
 
 {{< include /_includes/rules/UMB-NUM-005.md >}}
 
-Regla práctica: **dos o tres cifras significativas** salvo que el dato sostenga más.
+Regla práctica: dos o tres cifras significativas, salvo que el dato sostenga más.
 
-- Un conteo exacto de un registro se escribe completo: `351,057`.
+- Un conteo exacto se escribe completo: `351,057`.
 - Una tasa estimada se redondea: `9.2 por 100 mil`, no `9.2384`.
 - Un porcentaje sobre menos de 100 casos casi nunca merece decimal.
 
-En un registro vivo como el RNPDNO, además, los decimales cambian entre consultas. Escribirlos
-sugiere una estabilidad que el dato no tiene.
+En un registro vivo como el RNPDNO los decimales cambian entre consultas. Escribirlos sugiere una
+estabilidad que el dato no tiene.
 
 ## Tasas y conteos
 
 | Usa… | Cuándo |
 |---|---|
-| **Conteo** | Una sola unidad geográfica a lo largo del tiempo; totales; cuando la magnitud absoluta es el punto |
+| **Conteo** | Una sola unidad geográfica a lo largo del tiempo. Totales. Cuando la magnitud absoluta es el punto. |
 | **Tasa por 100 mil** | Cualquier comparación entre lugares de distinto tamaño |
 
 {{< include /_includes/rules/UMB-MET-003.md >}}
@@ -70,16 +74,16 @@ Toda tasa declara su denominador y su *n*:
 
 > tasa por 100 mil habitantes · denominador CONAPO 2026 · n = 1,204
 
-En municipios pequeños una tasa por 100 mil salta con un solo caso. Cuando el denominador es chico,
-publica el conteo junto a la tasa o suprime la celda — nunca dejes que una tasa inestable parezca
-una señal. Ver [10 · Mapas](/guide/10-mapas.qmd).
+En municipios pequeños, una tasa por 100 mil salta con un solo caso. Cuando el denominador es chico,
+publica el conteo junto a la tasa o suprime la celda. Una tasa inestable no puede parecer una señal.
+Ver [10 · Mapas](/guide/10-mapas.qmd).
 
 ## Dinero
 
-- Moneda explícita siempre: `107.6 M MXN`, no `107.6 M`.
-- En series largas, **pesos reales** con año base declarado: `pesos de 2024`. Si son nominales,
+- Nombra la moneda siempre: `107.6 M MXN`, no `107.6 M`.
+- En series largas usa **pesos reales** con año base declarado: `pesos de 2024`. Si son nominales,
   dilo: `pesos corrientes`.
-- Nunca conviertas a dólares sin decir el tipo de cambio y su fecha.
+- No conviertas a dólares sin decir el tipo de cambio y su fecha.
 
 ## Fechas
 
@@ -93,7 +97,7 @@ una señal. Ver [10 · Mapas](/guide/10-mapas.qmd).
 | Rango compacto | `2010–2026` (raya, no guión) |
 
 <!-- umbral-lint: ignore[date-format] — se cita el formato ambiguo para prohibirlo -->
-Nunca `07/06/2026`: significa cosas distintas en México y en Estados Unidos, y las dos son
+Nunca `07/06/2026`. Significa cosas distintas en México y en Estados Unidos, y las dos lecturas son
 plausibles.
 
 ## Rangos y aproximaciones
@@ -105,8 +109,8 @@ plausibles.
 | `alrededor de 12,000` | el punto medio de un intervalo, que debería estar visible |
 | `≥ 107.6 M` | hay censura en el dato: es una cota inferior, no un estimado |
 
-Ese último caso es frecuente en `pautamx`, porque Meta publica intervalos y no cifras. El símbolo
-`≥` en el titular es honestidad, no adorno.
+El último caso es frecuente en `pautamx`. Meta publica intervalos y no cifras. El símbolo `≥` en el
+titular es honestidad, no adorno.
 
 ## Cero, nulo y suprimido
 
@@ -120,7 +124,11 @@ Son tres cosas distintas y se escriben distinto:
 | Nulo | `sin dato` | No se midió, o no se publicó |
 | Suprimido | `suprimido (< umbral)` | Se midió pero no se publica por umbral de reporte |
 
-Convertir un nulo en cero es una imputación silenciosa. En datos de desaparición y de delito cambia
-la afirmación: «no hubo desapariciones» y «no sabemos cuántas hubo» no son lo mismo.
+«No hubo desapariciones» y «no sabemos cuántas hubo» no son lo mismo.
 
 {{< include /_includes/rules/UMB-DAT-005.md >}}
+
+::: {.u-foot}
+umbral_ · v1.3.0 · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::

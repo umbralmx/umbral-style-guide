@@ -71,7 +71,16 @@ async function copyGuide() {
         // The guide SHOWS code; it does not run it. An executable fence would make
         // the site try to source() a path that only exists in a downstream repo.
         .replace(/^```\{(\w+)[^}]*\}\s*$/gm, '```\$1');
-      await fs.writeFile(path.join(to, f.replace(/\.md$/, '.qmd')), body);
+      // Quarto renders the front-matter title as an <h1>, and the chapter opens with
+      // its own '# 04 · Layout'. Both shipped, so every page carried two titles and
+      // the TOC nested every section under the second one. Promote the chapter's
+      // heading into the front matter and drop it from the body.
+      const h1 = /^#\s+(.+)$/m.exec(body);
+      const titled = h1
+        ? body.replace(/^title:.*$/m, `title: "${h1[1].replace(/"/g, '\\"')}"`)
+            .replace(h1[0] + '\n', '')
+        : body;
+      await fs.writeFile(path.join(to, f.replace(/\.md$/, '.qmd')), titled);
       n += 1;
     }
   }
@@ -99,7 +108,8 @@ async function quartoYml() {
     ['12-datos-procedencia', 'Datos y procedencia'], ['13-interpretabilidad', 'Interpretabilidad'],
     ['15-terminologia', 'Terminología'],
   ];
-  const surfaces = ['web', 'streamlit', 'quarto', 'notebook', 'social', 'slides', 'github', 'email'];
+  const surfaces = ['landing', 'web', 'streamlit', 'quarto', 'notebook', 'social', 'slides',
+    'github', 'email'];
 
   await fs.writeFile(`${SITE}/_quarto.yml`, `# ${HEAD.replace(/<!--|-->/g, '').trim()}
 project:
@@ -196,44 +206,132 @@ async function styles() {
 
 ${tokensCss}
 
-/* ── the site itself, built only from the tokens above ── */
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
+/* ── the site itself, built only from the tokens above ─────────────────────
+   The idiom is umbral.org.mx: a dot field in the outer margin, a content
+   sheet over it, mono lowercase labels for structure, and 1px rules doing all
+   the separating (UMB-LAY-006 · UMB-LAY-007 · UMB-LAY-008 · UMB-LAY-009).
+
+   'theme: none' means Quarto emits no navbar and no sidebar — only a title
+   block, a #TOC and the content, all direct children of <body>. So the top bar
+   is written into each page by build/site.mjs, and everything here styles bare
+   elements rather than framework classes. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+:root { --u-edge: var(--u-space-4); --u-sheet: 1120px; }
+@media (max-width: 720px) { :root { --u-edge: var(--u-space-3); } }
+
+/* UMB-LAY-009 — the dot field is fixed to the viewport behind everything, and
+   <body> is the sheet that paints over it. Putting the field on html::before
+   rather than body::before is what keeps it out from under the content: a
+   body-level pseudo-element paints above the body background, so it shows
+   through every margin between blocks. */
+html { background: var(--u-base); }
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(var(--u-baseline) 1px, transparent 1.6px);
+  background-size: 22px 22px;
+  opacity: 0.55;
 }
 
 body {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: var(--u-sheet);
+  /* Quarto emits the title block first, then the content. The top bar is written
+     into the document body, so it arrives after the title — a flex column and
+     one 'order' put it back on top without a template override. */
+  display: flex;
+  flex-direction: column;
   background: var(--u-base);
   color: var(--u-ink);
   font-family: var(--u-font-body);
   font-size: var(--u-size-body);
   line-height: 1.58;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Every top-level block shares one left edge. Only the inner width varies. */
+body > * {
+  align-self: stretch;
+  padding-inline: var(--u-edge);
+}
+
+/* ── the top bar, written in by build/site.mjs ── */
+.u-topbar {
+  order: -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--u-space-1) var(--u-space-3);
+  padding-block: var(--u-space-3) var(--u-space-2);
+  border-bottom: var(--u-rule) solid var(--u-border);
+  font-family: var(--u-font-mono);
+  font-size: var(--u-size-label);
+}
+.u-topbar p { margin: 0; }
+.u-topbar a { color: var(--u-caption); text-decoration: none; }
+.u-topbar a:hover { color: var(--u-ink); }
+.u-topbar .u-brand { color: var(--u-ink); font-weight: var(--u-weight-mono-medium); }
+.u-topbar .u-brand::after { content: "_"; color: var(--u-signal-text); }
+
+.u-foot {
+  margin-top: var(--u-space-10);
+  padding-block: var(--u-space-3) var(--u-space-6);
+  border-top: var(--u-rule) solid var(--u-border);
+  font-family: var(--u-font-mono);
+  font-size: var(--u-size-source);
+  color: var(--u-caption);
+}
+.u-foot p { margin: 0; }
+.u-foot a { color: var(--u-caption); }
+
+/* ── type ── */
 h1, h2, h3, h4, h5 {
   font-family: var(--u-font-display);
   font-weight: var(--u-weight-display);
   letter-spacing: var(--u-tracking-display);
   color: var(--u-ink);
+  text-wrap: balance;
 }
-h1 { font-size: var(--u-size-h1); }
-h2 { font-size: var(--u-size-h2); margin-top: var(--u-space-6); }
-h3 { font-size: var(--u-size-h3); margin-top: var(--u-space-4); }
+h1, header#title-block-header h1.title {
+  font-size: var(--u-size-h1);
+  line-height: 1.14;
+  margin: var(--u-space-8) 0 var(--u-space-4);
+  max-width: 24ch;
+}
+h2 { font-size: var(--u-size-h2); margin-top: var(--u-space-8); }
+h3 { font-size: var(--u-size-h3); margin-top: var(--u-space-5); }
+header#title-block-header { padding-bottom: 0; }
 
-/* Quarto puts prose in #quarto-document-content, so constraining the main element
-   alone leaves the measure unbounded — the guide's own UMB-LAY-003 violated on its
-   own site. Wide things (tables, swatch grids, ramps) opt back out. */
-#quarto-document-content > p,
-#quarto-document-content > ul,
-#quarto-document-content > ol,
-#quarto-document-content > blockquote,
-.u-rule > p, .u-rule > ul { max-width: var(--u-measure); }
-.u-swatches, .u-ramp, .u-compare, table, pre, figure { max-width: none; }
+/* UMB-LAY-003 — Quarto puts prose straight in <body>, so bounding a wrapper is
+   not an option. Wide things (tables, swatch grids, ramps) opt back out. */
+body > p, body > ul, body > ol, body > blockquote,
+.u-rule > p, .u-rule > ul, .u-note > p, .u-note > ul {
+  max-width: calc(var(--u-measure) + 2 * var(--u-edge));
+  margin-right: auto;
+}
+.u-swatches, .u-ramp, .u-compare, table, pre, figure, .u-index { max-width: none; }
+
 code, pre, .mono { font-family: var(--u-font-mono); font-variant-numeric: tabular-nums; }
 code { font-size: 0.92em; color: var(--u-ink); background: var(--u-panel); padding: 1px 4px; }
-pre { background: var(--u-panel); border: var(--u-rule) solid var(--u-border);
-      padding: var(--u-space-2); border-radius: var(--u-radius); overflow-x: auto; }
+pre {
+  background: var(--u-panel);
+  border: var(--u-rule) solid var(--u-border);
+  border-left: var(--u-rule-strong) solid var(--u-baseline);
+  padding: var(--u-space-2);
+  border-radius: var(--u-radius);
+  overflow-x: auto;
+  font-size: var(--u-size-body-small);
+}
 pre code { background: none; padding: 0; }
 
 a { color: var(--u-signal-text); text-decoration-thickness: 1px; text-underline-offset: 2px; }
@@ -250,54 +348,191 @@ blockquote { border-left: var(--u-rule-strong) solid var(--u-baseline);
              margin: var(--u-space-3) 0; padding-left: var(--u-space-2);
              color: var(--u-muted); }
 
-/* rule callouts, generated from rules.yaml */
-.u-rule {
-  border: var(--u-rule) solid var(--u-border);
-  background: var(--u-panel);
-  padding: var(--u-space-2) var(--u-space-3);
-  margin: var(--u-space-3) 0;
+/* ── UMB-LAY-006 · the table of contents, as one row of anchors ──
+   'theme: none' lands the TOC inline as <nav id="TOC">. A wrapping row of mono
+   anchors under the title reads as an index and costs no column, which is what
+   a page of this width needs. Sub-headings are dropped: a second level turns
+   the row into a paragraph. */
+nav#TOC {
+  margin: 0 0 var(--u-space-5);
+  padding: var(--u-space-2) 0;
+  border-bottom: var(--u-rule) solid var(--u-border);
+  font-family: var(--u-font-mono);
+  font-size: var(--u-size-source);
 }
-.u-rule[data-severity="error"]   { box-shadow: inset 3px 0 0 var(--u-alert); }
-.u-rule[data-severity="warning"] { box-shadow: inset 3px 0 0 var(--u-model); }
-.u-rule[data-severity="info"]    { box-shadow: inset 3px 0 0 var(--u-baseline); }
-.u-rule h3 { margin-top: var(--u-space-1); font-size: var(--u-size-h3); }
-.u-rule small { color: var(--u-caption); font-family: var(--u-font-mono); font-size: 12px; }
+nav#TOC #toc-title {
+  margin: 0 0 var(--u-space-1);
+  font-family: var(--u-font-mono);
+  font-weight: var(--u-weight-mono);
+  font-size: var(--u-size-source);
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--u-caption);
+}
+nav#TOC > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--u-space-1) var(--u-space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav#TOC > ul > li > ul { display: none; }
+nav#TOC li { margin: 0; line-height: 1.5; }
+nav#TOC a { color: var(--u-muted); text-decoration: none; }
+nav#TOC a::before { content: "#"; color: var(--u-baseline); margin-right: 2px; }
+nav#TOC a:hover { color: var(--u-signal-text); }
 
-/* demonstration surfaces */
-.u-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+/* ── UMB-LAY-006 · section labels ── */
+.u-label, .u-label p {
+  margin: 0;
+}
+.u-label {
+  margin: var(--u-space-6) 0 var(--u-space-1);
+  font-family: var(--u-font-mono);
+  font-weight: var(--u-weight-mono);
+  font-size: var(--u-size-label);
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+  color: var(--u-caption);
+}
+
+/* ── UMB-LAY-007 · a list of items is rows, not cards ──
+   Used by the index page and by anything else that enumerates. The rule runs to
+   the edge of the block, so the eye reads one column. */
+.u-index {
+  border-top: var(--u-rule) solid var(--u-baseline);
+  margin: 0 0 var(--u-space-6);
+  /* the padding moves to the row, so every rule reaches the sheet edge */
+  padding-inline: 0;
+}
+.u-row {
+  display: grid;
+  grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+  gap: var(--u-space-1) var(--u-space-4);
+  padding: var(--u-space-2) var(--u-edge);
+  border-bottom: var(--u-rule) solid var(--u-border);
+}
+.u-row > a, .u-row > .u-name {
+  font-family: var(--u-font-mono);
+  font-weight: var(--u-weight-mono-medium);
+  font-size: var(--u-size-body-small);
+  color: var(--u-ink);
+  text-decoration: none;
+}
+.u-row > a:hover { color: var(--u-signal-text); }
+.u-row > span, .u-row > p { margin: 0; color: var(--u-muted);
+                            font-size: var(--u-size-body-small); }
+@media (max-width: 720px) { .u-row { grid-template-columns: 1fr; } }
+
+/* ── UMB-LAY-008 · secondary controls ── */
+.u-btn, .u-modebar button {
+  display: inline-block;
+  padding: 8px 16px;
+  min-height: var(--u-touch-target);
+  font-family: var(--u-font-mono);
+  font-size: var(--u-size-source);
+  letter-spacing: 0.02em;
+  color: var(--u-ink);
+  background: transparent;
+  border: var(--u-rule) solid var(--u-baseline);
+  border-radius: var(--u-radius-max);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color .18s ease, color .18s ease;
+}
+.u-btn:hover, .u-modebar button:hover,
+.u-modebar button[aria-pressed="true"] { border-color: var(--u-signal); color: var(--u-signal-text); }
+
+/* ── rule callouts, generated from rules.yaml ──
+   A rule is a row in the norm, so it reads as a row: a rule above it, the ID in
+   mono, and no box. UMB-LAY-002 — the severity mark is an inset rule, not a
+   shadow. */
+.u-rule {
+  margin: var(--u-space-4) 0;
+  padding: var(--u-space-2) 0 var(--u-space-2) var(--u-space-3);
+  border-top: var(--u-rule) solid var(--u-baseline);
+  background: transparent;
+  /* one step down from prose: the norm is quoted, not narrated */
+  font-size: var(--u-size-body-small);
+}
+.u-rule[data-severity="error"]   { box-shadow: inset 2px 0 0 var(--u-alert); }
+.u-rule[data-severity="warning"] { box-shadow: inset 2px 0 0 var(--u-model); }
+.u-rule[data-severity="info"]    { box-shadow: inset 2px 0 0 var(--u-baseline); }
+.u-rule > p:first-of-type {
+  margin: 0;
+  font-family: var(--u-font-mono);
+  font-size: var(--u-size-source);
+  letter-spacing: 0.02em;
+  color: var(--u-caption);
+}
+.u-rule h3 {
+  margin: var(--u-space-1) 0 var(--u-space-1);
+  font-size: var(--u-size-h3);
+  max-width: var(--u-measure);
+}
+.u-rule table { max-width: var(--u-measure); }
+/* the trailing metadata lines — check, note, origin, see-also — are all set as
+   a leading emphasis run by build/rules.mjs, so one selector catches them */
+.u-rule em { font-style: normal; }
+.u-rule p:has(em) { color: var(--u-caption); font-size: var(--u-size-source); }
+.u-rule p:has(em) code { font-size: 1em; }
+.u-rule small { color: var(--u-caption); font-family: var(--u-font-mono);
+                font-size: var(--u-size-source); }
+
+/* ── notes ──
+   Replaces Quarto's coloured callouts, which carry icons and a radius the
+   system does not allow. A note is a labelled block behind a 1px rule; the
+   label is written as the first bold run of its first line. */
+.u-note {
+  margin: var(--u-space-3) 0;
+  padding: var(--u-space-2) 0 0 var(--u-space-3);
+  border-top: var(--u-rule) solid var(--u-border);
+  border-left: var(--u-rule) solid var(--u-border);
+  color: var(--u-muted);
+  font-size: var(--u-size-body-small);
+}
+.u-note > *:first-child { margin-top: 0; }
+.u-note > *:last-child { margin-bottom: 0; }
+.u-note strong:first-child {
+  font-family: var(--u-font-mono);
+  font-weight: var(--u-weight-mono-medium);
+  font-size: var(--u-size-source);
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--u-caption);
+}
+
+/* ── demonstration surfaces ── */
+.u-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(152px, 1fr));
               gap: var(--u-space-1); margin: var(--u-space-3) 0; }
 .u-swatch { border: var(--u-rule) solid var(--u-border); }
 .u-swatch .chip { height: 64px; }
 .u-swatch .meta { padding: var(--u-space-1); background: var(--u-panel);
-                  font-family: var(--u-font-mono); font-size: 12px; }
+                  font-family: var(--u-font-mono); font-size: var(--u-size-source); }
 .u-swatch .meta b { display: block; font-weight: 500; color: var(--u-ink); }
 .u-swatch .meta span { display: block; color: var(--u-caption); }
-.u-swatch .meta .role { color: var(--u-muted); font-size: 11px; text-transform: uppercase;
-                        letter-spacing: .04em; }
+.u-swatch .meta .role { color: var(--u-muted); font-size: var(--u-size-source);
+                        text-transform: uppercase; letter-spacing: .04em; }
 
 .u-ramp { display: flex; margin: var(--u-space-1) 0 var(--u-space-3); }
 .u-ramp div { flex: 1; height: 40px; }
 
-.u-specimen { border: var(--u-rule) solid var(--u-border); background: var(--u-panel);
-              padding: var(--u-space-3); margin: var(--u-space-2) 0; }
+.u-specimen { border-top: var(--u-rule) solid var(--u-border); background: transparent;
+              padding: var(--u-space-3) 0; margin: var(--u-space-2) 0; }
 
-.u-good, .u-bad { border: var(--u-rule) solid var(--u-border); padding: var(--u-space-2);
-                  background: var(--u-panel); }
-.u-good { box-shadow: inset 3px 0 0 var(--u-signal); }
-.u-bad  { box-shadow: inset 3px 0 0 var(--u-alert); }
-.u-compare { display: grid; grid-template-columns: 1fr 1fr; gap: var(--u-space-2);
+.u-good, .u-bad { border-top: var(--u-rule) solid var(--u-border);
+                  padding: var(--u-space-2) 0 var(--u-space-2) var(--u-space-2);
+                  background: transparent; }
+.u-good { box-shadow: inset 2px 0 0 var(--u-signal); }
+.u-bad  { box-shadow: inset 2px 0 0 var(--u-alert); }
+.u-compare { display: grid; grid-template-columns: 1fr 1fr; gap: var(--u-space-3);
              margin: var(--u-space-3) 0; }
 @media (max-width: 720px) { .u-compare { grid-template-columns: 1fr; } }
 
 .u-modebar { display: flex; gap: var(--u-space-1); align-items: center;
-             margin: var(--u-space-2) 0; font-family: var(--u-font-mono); font-size: 13px; }
-.u-modebar button {
-  font-family: var(--u-font-mono); font-size: 13px;
-  background: transparent; color: var(--u-ink);
-  border: var(--u-rule) solid var(--u-baseline); border-radius: var(--u-radius);
-  padding: 6px 14px; cursor: pointer; min-height: 44px;
-}
-.u-modebar button[aria-pressed="true"] { border-color: var(--u-signal); color: var(--u-signal-text); }
+             margin: var(--u-space-2) 0; font-family: var(--u-font-mono);
+             font-size: var(--u-size-label); }
 
 figure { margin: var(--u-space-3) 0; }
 figcaption { font-family: var(--u-font-mono); font-size: var(--u-size-source);
@@ -306,6 +541,12 @@ figcaption { font-family: var(--u-font-mono); font-size: var(--u-size-source);
 
 .u-source { font-family: var(--u-font-mono); font-size: var(--u-size-source);
             color: var(--u-caption); }
+
+/* UMB-A11Y-007 — nothing here communicates through movement. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
 `);
 }
 
@@ -637,14 +878,14 @@ setMode('laboratorio');
 
 ## Qué demuestra
 
-- **El titular se sostiene con la figura.** Dice un rango observado, no una tendencia: los datos van
-  de 37 a 59 sesiones anuales sin dirección clara, así que afirmar una caída sería inventarla
+- **El titular se sostiene con la figura.** Dice un rango observado, no una tendencia. Los datos van
+  de 37 a 59 sesiones anuales sin dirección clara. Afirmar una caída sería inventarla
   (UMB-MET-002).
 - **Los años parciales se marcan.** 2012 es el primer año del índice y 2026 no ha terminado. Sin el
   trazo punteado, la caída final se lee como un desplome — el error más fácil de cometer con un
   registro vivo (UMB-CHT-011).
 - **El hueco se declara** en el subtítulo: faltan 27 órdenes del día, y no se imputan (UMB-DAT-005).
-- **El marco completo**: título-hallazgo, subtítulo con geografía y unidad, línea de fuente con
+- **El marco completo.** Título-hallazgo, subtítulo con geografía y unidad, línea de fuente con
   etiqueta de snapshot, \`aria-label\` con el hallazgo, tabla adyacente y CSV descargable.
 - **Los dos modos** desde los mismos tokens: solo cambia el color, nunca el tipo ni el layout.
 - **La etiqueta directa** al final de la línea, en \`signal-text\`, sin caja de leyenda.
@@ -655,35 +896,66 @@ setMode('laboratorio');
 async function pages() {
   await fs.mkdir(`${SITE}/demo`, { recursive: true });
 
+  const row = (name, href, desc) =>
+    `<div class="u-row"><a href="${href}">${name}</a><span>${desc}</span></div>`;
+
+  // The index is the landing surface applied to this repo: one sentence, then
+  // rows separated by 1px rules (guide/14-superficies/landing.md).
   await fs.writeFile(`${SITE}/index.qmd`, `---
-title: "umbral_ · guía de estilo"
+title: "Sistema de diseño y guía editorial de Umbral"
 lang: es
 toc: false
 ---
 
 ${HEAD}
 
-<img src="assets/umbral-lockup-light.svg" alt="umbral_" width="300">
+Umbral es un laboratorio de datos independiente y de código abierto. Publica sobre desapariciones,
+delito y gasto público en México.
 
-Sistema de diseño y guía editorial de **Umbral**, un laboratorio de datos independiente y de código
-abierto que publica sobre desapariciones, delito y gasto público en México.
+Esta guía define cómo se ve y cómo se escribe todo lo que publica.
 
-**v${VERSION}** · ${rules.counts.total} reglas · contenido CC BY 4.0, código MIT.
+**v${VERSION}** · ${rules.counts.total} reglas · ${rules.counts.bySeverity.error} error ·
+${rules.counts.bySeverity.warning} advertencia · ${rules.counts.bySeverity.info} guía
 
-## Por dónde empezar
+::: {.u-label}
+por dónde empezar
+:::
 
-| | |
-|---|---|
-| [Principios](guide/00-principios.qmd) | Los cinco principios y cómo funciona la cadena normativa |
-| [Color](guide/02-color.qmd) · [demostración](demo/color.qmd) | Los dos modos, los tokens, la matriz de contraste generada |
-| [Anatomía de una gráfica](guide/08-anatomia-grafica.qmd) | El marco que lleva toda gráfica |
-| [Terminología](guide/15-terminologia.qmd) | Vocabulario controlado y vinculante |
-| [Una gráfica real](demo/grafica.qmd) | El sistema funcionando sobre un dato real |
-| [Checklist](checklist.qmd) | Lo que hay que verificar antes de publicar |
+\`\`\`{=html}
+<div class="u-index">
+${[
+    ['00 · principios', 'guide/00-principios.html', 'Los cinco principios y cómo funciona la cadena normativa'],
+    ['02 · color', 'guide/02-color.html', 'Los dos modos, los tokens y la matriz de contraste generada'],
+    ['04 · layout', 'guide/04-layout.html', 'Escala de 8px, etiquetas en mono, filas con regla de 1px'],
+    ['05 · voz', 'guide/05-voz.html', 'Oraciones cortas, español primero, el titular es el hallazgo'],
+    ['08 · anatomía de una gráfica', 'guide/08-anatomia-grafica.html', 'El marco que lleva toda gráfica, en todo medio'],
+    ['15 · terminología', 'guide/15-terminologia.html', 'Vocabulario controlado y vinculante'],
+  ].map(([a, b, c]) => row(a, b, c)).join('\n')}
+</div>
+\`\`\`
 
-## La idea
+::: {.u-label}
+demostración
+:::
 
-Un valor o una regla se enuncia en **un solo lugar**, y todo lo demás se genera desde ahí.
+\`\`\`{=html}
+<div class="u-index">
+${[
+    ['color y contraste', 'demo/color.html', 'Cada swatch y cada ratio, generados desde los tokens'],
+    ['tipografía', 'demo/tipografia.html', 'La escala completa, compuesta con las fuentes reales'],
+    ['vocabulario visual', 'demo/vocabulario.html', 'De la intención al tipo de gráfica'],
+    ['correcto / incorrecto', 'demo/galeria.html', 'El mismo contenido, conforme y no conforme'],
+    ['una gráfica real', 'demo/grafica.html', 'El sistema sobre un dato real, con toggle de modo'],
+    ['checklist', 'checklist.html', 'Lo que hay que verificar antes de publicar'],
+  ].map(([a, b, c]) => row(a, b, c)).join('\n')}
+</div>
+\`\`\`
+
+::: {.u-label}
+la idea
+:::
+
+Un valor o una regla se enuncia en **un solo lugar**. Todo lo demás se genera desde ahí.
 
 \`\`\`
 rules/rules.yaml  +  tokens/src/*.tokens.json      ← aquí se decide
@@ -693,12 +965,17 @@ tokens/build/*  ·  rules/rules.json                ← generado, nunca a mano
 guide/  ·  este sitio  ·  packages/  ·  skills/  ·  umbral-lint
 \`\`\`
 
-Existe por lo que encontró la [auditoría de julio de 2026](https://github.com/umbralmx/umbral-style-guide/blob/main/audit/2026-07-conformance.md):
-la marca v1.0 era buena y estaba bien aplicada, y aun así **el 44% del texto del sitio principal no
-alcanzaba el contraste mínimo**. Casi ningún defecto era descuido — eran instrucciones que se
-siguieron al pie de la letra, desde documentos que se contradecían entre sí.
+El repositorio existe por lo que encontró la
+[auditoría de julio de 2026](https://github.com/umbralmx/umbral-style-guide/blob/main/audit/2026-07-conformance.md).
+La marca v1.0 era buena y estaba bien aplicada. Aun así, **el 44% del texto del sitio principal no
+alcanzaba el contraste mínimo**.
 
-## Consumirlo desde otro repositorio
+Casi ningún defecto era descuido. Eran instrucciones que se siguieron al pie de la letra, desde
+documentos que se contradecían entre sí.
+
+::: {.u-label}
+consumirlo desde otro repositorio
+:::
 
 \`\`\`bash
 curl -O https://raw.githubusercontent.com/umbralmx/umbral-style-guide/v${VERSION}/tokens/build/tokens.css
@@ -706,7 +983,7 @@ pip install umbral-viz
 npm install @umbralmx/umbral-plot
 \`\`\`
 
-Fija la versión. Nunca apuntes a \`main\`: un cambio de token entraría sin aviso.
+Fija la versión. Nunca apuntes a \`main\`. Un cambio de token entraría sin aviso.
 `);
 
   await fs.writeFile(`${SITE}/reglas.qmd`, `---
@@ -732,6 +1009,65 @@ ${checklist.replace(/^<!--.*?-->\n/, '').replace(/^# .*$/m, '')}
 `);
 }
 
+// ── 6. the page chrome ────────────────────────────────────────────────────
+// `theme: none` keeps Quarto from emitting a navbar, a sidebar or a footer — it
+// renders a title block, a #TOC and the content, all directly inside <body>.
+// That is the right starting point for this system, so the chrome is written
+// here instead: one mono row of lowercase links, a 1px rule, and a footer.
+//
+// The links are markdown against the project root, not raw HTML, because Quarto
+// only rewrites `.qmd` -> `.html` and resolves the base path for markdown links.
+// Written as raw <a href> they break on GitHub Pages, which serves the site from
+// a sub-path.
+const NAV = [
+  ['guía', '/guide/00-principios.qmd'],
+  ['reglas', '/reglas.qmd'],
+  ['demostración', '/demo/color.qmd'],
+  ['checklist', '/checklist.qmd'],
+  ['github', 'https://github.com/umbralmx/umbral-style-guide'],
+];
+
+const TOPBAR = `::: {.u-topbar}
+[umbral]{.u-brand} guía de estilo · v${VERSION}
+
+${NAV.map(([t, h]) => `[${t}](${h})`).join(' · ')}
+:::
+`;
+
+const FOOTER = `
+::: {.u-foot}
+umbral_ · v${VERSION} · código MIT · contenido CC BY 4.0 ·
+[repositorio](https://github.com/umbralmx/umbral-style-guide)
+:::
+`;
+
+async function chrome() {
+  const targets = [];
+  async function walk(dir) {
+    for (const e of await fs.readdir(dir, { withFileTypes: true })) {
+      const full = path.join(dir, e.name);
+      if (e.isDirectory()) {
+        if (e.name === '_site' || e.name === 'data') continue;
+        await walk(full);
+      } else if (e.name.endsWith('.qmd')) {
+        targets.push(full);
+      }
+    }
+  }
+  await walk(SITE);
+
+  for (const f of targets) {
+    const src = await fs.readFile(f, 'utf8');
+    if (src.includes('{.u-topbar}')) continue;
+    // insert after the YAML front matter, so the bar sits above the title block
+    const m = /^---\n[\s\S]*?\n---\n/.exec(src);
+    const head = m ? m[0] : '';
+    const body = m ? src.slice(m[0].length) : src;
+    await fs.writeFile(f, `${head}\n${TOPBAR}${body}${FOOTER}`);
+  }
+  return targets.length;
+}
+
 // ── run ───────────────────────────────────────────────────────────────────
 const meta = await buildData();
 const chapters = await copyGuide();
@@ -743,6 +1079,7 @@ await demoVocab();
 await demoGallery();
 await demoChart(meta);
 await pages();
+const chromed = await chrome();
 
 // generated folders get generated READMEs
 for (const [dir, body] of [
@@ -802,5 +1139,6 @@ Nothing here contains a hand-written colour. Every value comes from \`tokens/bui
 }
 
 console.log(`site: ${chapters} chapters + 5 demo pages + index/reglas/checklist`);
+console.log(`  chrome written into ${chromed} pages`);
 console.log(`  data rebuilt from raw: ${meta.rows} years, ${meta.points} agenda points`);
 console.log('  run `quarto render site` to build _site/');
